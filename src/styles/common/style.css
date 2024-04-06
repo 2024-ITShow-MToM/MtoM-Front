@@ -1,0 +1,8 @@
+:root {
+    --mainColor: #1D1D1D;
+}
+
+* {
+    position: relative;
+    margin: 0;
+}
