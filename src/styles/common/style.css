@@ -1,5 +1,11 @@
 :root {
-    --mainColor: #1D1D1D;
+    --main-color: #1D1D1D;
+    --strong-color: #0066FF;
+
+    --gray-2: #EAEBEF;
+    --gray-3: #C0C6CD;
+
+    --font-4: #7F7F7F;
 }
 
 * {
