@@ -1,3 +1,6 @@
+import React from 'react';
+import { Link } from 'react-router-dom';
+
 import styles from '../../styles/common/style.css';
 import loginStyle from '../../styles/login/login.module.css'
 
@@ -21,7 +24,7 @@ function Login() {
                         <p>|</p>
                         <p>비밀번호 찾기</p>
                         <p>|</p>
-                        <p>회원가입</p>
+                        <Link to="/signup" className={loginStyle['linkStyle']}> <p>회원가입</p> </Link>
                     </div>
                 </div>
 
