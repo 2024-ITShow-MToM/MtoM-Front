@@ -62,7 +62,8 @@ input::placeholder {
 .textDiv > p:nth-child(4) {
     color: var(--gray-2);
 }
-.textDiv > p:nth-child(5) {
+.linkStyle {
+    text-decoration: none;
     color: var(--strong-color);
 }
 
