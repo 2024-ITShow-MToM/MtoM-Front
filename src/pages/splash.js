@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 
-import Splash from "../components/splash/splash";
+import Splash from "../components/splash/Splash";
 
 function SplashPage() {
     useEffect(() => {
