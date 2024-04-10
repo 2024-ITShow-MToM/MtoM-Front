@@ -1,4 +1,4 @@
-import Join from "../components/join/join";
+import Join from "../components/join/Join";
 
 function JoinPage() {
     return (
