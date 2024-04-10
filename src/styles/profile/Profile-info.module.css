@@ -1,0 +1,96 @@
+.mbti,
+.tag,
+.skill,
+.advice,
+.emoji {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    row-gap: 10px;
+
+    font-family: var(--pretendard-font);
+    font-weight: var(--Medium);
+}
+.title {
+    width: 86%;
+    display: flex;
+    justify-content: flex-start;
+
+    color: var(--sub-color);
+    font-size: 0.9rem;
+}
+
+.mbti > input,
+.tag > input {
+    width: 80%;
+    padding: 3%;
+    padding-left: 4%;
+    border-width: 1px;
+    border-style: solid;
+    border-radius: 5px;
+    border-color: var(--gray-2);
+    outline: none;
+}
+.mbti > input::placeholder,
+.tag > input::placeholder {
+    font-family: var(--pretendard-font);
+    font-weight: var(--Medium);
+}
+
+.skill > hr {
+    width: 86%;
+    border-width: 1px;
+    border-style: solid;
+    border-color: var(--gray-2);
+}
+.skillInput {
+    width: 86%;
+    display: flex;
+    justify-content: flex-start;
+    margin-bottom: 2%;
+}
+.skillInput > input {
+    width: 10%;
+    height: 3vh;
+    border-width: 1px;
+    border-style: solid;
+    border-radius: 5px;
+    border-color: var(--gray-2);
+    outline: none;
+    text-align: center;
+}
+
+.addPlus {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    column-gap: 5px;
+}
+.plusIcon {
+    color: var(--sub-color);
+    font-size: 1.1rem;
+    font-weight: 100;
+}
+.addPlus > p,
+.advicePlus > p {
+    font-family: var(--pretendard-font);
+    font-weight: var(--Regular);
+}
+
+.advicePlus,
+.emojiPlus {
+    width: 86%;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    column-gap: 5px;
+}
+.emojiDiv {
+    display: flex;
+    width: 7vw;
+    height: 3vh;
+    justify-content: center;
+    align-items: center;
+    border: 0;
+}
