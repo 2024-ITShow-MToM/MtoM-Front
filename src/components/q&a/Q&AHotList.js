@@ -20,12 +20,7 @@ function QandAHotList() {
                     <button className={selectedSort === '하트' ? `${styles.selectButton}` : `${styles.defaultButton}`} onClick={() => handleSortClick('하트')}>하트</button>
                 </div>
 
-                <div className={styles['item-grid-container']}> 
-                    {/* <div className={styles['item-grid']}> <QandAQuestionItem /> </div>
-                    <div className={styles['item-grid']}> <QandAQuestionItem /> </div>
-                    <div className={styles['item-grid']}> <QandAQuestionItem /> </div> */}
-                    <QandAQuestionItem />
-                    <QandAQuestionItem />
+                <div className={styles['item-grid-container']}>
                     <QandAQuestionItem />
                 </div>
                 
