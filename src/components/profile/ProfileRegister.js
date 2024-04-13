@@ -1,11 +1,11 @@
 import React, { useState } from 'react';
 
 import '../../styles/common/Style.css';
-import styles from '../../styles/profile/Profile-register.module.css';
+import styles from '../../styles/profile/ProfileRegister.module.css';
 
 import Header from '../common/Header';
-import ProfileImage from './Profile-Image';
-import ProfileInfo from './Profile-info';
+import ProfileImage from './ProfileImage';
+import ProfileInfo from './ProfileInfo';
 
 function ProfileRegister() {
     return (

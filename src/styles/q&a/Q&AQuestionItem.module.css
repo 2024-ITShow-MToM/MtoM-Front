@@ -1,18 +1,17 @@
 .container {
-    width: 43vw;
-    height: 30vh;
+    width: 42vw;
+    height: 28vh;
     display: flex;
     flex-direction: column;
-    border-style: solid;
-    border-width: 2px;
-    border-color: black;
     border-radius: 20px;
     margin-top: 3%;
+    background-color: white;
+    padding: 2%;
 }
 
 .imgDiv {
     width: 100%;
-    height: 50%;
+    height: 40%;
 }
 .imgDiv img {
     width: 100%;
@@ -25,7 +24,7 @@
     display: flex;
     flex-direction: column;
     padding: 3%;
-    row-gap: 5px;
+    row-gap: 10px;
 }
 .info > hr {
     border-color: var(--gray-2);
@@ -60,7 +59,6 @@
 .middle > .title {
     font-family: var(--pretendard-font);
     font-weight: var(--SemiBold);
-    font-size: 1.1rem;
 }
 
 .bottom {
@@ -82,21 +80,9 @@
     border: 1px solid var(--sub-color);
     border-radius: 5px;
 }
-
-.bottomDiv {
-    display: flex;
-    column-gap: 10px;
-    justify-content: flex-end;
-    align-items: center;
-
+.tag > p {
     font-family: var(--pretendard-font);
-    font-weight: var(--Regular);
-    font-size: 0.9rem;
-}
-.heart,
-.comment {
-    display: flex;
-    column-gap: 2px;
-    justify-content: center;
-    align-items: center;
+    font-weight: var(--Medium);
+    font-size: 0.7rem;
+    color: var(--sub-color);
 }

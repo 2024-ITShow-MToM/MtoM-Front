@@ -5,7 +5,7 @@ import { MobileView } from 'react-device-detect'
 import Splash from './pages/Splash';
 import Login from './pages/Login';
 import Join from './pages/Join';
-import ProfileRegister from './components/profile/Profile-register';
+import ProfileRegister from './components/profile/ProfileRegister';
 import QandA from './pages/Q&A';
 
 function App() {

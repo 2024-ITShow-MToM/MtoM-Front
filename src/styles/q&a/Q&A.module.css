@@ -3,7 +3,7 @@
     height: 100vh;
     display: flex;
     flex-direction: column;
-    background-color: #FDFDFD;
+    background-color: var(--gray-1);
     overflow-x: hidden;
 }
 

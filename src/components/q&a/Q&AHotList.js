@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
 
 import '../../styles/common/Style.css';
-import styles from '../../styles/q&a/Q&A-hot-list.module.css';
+import styles from '../../styles/q&a/Q&AHotList.module.css';
 
-import QandAQuestionItem from './Q&A-question-item';
+import QandAQuestionItem from './Q&AQuestionItem';
 
 function QandAHotList() {
     const [selectedSort, setSelectedSort] = useState('');
@@ -20,12 +20,7 @@ function QandAHotList() {
                     <button className={selectedSort === '하트' ? `${styles.selectButton}` : `${styles.defaultButton}`} onClick={() => handleSortClick('하트')}>하트</button>
                 </div>
 
-                <div className={styles['item-grid-container']}> 
-                    {/* <div className={styles['item-grid']}> <QandAQuestionItem /> </div>
-                    <div className={styles['item-grid']}> <QandAQuestionItem /> </div>
-                    <div className={styles['item-grid']}> <QandAQuestionItem /> </div> */}
-                    <QandAQuestionItem />
-                    <QandAQuestionItem />
+                <div className={styles['item-grid-container']}>
                     <QandAQuestionItem />
                 </div>
                 
