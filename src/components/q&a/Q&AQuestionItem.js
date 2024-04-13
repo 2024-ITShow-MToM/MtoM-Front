@@ -1,8 +1,7 @@
 import '../../styles/common/Style.css';
 import styles from '../../styles/q&a/Q&AQuestionItem.module.css';
 
-import { GoHeart } from "react-icons/go";
-import { BsChat } from "react-icons/bs";
+import QandAHeartCommentIcon from './Q&AHeartCommentIcon';
 
 function QandAQuestionItem() {
     return (
@@ -19,15 +18,12 @@ function QandAQuestionItem() {
                             <div className={styles['title']}> <p>혹시 2학년 취업 특강 있나요?</p> </div>
                         </div>
                         <div className={styles['bottom']}>
-                            <div className={styles['tag']}> <p>tag</p> </div>
+                            <div className={styles['tag']}> <p>취업</p> </div>
                             <p>조회수 20회</p>
                         </div>
                     </div>
                     <hr />
-                    <div className={styles['bottomDiv']}>
-                        <div className={styles['heart']}> <GoHeart /> <p>2</p> </div>
-                        <div className={styles['comment']}> <BsChat /> <p>5</p> </div>
-                    </div>
+                    <QandAHeartCommentIcon />
                 </div>
             </div>
         </>

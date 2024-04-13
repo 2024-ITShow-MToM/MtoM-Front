@@ -23,7 +23,7 @@
     font-size: 0.9rem;
 }
 .defaultButton {
-    background-color: white;
+    background-color: var(--gray-1);
     color: var(--gray-3);
     border-color: var(--gray-3);
 }
@@ -41,5 +41,5 @@
     align-items: center;
     justify-items: center;
     column-gap: 10px;
-    row-gap: 10px;
+    row-gap: 5px;
 }
