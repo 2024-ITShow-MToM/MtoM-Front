@@ -8,7 +8,7 @@ function QandAQuestionItem() {
     return (
         <>
             <div className={styles['container']}>
-                <div className={styles['imgDiv']}> <img src={process.env.PUBLIC_URL+'/images/example.png'} /> </div>
+                <div className={styles['imgDiv']}> <img src={'/images/example.png'} /> </div>
                 <div className={styles['info']}>
                     <div className={styles['topDiv']}>
                         <div className={styles['top']}>

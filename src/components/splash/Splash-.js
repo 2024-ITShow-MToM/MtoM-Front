@@ -6,7 +6,7 @@ function Splash() {
         <>
             <div className={styles['background']}>
                 <div className={styles['imgDiv']}>
-                    <img src={process.env.PUBLIC_URL + '/images/mainLogo.png'} />
+                    <img src={'/images/mainLogo.png'} />
                 </div>
             </div>
         </>
