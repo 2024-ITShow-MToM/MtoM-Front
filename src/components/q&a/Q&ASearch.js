@@ -16,7 +16,6 @@ function QandASearch() {
         setExpanded(false);
     };
 
-
     return (
         <>
             <div className={styles['container']} style={{height: expanded ? '20vh' : '12vh'}}>
