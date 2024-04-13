@@ -4,6 +4,7 @@ import '../../styles/common/Style.css';
 import styles from '../../styles/profile/ProfileInfo.module.css'
 
 import { FiPlus } from "react-icons/fi";
+import ProgressBar from './ProgressBar';
 
 function ProfileInfo() {
     const [selectedEmoji, setSelectedEmoji] = useState(null);
@@ -44,7 +45,9 @@ function ProfileInfo() {
                 <div className={styles['title']}> <p>SKILL</p> </div>
                 <div className={styles['skillInput']}>
                     <input />
-                    {/* 프로그래스 바 */}
+                    <div className={styles['progressBar']}>
+                        <ProgressBar />
+                    </div>
                 </div>
                 <hr />
                 <div className={styles['addPlus']}>
