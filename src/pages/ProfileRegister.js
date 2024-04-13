@@ -1,4 +1,4 @@
-import ProfileRegister from "../components/profile/Profile-register";
+import ProfileRegister from "../components/profile/ProfileRegister";
 
 function ProfileRegisterPage() {
     return (
