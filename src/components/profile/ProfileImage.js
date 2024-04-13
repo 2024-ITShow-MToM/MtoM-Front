@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 
 import '../../styles/common/Style.css';
-import styles from '../../styles/profile/Profile-imgae.module.css';
+import styles from '../../styles/profile/ProfileImgae.module.css';
 
 import { FiCamera } from "react-icons/fi";
 

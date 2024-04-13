@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
 
 import '../../styles/common/Style.css';
-import styles from '../../styles/q&a/Q&A-hot-list.module.css';
+import styles from '../../styles/q&a/Q&AHotList.module.css';
 
-import QandAQuestionItem from './Q&A-question-item';
+import QandAQuestionItem from './Q&AQuestionItem';
 
 function QandAHotList() {
     const [selectedSort, setSelectedSort] = useState('');

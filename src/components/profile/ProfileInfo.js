@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 
 import '../../styles/common/Style.css';
-import styles from '../../styles/profile/Profile-info.module.css'
+import styles from '../../styles/profile/ProfileInfo.module.css'
 
 import { FiPlus } from "react-icons/fi";
 

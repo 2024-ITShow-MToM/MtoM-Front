@@ -3,8 +3,8 @@ import React, { useState } from 'react';
 import '../../styles/common/Style.css';
 import styles from '../../styles/q&a/Q&A.module.css';
 
-import QandASearch from './Q&A-search';
-import QandAHotList from './Q&A-hot-list';
+import QandASearch from './Q&ASearch';
+import QandAHotList from './Q&AHotList';
 
 function QandA() {
     const [selectedChoice, setSelectedChoice] = useState('전체');

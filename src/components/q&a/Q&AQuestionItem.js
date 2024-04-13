@@ -1,5 +1,5 @@
 import '../../styles/common/Style.css';
-import styles from '../../styles/q&a/Q&A-question-item.module.css';
+import styles from '../../styles/q&a/Q&AQuestionItem.module.css';
 
 import { GoHeart } from "react-icons/go";
 import { BsChat } from "react-icons/bs";

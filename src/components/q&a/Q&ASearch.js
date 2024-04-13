@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 
 import '../../styles/common/Style.css';
-import styles from '../../styles/q&a/Q&A-search.module.css';
+import styles from '../../styles/q&a/Q&ASearch.module.css';
 
 import { RiSearchLine } from "react-icons/ri";
 
