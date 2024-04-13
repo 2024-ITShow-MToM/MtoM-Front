@@ -1,6 +1,6 @@
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import { MobileView } from 'react-device-detect'
+// import { MobileView } from 'react-device-detect'
 
 import Splash from './pages/Splash';
 import Login from './pages/Login';

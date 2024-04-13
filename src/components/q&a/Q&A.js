@@ -5,6 +5,7 @@ import styles from '../../styles/q&a/Q&A.module.css';
 
 import QandASearch from './Q&ASearch';
 import QandAHotList from './Q&AHotList';
+import QandAChooseList from './Q&AChooseList';
 
 function QandA() {
     const [selectedChoice, setSelectedChoice] = useState('전체');
@@ -16,6 +17,8 @@ function QandA() {
         switch (selectedChoice) {
             case 'HOT':
                 return <QandAHotList />;
+            case '양자택일':
+                return <QandAChooseList />;
         }
     };
 
