@@ -1,0 +1,43 @@
+.container {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    background-color: #FDFDFD;
+    overflow-x: hidden;
+}
+
+.body {
+    display: flex;
+    flex-direction: column;
+    top: 5%;
+    left: 6%;
+}
+.choiceItem {
+    display: flex;
+    column-gap: 20px;
+    position: relative;
+
+    font-family: var(--pretendard-font);
+    font-weight: var(--SemiBold);
+    font-size: 1.1rem;
+}
+.choiceText {
+    color: var(--font-4);
+    position: relative;
+}
+.selectText {
+    color: var(--strong-color);
+}
+.selected::after {
+    content: "";
+    display: block;
+    border-top: 3px solid var(--strong-color);
+    width: 100%;
+    position: absolute;
+    top: -15px;
+}
+
+.change {
+    top: 7%;
+}

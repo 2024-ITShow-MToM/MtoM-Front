@@ -26,8 +26,8 @@ function Join() {
                         <div className={styles['pwDiv']}>
                             <p>비밀번호</p>
                             <div className={styles['pwInput']}>
-                                <input placeholder='비밀번호'/>
-                                <input placeholder='비밀번호 확인'/>
+                                <input type='password' placeholder='비밀번호'/>
+                                <input type='password' placeholder='비밀번호 확인'/>
                             </div>
                         </div>
 

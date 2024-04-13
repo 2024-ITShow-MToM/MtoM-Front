@@ -15,7 +15,7 @@ function Login() {
                 <div className={styles['loginContainer']}>
                     <form className={styles['formContainer']}>
                         <input placeholder='아이디 입력'/>
-                        <input placeholder='비밀번호 입력'/>
+                        <input type='password' placeholder='비밀번호 입력'/>
                         <button>로그인</button>
                     </form>
 
