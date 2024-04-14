@@ -5,6 +5,7 @@ import styles from '../../styles/q&a/Q&A.module.css';
 
 import QandASearch from './Q&ASearch';
 import QandAHotList from './Q&AHotList';
+import Nav from '../common/Nav';
 
 function QandA() {
     const [selectedChoice, setSelectedChoice] = useState('전체');
@@ -30,11 +31,13 @@ function QandA() {
                         <p className={selectedChoice === '전체' ? `${styles.selectText} ${styles.selected}` : `${styles.choiceText}`} onClick={() => handleChoiceClick('전체')}>전체</p>
                         <p className={selectedChoice === '양자택일' ? `${styles.selectText} ${styles.selected}` : `${styles.choiceText}`} onClick={() => handleChoiceClick('양자택일')}>양자택일</p>
                     </div>
+
+                    <div className={styles['change']}>
+                        {renderContent()}
+                    </div>
                 </div>
 
-                <div className={styles['change']}>
-                    {renderContent()}
-                </div>
+                <Nav />
             </div>
         </>
     )
