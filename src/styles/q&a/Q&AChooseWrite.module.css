@@ -1,0 +1,33 @@
+.container {
+    height: 70vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 5%;
+}
+
+.title {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+.title > input {
+    border: 0;
+    outline: none;
+    margin: 0;
+    margin-bottom: 3%;
+
+    font-family: var(--pretendard-font);
+    font-weight: var(--Medium);
+    font-size: 1.1rem;
+}
+.title > input::placeholder {
+    font-family: var(--pretendard-font);
+    font-weight: var(--Medium);
+    font-size: 1.1rem;
+    color: black;
+}
+.title > hr {
+    border: 1px solid var(--gray-3);
+}

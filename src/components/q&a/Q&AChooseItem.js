@@ -1,7 +1,15 @@
+import React, { useState } from 'react';
+
 import '../../styles/common/Style.css';
 import styles from '../../styles/q&a/Q&AChooseItem.module.css';
 
-function QandAChooseItem() {
+function QandAChooseItem({ onePercentage, twoPercentage }) {
+    const [isButtonClicked, setButtonClicked] = useState(false);
+
+    const handleButtonClick = () => {
+        setButtonClicked(!isButtonClicked);
+    };
+
     return (
         <>
             <div className={styles['background']}>
@@ -17,9 +25,20 @@ function QandAChooseItem() {
 
                     <hr />
 
-                    <div className={styles['buttonContainer']}>
-                        <div className={styles['button']}> <input type='button'/> </div>
-                        <div className={styles['button']}> <input type='button'/> </div>
+                    <div className={styles['buttonContainer']} onClick={handleButtonClick}>
+                        <div className={`${isButtonClicked ? styles['clicked'] : ''}`}>
+                            <div className={styles['button']}> 
+                                <p>연봉</p>
+                                <input type='button' style={{width: `${onePercentage}%`}}/> 
+                            </div>
+                        </div>
+
+                        <div className={`${isButtonClicked ? styles['clicked'] : ''}`}>
+                            <div className={styles['button']}>
+                                <p>위치</p>
+                                <input type='button' style={{width: `${twoPercentage}%`}}/>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>

@@ -11,6 +11,9 @@ function QandAChooseList() {
         setSelectedSort(sortType);
     };
 
+    const [onePercentage, setOnePercentage] = useState('60');
+    const [twoPercentage, setTwoPercentage] = useState('50');
+
     return (
         <>
             <div className={styles['container']}>
@@ -21,7 +24,7 @@ function QandAChooseList() {
                 </div>
 
                 <div className={styles['item-grid-container']}>
-                    <QandAChooseItem />
+                    <QandAChooseItem onePercentage={onePercentage} twoPercentage={twoPercentage}/>
                 </div>
                 
             </div>

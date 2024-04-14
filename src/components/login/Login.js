@@ -9,7 +9,7 @@ function Login() {
         <>
             <div className={styles['container']}>
                 <div className={styles['imgDiv']}> 
-                    <img src={'/images/loginLogo.png'} /> 
+                    <img src={'/images/login/loginLogo.png'} /> 
                 </div>
 
                 <div className={styles['loginContainer']}>
@@ -37,15 +37,15 @@ function Login() {
 
                     <div className={styles['clickedDiv']}>
                         <div className={styles['logoDiv']}>
-                            <img src={'/images/kakaoImg.png'} alt='kakao'/>
+                            <img src={'/images/login/kakaoImg.png'} alt='kakao'/>
                             <p>카카오톡</p>
                         </div>
                         <div className={styles['logoDiv']}>
-                            <img src={'/images/naverImg.png'} alt='naver'/>
+                            <img src={'/images/login/naverImg.png'} alt='naver'/>
                             <p>네이버</p>
                         </div>
                         <div className={styles['logoDiv']}>
-                            <img src={'/images/googleImg.png'} alt='google'/>
+                            <img src={'/images/login/googleImg.png'} alt='google'/>
                             <p>구글</p>
                         </div>
                     </div>

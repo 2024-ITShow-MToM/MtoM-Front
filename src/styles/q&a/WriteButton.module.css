@@ -1,0 +1,30 @@
+.container {
+    position: fixed;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    right: 10%;
+    z-index: 100;
+    background-color: transparent;
+}
+
+.link {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.button {
+    width: 100%;
+    display: flex;
+    background-color: var(--sub-color);
+    padding: 50%;
+
+    border: 0;
+    border-radius: 50%;
+}
+
+.button > .icon {
+    font-size: 2rem;
+    color: white;
+}
