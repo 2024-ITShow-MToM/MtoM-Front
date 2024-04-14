@@ -7,6 +7,7 @@ import QandASearch from './Q&ASearch';
 import QandAHotList from './Q&AHotList';
 import QandAChooseList from './Q&AChooseList';
 import Nav from '../common/Nav';
+import WriteButton from './WriteButton';
 
 function QandA() {
     const [selectedChoice, setSelectedChoice] = useState('전체');
@@ -40,6 +41,9 @@ function QandA() {
                     </div>
                 </div>
 
+                <div className={styles['writeButton']}>
+                    <WriteButton />
+                </div>
                 <Nav />
             </div>
         </>
