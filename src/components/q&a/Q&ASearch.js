@@ -18,7 +18,7 @@ function QandASearch() {
 
     return (
         <>
-            <div className={styles['container']} style={{height: expanded ? '20vh' : '12vh'}}>
+            <div className={styles['container']} style={{height: expanded ? '20vh' : '15vh'}}>
                 <div className={styles['search']}>
                     <div className={styles['searchInput']} onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
                         <input type='text' placeholder='Q&A 키워드 검색하기' style={{width: expanded ? '75vw' : '90vw'}}/>
