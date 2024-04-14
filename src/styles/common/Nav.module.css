@@ -16,7 +16,7 @@
     height: 100%;
     margin: 3% 4%;
     display: flex;
-    column-gap: 35px;
+    column-gap: 9%;
     justify-content: center;
     align-items: center;
     background-color: var(--main-color);

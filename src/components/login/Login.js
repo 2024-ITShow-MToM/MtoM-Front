@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 import '../../styles/common/Style.css';
-import styles from '../../styles/login/login.module.css'
+import styles from '../../styles/login/Login.module.css'
 
 function Login() {
     return (
