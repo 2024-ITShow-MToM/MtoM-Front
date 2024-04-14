@@ -18,8 +18,8 @@ function QandAChooseItem() {
                     <hr />
 
                     <div className={styles['buttonContainer']}>
-                        <div className={styles['button']}> <input type='button'/> </div>
-                        <div className={styles['button']}> <input type='button'/> </div>
+                        <div className={styles['button']}> <input type='button' value='연봉'/> </div>
+                        <div className={styles['button']}> <input type='button' value='위치'/> </div>
                     </div>
                 </div>
             </div>
