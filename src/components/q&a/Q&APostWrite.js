@@ -9,10 +9,6 @@ function QandAPostWrite() {
             <div className={styles['container']}>
                 <ImageBox />
                 <QandAPostWriteInput />
-
-                <div className={styles['button']}>
-                    <button>등록하기</button>
-                </div>
             </div>
         </>
     )

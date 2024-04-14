@@ -41,8 +41,14 @@ function QandAWrite() {
                     </div>
                 </div>
                 
-                <div>
-                    {bodyRender()}
+                <div className={styles['body']}>
+                    <div className={styles['bodyDiv']}>
+                        {bodyRender()}
+                    </div>
+
+                    <div className={styles['button']}>
+                        <button>등록하기</button>
+                    </div>
                 </div>
             </div>
         </>
