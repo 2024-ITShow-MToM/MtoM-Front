@@ -6,6 +6,7 @@ import styles from '../../styles/profile/ProfileInfo.module.css'
 import { FiPlus } from "react-icons/fi";
 import ProfileSkill from './ProfileSkill';
 import ProfileEmoji from './ProfileEmoji';
+import ProfileAdvice from './ProfileAdvice';
 
 function ProfileInfo() {
     return (
@@ -22,13 +23,7 @@ function ProfileInfo() {
 
             <ProfileSkill />
 
-            <div className={styles['advice']}>
-                <div className={styles['title']}> <p>조언 성향</p> </div>
-                <div className={styles['advicePlus']}>
-                    <FiPlus className={styles['plusIcon']}/>
-                    <p>조언 성향 추가</p>
-                </div>
-            </div>
+            <ProfileAdvice />
 
             <ProfileEmoji />
         </>

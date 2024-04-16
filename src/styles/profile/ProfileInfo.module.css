@@ -1,6 +1,5 @@
 .mbti,
-.tag,
-.advice {
+.tag {
     width: 100%;
     display: flex;
     flex-direction: column;
@@ -34,29 +33,4 @@
 .tag > input::placeholder {
     font-family: var(--pretendard-font);
     font-weight: var(--Medium);
-}
-
-.addPlus {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    column-gap: 5px;
-}
-.plusIcon {
-    color: var(--sub-color);
-    font-size: 1.1rem;
-    font-weight: 100;
-}
-.addPlus > p,
-.advicePlus > p {
-    font-family: var(--pretendard-font);
-    font-weight: var(--Regular);
-}
-
-.advicePlus {
-    width: 86%;
-    display: flex;
-    justify-content: flex-start;
-    align-items: center;
-    column-gap: 5px;
 }

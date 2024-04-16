@@ -1,4 +1,4 @@
-.emoji {
+.advice {
     width: 100%;
     display: flex;
     flex-direction: column;
@@ -18,44 +18,53 @@
     font-size: 0.9rem;
 }
 
+.adviceContainer {
+    width: 86%;
+    display: flex;
+    align-items: center;
+    column-gap: 10px;
+    row-gap: 10px;
+    flex-wrap: wrap;
+}
+
+.addPlus {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    column-gap: 5px;
+}
 .plusIcon {
     color: var(--sub-color);
     font-size: 1.1rem;
     font-weight: 100;
 }
+.addPlus > p,
+.advicePlus > p {
+    font-family: var(--pretendard-font);
+    font-weight: var(--Regular);
+}
 
-.emojiPlus {
+.advicePlus {
     width: 86%;
     display: flex;
     justify-content: flex-start;
     align-items: center;
     column-gap: 5px;
-    row-gap: 5px;
-    flex-wrap: wrap;
-}
-.emojiDiv {
-    display: flex;
-    width: 7vw;
-    height: 3vh;
-    justify-content: center;
-    align-items: center;
-    border: 0;
     margin-left: 1.5%;
 }
-.emojiAdd {
+
+.adviceAdd {
     display: flex;
-    /* min-width: 10vw; */
-    /* max-width: 100%; */
-    width: 10vw;
-    height: 4.5vh;
+    width: auto;
+    height: 4vh;
 }
-.emojiAdd > input {
+.adviceAdd > input {
     width: 100%;
     height: 100%;
     border: 0;
     outline: none;
     background-color: var(--gray-1);
-    border-radius: 10px;
+    border-radius: 30px;
     text-align: center;
     font-size: 1.1rem;
 }
