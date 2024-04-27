@@ -1,25 +1,27 @@
 .header {
     display: flex;
-    align-items: center;
     justify-content: flex-start;
+    align-items: center;
 }
 
 .navContainer {
-    width: 100vw;
     display: flex;
     align-items: center;
+    width: auto;
     padding: 5%;
 }
 
 .iconDiv {
-    display: flex;
+    flex: 0 0 auto;
     font-size: 1.5rem;
-    margin-right: auto;
 }
 
 .joinText {
-    width: 55vw;
+    flex: 0.85 1;
+    text-align: center;
     display: flex;
+    justify-content: center;
+    align-items: center;
 
     font-family: var(--pretendard-font);
     font-weight: var(--SemiBold);

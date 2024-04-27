@@ -12,8 +12,8 @@ function Header({ text }) {
         <nav className={styles['header']}>
             <div className={styles['navContainer']}>
                 <div className={styles['iconDiv']}> <SlArrowLeft onClick={handleGoBack}/> </div>
-                <div className={styles['joinText']}> <p>{text}</p> </div>
             </div>
+            <div className={styles['joinText']}> <p>{text}</p> </div>
         </nav>
     )
 }
