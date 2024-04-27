@@ -11,30 +11,42 @@ const ProfileEmoji = () => {
 
     useEffect(() => {
         if (inputRef.current) {
-        inputRef.current.focus();
+            inputRef.current.focus();
         }
     }, [emojis]);
 
     const handleAddEmoji = () => {
-        setEmojis([...emojis, { id: Date.now(), value: '' }]);
+        const hasEmptyValue = emojis.some(emoji => emoji.value === '');
+        if (!hasEmptyValue) {
+            const newEmojiId = `emoji-${emojis.length + 1}`;
+            setEmojis([...emojis, { id: newEmojiId, value: '' }]);
+        }
     };
 
     const handleChange = (e, id) => {
         const updatedEmojis = emojis.map(emoji => {
-        if (emoji.id === id) {
-            return { ...emoji, value: e.target.value };
-        }
-        return emoji;
+            if (emoji.id === id) {
+                return { ...emoji, value: e.target.value };
+            }
+            return emoji;
         });
         setEmojis(updatedEmojis);
     };
+
+    const divRef = useRef(null);
+    const handleEmojiInput = () => {
+        const input = divRef.current;
+        input.style.height = 'auto';
+        input.style.height = `${input.scrollHeight}px`;
+    };
+
 
     return (
         <div className={styles['emoji']}>
         <div className={styles['title']}>
             <p>이모지 자기소개</p>
         </div>
-            <div className={styles['emojiPlus']}>
+            <div className={styles['emojiPlus']} ref={divRef} onInput={handleEmojiInput}>
                 {emojis.map((emoji, index) => (
                     <div key={emoji.id} className={styles['emojiAdd']}>
                         <input

@@ -28,7 +28,7 @@
 .formContainer > input {
     width: 80vw;
     padding: 4%;
-    border-radius: 5px;
+    border-radius: 8px;
     border-style: solid;
     border-width: 2px;
     border-color: var(--gray-2);
@@ -44,7 +44,7 @@ input::placeholder {
 .formContainer > button {
     width: 89vw;
     padding: 5%;
-    border-radius: 5px;
+    border-radius: 8px;
     border: 0;
     background-color: var(--main-color);
 
@@ -63,7 +63,8 @@ input::placeholder {
 
     font-family: var(--pretendard-font);
     font-weight: var(--Medium);
-    font-size: 0.9rem;
+    font-size: 14px;
+    color: var(--font-2);
 }
 .textDiv > p:nth-child(2),
 .textDiv > p:nth-child(4) {
@@ -81,7 +82,7 @@ input::placeholder {
 }
 .simpleLogin {
     display: flex;
-    column-gap: 5px;
+    column-gap: 10px;
 
     font-family: var(--pretendard-font);
     font-weight: var(--Medium);
@@ -89,6 +90,10 @@ input::placeholder {
 .simpleLogin > p:nth-child(1),
 .simpleLogin > p:nth-child(3) {
     color: var(--gray-3);
+}
+.simpleLogin > p:nth-child(2) {
+    font-size: 14px;
+    color: var(--font-3);
 }
 
 .clickedDiv {

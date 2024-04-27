@@ -30,6 +30,8 @@
     justify-content: flex-start;
     align-items: center;
     column-gap: 5px;
+    row-gap: 5px;
+    flex-wrap: wrap;
 }
 .emojiDiv {
     display: flex;
@@ -38,9 +40,12 @@
     justify-content: center;
     align-items: center;
     border: 0;
+    margin-left: 1.5%;
 }
 .emojiAdd {
     display: flex;
+    /* min-width: 10vw; */
+    /* max-width: 100%; */
     width: 10vw;
     height: 4.5vh;
 }
