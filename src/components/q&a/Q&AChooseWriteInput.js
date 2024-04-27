@@ -3,54 +3,54 @@ import React, { useState } from 'react';
 import '../../styles/common/Style.css';
 import styles from '../../styles/q&a/Q&AChooseWriteInput.module.css';
 
-import { GoPlus } from "react-icons/go";
-
 function QandAChooseWriteInput() {
-    const [inputValue, setInputValue] = useState('');
-    const [items, setItems] = useState([]);
+    const [inputValue1, setInputValue1] = useState('');
+    const [inputValue2, setInputValue2] = useState('');
+    const [valueArr, setValueArr] = useState([]);
 
-    const handleInputChange = (event) => {
-        setInputValue(event.target.value);
+    const handleInputChange1 = (event) => {
+        setInputValue1(event.target.value);
     };
 
-    const handleAddItemClick = () => {
-        if (inputValue.trim() !== '') {
-            setItems([...items, inputValue]);
-            setInputValue('');
+    const handleInputChange2 = (event) => {
+        setInputValue2(event.target.value);
+    };
+
+    const handleAddItem = () => {
+        const item1 = inputValue1.trim();
+        const item2 = inputValue2.trim();
+        
+        if (item1 !== '' && item2 !== '') {
+            setValueArr(item1, item2); // 작성한 항목 배열에 저장
+            setInputValue1('');
+            setInputValue2('');
         }
     };
-
-    const isAddButtonDisabled = inputValue.trim() === '';
 
     return (
         <>
             <div className={styles['container']}>
-                {items.map((item, index) => (
-                    <div className={styles['input']}>
-                        <input 
-                            key={index}
-                            placeholder='항목 입력하기' 
-                            type='text'
-                            value={item}
-                            readOnly
-                        />
-                    </div>
-                ))}
                 <div className={styles['input']}>
                     <input 
                         placeholder='항목 입력하기' 
                         type='text'
-                        value={inputValue}
-                        onChange={handleInputChange}
+                        value={inputValue1}
+                        onChange={handleInputChange1}
                     />
                 </div>
 
-
-                <div className={styles['addButton']} onClick={handleAddItemClick}>
-                    <GoPlus className={styles['icon']}/>
-                    <p>항목 추가</p>
-                    <input type='button' disabled={isAddButtonDisabled} />
+                <div className={styles['input']}>
+                    <input 
+                        placeholder='항목 입력하기' 
+                        type='text'
+                        value={inputValue2}
+                        onChange={handleInputChange2}
+                    />
                 </div>
+            </div>
+
+            <div className={styles['button']}>
+                <button onClick={handleAddItem}>등록하기</button>
             </div>
         </>
     )

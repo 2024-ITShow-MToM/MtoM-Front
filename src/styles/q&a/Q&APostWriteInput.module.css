@@ -74,3 +74,26 @@
     font-size: 0.8rem;
     color: var(--sub-color);
 }
+
+.button {
+    width: 93vw;
+    display: flex;
+    flex-direction: column;
+    cursor: default;
+    justify-content: flex-end;
+    top: 90%;
+    position: fixed;
+}
+.button > button {
+    width: 100%;
+    padding: 4.5%;
+    color: white;
+    cursor: pointer;
+    background-color: var(--main-color);
+
+    border: 0;
+    border-radius: 15px;
+    
+    font-family: var(--pretendard-font);
+    font-weight: var(--SemiBold);
+}

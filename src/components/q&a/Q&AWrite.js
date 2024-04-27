@@ -9,7 +9,6 @@ import QandAChooseWrite from './Q&AChooseWrite';
 
 function QandAWrite() {
     const [activeSection, setActiveSection] = useState('post');
-
     const handleClick = (section) => {
         setActiveSection(section);
     };
@@ -44,10 +43,6 @@ function QandAWrite() {
                 <div className={styles['body']}>
                     <div className={styles['bodyDiv']}>
                         {bodyRender()}
-                    </div>
-
-                    <div className={styles['button']}>
-                        <button>등록하기</button>
                     </div>
                 </div>
             </div>
