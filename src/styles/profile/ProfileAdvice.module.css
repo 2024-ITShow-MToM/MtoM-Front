@@ -22,49 +22,56 @@
     width: 86%;
     display: flex;
     align-items: center;
-    column-gap: 10px;
-    row-gap: 10px;
-    flex-wrap: wrap;
 }
 
-.addPlus {
+.adviceSelect {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    align-items: flex-start;
+    column-gap: 5px;
+}
+
+.border {
+    display: flex;
+    justify-content: center;
+    padding: 2% 3%;
+    border: 1px solid var(--gray-3);
+    width: auto;
+    border-radius: 100px;
+    margin-bottom: 10px;
+
+    font-family: var(--pretendard-font);
+    font-weight: var(--Medium);
+    color: black;
+}
+.borderDefault {
+    border-color: var(--gray-3);   
+}
+.borderClicked {
+    border-color: var(--sub-color);
+    background-color: rgba(255, 101, 36, 0.2);
+}
+
+.border > p {
+    font-size: 12px;
+}
+
+.button {
+    width: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
-    column-gap: 5px;
 }
-.plusIcon {
-    color: var(--sub-color);
-    font-size: 1.1rem;
-    font-weight: 100;
-}
-.addPlus > p,
-.advicePlus > p {
-    font-family: var(--pretendard-font);
-    font-weight: var(--Regular);
-}
-
-.advicePlus {
-    width: 86%;
-    display: flex;
-    justify-content: flex-start;
-    align-items: center;
-    column-gap: 5px;
-    margin-left: 1.5%;
-}
-
-.adviceAdd {
-    display: flex;
-    width: auto;
-    height: 4vh;
-}
-.adviceAdd > input {
-    width: 100%;
-    height: 100%;
+.button > button {
     border: 0;
-    outline: none;
-    background-color: var(--gray-1);
-    border-radius: 30px;
-    text-align: center;
-    font-size: 1.1rem;
+    background-color: var(--sub-color);
+    padding: 2.5% 6%;
+    border-radius: 100px;
+
+    font-family: var(--pretendard-font);
+    font-weight: var(--Medium);
+    font-size: 16px;
+    color: white;
 }

@@ -1,3 +1,180 @@
+/* 이름/학번, 생년월일, 전화번호 div */
+.nameDiv {
+    width: 100%;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    column-gap: 5px;
+    left: 6vw;
+}
+.birthDiv,
+.phoneDiv {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    row-gap: 10px;
+}
+
+/* 생년월일 p태그 */
+.name > p,
+.studentId > p,
+.birthDiv > p,
+.radioGroup > p,
+.phoneDiv > p {
+    color: var(--font-3);
+    font-size: 0.9rem;
+    font-family: var(--pretendard-font);
+    font-weight: var(--Medium);
+}
+
+/* 이름/학번 */
+.name,
+.studentId {
+    width: 40%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    row-gap: 10px;
+    justify-content: center;
+}
+.name > input {
+    width: 30vw;
+    padding: 8%;
+    border-radius: 7px;
+    border-style: solid;
+    border-width: 2px;
+    border-color: var(--gray-2); 
+    outline: none;
+
+    font-family: var(--pretendard-font);
+    font-weight: var(--Medium);
+}
+.studentId > input {
+    width: 24vw;
+    padding: 8%;
+    border-radius: 7px;
+    border-style: solid;
+    border-width: 2px;
+    border-color: var(--gray-2); 
+    outline: none;
+
+    font-family: var(--pretendard-font);
+    font-weight: var(--Medium);
+}
+
+.nameTitle {
+    width: 75%;
+    display: flex;
+    justify-content: flex-start;
+
+    color: var(--sub-color);
+    font-family: var(--pretendard-font);
+    font-weight: var(--Medium);
+    font-size: 0.9rem;
+}
+.studentIdTitle {
+    width: 63%;
+    display: flex;
+    justify-content: flex-start;
+
+    color: var(--sub-color);
+    font-family: var(--pretendard-font);
+    font-weight: var(--Medium);
+    font-size: 0.9rem;
+}
+
+/* 생년월일, 연락처 */
+.birthInput,
+.phoneInput {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.birthInput > input,
+.phoneInput > input {
+    width: 80vw;
+    padding: 4%;
+    border-radius: 7px;
+    border-style: solid;
+    border-width: 2px;
+    border-color: var(--gray-2);
+    outline: none;
+
+    font-family: var(--pretendard-font);
+    font-weight: var(--Medium);
+}
+
+/* 라디오 버튼 */
+.radioGroup {
+    display: flex;
+    flex-direction: column;
+    row-gap: 10px;
+    align-items: center;
+}
+.radioDiv {
+    width: 86%;
+    display: flex;
+    column-gap: 30px;
+    align-items: center;
+    justify-content: flex-start;
+
+}
+.radioButton {
+    display: flex;
+    column-gap: 5px;
+}
+input[type='radio']:checked {
+    width: 1.4em;
+    height: 1.4em;
+}
+input[type='radio'] {
+    width: 1.4em;
+    height: 1.4em;
+}
+.label {
+    font-family: var(--pretendard-font);
+    font-weight: var(--Medium);
+    color: var(--gray-3);
+}
+
+/* 학과 */
+.majorDiv {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    row-gap: 10px;
+    align-items: center;
+}
+.majorInput {
+    width: 86%;
+    display: flex;
+    align-items: center;
+    column-gap: 10px;
+    justify-content: flex-start;
+}
+.border {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 2% 3%;
+    border: 1px solid var(--gray-3);
+    border-radius: 5px;
+
+    font-family: var(--pretendard-font);
+    font-weight: var(--Medium);
+    font-size: 12px;
+}
+.borderDefault {
+    border-color: var(--gray-3);
+    color: var(--gray-3);   
+}
+.borderClicked {
+    border-color: var(--strong-color);
+    color: var(--strong-color);
+}
+
 .mbti,
 .tag {
     width: 100%;
@@ -5,9 +182,6 @@
     flex-direction: column;
     align-items: center;
     row-gap: 10px;
-
-    font-family: var(--pretendard-font);
-    font-weight: var(--Medium);
 }
 .title {
     width: 86%;
@@ -15,22 +189,24 @@
     justify-content: flex-start;
 
     color: var(--sub-color);
+    font-family: var(--pretendard-font);
+    font-weight: var(--Medium);
     font-size: 0.9rem;
 }
 
 .mbti > input,
 .tag > input {
     width: 80%;
-    padding: 3%;
-    padding-left: 4%;
+    padding: 4%;
     border-width: 1px;
     border-style: solid;
     border-radius: 5px;
     border-color: var(--gray-2);
     outline: none;
+    font-family: var(--pretendard-font);
+    font-weight: var(--Medium);
 }
 .mbti > input::placeholder,
 .tag > input::placeholder {
-    font-family: var(--pretendard-font);
-    font-weight: var(--Medium);
+    font-size: 16px;
 }

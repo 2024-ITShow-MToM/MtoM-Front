@@ -3,61 +3,41 @@ import React, { useState, useEffect, useRef } from 'react';
 import '../../styles/common/Style.css';
 import styles from '../../styles/profile/ProfileAdvice.module.css';
 
-import { FiPlus } from 'react-icons/fi';
-
 function ProfileAdvice() {
-    const [advices, setAdvices] = useState([]);
-    const inputRef = useRef(null);
-
-    useEffect(() => {
-        if (inputRef.current) {
-        inputRef.current.focus();
-        }
-    }, [advices]);
-
-    const handleAddAdvice = () => {
-        const hasEmptyValue = advices.some(advice => advice.value === '');
-        if (!hasEmptyValue) {
-            const newAdviceId = `advice-${advices.length + 1}`;
-            setAdvices([...advices, { id: newAdviceId, value: '' }]);
+    const adviceArr = ['현실적으로 조언 해주는🤔', '감정적인 공감을 잘 해주는🥹', '계획적인 조인을 주는📝', '나의 경험을 이야기 해줄 수 있는💬', '좋은 아이디어를 제공해주는💡', '이야기를 잘 경청 해줄 수 있는👂🏻', '다름을 인정 해주는😌'];
+    const [selectedAdvices, setSelectedAdvices] = useState([]);
+    const handleAdviceClick = (advice) => {
+        const index = selectedAdvices.indexOf(advice);
+        if (index === -1) {
+            setSelectedAdvices([...selectedAdvices, advice]);
+        } else {
+            setSelectedAdvices(selectedAdvices.filter((item) => item !== advice));
         }
     };
 
-    const handleChange = (e, id) => {
-        const updatedAdvices = advices.map(advice => {
-        if (advice.id === id) {
-            return { ...advice, value: e.target.value };
-        }
-        return advice;
-        });
-        setAdvices(updatedAdvices);
-    };
-
-    const divRef = useRef(null);
-    const handleAdviceInput = () => {
-        const input = divRef.current;
-        input.style.height = 'auto';
-        input.style.height = `${input.scrollHeight}px`;
+    const handleSaveButtonClick = () => {
+        console.log(selectedAdvices);
     };
 
     return (
         <>
             <div className={styles['advice']}>
                 <div className={styles['title']}> <p>조언 성향</p> </div>
-
-                <div className={styles['adviceContainer']} ref={divRef} onInput={handleAdviceInput}>
-                    {advices.map((advice, index) => (
-                        <div key={advice.id} className={styles['adviceAdd']}>
-                            <input
-                                ref={index === advices.length - 1 ? inputRef : null}
-                                value={advice.value}
-                                onChange={e => handleChange(e, advice.id)}
-                            />
-                        </div>
-                    ))}
-                    <div className={styles['advicePlus']} onClick={handleAddAdvice}>
-                        <FiPlus className={styles['plusIcon']}/>
-                        <p>조언 성향 추가</p>
+                <div className={styles['adviceContainer']}>                
+                    <div className={styles['adviceSelect']}>
+                        {adviceArr.map((advice, index) => (
+                            <div
+                                key={index}
+                                className={`${styles['border']} ${selectedAdvices.includes(advice) ? styles['borderClicked'] : styles['borderDefault']}`}
+                                onClick={() => handleAdviceClick(advice)}>
+                                <p value={advice}>{advice}</p>
+                            </div>
+                        ))}
+                        {selectedAdvices.length > 0 && (
+                            <div className={styles['button']}>
+                                <button onClick={handleSaveButtonClick}>저장</button>
+                            </div>
+                        )}
                     </div>
                 </div>
             </div>
