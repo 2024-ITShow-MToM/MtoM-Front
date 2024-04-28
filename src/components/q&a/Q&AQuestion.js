@@ -2,6 +2,7 @@ import '../../styles/common/Style.css';
 import styles from '../../styles/q&a/Q&AQuestion.module.css';
 
 import Header from '../common/Header';
+import QandAQuestionProfile from './Q&AQuestionProfile';
 
 function QandAQuestion() {
     return (
@@ -11,7 +12,7 @@ function QandAQuestion() {
             <div className={styles['container']}>
                 <div className={styles['imgContainer']}>
                     <img src='/images/example.png' />
-                    <div> {/* 프로필 */} </div>
+                    <div className={styles['profileContainer']}> <QandAQuestionProfile /> </div>
                 </div>
 
                 <div> {/* 질문 컴포넌트 */} </div>
