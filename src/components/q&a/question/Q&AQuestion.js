@@ -1,8 +1,8 @@
-import '../../styles/common/Style.css';
-import styles from '../../styles/q&a/Q&AQuestion.module.css';
+import '../../../styles/common/Style.css';
+import styles from '../../../styles/q&a/question/Q&AQuestion.module.css';
 
-import Header from '../common/Header';
-import QandAQuestionProfile from './Q&AQuestionProfile';
+import Header from '../../common/Header';
+import QandAQuestionProfile from '../question/Q&AQuestionProfile';
 
 function QandAQuestion() {
     return (

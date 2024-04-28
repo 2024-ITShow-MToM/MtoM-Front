@@ -1,5 +1,5 @@
-import '../../styles/common/Style.css';
-import styles from '../../styles/q&a/Q&AQuestionProfile.module.css';
+import '../../../styles/common/Style.css';
+import styles from '../../../styles/q&a/question/Q&AQuestionProfile.module.css';
 
 function QandAQuestionProfile() {
     return (

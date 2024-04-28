@@ -1,7 +1,7 @@
-import '../../styles/common/Style.css';
-import styles from '../../styles/q&a/Q&AQuestionItem.module.css';
+import '../../../styles/common/Style.css';
+import styles from '../../../styles/q&a/question/Q&AQuestionItem.module.css';
 
-import QandAHeartCommentIcon from './Q&AHeartCommentIcon';
+import QandAHeartCommentIcon from '../Q&AHeartCommentIcon';
 
 function QandAQuestionItem() {
     return (
