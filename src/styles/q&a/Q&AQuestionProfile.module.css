@@ -1,0 +1,35 @@
+.container {
+    width: auto;
+    height: auto;
+    display: flex;
+    column-gap: 4px;
+}
+
+.imgDiv {
+    width: 72px;
+    height: 72px;
+}
+.imgDiv > img {
+    width: 100%;
+    height: 100%;
+    border: 1px solid black;
+    border-radius: 50%;
+}
+
+.info {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    row-gap: 2px;
+
+    font-family: var(--pretendard-font);
+    font-weight: var(--Medium);
+}
+.info > p:nth-child(1) {
+    font-size: 11px;
+    color: #7E7E7E;
+}
+.info > p:nth-child(2) {
+    font-size: 15px;
+    color: var(--font-2);
+}
