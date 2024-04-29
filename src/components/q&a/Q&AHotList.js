@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 import '../../styles/common/Style.css';
 import styles from '../../styles/q&a/Q&AHotList.module.css';
 
-import QandAQuestionItem from './question/Q&AQuestionItem';
+import QandAQuestionItem from './Q&AQuestionItem';
 
 function QandAHotList() {
     const [selectedSort, setSelectedSort] = useState('');
