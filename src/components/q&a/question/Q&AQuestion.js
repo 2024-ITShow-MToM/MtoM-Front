@@ -2,7 +2,8 @@ import '../../../styles/common/Style.css';
 import styles from '../../../styles/q&a/question/Q&AQuestion.module.css';
 
 import Header from '../../common/Header';
-import QandAQuestionProfile from '../question/Q&AQuestionProfile';
+import QandAQuestionProfile from './Q&AQuestionProfile';
+import Question from './Question';
 
 function QandAQuestion() {
     return (
@@ -15,7 +16,7 @@ function QandAQuestion() {
                     <div className={styles['profileContainer']}> <QandAQuestionProfile /> </div>
                 </div>
 
-                <div> {/* 질문 컴포넌트 */} </div>
+                <div> <Question /> </div>
 
                 <div> {/* 댓글 컴포넌트 */} </div>
                 <div> {/* 댓글 전송 input 컴포넌트*/} </div>

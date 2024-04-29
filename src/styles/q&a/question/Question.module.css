@@ -1,0 +1,26 @@
+.container {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.question {
+    display: flex;
+    column-gap: 5px;
+    align-items: center;
+}
+
+.tagAndicon {
+    display: flex;
+    column-gap: 2px;
+    justify-content: space-between;
+}
+
+.icons {
+    display: flex;
+    column-gap: 5px;
+}
+.iconDiv {
+    display: flex;
+    column-gap: 4px;
+}
