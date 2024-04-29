@@ -1,7 +1,7 @@
 import React, { useState, useRef } from 'react';
 
-import '../../styles/common/Style.css';
-import styles from '../../styles/q&a/Q&APostWriteInput.module.css';
+import '../../../styles/common/Style.css';
+import styles from '../../../styles/q&a/write/Q&APostWriteInput.module.css';
 
 function QandAPostWriteInput() {
     const [tags, setTags] = useState([]);
