@@ -8,6 +8,7 @@ import ProfileRegister from './pages/ProfileRegister';
 import QandA from './pages/Q&A';
 import QandAWrite from './pages/Q&AWrite';
 import QandAQuestion from './pages/Q&AQuestion';
+import Chatting from './pages/Chatting';
 
 function App() {
   return(
@@ -21,6 +22,8 @@ function App() {
               <Route path='/q&a' element={<QandA />} />
               <Route path='/q&a/q&a-write' element={<QandAWrite />} />
               <Route path='/q&a/q&a-question' element={<QandAQuestion />} />
+
+              <Route path='/chat' element={<Chatting/>} />
           </Routes>
       </Router>
   )
