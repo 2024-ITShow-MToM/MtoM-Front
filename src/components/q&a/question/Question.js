@@ -3,7 +3,7 @@ import styles from '../../../styles/q&a/question/Question.module.css';
 
 import { GoHeart } from "react-icons/go";
 import { BsChat } from "react-icons/bs";
-import QuestionTagList from './QuestionTagList';
+import QuestionTagList from './TagList';
 
 function Question() {
     return (
