@@ -16,7 +16,7 @@ function QandAQuestion() {
                     <div className={styles['profileContainer']}> <QandAQuestionProfile /> </div>
                 </div>
 
-                <div> <Question /> </div>
+                <div className={styles['questionContainer']}> <Question /> </div>
 
                 <div> {/* 댓글 컴포넌트 */} </div>
                 <div> {/* 댓글 전송 input 컴포넌트*/} </div>

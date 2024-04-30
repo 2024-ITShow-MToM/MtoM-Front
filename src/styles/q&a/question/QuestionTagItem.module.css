@@ -1,0 +1,23 @@
+.tags {
+    display: flex;
+    width: 17vw;
+    height: 2vh;
+    border: 2px solid var(--sub-color);
+    padding: 7% 5%;
+    border-radius: 7px;
+    justify-content: center;
+    align-items: center;
+}
+
+.tagDiv {
+    display: flex;
+    width: auto;
+    justify-content: center;
+    align-items: center;
+}
+.tagDiv > p {
+    font-family: var(--noto-sans-kr);
+    font-weight: var(--Regular);
+    font-size: 14px;
+    color: var(--sub-color);
+}

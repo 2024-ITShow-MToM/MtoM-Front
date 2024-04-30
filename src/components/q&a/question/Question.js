@@ -1,6 +1,10 @@
 import '../../../styles/common/Style.css';
 import styles from '../../../styles/q&a/question/Question.module.css';
 
+import { GoHeart } from "react-icons/go";
+import { BsChat } from "react-icons/bs";
+import QuestionTagList from './QuestionTagList';
+
 function Question() {
     return (
         <>
@@ -13,16 +17,14 @@ function Question() {
                 <hr />
 
                 <div className={styles['tagAndicon']}>
-                    <div className={styles['tags']}>
-                        <div className={styles['tagDiv']}> <p>취업</p> </div>
-                    </div>
+                    <QuestionTagList />
 
                     <div className={styles['icons']}>
                         {/* 하트 아이콘 */}
-                        <div className={styles['iconDiv']}> <p>3</p> </div>
+                        <div className={styles['iconDiv']}> <GoHeart /> <p>3</p> </div>
 
                         {/* 댓글 아이콘 */}
-                        <div className={styles['iconDiv']}> <p>3</p> </div>
+                        <div className={styles['iconDiv']}> <BsChat /> <p>3</p> </div>
                     </div>
                 </div>
             </div>
