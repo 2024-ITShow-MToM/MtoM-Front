@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
 
-import '../../styles/common/Style.css';
-import styles from '../../styles/q&a/Q&AWrite.module.css';
+import '../../../styles/common/Style.css';
+import styles from '../../../styles/q&a/write/Q&AWrite.module.css';
 
-import Header from '../common/Header';
+import Header from '../../common/Header';
 import QandAPostWrite from './Q&APostWrite';
 import QandAChooseWrite from './Q&AChooseWrite';
 

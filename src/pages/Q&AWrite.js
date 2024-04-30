@@ -1,4 +1,4 @@
-import QandAWrite from "../components/q&a/Q&AWrite";
+import QandAWrite from "../components/q&a/write/Q&AWrite";
 
 function QandAWritePage() {
     return (

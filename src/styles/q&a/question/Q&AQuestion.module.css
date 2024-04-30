@@ -10,6 +10,7 @@
     height: 55vw;
     display: flex;
     flex-direction: column;
+    position: absolute;
 }
 
 .imgContainer > img {
@@ -18,4 +19,14 @@
     border: 1px solid black;
     border-radius: 15px;
     object-fit: cover;
+}
+
+.profileContainer {
+    bottom: 16%;
+    left: 5%;
+}
+
+.questionContainer {
+    top: 35%;
+    padding: 3%;
 }

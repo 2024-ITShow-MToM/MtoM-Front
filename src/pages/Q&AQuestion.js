@@ -1,4 +1,4 @@
-import QandAQuestion from "../components/q&a/Q&AQuestion";
+import QandAQuestion from "../components/q&a/question/Q&AQuestion";
 
 function QandAQuestionPage() {
     return (

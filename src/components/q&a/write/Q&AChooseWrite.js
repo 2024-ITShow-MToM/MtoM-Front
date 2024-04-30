@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 
-import '../../styles/common/Style.css';
-import styles from '../../styles/q&a/Q&AChooseWrite.module.css';
+import '../../../styles/common/Style.css';
+import styles from '../../../styles/q&a/write/Q&AChooseWrite.module.css';
 
 import QandAChooseWriteInput from './Q&AChooseWriteInput';
 

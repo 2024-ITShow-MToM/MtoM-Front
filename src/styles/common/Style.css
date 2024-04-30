@@ -1,6 +1,9 @@
 /* Pretendard 폰트 */
 @import url('https://cdn.jsdelivr.net/npm/pretendard@1.3.9/dist/web/static/pretendard.min.css');
 
+/* Noto sans KR 폰트 */
+@import url('https://cdn.jsdelivr.net/npm/@fontsource/noto-sans-kr@5.0.19/index.min.css');
+
 :root {
     --main-color: #1D1D1D;
     --sub-color: #FF6524;
@@ -10,12 +13,14 @@
     --gray-2: #EAEBEF;
     --gray-3: #C0C6CD;
 
+    --font-1: #292929;
     --font-2: #414141;
     --font-3: #595959;
     --font-4: #7F7F7F;
     --font-5 : #C9C9C9;
 
     --pretendard-font: 'Pretendard';
+    --noto-sans-kr: 'Noto Sans KR';
     
     --Regular: 400;
     --Medium: 500;

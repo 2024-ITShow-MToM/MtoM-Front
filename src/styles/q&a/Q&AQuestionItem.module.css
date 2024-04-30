@@ -64,6 +64,7 @@
 .bottom {
     display: flex;
     justify-content: space-between;
+    align-items: flex-end;
 }
 .bottom > p {
     font-family: var(--pretendard-font);
@@ -75,8 +76,8 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 12vw;
-    height: 2vh;
+    width: 15vw;
+    height: 2.5vh;
     border: 1px solid var(--sub-color);
     border-radius: 5px;
 }
