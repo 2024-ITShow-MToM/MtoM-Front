@@ -4,6 +4,9 @@
     align-items: center;
     justify-content: space-between;
 }
+.container:last-child {
+    margin-bottom: 20%;
+}
 
 .infoContainer {
     display: flex;

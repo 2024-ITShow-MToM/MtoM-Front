@@ -8,13 +8,6 @@ function CommentList() {
         <>
             <div className={styles['container']}>
                 <CommentItem />
-                {/* <CommentItem />
-                <CommentItem />
-                <CommentItem />
-                <CommentItem />
-                <CommentItem />
-                <CommentItem />
-                <CommentItem /> */}
             </div>
         </>
     )
