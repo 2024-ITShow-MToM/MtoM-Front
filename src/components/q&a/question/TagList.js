@@ -1,7 +1,7 @@
 import '../../../styles/common/Style.css';
-import styles from '../../../styles/q&a/question/QuestionTagList.module.css';
+import styles from '../../../styles/q&a/question/TagList.module.css';
 
-import QuestionTagItem from './QuestionTagItem';
+import QuestionTagItem from './TagItem';
 
 function QuestionTagList() {
     return (

@@ -1,5 +1,5 @@
 import '../../../styles/common/Style.css';
-import styles from '../../../styles/q&a/question/QuestionTagItem.module.css';
+import styles from '../../../styles/q&a/question/TagItem.module.css';
 
 function QuestionTagItem() {
     return (
