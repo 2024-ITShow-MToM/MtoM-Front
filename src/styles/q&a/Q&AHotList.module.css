@@ -22,7 +22,7 @@
     font-size: 0.9rem;
 }
 .defaultButton {
-    background-color: var(--gray-1);
+    background-color: white;
     color: var(--gray-3);
     border-color: var(--gray-3);
 }
