@@ -9,6 +9,7 @@ import QandA from './pages/Q&A';
 import QandAWrite from './pages/Q&AWrite';
 import QandAQuestion from './pages/Q&AQuestion';
 import Chatting from './pages/Chatting';
+import IndividualChat from './pages/IndividualChat';
 
 function App() {
   return(
@@ -24,6 +25,7 @@ function App() {
               <Route path='/q&a/q&a-question' element={<QandAQuestion />} />
 
               <Route path='/chat' element={<Chatting/>} />
+              <Route path='/chat/individual' element={<IndividualChat />} />
           </Routes>
       </Router>
   )
