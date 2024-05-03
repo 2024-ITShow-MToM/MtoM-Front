@@ -7,7 +7,7 @@ function SendInput() {
     return (
         <>
             <div className={styles['container']}>
-                <input />
+                <input type='text'/>
                 <BsSend />
             </div>
         </>
