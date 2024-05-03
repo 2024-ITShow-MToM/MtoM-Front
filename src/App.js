@@ -11,6 +11,7 @@ import QandAQuestion from './pages/Q&AQuestion';
 import Chatting from './pages/Chatting';
 import IndividualChat from './pages/IndividualChat';
 import GroupChat from './pages/GroupChat';
+import ProjectRegister from './pages/ProjectRegister';
 
 function App() {
   return(
@@ -19,15 +20,17 @@ function App() {
               <Route path="/" element={<Splash />}/>
               <Route path="/signin" element={<Login />}/>
               <Route path="/signup" element={<Join />}/>
-              <Route path='/profile-register' element={<ProfileRegister />} />
+              <Route path='/profile/register' element={<ProfileRegister />} />
               
               <Route path='/q&a' element={<QandA />} />
-              <Route path='/q&a/q&a-write' element={<QandAWrite />} />
-              <Route path='/q&a/q&a-question' element={<QandAQuestion />} />
+              <Route path='/q&a/write' element={<QandAWrite />} />
+              <Route path='/q&a/question' element={<QandAQuestion />} />
 
               <Route path='/chat' element={<Chatting/>} />
               <Route path='/chat/individual' element={<IndividualChat />} />
               <Route path='/chat/group' element={<GroupChat />} />
+
+              <Route path='/project/register' element={<ProjectRegister />} />
           </Routes>
       </Router>
   )

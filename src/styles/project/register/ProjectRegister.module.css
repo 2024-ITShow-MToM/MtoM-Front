@@ -1,0 +1,164 @@
+.container {
+    width: 90vw;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    position: fixed;
+    padding: 5%;
+    row-gap: 27px;
+}
+
+.content {
+    width: 100%;
+    display: flex;
+    column-gap: 10px;
+    align-items: center;
+}
+
+.imgDiv {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 85px;
+    height: 85px;
+    border: 0;
+    border-radius: 5px;
+    background-color: var(--gray-2);
+    font-size: 24px;
+    color: white;
+}
+
+.titleAndcontext {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    border: 0;
+    row-gap: 15px;
+}
+.titleAndcontext > input {
+    border-width: 0 0 1px;
+    border-color: var(--gray-2);
+    padding: 8px 0;
+    outline: none;
+
+    font-family: var(--pretendard-font);
+    font-weight: var(--Medium);
+    font-size: 14px;
+}
+.titleAndcontext > input::placeholder {
+    color: var(--font-2);
+}
+
+.period {
+    display: flex;
+    flex-direction: column;
+    row-gap: 28px;
+}
+
+.recruitment,
+.work {
+    display: flex;
+    flex-direction: column;
+    row-gap: 10px;
+
+    font-family: var(--pretendard-font);
+    font-weight: var(--Medium);
+    font-size: 15px;
+    color: var(--font-2);
+}
+
+.peopleTitle > p,
+.projectText > p {
+    font-family: var(--pretendard-font);
+    font-weight: var(--Medium);
+    font-size: 15px;
+    color: var(--font-2);
+}
+
+.setting {
+    display: flex;
+    column-gap: 10px;
+    align-items: center;
+}
+.settingBox {
+    width: 20vw;
+    padding: 6% 5%;
+    border: 1px solid var(--gray-3);
+    border-radius: 4px;
+}
+
+.people {
+    display: flex;
+    flex-direction: column;
+    row-gap: 16px;
+}
+
+.peopleTitle {
+    display: flex;
+    justify-content: space-between;
+}
+
+.peopleNum {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    row-gap: 9px;
+}
+
+.peopleDiv {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.person {
+    display: flex;
+    column-gap: 7px;
+}
+
+.textDiv {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 60px;
+    height: auto;
+    border: 1px solid var(--gray-4);
+    border-radius: 5px;
+    padding: 3%;
+
+    font-family: var(--pretendard-font);
+    font-weight: var(--Medium);
+    font-size: 12px;
+    color: var(--gray-4);
+}
+
+.projectText {
+    display: flex;
+    flex-direction: column;
+    row-gap: 10px;
+}
+.projectText > textarea {
+    height: 20vw;
+    outline: none;
+    padding: 2%;
+    resize: none;
+    border-color: var(--gray-3);
+    border-radius: 5px;
+
+    font-family: var(--pretendard-font);
+    font-weight: var(--Regular);
+    font-size: 12px;
+}
+
+.container > button {
+    background-color: var(--main-color);
+    color: white;
+    padding: 5%;
+    border: 0;
+    border-radius: 15px;
+    top: 10%;
+
+    font-family: var(--pretendard-font);
+    /* font-weight: var(--SemiBold); */
+    font-size: 15px;
+}
