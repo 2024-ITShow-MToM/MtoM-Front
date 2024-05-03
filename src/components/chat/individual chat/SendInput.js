@@ -1,5 +1,5 @@
 import '../../../styles/common/Style.css';
-import styles from '../../../styles/q&a/question/SendInput.module.css';
+import styles from '../../../styles/chat/individual chat/SendInput.module.css';
 
 import { BsSend } from 'react-icons/bs';
 
