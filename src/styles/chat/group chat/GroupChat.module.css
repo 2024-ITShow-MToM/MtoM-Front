@@ -1,0 +1,7 @@
+.container {
+    position: fixed;
+    width: 100vw;
+    height: 90vh;
+    display: flex;
+    flex-direction: column;
+}
