@@ -1,5 +1,5 @@
 import '../../../styles/common/Style.css';
-import styles from '../../../styles/chat/individual chat/YourChat.module.css';
+import styles from '../../../styles/chat/group chat/YourChat.module.css';
 
 function YourChat({ text, time }) {
     return (

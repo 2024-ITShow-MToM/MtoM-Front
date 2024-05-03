@@ -7,8 +7,16 @@
     background-color: white;
 }
 
-.container > p {
+.container > div {
+    display: flex;
+    column-gap: 4px;
+}
+
+.container > div > p {
     font-family: var(--pretendard-font);
     font-weight: var(--SemiBold);
     font-size: 18px;
+}
+.container > div > p:nth-child(2) {
+    color: var(--strong-color);
 }

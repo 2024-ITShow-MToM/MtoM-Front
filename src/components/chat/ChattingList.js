@@ -1,13 +1,15 @@
 import '../../styles/common/Style.css';
 import styles from '../../styles/chat/ChattingList.module.css';
 
-import ChattingItem from './ChattingItem';
+import IndividualChattingItem from './IndividualChattingItem';
+import GroupChattingItem from './GroupChattingItem';
 
 function ChattingList() {
     return (
         <>
             <div className={styles['container']}>
-                <ChattingItem />    
+                <IndividualChattingItem />  
+                <GroupChattingItem />  
             </div>
         </>
     )

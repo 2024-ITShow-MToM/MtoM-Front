@@ -10,6 +10,7 @@ import QandAWrite from './pages/Q&AWrite';
 import QandAQuestion from './pages/Q&AQuestion';
 import Chatting from './pages/Chatting';
 import IndividualChat from './pages/IndividualChat';
+import GroupChat from './pages/GroupChat';
 
 function App() {
   return(
@@ -26,6 +27,7 @@ function App() {
 
               <Route path='/chat' element={<Chatting/>} />
               <Route path='/chat/individual' element={<IndividualChat />} />
+              <Route path='/chat/group' element={<GroupChat />} />
           </Routes>
       </Router>
   )
