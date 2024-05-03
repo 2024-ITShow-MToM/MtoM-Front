@@ -8,7 +8,7 @@ function WriteButton() {
     return (
         <>
             <div className={styles['container']}>
-                <Link to='/q&a/q&a-write' className={styles['link']}>
+                <Link to='/q&a/write' className={styles['link']}>
                     <div className={styles['button']}>
                         <Icon icon="majesticons:edit-pen-4-line" className={styles['icon']}/>
                     </div>
