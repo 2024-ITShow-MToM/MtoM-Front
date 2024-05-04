@@ -1,0 +1,88 @@
+.container {
+    padding: 5%;
+    display: flex;
+    flex-direction: column;
+    row-gap: 10px;
+}
+
+.container > p {
+    font-family: var(--pretendard-font);
+    font-weight: var(--Bold);
+    font-size: 18px;
+}
+
+.info {
+    display: flex;
+    flex-direction: column;
+    row-gap: 30px;
+}
+
+.mbti,
+.mento,
+.skill,
+.advice,
+.emoji {
+    display: flex;
+    flex-direction: column;
+    row-gap: 6px;
+}
+
+.mbti > p:nth-child(1),
+.mento > p,
+.skill > p,
+.advice > p,
+.emoji > p {
+    font-family: var(--pretendard-font);
+    font-weight: var(--Medium);
+    font-size: 12px;
+    color: var(--sub-color);
+}
+
+.mbti > p:nth-child(2),
+.tag > p {
+    font-family: var(--pretendard-font);
+    font-weight: var(--SemiBold);
+    font-size: 16px;
+}
+
+.skillList {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    row-gap: 10px;
+}
+
+.skillItem {
+    display: flex;
+    column-gap: 17px;
+    align-items: center;
+}
+.skillItem > p {
+    font-family: var(--pretendard-font);
+    font-weight: var(--Medium);
+    font-size: 12px;
+    color: var(--font-2);
+}
+
+.adviceList,
+.emojiList {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    align-items: flex-start;
+    column-gap: 10px;
+    row-gap: 10px;
+}
+.adviceItem {
+    width: 36vw;
+    height: auto;
+    border: 0;
+    border-radius: 100px;
+    background-color: #F3F3F3;
+    padding: 2% 3%;
+    text-align: center;
+}
+.adviceItem > p {
+    font-family: var(--pretendard-font);
+    font-weight: var(--Medium);
+    font-size: 12px;
+}
