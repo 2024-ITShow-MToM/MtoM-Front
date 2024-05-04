@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Link, useLocation } from 'react-router-dom';
 
 import '../../../styles/common/Style.css';
 import styles from '../../../styles/project/register/ProjectRegister.module.css';
@@ -9,7 +10,6 @@ import { FiPlus } from 'react-icons/fi';
 import { FaRegCalendarAlt } from "react-icons/fa";
 
 import Header from '../Header';
-import { Link } from 'react-router-dom';
 
 function ProjectRegister() {
     const [backgroundImage, setBackgroundImage] = useState(null);
@@ -17,6 +17,10 @@ function ProjectRegister() {
     const [designCount, setDesignCount] = useState(0);
     const [backendCount, setBackendCount] = useState(0);
     const [planCount, setPlanCount] = useState(0);
+
+    const location = useLocation();
+    const { startDate, endDate } = location.state ?? {};
+    console.log(location);
 
     const handleImageUpload = () => {
         const input = document.createElement('input');
@@ -46,7 +50,6 @@ function ProjectRegister() {
             default: break;
         }
     };
-
     const peopleNumber = frontendCount + designCount + backendCount + planCount;
 
     return (
@@ -76,9 +79,9 @@ function ProjectRegister() {
                         <div className={styles['recruitment']}>
                             <p>모집 기간 설정</p>
                             <div className={styles['setting']}>
-                                <div className={styles['settingBox']}></div>
+                                <div className={styles['settingBox']}> <p>{startDate}</p> </div>
                                 ~
-                                <div className={styles['settingBox']}></div>
+                                <div className={styles['settingBox']}> <p>{endDate}</p> </div>
                                 <Link to='/project/recruitment-period' style={{ textDecoration: 'none', color: 'black' }}>
                                     <FaRegCalendarAlt style={{ fontSize: '24px', color: '#FF6524' }} />
                                 </Link>
