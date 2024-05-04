@@ -7,6 +7,7 @@ import { Icon } from '@iconify/react';
 import Info from './Info';
 import MyProfile from './profile/MyProfile';
 import Nav from '../common/Nav';
+import { Link } from 'react-router-dom';
 
 function My() {
     const [selectedChoice, setSelectedChoice] = useState('프로필');
@@ -17,7 +18,7 @@ function My() {
     const renderContent = () => {
         switch (selectedChoice) {
             case '프로필':
-                return <MyProfile />;
+                return <MyProfile percent='60'/>;
             // case '게시물':
             //     return <QandAChooseList />;
             // case '설정':
@@ -33,7 +34,9 @@ function My() {
                 </div>
                 <div className={styles['info']}>
                     <Info />
-                    <button>프로필 편집하기</button>
+                    <Link to='/profile/register' style={{ textDecoration: 'none', color: 'black' }}>
+                        <button>프로필 편집하기</button>
+                    </Link>
                 </div>
             </div>
 
