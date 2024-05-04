@@ -4,6 +4,9 @@
 /* Noto sans KR 폰트 */
 @import url('https://cdn.jsdelivr.net/npm/@fontsource/noto-sans-kr@5.0.19/index.min.css');
 
+/* SF Pro 폰트 */
+@import url('https://cdn.jsdelivr.net/npm/sf-font@1.0.0/stylesheet.min.css');
+
 :root {
     --main-color: #1D1D1D;
     --sub-color: #FF6524;
@@ -22,6 +25,7 @@
 
     --pretendard-font: 'Pretendard';
     --noto-sans-kr: 'Noto Sans KR';
+    --SF-Pro: 'SF Pro Display';
     
     --Regular: 400;
     --Medium: 500;
