@@ -10,6 +10,7 @@ import { FiPlus } from 'react-icons/fi';
 import { FaRegCalendarAlt } from "react-icons/fa";
 
 import Header from '../Header';
+import ProjectRegisterModal from '../../modals/ProjectRegisterModal';
 
 function ProjectRegister() {
     const [backgroundImage, setBackgroundImage] = useState(null);
@@ -17,6 +18,14 @@ function ProjectRegister() {
     const [designCount, setDesignCount] = useState(0);
     const [backendCount, setBackendCount] = useState(0);
     const [planCount, setPlanCount] = useState(0);
+    const [showModal, setShowModal] = useState(false);
+
+    const handleClick = () => {
+        setShowModal(true);
+        setTimeout(() => {
+            setShowModal(false);
+        }, 1000);
+    };
 
     const location = useLocation();
     const { startDate, endDate } = location.state ?? {};
@@ -131,7 +140,10 @@ function ProjectRegister() {
                     </div>
                 </div>
 
-                <button>프로젝트 만들기</button>
+                <button onClick={handleClick}>프로젝트 만들기</button>
+                {showModal && (
+                    <ProjectRegisterModal />
+                )}
             </div>
         </>
     )
