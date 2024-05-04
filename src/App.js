@@ -12,6 +12,7 @@ import Chatting from './pages/Chatting';
 import IndividualChat from './pages/IndividualChat';
 import GroupChat from './pages/GroupChat';
 import ProjectRegister from './pages/ProjectRegister';
+import RecruitmentPeriod from './pages/RecruitmentPeriod';
 
 function App() {
   return(
@@ -31,6 +32,7 @@ function App() {
               <Route path='/chat/group' element={<GroupChat />} />
 
               <Route path='/project/register' element={<ProjectRegister />} />
+              <Route path='/project/recruitment-period' element={<RecruitmentPeriod />} />
           </Routes>
       </Router>
   )
