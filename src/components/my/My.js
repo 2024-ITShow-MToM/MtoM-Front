@@ -9,6 +9,7 @@ import Info from './Info';
 import MyProfile from './profile/MyProfile';
 import MyPost from './post/MyPost';
 import Nav from '../common/Nav';
+import Setting from './setting/Setting';
 
 function My() {
     const [selectedChoice, setSelectedChoice] = useState('프로필');
@@ -22,8 +23,8 @@ function My() {
                 return <MyProfile percent='60'/>;
             case '게시물':
                 return <MyPost />;
-            // case '설정':
-            //     return <QandAChooseList />;
+            case '설정':
+                return <Setting />;
         }
     };
 
