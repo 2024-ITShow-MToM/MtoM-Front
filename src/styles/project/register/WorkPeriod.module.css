@@ -27,7 +27,6 @@
     border: 1px solid var(--gray-3);
     padding: 2%;
     color: var(--sub-color);
-    outline: none;
 }
 
 .button {
@@ -36,10 +35,7 @@
     align-items: flex-end;
     justify-content: center;
 }
-.button > a {
-    width: 100%;
-}
-.button > a > button {
+.button > button {
     width: 100%;
     background-color: var(--main-color);
     color: white;

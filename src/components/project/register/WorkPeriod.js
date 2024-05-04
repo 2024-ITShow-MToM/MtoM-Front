@@ -1,22 +1,19 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
 import 'react-day-picker/dist/style.css';
 import { DayPicker } from 'react-day-picker';
 import { ko } from 'date-fns/locale';
 import { format, isAfter, isBefore, isValid, parse } from 'date-fns';
 
 import '../../../styles/common/Style.css';
-import styles from '../../../styles/project/register/RecruitmentPeriod.module.css';
+import styles from '../../../styles/project/register/WorkPeriod.module.css';
 
 import Header from '../Header';
 import { IoRemoveOutline } from "react-icons/io5";
 
-function RecruitmentPeriod() {
+function WorkPeriod() {
     const [selectedRange, setSelectedRange] = useState();
     const [fromValue, setFromValue] = useState('');
     const [toValue, setToValue] = useState('');
-    const [startDate, setStartDate] = useState(null);
-    const [endDate, setEndDate] = useState(null);
 
     const pastMonth = new Date();
 
@@ -59,35 +56,19 @@ function RecruitmentPeriod() {
         setSelectedRange(range);
         if (range?.from) {
           setFromValue(format(range.from, 'y.MM.dd'));
-          setStartDate(format(range.from, 'y.MM.dd'));
         } else {
           setFromValue('');
         }
-        
         if (range?.to) {
           setToValue(format(range.to, 'y.MM.dd'));
-          setEndDate(format(range.to, 'y.MM.dd'));
         } else {
           setToValue('');
         }
     };
 
-    let state = null;
-    const handleSave = () => {
-        console.log("save 함수 호출");
-        if (startDate && endDate) {
-            state = { startDate, endDate };
-            console.log(state);
-            return state;
-        } else {
-            console.log("둘 다 선택안함");
-        }
-        return state;
-    }
-
     return (
         <>
-            <Header title='모집기간 설정'/>
+            <Header title='작업기간 설정'/>
             <div className={styles['container']}>
                 <div>
                     <form className={styles['form']}>
@@ -97,7 +78,6 @@ function RecruitmentPeriod() {
                             placeholder="시작일 선택"
                             value={fromValue}
                             onChange={handleFromChange}
-                            readOnly
                         />
                         <IoRemoveOutline style={toValue.length !== 0 && fromValue.length !== 0 ? { color: '#FF6524' } : null}/>
                         <input
@@ -106,7 +86,6 @@ function RecruitmentPeriod() {
                             placeholder="마감일 선택"
                             value={toValue}
                             onChange={handleToChange}
-                            readOnly
                         />
                     </form>
 
@@ -122,15 +101,7 @@ function RecruitmentPeriod() {
                 </div>
                 
                 <div className={styles['button']}>
-                    <Link
-                        to={{
-                            pathname: '/project/register',
-                            state: { startDate: fromValue, endDate: toValue }
-                        }}
-                        style={{ textDecoration: 'none', color: 'black' }}
-                    >
-                        <button>저장</button>
-                    </Link>
+                    <button>저장</button>
                 </div>
             </div>
 
@@ -138,4 +109,4 @@ function RecruitmentPeriod() {
     )
 }
 
-export default RecruitmentPeriod;
+export default WorkPeriod;

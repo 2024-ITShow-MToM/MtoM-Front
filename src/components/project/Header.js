@@ -10,6 +10,7 @@ function Header({ title }) {
     switch (currentUrl) {
         case '/project/register' : pathname='/project'; break;
         case '/project/recruitment-period' : pathname='/project/register'; break;
+        case '/project/work-period' : pathname='/project/register'; break;
     }
     return (
         <>
