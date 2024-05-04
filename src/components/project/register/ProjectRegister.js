@@ -91,7 +91,9 @@ function ProjectRegister() {
                                 <div className={styles['settingBox']}></div>
                                 ~
                                 <div className={styles['settingBox']}></div>
-                                <FaRegCalendarAlt style={{ fontSize: '24px', color: '#FF6524' }} />
+                                <Link to='/project/work-period' style={{ textDecoration: 'none', color: 'black' }}>
+                                    <FaRegCalendarAlt style={{ fontSize: '24px', color: '#FF6524' }} />
+                                </Link>
                             </div>
                         </div>
                     </div>
