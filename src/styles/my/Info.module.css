@@ -1,0 +1,27 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    row-gap: 11px;
+    margin-top: -3%;
+}
+.container > p {
+    font-family: var(--pretendard-font);
+    font-weight: var(--Bold);
+    font-size: 22px;
+    color: var(--font-2);
+}
+
+.imgDiv {
+    display: flex;
+    width: 31vw;
+    height: 14vh;
+    justify-content: center;
+    align-items: center;
+}
+.imgDiv > img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 35%;
+}
