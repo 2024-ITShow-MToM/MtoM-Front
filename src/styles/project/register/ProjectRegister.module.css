@@ -1,10 +1,20 @@
 .container {
     width: 90vw;
-    height: 100vh;
+    height: 86vh;
     display: flex;
     flex-direction: column;
-    position: fixed;
     padding: 5%;
+    overflow-y: auto;
+    overflow-x: hidden;
+    row-gap: 15%;
+}
+.container::-webkit-scrollbar {
+    display: none;
+}
+
+.container > div {
+    display: flex;
+    flex-direction: column;
     row-gap: 27px;
 }
 
@@ -168,7 +178,6 @@
     padding: 5%;
     border: 0;
     border-radius: 15px;
-    top: 10%;
 
     font-family: var(--pretendard-font);
     /* font-weight: var(--SemiBold); */
