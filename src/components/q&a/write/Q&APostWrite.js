@@ -1,6 +1,6 @@
 import '../../../styles/common/Style.css';
 import styles from '../../../styles/q&a/write/Q&APostWrite.module.css';
-import ImageBox from '../ImageBox';
+import ImageBox from './ImageBox';
 import QandAPostWriteInput from './Q&APostWriteInput';
 
 function QandAPostWrite() {
