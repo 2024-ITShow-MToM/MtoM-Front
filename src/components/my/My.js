@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 
 import '../../styles/common/Style.css';
 import styles from '../../styles/my/My.module.css';
@@ -6,8 +7,8 @@ import { Icon } from '@iconify/react';
 
 import Info from './Info';
 import MyProfile from './profile/MyProfile';
+import MyPost from './post/MyPost';
 import Nav from '../common/Nav';
-import { Link } from 'react-router-dom';
 
 function My() {
     const [selectedChoice, setSelectedChoice] = useState('프로필');
@@ -19,8 +20,8 @@ function My() {
         switch (selectedChoice) {
             case '프로필':
                 return <MyProfile percent='60'/>;
-            // case '게시물':
-            //     return <QandAChooseList />;
+            case '게시물':
+                return <MyPost />;
             // case '설정':
             //     return <QandAChooseList />;
         }
