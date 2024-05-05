@@ -1,5 +1,5 @@
 diff --git a/node_modules/react-day-picker/dist/style.css b/node_modules/react-day-picker/dist/style.css
-index 9072d48..44bcc65 100644
+index 9072d48..c900440 100644
 --- a/node_modules/react-day-picker/dist/style.css
 +++ b/node_modules/react-day-picker/dist/style.css
 @@ -1,18 +1,16 @@
@@ -154,7 +154,7 @@ index 9072d48..44bcc65 100644
  }
  
  .rdp-weeknumber {
-@@ -264,55 +283,30 @@
+@@ -264,55 +283,28 @@
    border-radius: 100%;
  }
  
@@ -168,13 +168,12 @@ index 9072d48..44bcc65 100644
 -  color: var(--rdp-selected-color);
 -  opacity: 1;
    background-color: var(--rdp-accent-color);
--}
--
--.rdp-day_outside {
--  opacity: 0.5;
-+  width: 100%;
  }
  
+-.rdp-day_outside {
+-  opacity: 0.5;
+-}
+-
  .rdp-day_selected:focus-visible {
 -  /* Since the background is the same use again the outline */
    outline: var(--rdp-outline);
@@ -214,7 +213,6 @@ index 9072d48..44bcc65 100644
  .rdp-day_range_middle {
 +  width: 100%;
    border-radius: 0;
-+  height: 17px;
 +  background-color: var(--rdp-background-color);
  }
 \ No newline at end of file
