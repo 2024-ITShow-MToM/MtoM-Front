@@ -12,7 +12,7 @@ import { FaRegCalendarAlt } from "react-icons/fa";
 import Header from '../Header';
 import ProjectRegisterModal from '../../modals/ProjectRegisterModal';
 
-function ProjectRegister() {
+function ProjectRegister({ startDate, endDate }) {
     const [backgroundImage, setBackgroundImage] = useState(null);
     const [frontendCount, setFrontendCount] = useState(0);
     const [designCount, setDesignCount] = useState(0);
@@ -20,16 +20,14 @@ function ProjectRegister() {
     const [planCount, setPlanCount] = useState(0);
     const [showModal, setShowModal] = useState(false);
 
+    console.log(startDate, endDate);
+
     const handleClick = () => {
         setShowModal(true);
         setTimeout(() => {
             setShowModal(false);
         }, 1000);
     };
-
-    const location = useLocation();
-    const { startDate, endDate } = location.state ?? {};
-    console.log(location);
 
     const handleImageUpload = () => {
         const input = document.createElement('input');

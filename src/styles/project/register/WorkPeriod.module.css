@@ -35,7 +35,10 @@
     align-items: flex-end;
     justify-content: center;
 }
-.button > button {
+.button > a {
+    width: 100%;
+}
+.button > a > button {
     width: 100%;
     background-color: var(--main-color);
     color: white;
@@ -44,6 +47,14 @@
     border-radius: 15px;
 
     font-family: var(--pretendard-font);
-    /* font-weight: var(--SemiBold); */
+    font-weight: var(--SemiBold);
     font-size: 15px;
+}
+
+.rdp-nav {
+    width: 100%;
+    white-space: nowrap;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
 }
