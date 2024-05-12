@@ -4,16 +4,23 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Splash from './pages/Splash';
 import Login from './pages/Login';
 import Join from './pages/Join';
+
 import ProfileRegister from './pages/ProfileRegister';
+
 import QandA from './pages/Q&A';
 import QandAWrite from './pages/Q&AWrite';
 import QandAQuestion from './pages/Q&AQuestion';
+
 import Chatting from './pages/Chatting';
 import IndividualChat from './pages/IndividualChat';
 import GroupChat from './pages/GroupChat';
+
 import ProjectRegister from './pages/ProjectRegister';
 import RecruitmentPeriod from './pages/RecruitmentPeriod';
 import WorkPeriod from './pages/WorkPeriod';
+
+import MentoRegister from './pages/MentoRegister';
+
 import My from './pages/My';
 
 function App() {
@@ -23,6 +30,7 @@ function App() {
               <Route path="/" element={<Splash />}/>
               <Route path="/signin" element={<Login />}/>
               <Route path="/signup" element={<Join />}/>
+
               <Route path='/profile/register' element={<ProfileRegister />} />
               
               <Route path='/q&a' element={<QandA />} />
@@ -36,6 +44,8 @@ function App() {
               <Route path='/project/register' element={<ProjectRegister />} />
               <Route path='/project/recruitment-period' element={<RecruitmentPeriod />} />
               <Route path='/project/work-period' element={<WorkPeriod />} />
+
+              <Route path='/mento/register' element={<MentoRegister />}/>
 
               <Route path='/mypage' element={<My />} />
           </Routes>

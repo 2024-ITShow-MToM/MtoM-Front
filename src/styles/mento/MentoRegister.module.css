@@ -1,0 +1,36 @@
+.container {
+    position: fixed;
+    display: flex;
+    flex-direction: column;
+}
+
+.header {
+    width: 100vw;
+    height: 8vh;
+    background-color: #F6F5FA;
+}
+
+.info {
+    width: 100vw;
+    height: calc(100vh - 8vh - 8vh);
+    background-color: white;
+}
+
+.button {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.button > button {
+    width: 90%;
+    height: 6vh;
+    background-color: var(--main-color);
+    color: white;
+    border: 0;
+    border-radius: 15px;
+
+    font-family: var(--pretendard-font);
+    font-weight: var(--Medium);
+    font-size: 16px;
+}
