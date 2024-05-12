@@ -1,5 +1,5 @@
 diff --git a/node_modules/react-day-picker/dist/style.css b/node_modules/react-day-picker/dist/style.css
-index 9072d48..c900440 100644
+index 9072d48..73927d6 100644
 --- a/node_modules/react-day-picker/dist/style.css
 +++ b/node_modules/react-day-picker/dist/style.css
 @@ -1,18 +1,16 @@
@@ -154,7 +154,7 @@ index 9072d48..c900440 100644
  }
  
  .rdp-weeknumber {
-@@ -264,55 +283,28 @@
+@@ -264,55 +283,31 @@
    border-radius: 100%;
  }
  
@@ -167,6 +167,8 @@ index 9072d48..c900440 100644
  .rdp-day_selected:hover {
 -  color: var(--rdp-selected-color);
 -  opacity: 1;
++  width: 30px;
++  height: 30px;
    background-color: var(--rdp-accent-color);
  }
  
@@ -212,6 +214,7 @@ index 9072d48..c900440 100644
  
  .rdp-day_range_middle {
 +  width: 100%;
++  height: 30px;
    border-radius: 0;
 +  background-color: var(--rdp-background-color);
  }
