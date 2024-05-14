@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
+import axios from 'axios';
+import { HOST } from '../../../config/Config';
 
 import '../../../styles/common/Style.css';
 import styles from '../../../styles/project/register/ProjectRegister.module.css';
@@ -14,13 +16,34 @@ import ProjectRegisterModal from '../../modals/ProjectRegisterModal';
 
 function ProjectRegister() {
     const [backgroundImage, setBackgroundImage] = useState(null);
-    const [frontendCount, setFrontendCount] = useState(0);
-    const [designCount, setDesignCount] = useState(0);
-    const [backendCount, setBackendCount] = useState(0);
-    const [planCount, setPlanCount] = useState(0);
     const [showModal, setShowModal] = useState(false);
+    
+    const useFormInput = (initialValue) => {
+        const [value, setValue] = useState(initialValue);
+        const handleChange = (e) => {
+            setValue(e.target.value);
+        };
+        return [value, handleChange];
+    };
+
+    const [title, setTitle] = useFormInput(''); // 제목
+    const [desc, setDesc] = useFormInput(''); // 설명
+    const [recruitmentStart, setRecruitmentStart] = useFormInput(localStorage.getItem("recruitment-start")); // 모집 기간 시작일
+    const [recruitmentEnd, setRecruitmentEnd] = useFormInput(localStorage.getItem("recruitment-end")); // 모집 기간 마감일
+    const [workStart, setWorkStart] = useFormInput(localStorage.getItem("work-start")); // 작업 기간 시작일
+    const [workEnd, setWorkEnd] = useFormInput(localStorage.getItem("work-end")); // 작업 기간 마감일
+    const [frontendCount, setFrontendCount] = useState(0); // 프론트엔드 개발자 수
+    const [designCount, setDesignCount] = useState(0); // 디자이너 수
+    const [backendCount, setBackendCount] = useState(0); // 백엔드 개발자 수
+    const [planCount, setPlanCount] = useState(0); // 기획자 수
+    const [introduction, setIntroduction] = useFormInput(''); // 프로젝트 소개
 
     const handleClick = () => {
+        localStorage.removeItem("recruitment-start");
+        localStorage.removeItem("recruitment-end");
+        localStorage.removeItem("work-start");
+        localStorage.removeItem("work-end");
+
         setShowModal(true);
         setTimeout(() => {
             setShowModal(false);
@@ -57,6 +80,18 @@ function ProjectRegister() {
     };
     const peopleNumber = frontendCount + designCount + backendCount + planCount;
 
+    // 프로젝트 등록 서버 연결
+    const projectRegister = async (e) => {
+        e.preventDefault();
+        try {
+            const response = await axios.post(`${HOST}/projects`, {
+
+            });
+        } catch(error) {
+            console.error("프로젝트 등록 서버 연결 실패", error);
+        }
+    }
+
     return (
         <>
             <Header title='프로젝트 등록'/>
@@ -74,8 +109,8 @@ function ProjectRegister() {
 
                         {/* 제목 설명 입력 */}
                         <div className={styles['titleAndcontext']}>
-                            <input type='text' placeholder='제목' />
-                            <input type='text' placeholder='설명 입력' />
+                            <input type='text' placeholder='제목' onChange={setTitle}/>
+                            <input type='text' placeholder='설명 입력' onChange={setDesc} />
                         </div>
                     </div>
 
@@ -84,9 +119,9 @@ function ProjectRegister() {
                         <div className={styles['recruitment']}>
                             <p>모집 기간 설정</p>
                             <div className={styles['setting']}>
-                                <div className={styles['settingBox']}> <p>startDate</p> </div>
+                                <div className={styles['settingBox']} onChange={setRecruitmentStart} > <p>{recruitmentStart}</p> </div>
                                 ~
-                                <div className={styles['settingBox']}> <p>endDate</p> </div>
+                                <div className={styles['settingBox']} onChange={setRecruitmentEnd}> <p>{recruitmentEnd}</p> </div>
                                 <Link to='/project/recruitment-period' style={{ textDecoration: 'none', color: 'black' }}>
                                     <FaRegCalendarAlt style={{ fontSize: '24px', color: '#FF6524' }} />
                                 </Link>
@@ -96,9 +131,9 @@ function ProjectRegister() {
                         <div className={styles['work']}>
                             <p>작업 기간 설정</p>
                             <div className={styles['setting']}>
-                                <div className={styles['settingBox']}></div>
+                                <div className={styles['settingBox']} onChange={setWorkStart}> <p>{workStart}</p> </div>
                                 ~
-                                <div className={styles['settingBox']}></div>
+                                <div className={styles['settingBox']} onChange={setWorkEnd}> <p>{workEnd}</p> </div>
                                 <Link to='/project/work-period' style={{ textDecoration: 'none', color: 'black' }}>
                                     <FaRegCalendarAlt style={{ fontSize: '24px', color: '#FF6524' }} />
                                 </Link>
@@ -132,7 +167,7 @@ function ProjectRegister() {
                     {/* 프로젝트 소개 */}
                     <div className={styles['projectText']}>
                         <p>프로젝트 소개</p>
-                        <textarea />
+                        <textarea onChange={setIntroduction} />
                     </div>
                 </div>
 

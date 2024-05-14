@@ -12,7 +12,7 @@ import Header from '../Header';
 import ProjectRegister from './ProjectRegister';
 import { IoRemoveOutline } from "react-icons/io5";
 
-function RecruitmentPeriod() {
+function RecruitmentPeriod({  }) {
     const [selectedRange, setSelectedRange] = useState();
     const [fromValue, setFromValue] = useState('');
     const [toValue, setToValue] = useState('');
@@ -103,7 +103,9 @@ function RecruitmentPeriod() {
 
     const handleSave = () => {
         if (startDate && endDate) {
-            return <ProjectRegister startDate={startDate} endDate={endDate} />;
+            // return <ProjectRegister startDate={startDate} endDate={endDate} />;
+            localStorage.setItem("recruitment-start", startDate);
+            localStorage.setItem("recruitment-end", endDate);
         }
     }
 
