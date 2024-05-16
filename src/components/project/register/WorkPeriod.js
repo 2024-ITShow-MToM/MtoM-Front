@@ -103,7 +103,9 @@ function WorkPeriod() {
 
     const handleSave = () => {
         if (startDate && endDate) {
-            return <ProjectRegister startDate={startDate} endDate={endDate} />;
+            // return <ProjectRegister startDate={startDate} endDate={endDate} />;
+            localStorage.setItem("work-start", startDate);
+            localStorage.setItem("work-end", endDate);
         }
     }
 
