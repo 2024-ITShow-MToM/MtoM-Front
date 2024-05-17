@@ -21,9 +21,10 @@ function ProfileAdvice({ setProfileData }) {
     };
 
     const handleSaveButtonClick = () => {
+        const selectedAdviceString = selectedAdvices.join(', ');
         setProfileData(prevData => ({
             ...prevData,
-            personal: selectedAdvices
+            personal: selectedAdviceString
         }));
         setIsSaveButtonVisible(false);
         setIsAdviceDisabled(true);
