@@ -49,7 +49,7 @@
     font-weight: var(--Bold);
     font-size: 1.5rem;
 }
-.inputStdentId > input {
+/* .inputStdentId > input {
     width: 86%;
     font-family: var(--pretendard-font);
     font-weight: var(--Bold);
@@ -63,7 +63,7 @@
 }
 .inputStdentId > input:focus::-webkit-input-placeholder {
     color: transparent;
-}
+} */
 
 .info {
     width: 100%;

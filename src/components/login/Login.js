@@ -1,10 +1,52 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
+import React, { useState } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
+import { HOST } from '../../config/Config';
+import axios from 'axios';
 
 import '../../styles/common/Style.css';
 import styles from '../../styles/login/Login.module.css'
 
 function Login() {
+    const navigate = useNavigate();
+    const [id, setId] = useState('');
+    const [password, setPassword] = useState('');
+
+    const handleIdChange = (e) => {
+        setId(e.target.value);
+    };
+
+    const handlePasswordChange = (e) => {
+        setPassword(e.target.value);
+    };
+
+    // 로그인 서버 연결
+    const handleLogin = async (e) => {
+        e.preventDefault();
+        try {
+            const response = await axios.post(`${HOST}/api/users/login`, {
+                id: id,
+                password: password
+            });
+
+            if (response.status === 200) {
+                console.log('로그인 성공');
+                localStorage.setItem("userId", id);
+                navigate('/profile/register');
+            } else {
+                console.error('로그인 실패', response.status);
+            }
+        } catch (error) {
+            console.error('로그인 요청 중 에러:', error);
+        }
+    };
+
+    // useEffect(() => {
+    //     const userId = localStorage.getItem('userId');
+    //     if (userId) {
+    //         // 메인화면으로 이동
+    //     }
+    // }, [navigate]);
+
     return (
         <>
             <div className={styles['container']}>
@@ -13,10 +55,10 @@ function Login() {
                 </div>
 
                 <div className={styles['loginContainer']}>
-                    <form className={styles['formContainer']}>
-                        <input placeholder='아이디 입력'/>
-                        <input type='password' placeholder='비밀번호 입력'/>
-                        <button>로그인</button>
+                    <form className={styles['formContainer']} onSubmit={handleLogin}>
+                        <input placeholder='아이디 입력' onChange={handleIdChange} value={id} />
+                        <input type='password' placeholder='비밀번호 입력' onChange={handlePasswordChange} value={password} />
+                        <button type="submit">로그인</button>
                     </form>
 
                     <div className={styles['textDiv']}>

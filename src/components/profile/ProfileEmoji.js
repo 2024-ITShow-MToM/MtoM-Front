@@ -1,11 +1,9 @@
 import React, { useState, useRef, useEffect } from 'react';
-
 import '../../styles/common/Style.css';
 import styles from '../../styles/profile/ProfileEmoji.module.css';
-
 import { FiPlus } from 'react-icons/fi';
 
-const ProfileEmoji = () => {
+function ProfileEmoji({ setProfileData }) {
     const [emojis, setEmojis] = useState([]);
     const inputRef = useRef(null);
 
@@ -13,20 +11,20 @@ const ProfileEmoji = () => {
         if (inputRef.current) {
             inputRef.current.focus();
         }
-    }, [emojis]);
+        setProfileData(prevData => ({
+            ...prevData,
+            imogi: emojis.map(emoji => emoji.emoji)
+        }));
+    }, [emojis, setProfileData]);
 
     const handleAddEmoji = () => {
-        const hasEmptyValue = emojis.some(emoji => emoji.value === '');
-        if (!hasEmptyValue) {
-            const newEmojiId = `emoji-${emojis.length + 1}`;
-            setEmojis([...emojis, { id: newEmojiId, value: '' }]);
-        }
+        setEmojis([...emojis, { emoji: '' }]);
     };
 
-    const handleChange = (e, id) => {
-        const updatedEmojis = emojis.map(emoji => {
-            if (emoji.id === id) {
-                return { ...emoji, value: e.target.value };
+    const handleChange = (e, index) => {
+        const updatedEmojis = emojis.map((emoji, i) => {
+            if (i === index) {
+                return { ...emoji, emoji: e.target.value };
             }
             return emoji;
         });
@@ -40,19 +38,18 @@ const ProfileEmoji = () => {
         input.style.height = `${input.scrollHeight}px`;
     };
 
-
     return (
         <div className={styles['emoji']}>
-        <div className={styles['title']}>
-            <p>이모지 자기소개</p>
-        </div>
+            <div className={styles['title']}>
+                <p>이모지 자기소개</p>
+            </div>
             <div className={styles['emojiPlus']} ref={divRef} onInput={handleEmojiInput}>
                 {emojis.map((emoji, index) => (
-                    <div key={emoji.id} className={styles['emojiAdd']}>
+                    <div key={index} className={styles['emojiAdd']}>
                         <input
                             ref={index === emojis.length - 1 ? inputRef : null}
-                            value={emoji.value}
-                            onChange={e => handleChange(e, emoji.id)}
+                            value={emoji.emoji}
+                            onChange={e => handleChange(e, index)}
                         />
                     </div>
                 ))}

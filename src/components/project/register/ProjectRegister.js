@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import { HOST } from '../../../config/Config';
 
@@ -15,6 +15,7 @@ import Header from '../Header';
 import ProjectRegisterModal from '../../modals/ProjectRegisterModal';
 
 function ProjectRegister() {
+    const navigate = useNavigate();
     const [backgroundImage, setBackgroundImage] = useState(null);
     const [showModal, setShowModal] = useState(false);
     
@@ -38,17 +39,21 @@ function ProjectRegister() {
     const [planCount, setPlanCount] = useState(0); // 기획자 수
     const [introduction, setIntroduction] = useFormInput(''); // 프로젝트 소개
 
-    const handleClick = () => {
+    const handleModal = () => {
+        setShowModal(true);
+        setTimeout(() => {
+            handleCloseModal();
+        }, 1000);
+    };
+
+    const handleCloseModal = () => {
         localStorage.removeItem("recruitment-start");
         localStorage.removeItem("recruitment-end");
         localStorage.removeItem("work-start");
         localStorage.removeItem("work-end");
-
-        setShowModal(true);
-        setTimeout(() => {
-            setShowModal(false);
-        }, 1000);
-    };
+        setShowModal(false);
+        navigate('/signin');
+    }
 
     const handleImageUpload = () => {
         const input = document.createElement('input');
@@ -171,7 +176,7 @@ function ProjectRegister() {
                     </div>
                 </div>
 
-                <button onClick={handleClick}>프로젝트 만들기</button>
+                <button onClick={handleModal}>프로젝트 만들기</button>
                 {showModal && (
                     <ProjectRegisterModal />
                 )}
