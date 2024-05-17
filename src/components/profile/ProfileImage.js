@@ -5,7 +5,7 @@ import styles from '../../styles/profile/ProfileImgae.module.css';
 
 import { FiCamera } from "react-icons/fi";
 
-function ProfileImage() {
+function ProfileImage({ setUploadedImages }) {
     const [selectedImage, setSelectedImage] = useState(null);
 
     const handleImageUpload = () => {
@@ -21,12 +21,18 @@ function ProfileImage() {
         
             if (file) {
                 reader.readAsDataURL(file);
+                uploadImage(file);
             }
         };
         input.click();
     };
 
-    
+    const uploadImage = (file) => {
+        const formData = new FormData();
+        formData.append('profile', file);
+        setUploadedImages(formData);
+    };
+
     return (
         <>
             <div className={styles['camera']} onClick={handleImageUpload}>

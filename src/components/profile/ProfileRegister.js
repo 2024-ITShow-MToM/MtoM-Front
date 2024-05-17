@@ -25,6 +25,7 @@ function ProfileRegister() {
         personal: null,
         imoji: null
     });
+    const [uploadedImages, setUploadedImages] = useState('');
 
     const start = async (e) => {
         e.preventDefault();
@@ -51,11 +52,26 @@ function ProfileRegister() {
             });
             if (response.status === 200) {
                 console.log("프로필 등록 성공");
+                // uploadedImage(userId, uploadedImages);
             } else {
                 console.log("프로필 등록 실패", response.status);
             }
         } catch(error) {
             console.log("서버 연결 실패", error);
+        }
+    }
+
+    const uploadedImage = async (userId, uploadedImages) => {
+        try {
+            const response = await axios.post(`${HOST}/api/users/profile/img`, uploadedImages, userId, {
+                headers: {
+                    'Content-Type': 'multipart/form-data',
+                }
+            });
+            
+            console.log("이미지 업로드 성공", response.data);
+        } catch (error) {
+            console.error("이미지 업로드 요청 실패 : ", error);
         }
     }
 
@@ -66,7 +82,9 @@ function ProfileRegister() {
                 <div className={styles['container']}>
                     <div className={styles['register']}>
                         <div className={styles['imgDiv']}>
-                            <ProfileImage />
+                            <ProfileImage 
+                                setUploadedImages={setUploadedImages}
+                            />
                         </div>
                         <div className={styles['inputStdentId']}>
                             <p>학번 이름 입력하기</p>
