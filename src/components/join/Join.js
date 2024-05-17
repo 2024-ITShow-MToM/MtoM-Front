@@ -9,10 +9,6 @@ import styles from '../../styles/join/Join.module.css';
 import Header from '../common/Header';
 
 function Join() {
-    // const [inputValue, setInputValue] = useState('');
-    // const handleInputChange = (event) => {
-    //     setInputValue(event.target.value);
-    // };
     const navigate = useNavigate();
     const [userData, setUserData] = useState({
         user_id: '',
@@ -32,38 +28,20 @@ function Join() {
 
     const buttonClassName = userData.user_id.trim() !== '' ? `${styles['IdButtonClicked']}` : `${styles['IdButtonDefault']}`;
 
-
-    // 아이디 중복 확인
-    // const checkDuplicate = async () => {
-    //     try {
-    //         const response = await axios.get(`${HOST}/users/checkDuplicate/${userData.user_id}`);
-    //         if (response.status === 200) {
-    //             console.log('중복없음');
-    //         }
-    //     } catch(error) {
-    //         if (error.response.status === 409) {
-    //             alert('아이디가 이미 존재합니다.');
-    //         } else {
-    //             console.error('중복 확인 요청 실패:', error);
-    //         }
-    //     }
-    // };
-
     // 회원가입 서버 연결
     const handleSubmit = async (e) => {
         e.preventDefault();
-        // await checkDuplicate();
         try {
-            const response = await axios.post(`${HOST}/users`, {
-                id: String(userData.user_id),
-                password: String(userData.password),
-                email: String(userData.email),
+            const response = await axios.post(`${HOST}/api/users`, {
+                id: userData.user_id,
+                password: userData.password,
+                email: userData.email,
             });
-            if (response.status === 200) {
-                console.log('회원가입 성공');
+            if (response.status === 201) {
+                console.log('회원가입 성공', response.data);
                 navigate('/signin');
             } else {
-                console.error('회원가입 실패', response.status, response.data);
+                console.error('회원가입 실패', response.status);
             }
         } catch(error) {
             console.error('회원가입 서버 연결 실패:', error);

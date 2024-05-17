@@ -28,7 +28,7 @@ function Login() {
                 password: password
             });
 
-            if (response.status === 201) {
+            if (response.status === 200) {
                 console.log('로그인 성공');
             } else {
                 console.error('로그인 실패', response.status);
