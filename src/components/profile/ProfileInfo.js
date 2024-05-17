@@ -32,7 +32,8 @@ function ProfileInfo({ setProfileData }) {
         const value = inputValue.replace(/\D/g, '');
         const check = /^\d{10,11}$/;
         if (check.test(value)) {
-            handleChange({ target: { id: event.target.id, value: value } });
+            const formattedValue = value.replace(/(\d{3})(\d{4})(\d{4})/, '$1-$2-$3');
+            handleChange({ target: { id: event.target.id, value: formattedValue } });
         }
     };
 
