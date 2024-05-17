@@ -13,7 +13,7 @@ function ProfileEmoji({ setProfileData }) {
         }
         setProfileData(prevData => ({
             ...prevData,
-            imoji: emojis.map(emoji => emoji.emoji)
+            imogi: emojis.map(emoji => emoji.emoji)
         }));
     }, [emojis, setProfileData]);
 
