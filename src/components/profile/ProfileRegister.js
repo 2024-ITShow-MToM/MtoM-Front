@@ -10,7 +10,7 @@ import ProfileImage from './ProfileImage';
 import ProfileInfo from './ProfileInfo';
 
 function ProfileRegister() {
-    // userId는 회원가입했을 때 아이디
+    const userId = localStorage.getItem("userId"); // userId는 회원가입했을 때 아이디
     const [profileData, setProfileData] = useState({
         name: null,
         student_id: null,
@@ -23,7 +23,7 @@ function ProfileRegister() {
         skill_name: null,
         skill_score: null,
         personal: null,
-        imoji: null
+        imogi: null
     });
     const [uploadedImages, setUploadedImages] = useState('');
 
@@ -38,22 +38,22 @@ function ProfileRegister() {
 
         try {
             const response = await axios.post(`${HOST}/api/users/profile/info`, {
-                // userId: userId,
+                userId: userId,
                 name: profileData.name,
-                student_id: profileData.student_id,
+                student_id: parseInt(profileData.student_id),
                 birthday: profileData.birthday,
                 gender: profileData.gender,
                 phonenumber: profileData.phonenumber,
                 major: profileData.major,
                 mbti: profileData.mbti,
                 skill_name: profileData.skill_name,
-                skill_score: profileData.skill_score,
+                skill_score: parseInt(profileData.skill_score),
                 personal: profileData.personal,
-                imoji: profileData.imoji
+                imogi: profileData.imogi
             });
             if (response.status === 200) {
                 console.log("프로필 등록 성공");
-                // uploadedImage(userId, uploadedImages);
+                uploadedImage(userId, uploadedImages);
             } else {
                 console.log("프로필 등록 실패", response.status);
             }
