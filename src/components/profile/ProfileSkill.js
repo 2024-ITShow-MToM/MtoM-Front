@@ -11,8 +11,8 @@ function ProfileSkill({ setProfileData }) {
     const [skills, setSkills] = useState([{ skill_name: '', skill_score: 0 }]);
 
     useEffect(() => {
-        const skillNames = skills.map(skill => skill.skill_name);
-        const skillScores = skills.map(skill => skill.skill_score);
+        const skillNames = JSON.stringify(skills.map(skill => skill.skill_name));
+        const skillScores = JSON.stringify(skills.map(skill => skill.skill_score));
         setProfileData(prevData => ({
             ...prevData,
             skill_name: skillNames,

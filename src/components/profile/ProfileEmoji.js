@@ -7,27 +7,47 @@ function ProfileEmoji({ setProfileData }) {
     const [emojis, setEmojis] = useState([]);
     const inputRef = useRef(null);
 
+    // useEffect(() => {
+    //     if (inputRef.current) {
+    //         inputRef.current.focus();
+    //     }
+    //     setProfileData(prevData => ({
+    //         ...prevData,
+    //         imogi: emojis.map(emoji => emoji.emoji)
+    //     }));
+    // }, [emojis, setProfileData]);
+
+    // const handleAddEmoji = () => {
+    //     setEmojis([...emojis, { emoji: '' }]);
+    // };
+
+    // const handleChange = (e, index) => {
+    //     const updatedEmojis = emojis.map((emoji, i) => {
+    //         if (i === index) {
+    //             return { ...emoji, emoji: e.target.value };
+    //         }
+    //         return emoji;
+    //     });
+    //     setEmojis(updatedEmojis);
+    // };
+
     useEffect(() => {
         if (inputRef.current) {
             inputRef.current.focus();
         }
         setProfileData(prevData => ({
             ...prevData,
-            imogi: emojis.map(emoji => emoji.emoji)
+            imogi: emojis.join(', ')
         }));
     }, [emojis, setProfileData]);
 
     const handleAddEmoji = () => {
-        setEmojis([...emojis, { emoji: '' }]);
+        setEmojis([...emojis, '']);
     };
 
     const handleChange = (e, index) => {
-        const updatedEmojis = emojis.map((emoji, i) => {
-            if (i === index) {
-                return { ...emoji, emoji: e.target.value };
-            }
-            return emoji;
-        });
+        const updatedEmojis = [...emojis];
+        updatedEmojis[index] = e.target.value;
         setEmojis(updatedEmojis);
     };
 
