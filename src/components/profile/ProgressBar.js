@@ -1,21 +1,19 @@
-import React, { useState } from 'react';
+import React from 'react';
 
 import '../../styles/common/Style.css';
 import styles from '../../styles/profile/ProgressBar.module.css';
 
-function ProgressBar() {
-  const [progress, setProgress] = useState(0);
-
+function ProgressBar({ progress, onProgressChange }) {
   const handleProgressChange = (e) => {
     const newProgress = e.target.value;
-    setProgress(newProgress);
+    onProgressChange(parseInt(newProgress));
   };
 
   const handleContainerClick = (e) => {
     const containerWidth = e.currentTarget.clientWidth;
     const clickPosition = e.clientX - e.currentTarget.getBoundingClientRect().left;
     const newProgress = (clickPosition / containerWidth) * 100;
-    setProgress(Math.floor(newProgress));
+    onProgressChange(Math.floor(newProgress));
   };
 
   return (

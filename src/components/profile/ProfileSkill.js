@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 
 import '../../styles/common/Style.css';
 import styles from '../../styles/profile/ProfileSkill.module.css';
@@ -7,20 +7,32 @@ import { FiPlus } from 'react-icons/fi';
 
 import ProgressBar from './ProgressBar';
 
-const ProfileSkill = () => {
-    const [skills, setSkills] = useState([{ id: Date.now(), value: '' }]);
+function ProfileSkill({ setProfileData }) {
+    const [skills, setSkills] = useState([{ skill_name: '', skill_score: 0 }]);
+
+    useEffect(() => {
+        const skillNames = skills.map(skill => skill.skill_name);
+        const skillScores = skills.map(skill => skill.skill_score);
+        setProfileData(prevData => ({
+            ...prevData,
+            skill_name: skillNames,
+            skill_score: skillScores
+        }));
+    }, [skills, setProfileData]);
 
     const handleAddSkill = () => {
-        setSkills([...skills, { id: Date.now(), value: '' }]);
+        setSkills(prevSkills => [...prevSkills, { skill_name: '', skill_score: 0 }]);
     };
     
-    const handleChange = (e, id) => {
-        const updatedSkills = skills.map(skill => {
-            if (skill.id === id) {
-            return { ...skill, value: e.target.value };
-            }
-            return skill;
-        });
+    const handleChange = (e, index, field) => {
+        const updatedSkills = [...skills];
+        updatedSkills[index][field] = e.target.value;
+        setSkills(updatedSkills);
+    };
+
+    const handleSkillScoreChange = (index, score) => {
+        const updatedSkills = [...skills];
+        updatedSkills[index].skill_score = score;
         setSkills(updatedSkills);
     };
 
@@ -30,10 +42,16 @@ const ProfileSkill = () => {
                 <p>SKILL</p>
             </div>
             {skills.map((skill, index) => (
-                <div key={skill.id} className={styles['skillInput']}>
-                    <input value={skill.value} onChange={e => handleChange(e, skill.id)} />
+                <div key={index} className={styles['skillInput']}>
+                    <input 
+                        value={skill.skill_name} 
+                        onChange={e => handleChange(e, index, 'skill_name')}
+                    />
                     <div className={styles['progressBar']}>
-                    <ProgressBar />
+                        <ProgressBar 
+                            progress={skill.skill_score}
+                            onProgressChange={score => handleSkillScoreChange(index, score)}
+                        />
                     </div>
                 </div>
             ))}
@@ -46,6 +64,6 @@ const ProfileSkill = () => {
             </div>
         </div>
     );
-};
+}
 
 export default ProfileSkill;
