@@ -7,7 +7,7 @@ import '../../styles/common/Style.css';
 import styles from '../../styles/login/Login.module.css'
 
 function Login() {
-    // const navigate = useNavigate();
+    const navigate = useNavigate();
     const [id, setId] = useState('');
     const [password, setPassword] = useState('');
 
@@ -30,6 +30,8 @@ function Login() {
 
             if (response.status === 200) {
                 console.log('로그인 성공');
+                localStorage.setItem("userId", id);
+                navigate('/profile/register');
             } else {
                 console.error('로그인 실패', response.status);
             }
@@ -37,6 +39,13 @@ function Login() {
             console.error('로그인 요청 중 에러:', error);
         }
     };
+
+    // useEffect(() => {
+    //     const userId = localStorage.getItem('userId');
+    //     if (userId) {
+    //         // 메인화면으로 이동
+    //     }
+    // }, [navigate]);
 
     return (
         <>
