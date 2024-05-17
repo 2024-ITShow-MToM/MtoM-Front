@@ -27,6 +27,7 @@ function ProfileRegister() {
     });
     const [uploadedImages, setUploadedImages] = useState('');
 
+    // 프로필 등록 서버 연결
     const start = async (e) => {
         e.preventDefault();
         const hasEmptyField = Object.values(profileData).some(value => value === null || (Array.isArray(value) && value.some(item => Object.values(item).some(subValue => subValue === null))));
@@ -61,6 +62,7 @@ function ProfileRegister() {
         }
     }
 
+    // 프로필 이미지 등록 서버 연결
     const uploadedImage = async (userId, uploadedImages) => {
         try {
             const response = await axios.post(`${HOST}/api/users/profile/img`, uploadedImages, userId, {
