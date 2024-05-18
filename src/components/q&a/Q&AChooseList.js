@@ -19,7 +19,7 @@ function QandAChooseList() {
                 const response = await axios.get(`${HOST}/api/selects`);
                 if (response.status === 200) {
                     console.log("양자택일 데이터 불러오기 성공");
-                    setData(response.data);
+                    setData(response.data.data);
                 } else {
                     console.log("양자택일 데이터 불러오기 실패", response.status);
                 }
@@ -37,8 +37,8 @@ function QandAChooseList() {
 
                 <div className={styles['item-grid-container']}>
                     {
-                        data.data.map((item, index) =>{
-                            <QandAChooseItem key={index} onePercentage={onePercentage} twoPercentage={twoPercentage} data={item} />
+                        data.map((item, index) =>{
+                            return <QandAChooseItem key={index} onePercentage={onePercentage} twoPercentage={twoPercentage} data={item} />
                         })
                     }
                 </div>
