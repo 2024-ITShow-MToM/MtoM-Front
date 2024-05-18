@@ -16,6 +16,7 @@ import ProjectRegisterModal from '../../modals/ProjectRegisterModal';
 
 function ProjectRegister() {
     const navigate = useNavigate();
+    const userId = localStorage.getItem("userId");
     const [backgroundImage, setBackgroundImage] = useState(null);
     const [showModal, setShowModal] = useState(false);
     
@@ -52,7 +53,7 @@ function ProjectRegister() {
         localStorage.removeItem("work-start");
         localStorage.removeItem("work-end");
         setShowModal(false);
-        navigate('/signin');
+        navigate('/q&a');
     }
 
     const handleImageUpload = () => {
@@ -89,11 +90,28 @@ function ProjectRegister() {
     const projectRegister = async (e) => {
         e.preventDefault();
         try {
-            const response = await axios.post(`${HOST}/projects`, {
-
+            const reqeust = await axios.post(`${HOST}/projects`, {
+                userId: {id : userId},
+                title: title,
+                description: desc,
+                recruitment_start: recruitmentStart,
+                recruitment_end: recruitmentEnd,
+                work_start: workStart,
+                work_end: workEnd,
+                frontend_personnel: frontendCount,
+                backend_personnel: backendCount,
+                designer_personnel: designCount,
+                promoter_personnel: planCount,
+                introduction: introduction
             });
+            if (reqeust.status === 201) {
+                console.log("프로젝트 등록 성공");
+                handleModal();
+            } else {
+                console.log("프로젝트 등록 실패", reqeust.status);
+            }
         } catch(error) {
-            console.error("프로젝트 등록 서버 연결 실패", error);
+            console.error("서버 연결 실패", error);
         }
     }
 
@@ -176,7 +194,7 @@ function ProjectRegister() {
                     </div>
                 </div>
 
-                <button onClick={handleModal}>프로젝트 만들기</button>
+                <button onClick={projectRegister}>프로젝트 만들기</button>
                 {showModal && (
                     <ProjectRegisterModal />
                 )}

@@ -98,7 +98,6 @@
     align-items: center;
 }
 .settingBox {
-    width: 20vw;
     height: 2.5vh;
     padding: 2% 3%;
     border: 1px solid var(--gray-3);
@@ -190,6 +189,6 @@
     border-radius: 15px;
 
     font-family: var(--pretendard-font);
-    /* font-weight: var(--SemiBold); */
+    font-weight: var(--SemiBold);
     font-size: 15px;
 }

@@ -87,15 +87,15 @@ function RecruitmentPeriod({  }) {
     const handleRangeSelect = (range) => {
         setSelectedRange(range);
         if (range?.from) {
-          setFromValue(format(range.from, 'y.MM.dd'));
-          setStartDate(format(range.from, 'y.MM.dd'));
+          setFromValue(format(range.from, 'y-MM-dd'));
+          setStartDate(format(range.from, 'y-MM-dd'));
         } else {
           setFromValue('');
         }
         
         if (range?.to) {
-          setToValue(format(range.to, 'y.MM.dd'));
-          setEndDate(format(range.to, 'y.MM.dd'));
+          setToValue(format(range.to, 'y-MM-dd'));
+          setEndDate(format(range.to, 'y-MM-dd'));
         } else {
           setToValue('');
         }
@@ -103,7 +103,6 @@ function RecruitmentPeriod({  }) {
 
     const handleSave = () => {
         if (startDate && endDate) {
-            // return <ProjectRegister startDate={startDate} endDate={endDate} />;
             localStorage.setItem("recruitment-start", startDate);
             localStorage.setItem("recruitment-end", endDate);
         }
