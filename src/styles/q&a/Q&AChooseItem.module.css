@@ -69,7 +69,7 @@
     color: var(--strong-color);
     z-index: 100;
 }
-.clicked > .button > p {
+.clicked > .button > p:nth-child(1) {
     position: absolute;
     top: 20%;
     left: 20%;
@@ -78,6 +78,12 @@
     font-size: 0.9rem;
     color: var(--strong-color);
     z-index: 100;
+}
+.clicked > .button > p:nth-child(2) {
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+    margin-left: -4%;
 }
 
 .button > input {

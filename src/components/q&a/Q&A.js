@@ -4,10 +4,11 @@ import '../../styles/common/Style.css';
 import styles from '../../styles/q&a/Q&A.module.css';
 
 import QandASearch from './Q&ASearch';
-import QandAHotList from './Q&AHotList';
+import QandAPostList from './Q&APostList';
 import QandAChooseList from './Q&AChooseList';
 import Nav from '../common/Nav';
 import WriteButton from './WriteButton';
+import QandAHotList from './Q&AHotList';
 
 function QandA() {
     const [selectedChoice, setSelectedChoice] = useState('전체');
@@ -21,6 +22,8 @@ function QandA() {
                 return <QandAHotList />;
             case '양자택일':
                 return <QandAChooseList />;
+            case '전체':
+                return <QandAPostList />;
         }
     };
 

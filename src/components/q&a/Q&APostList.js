@@ -3,25 +3,22 @@ import { HOST } from '../../config/Config';
 import axios from 'axios';
 
 import '../../styles/common/Style.css';
-import styles from '../../styles/q&a/Q&AChooseList.module.css';
+import styles from '../../styles/q&a/Q&APostList.module.css';
 
-import QandAChooseItem from './Q&AChooseItem';
 import DataSort from './DataSort';
+import QandAPostItem from './Q&APostItem';
 
-function QandAChooseList() {
-    const [onePercentage, setOnePercentage] = useState('60');
-    const [twoPercentage, setTwoPercentage] = useState('50');
-
+function QandAPostList() {
     const [data, setData] = useState([]);
     useEffect(() => {
         async function fetchData() {
             try {
-                const response = await axios.get(`${HOST}/api/selects`);
+                const response = await axios.get(`${HOST}/api/posts`);
                 if (response.status === 200) {
-                    console.log("양자택일 데이터 불러오기 성공");
-                    setData(response.data.data);
+                    console.log("게시글 데이터 불러오기 성공");
+                    setData(response.data);
                 } else {
-                    console.log("양자택일 데이터 불러오기 실패", response.status);
+                    console.log("게시글 데이터 불러오기 실패", response.status);
                 }
             } catch(error) {
                 console.log("서버 연결 실패", error);
@@ -37,8 +34,8 @@ function QandAChooseList() {
 
                 <div className={styles['item-grid-container']}>
                     {
-                        data.map((item, index) =>{
-                            return <QandAChooseItem key={index} onePercentage={onePercentage} twoPercentage={twoPercentage} data={item} />
+                        data.map((item, index) => {
+                            return <QandAPostItem key={index} data={item.post} views={item.views} />
                         })
                     }
                 </div>
@@ -48,4 +45,4 @@ function QandAChooseList() {
     )
 }
 
-export default QandAChooseList;
+export default QandAPostList;

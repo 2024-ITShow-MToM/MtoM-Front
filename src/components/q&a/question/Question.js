@@ -5,19 +5,19 @@ import { GoHeart } from "react-icons/go";
 import { BsChat } from "react-icons/bs";
 import QuestionTagList from './TagList';
 
-function Question() {
+function Question({ data }) {
     return (
         <>
             <div className={styles['container']}>
                 <div className={styles['question']}>
                     <p>Q.</p>
-                    <p>혹시 2학년 취업 특강 있나요?</p>
+                    <p>{data.title}</p>
                 </div>
 
                 <hr />
 
                 <div className={styles['tagAndicon']}>
-                    <QuestionTagList />
+                    <QuestionTagList hashtags={data.hashtags} />
 
                     <div className={styles['icons']}>
                         {/* 하트 아이콘 */}

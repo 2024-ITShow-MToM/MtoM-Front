@@ -1,4 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
+import { useNavigate } from 'react-router-dom';
+import { HOST } from '../../../config/Config';
+import axios from 'axios';
 
 import '../../../styles/common/Style.css';
 import styles from '../../../styles/q&a/write/Q&AChooseWrite.module.css';
@@ -6,17 +9,15 @@ import styles from '../../../styles/q&a/write/Q&AChooseWrite.module.css';
 import QandAChooseWriteInput from './Q&AChooseWriteInput';
 
 function QandAChooseWrite() {
+    const navigate = useNavigate();
     const [isPlaceholderHidden, setPlaceholderHidden] = useState(false);
     const inputRef = useRef(null);
+    const userId = localStorage.getItem("userId"); // userId는 회원가입했을 때 아이디
     const [chooseData, setChooseData] = useState({
         title: null,
         option1: null,
         option2: null
     });
-
-    const register = () => {
-        console.log(chooseData);
-    }
 
     const handleChange = (e) => {
         const { id, value } = e.target;
@@ -41,6 +42,33 @@ function QandAChooseWrite() {
     const handleInputFocus = () => {
         setPlaceholderHidden(true);
     };
+
+    const register = async (e) => {
+        e.preventDefault();
+        try {
+            const request = await axios.post(`${HOST}/api/selects`, 
+                {
+                    userId: userId,
+                    title: chooseData.title,
+                    option1: chooseData.option1,
+                    option2: chooseData.option2
+                },
+                {
+                    headers: {
+                        'Content-Type': 'application/json'
+                    }
+                }
+            );
+            if (request.status === 201) {
+                console.log("양자택일 업로드 성공");
+                navigate('/q&a');
+            } else {
+                console.log("양자택일 업로드 실패", request.status);
+            }
+        } catch(error) {
+            console.log("서버 연결 실패", error);
+        }
+    }
 
     return (
         <>

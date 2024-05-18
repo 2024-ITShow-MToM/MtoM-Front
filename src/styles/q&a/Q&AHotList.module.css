@@ -4,42 +4,17 @@
     flex-direction: column;
 }
 
-.buttonContainer {
-    display: flex;
-    column-gap: 15px;
-}
-.buttonContainer > button {
-    height: 4vh;
-    padding-left: 4%;
-    padding-right: 4%;
-
-    border-width: 1.5px;
-    border-style: solid;
-    border-radius: 10px;
-
-    font-family: var(--pretendard-font);
-    font-weight: var(--Medium);
-    font-size: 0.9rem;
-}
-.defaultButton {
-    background-color: white;
-    color: var(--gray-3);
-    border-color: var(--gray-3);
-}
-.selectButton {
-    background-color: var(--main-color);
-    color: white;
-    border-color: var(--main-color);
-}
-
 .item-grid-container {
-    display: grid;
+    column-count: 2;
+    column-gap: 15px;
     margin-top: 3%;
-    grid-template-columns: repeat(2, 1fr);
-    justify-content: center;
-    align-items: center;
-    justify-items: center;
-    column-gap: 10px;
-    row-gap: 5px;
-    right: 1%;
+}
+
+.item-grid-container > div {
+    break-inside: avoid;
+    margin-bottom: 15px;
+}
+.item-grid-container > a > div {
+    break-inside: avoid;
+    margin-bottom: 15px;
 }
