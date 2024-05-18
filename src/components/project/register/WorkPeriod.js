@@ -87,15 +87,15 @@ function WorkPeriod() {
     const handleRangeSelect = (range) => {
         setSelectedRange(range);
         if (range?.from) {
-          setFromValue(format(range.from, 'y.MM.dd'));
-          setStartDate(format(range.from, 'y.MM.dd'));
+          setFromValue(format(range.from, 'y-MM-dd'));
+          setStartDate(format(range.from, 'y-MM-dd'));
         } else {
           setFromValue('');
         }
         
         if (range?.to) {
-          setToValue(format(range.to, 'y.MM.dd'));
-          setEndDate(format(range.to, 'y.MM.dd'));
+          setToValue(format(range.to, 'y-MM-dd'));
+          setEndDate(format(range.to, 'y-MM-dd'));
         } else {
           setToValue('');
         }
