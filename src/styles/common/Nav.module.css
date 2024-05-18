@@ -33,7 +33,7 @@
 .icon > p {
     font-family: var(--pretendard-font);
     font-weight: var(--Medium);
-    font-size: 0.65rem;
+    font-size: 9px;
 }
 .defaultIcon {
     color: white;
