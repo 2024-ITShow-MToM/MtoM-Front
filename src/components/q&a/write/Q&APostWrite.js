@@ -27,7 +27,7 @@ function QandAPostWrite() {
             formData.append("userId", userId);
             formData.append("title", postData.title);
             formData.append("content", postData.content);
-            formData.append("hashtags", JSON.stringify(postData.hashtags));
+            formData.append("hashtags", postData.hashtags);
             formData.append("img", img);
 
             const request = await axios.post(`${HOST}/api/posts`, formData, {

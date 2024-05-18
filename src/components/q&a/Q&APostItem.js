@@ -5,11 +5,11 @@ import styles from '../../styles/q&a/Q&APostItem.module.css';
 import QandAHeartCommentIcon from './Q&AHeartCommentIcon';
 
 function QandAPostItem({ data, views }) {
-    let hashtag = data.hashtags.split("/")[0].slice(1);
+    let hashtag = data.hashtags.split("/")[0];
     let date = data.createdAt.slice(0, 10);
     return (
         <>
-            <Link to='/q&a/question' style={{ textDecoration: 'none', color: 'black' }}>
+            <Link to={`/q&a/question/${data.id}`} style={{ textDecoration: 'none', color: 'black' }}>
                 <div className={styles['container']}>
                     <div className={styles['imgDiv']}> <img src={data.img} /> </div>
                     <div className={styles['info']}>

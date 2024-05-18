@@ -18,9 +18,8 @@ function QandA() {
 
     const renderContent = () => {
         switch (selectedChoice) {
-            case 'HOT':
-                // return <QandAHotPostList />, <QandAHotChooseList />;
-                return <QandAHotPostList />;
+            // case 'HOT':
+            //     return <QandAHotPostList />, <QandAHotChooseList />;
             case '양자택일':
                 return <QandAChooseList />;
             case '전체':

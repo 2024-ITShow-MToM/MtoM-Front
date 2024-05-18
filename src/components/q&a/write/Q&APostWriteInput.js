@@ -19,24 +19,22 @@ function QandAPostWriteInput({ setPostData, tags, setTags }) {
             const tagValue = event.target.value.trim();
             if (tagValue !== '') {
                 const updatedTags = [...tags, tagValue];
-                const tagsString = updatedTags.join('/');
                 setTags(updatedTags);
                 setPostData(prevData => ({
                     ...prevData,
-                    hashtags: tagsString
+                    hashtags: updatedTags.join('/')
                 }));
                 event.target.value = '';
             }
         }
     };
-
+    
     const handleTagDelete = (index) => {
         const updatedTags = tags.filter((_, i) => i !== index);
-        const tagsString = updatedTags.join('/');
         setTags(updatedTags);
         setPostData(prevData => ({
             ...prevData,
-            hashtags: tagsString
+            hashtags: updatedTags.join('/')
         }));
     };
     

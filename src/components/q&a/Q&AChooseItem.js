@@ -20,7 +20,7 @@ function QandAChooseItem({ onePercentage, twoPercentage, data }) {
                         <p>{data.title}</p>
                         <div className={styles['info']}>
                             <p>{date}</p>
-                            {/* <p>조회수 601회</p> */}
+                            <p>참여 56명</p>
                         </div>
                     </div>
 
