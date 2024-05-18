@@ -33,7 +33,11 @@ function QandAPostList() {
                 <DataSort data={data} />
 
                 <div className={styles['item-grid-container']}>
-                    <QandAPostItem data={data} />
+                    {
+                        data.map((item, index) => {
+                            return <QandAPostItem key={index} data={item.post} views={item.views} />
+                        })
+                    }
                 </div>
                 
             </div>

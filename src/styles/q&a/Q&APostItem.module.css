@@ -1,6 +1,6 @@
 .container {
     width: 42vw;
-    height: 28vh;
+    height: 26vh;
     display: flex;
     flex-direction: column;
     border-radius: 20px;
@@ -11,8 +11,8 @@
 }
 
 .imgDiv {
-    width: 100%;
-    height: 40%;
+    width: 150px;
+    height: 90px;
 }
 .imgDiv img {
     width: 100%;
@@ -55,11 +55,14 @@
 }
 
 .middle {
-    width: 95%;
+    width: 80%;
 }
 .middle > .title {
     font-family: var(--pretendard-font);
     font-weight: var(--SemiBold);
+    /* white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis; */
 }
 
 .bottom {
@@ -77,8 +80,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 15vw;
-    height: 2.5vh;
+    padding: 3%;
     border: 1px solid var(--sub-color);
     border-radius: 5px;
 }

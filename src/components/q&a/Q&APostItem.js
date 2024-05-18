@@ -4,24 +4,26 @@ import styles from '../../styles/q&a/Q&APostItem.module.css';
 
 import QandAHeartCommentIcon from './Q&AHeartCommentIcon';
 
-function QandAPostItem({ data }) {
+function QandAPostItem({ data, views }) {
+    let hashtag = data.hashtags.split("/")[0].slice(1);
+    let date = data.createdAt.slice(0, 10);
     return (
         <>
             <Link to='/q&a/question' style={{ textDecoration: 'none', color: 'black' }}>
                 <div className={styles['container']}>
-                    <div className={styles['imgDiv']}> <img src='/images/example.png' /> </div>
+                    <div className={styles['imgDiv']}> <img src={data.img} /> </div>
                     <div className={styles['info']}>
                         <div className={styles['topDiv']}>
                             <div className={styles['top']}>
                                 <p>🔥HOT</p>
-                                <p>2024.04.10</p>
+                                <p>{date}</p>
                             </div>
                             <div className={styles['middle']}>
-                                <div className={styles['title']}> <p>혹시 2학년 취업 특강 있나요?</p> </div>
+                                <div className={styles['title']}> <p>{data.title.length > 8 ? `${data.title.slice(0, 8)}...` : data.title}</p> </div>
                             </div>
                             <div className={styles['bottom']}>
-                                <div className={styles['tag']}> <p>취업</p> </div>
-                                <p>조회수 20회</p>
+                                <div className={styles['tag']}> <p>{hashtag}</p> </div>
+                                <p>조회수 {views}회</p>
                             </div>
                         </div>
                         <hr />
