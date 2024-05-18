@@ -4,7 +4,7 @@ import '../../styles/common/Style.css';
 import styles from '../../styles/q&a/Q&A.module.css';
 
 import QandASearch from './Q&ASearch';
-import QandAHotList from './Q&AHotList';
+import QandAPostList from './Q&APostList';
 import QandAChooseList from './Q&AChooseList';
 import Nav from '../common/Nav';
 import WriteButton from './WriteButton';
@@ -18,7 +18,7 @@ function QandA() {
     const renderContent = () => {
         switch (selectedChoice) {
             case 'HOT':
-                return <QandAHotList />;
+                return <QandAPostList />;
             case '양자택일':
                 return <QandAChooseList />;
         }

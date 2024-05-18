@@ -1,10 +1,10 @@
 import { Link } from 'react-router-dom';
 import '../../styles/common/Style.css';
-import styles from '../../styles/q&a/Q&AQuestionItem.module.css';
+import styles from '../../styles/q&a/Q&APostItem.module.css';
 
 import QandAHeartCommentIcon from './Q&AHeartCommentIcon';
 
-function QandAQuestionItem() {
+function QandAPostItem({ data }) {
     return (
         <>
             <Link to='/q&a/question' style={{ textDecoration: 'none', color: 'black' }}>
@@ -33,4 +33,4 @@ function QandAQuestionItem() {
     )
 }
 
-export default QandAQuestionItem;
+export default QandAPostItem;

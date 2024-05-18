@@ -4,24 +4,16 @@ import '../../styles/common/Style.css';
 import styles from '../../styles/q&a/Q&AChooseList.module.css';
 
 import QandAChooseItem from './Q&AChooseItem';
+import DataSort from './DataSort';
 
 function QandAChooseList() {
-    const [selectedSort, setSelectedSort] = useState('');
-    const handleSortClick = (sortType) => {
-        setSelectedSort(sortType);
-    };
-
     const [onePercentage, setOnePercentage] = useState('60');
     const [twoPercentage, setTwoPercentage] = useState('50');
 
     return (
         <>
             <div className={styles['container']}>
-                <div className={styles['buttonContainer']}>
-                    <button className={selectedSort === '조회수' ? `${styles.selectButton}` : `${styles.defaultButton}`} onClick={() => handleSortClick('조회수')}>조회수</button>
-                    <button className={selectedSort === '댓글' ? `${styles.selectButton}` : `${styles.defaultButton}`} onClick={() => handleSortClick('댓글')}>댓글</button>
-                    <button className={selectedSort === '하트' ? `${styles.selectButton}` : `${styles.defaultButton}`} onClick={() => handleSortClick('하트')}>하트</button>
-                </div>
+                <DataSort />
 
                 <div className={styles['item-grid-container']}>
                     <QandAChooseItem onePercentage={onePercentage} twoPercentage={twoPercentage}/>
