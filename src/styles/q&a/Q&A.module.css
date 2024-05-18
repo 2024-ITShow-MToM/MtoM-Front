@@ -25,6 +25,7 @@
 .choiceText {
     color: var(--font-4);
     position: relative;
+    cursor: pointer;
 }
 .selectText {
     color: var(--strong-color);

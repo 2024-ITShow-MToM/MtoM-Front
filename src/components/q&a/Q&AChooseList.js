@@ -1,4 +1,6 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
+import { HOST } from '../../config/Config';
+import axios from 'axios';
 
 import '../../styles/common/Style.css';
 import styles from '../../styles/q&a/Q&AChooseList.module.css';
@@ -10,13 +12,35 @@ function QandAChooseList() {
     const [onePercentage, setOnePercentage] = useState('60');
     const [twoPercentage, setTwoPercentage] = useState('50');
 
+    const [data, setData] = useState([]);
+    useEffect(() => {
+        async function fetchData() {
+            try {
+                const response = await axios.get(`${HOST}/api/selects`);
+                if (response.status === 200) {
+                    console.log("양자택일 데이터 불러오기 성공");
+                    setData(response.data);
+                } else {
+                    console.log("양자택일 데이터 불러오기 실패", response.status);
+                }
+            } catch(error) {
+                console.log("서버 연결 실패", error);
+            }
+        }
+        fetchData();
+    }, []);
+
     return (
         <>
             <div className={styles['container']}>
-                <DataSort />
+                <DataSort data={data} />
 
                 <div className={styles['item-grid-container']}>
-                    <QandAChooseItem onePercentage={onePercentage} twoPercentage={twoPercentage}/>
+                    {
+                        data.data.map((item, index) =>{
+                            <QandAChooseItem key={index} onePercentage={onePercentage} twoPercentage={twoPercentage} data={item} />
+                        })
+                    }
                 </div>
                 
             </div>

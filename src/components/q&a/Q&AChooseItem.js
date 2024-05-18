@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 import '../../styles/common/Style.css';
 import styles from '../../styles/q&a/Q&AChooseItem.module.css';
 
-function QandAChooseItem({ onePercentage, twoPercentage }) {
+function QandAChooseItem({ onePercentage, twoPercentage, data }) {
     const [isButtonClicked, setButtonClicked] = useState(false);
 
     const handleButtonClick = () => {
