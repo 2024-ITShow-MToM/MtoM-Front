@@ -30,6 +30,10 @@ function QandAChooseItem({ onePercentage, twoPercentage, data }) {
                         <div className={`${isButtonClicked ? styles['clicked'] : ''}`}>
                             <div className={styles['button']}> 
                                 <p>{data.option1}</p>
+                                {
+                                    isButtonClicked &&
+                                    <p>{onePercentage}%</p>
+                                }
                                 <input type='button' style={{width: `${onePercentage}%`}}/>
                             </div>
                         </div>
@@ -37,6 +41,10 @@ function QandAChooseItem({ onePercentage, twoPercentage, data }) {
                         <div className={`${isButtonClicked ? styles['clicked'] : ''}`}>
                             <div className={styles['button']}>
                                 <p>{data.option2}</p>
+                                {
+                                    isButtonClicked &&
+                                    <p>{twoPercentage}%</p>
+                                }
                                 <input type='button' style={{width: `${twoPercentage}%`}}/>
                             </div>
                         </div>
