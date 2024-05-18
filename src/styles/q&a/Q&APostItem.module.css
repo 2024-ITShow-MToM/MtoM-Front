@@ -38,18 +38,30 @@
     row-gap: 5px;
 }
 
-.top {
+.hotTop {
     display: flex;
     justify-content: space-between;
 
     font-family: var(--pretendard-font);
     font-weight: var(--Regular);
 }
-.top > p:nth-child(1) {
+.hotTop > p:nth-child(1) {
     color: var(--sub-color);
     font-size: 0.8rem;
 }
-.top > p:nth-child(2) {
+.hotTop > p:nth-child(2) {
+    color: #C9C8C8;
+    font-size: 0.8rem;
+}
+
+.top {
+    display: flex;
+    justify-content: flex-end;
+
+    font-family: var(--pretendard-font);
+    font-weight: var(--Regular);
+}
+.top > p {
     color: #C9C8C8;
     font-size: 0.8rem;
 }

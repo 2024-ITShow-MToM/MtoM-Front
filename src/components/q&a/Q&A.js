@@ -8,7 +8,7 @@ import QandAPostList from './Q&APostList';
 import QandAChooseList from './Q&AChooseList';
 import Nav from '../common/Nav';
 import WriteButton from './WriteButton';
-import QandAHotPostList from './Q&AHotPostList';
+import QandAHotList from './Q&AHotList';
 
 function QandA() {
     const [selectedChoice, setSelectedChoice] = useState('전체');
@@ -18,12 +18,11 @@ function QandA() {
 
     const renderContent = () => {
         switch (selectedChoice) {
-            // case 'HOT':
-            //     return <QandAHotPostList />, <QandAHotChooseList />;
+            case 'HOT':
+                return <QandAHotList />;
             case '양자택일':
                 return <QandAChooseList />;
             case '전체':
-                // return <QandAPostList />, <QandAChooseList />;
                 return <QandAPostList />;
         }
     };
