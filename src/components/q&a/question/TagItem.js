@@ -1,11 +1,11 @@
 import '../../../styles/common/Style.css';
 import styles from '../../../styles/q&a/question/TagItem.module.css';
 
-function QuestionTagItem() {
+function QuestionTagItem({ hashtag }) {
     return (
         <>
             <div className={styles['tags']}>
-                <div className={styles['tagDiv']}> <p>취업</p> </div>
+                <div className={styles['tagDiv']}> <p>{hashtag}</p> </div>
             </div>
         </>
     )

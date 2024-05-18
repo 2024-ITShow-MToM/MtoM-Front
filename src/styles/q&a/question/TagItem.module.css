@@ -1,9 +1,7 @@
 .tags {
     display: flex;
-    width: 17vw;
-    height: 2vh;
     border: 2px solid var(--sub-color);
-    padding: 7% 5%;
+    padding: 3px 5px;
     border-radius: 7px;
     justify-content: center;
     align-items: center;
@@ -11,7 +9,6 @@
 
 .tagDiv {
     display: flex;
-    width: auto;
     justify-content: center;
     align-items: center;
 }
