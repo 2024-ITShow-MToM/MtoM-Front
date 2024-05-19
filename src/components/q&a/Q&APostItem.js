@@ -38,7 +38,9 @@ function QandAPostItem({ data, views }) {
                             </div>
                         </div>
                         <hr />
-                        <QandAHeartCommentIcon />
+                        <div className={styles['iconDiv']}>
+                            {/* <QandAHeartCommentIcon /> */}
+                        </div>
                     </div>
                 </div>
             </Link>

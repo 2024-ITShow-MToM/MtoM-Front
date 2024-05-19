@@ -1,13 +1,3 @@
-.bottomDiv {
-    display: flex;
-    column-gap: 10px;
-    justify-content: flex-end;
-    align-items: center;
-
-    font-family: var(--pretendard-font);
-    font-weight: var(--Regular);
-    font-size: 0.8rem;
-}
 .heart,
 .comment {
     display: flex;

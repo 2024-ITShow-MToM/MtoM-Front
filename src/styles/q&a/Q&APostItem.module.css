@@ -72,9 +72,6 @@
 .middle > .title {
     font-family: var(--pretendard-font);
     font-weight: var(--SemiBold);
-    /* white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis; */
 }
 
 .bottom {
@@ -101,4 +98,15 @@
     font-weight: var(--Medium);
     font-size: 0.7rem;
     color: var(--sub-color);
+}
+
+.iconDiv {
+    display: flex;
+    column-gap: 10px;
+    justify-content: flex-end;
+    align-items: center;
+
+    font-family: var(--pretendard-font);
+    font-weight: var(--Regular);
+    font-size: 0.8rem;
 }
