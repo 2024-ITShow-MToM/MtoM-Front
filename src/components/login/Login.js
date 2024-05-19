@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { HOST } from '../../config/Config';
 import axios from 'axios';
@@ -31,7 +31,7 @@ function Login() {
             if (response.status === 200) {
                 console.log('로그인 성공');
                 localStorage.setItem("userId", id);
-                navigate('/profile/register');
+                navigate('/q&a');
             } else {
                 console.error('로그인 실패', response.status);
             }
@@ -40,12 +40,13 @@ function Login() {
         }
     };
 
-    // useEffect(() => {
-    //     const userId = localStorage.getItem('userId');
-    //     if (userId) {
-    //         // 메인화면으로 이동
-    //     }
-    // }, [navigate]);
+    useEffect(() => {
+        const userId = localStorage.getItem('userId');
+        if (userId) {
+            // 메인화면으로 이동
+            navigate('/q&a');
+        }
+    }, [navigate]);
 
     return (
         <>

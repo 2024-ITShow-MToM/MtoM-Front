@@ -1,11 +1,10 @@
 import '../../../styles/common/Style.css';
 import styles from '../../../styles/q&a/question/Question.module.css';
 
-import { GoHeart } from "react-icons/go";
-import { BsChat } from "react-icons/bs";
 import QuestionTagList from './TagList';
+import QandAHeartCommentIcon from '../Q&AHeartCommentIcon';
 
-function Question({ data }) {
+function Question({ data, postId, onCommentAdded }) {
     return (
         <>
             <div className={styles['container']}>
@@ -20,11 +19,7 @@ function Question({ data }) {
                     <QuestionTagList hashtags={data.hashtags} />
 
                     <div className={styles['icons']}>
-                        {/* 하트 아이콘 */}
-                        <div className={styles['iconDiv']}> <GoHeart /> <p>3</p> </div>
-
-                        {/* 댓글 아이콘 */}
-                        <div className={styles['iconDiv']}> <BsChat /> <p>3</p> </div>
+                        <QandAHeartCommentIcon data={data} postId={postId} onCommentAdded={onCommentAdded} />
                     </div>
                 </div>
             </div>

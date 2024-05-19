@@ -58,32 +58,8 @@
     border-radius: 5px;
 }
 
-.button > p {
-    position: absolute;
-    top: 20%;
-    left: 50%;
-    transform: translateX(-50%);
-    font-family: var(--pretendard-font);
-    font-weight: var(--Medium);
-    font-size: 0.9rem;
-    color: var(--strong-color);
-    z-index: 100;
-}
-.clicked > .button > p:nth-child(1) {
-    position: absolute;
-    top: 20%;
-    left: 20%;
-    font-family: var(--pretendard-font);
-    font-weight: var(--Medium);
-    font-size: 0.9rem;
-    color: var(--strong-color);
-    z-index: 100;
-}
-.clicked > .button > p:nth-child(2) {
-    width: 100%;
-    display: flex;
-    justify-content: flex-end;
-    margin-left: -4%;
+.myclicked {
+    border: 1px solid #AFAFAF;
 }
 
 .button > input {
@@ -102,4 +78,56 @@
 
     background-color: rgba(0, 102, 255, 0.3);
     transition: background-color 0.4s ease;
+}
+
+.clicked > .myclicked > input {
+    position: absolute;
+    height: 100%;
+    border: 0;
+    text-align: left;
+
+    background-color: rgba(201, 200, 200, 0.7);
+    transition: background-color 0.4s ease;
+}
+
+.option {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 3%;
+
+    font-family: var(--pretendard-font);
+    font-weight: var(--Medium);
+    font-size: 0.9rem;
+    color: var(--strong-color);
+    z-index: 100;
+}
+
+.clickedOption {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 3%;
+
+    font-family: var(--pretendard-font);
+    font-weight: var(--Medium);
+    font-size: 0.9rem;
+    color: var(--strong-color);
+    z-index: 100;
+}
+
+.myclicked > .clickedOption {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 3%;
+
+    font-family: var(--pretendard-font);
+    font-weight: var(--Medium);
+    font-size: 0.9rem;
+    color: #959595;
+    z-index: 100;
 }

@@ -34,14 +34,3 @@
     display: flex;
     column-gap: 10px;
 }
-.iconDiv {
-    display: flex;
-    column-gap: 4px;
-    align-items: center;
-    font-size: 20px;
-}
-.iconDiv > p {
-    font-family: var(--pretendard-font);
-    font-weight: var(--Regular);
-    font-size: 15px;
-}

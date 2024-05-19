@@ -15,22 +15,28 @@ import SendInput from './SendInput';
 function QandAQuestion() {
     const [data, setData] = useState([]);
     const { id } = useParams();
-    useEffect(() => {
-        async function fetchData() {
-            try {
-                const response = await axios.get(`${HOST}/api/posts/${id}`);
-                if (response.status === 200) {
-                    console.log("게시글 단일 조회 데이터 불러오기 성공");
-                    setData(response.data);
-                } else {
-                    console.log("게시글 단일 조회 데이터 불러오기 실패", response.status);
-                }
-            } catch(error) {
-                console.log("서버 연결 실패", error);
+
+    async function fetchData() {
+        try {
+            const response = await axios.get(`${HOST}/api/posts/details/${id}`);
+            if (response.status === 200) {
+                console.log("게시글 단일 조회 데이터 불러오기 성공");
+                setData(response.data);
+            } else {
+                console.log("게시글 단일 조회 데이터 불러오기 실패", response.status);
             }
+        } catch(error) {
+            console.log("서버 연결 실패", error);
         }
+    }
+
+    useEffect(() => {
         fetchData();
     }, []);
+
+    const reloadComments = async () => {
+        await fetchData();
+    };
 
     return (
         <>
@@ -39,13 +45,13 @@ function QandAQuestion() {
             <div className={styles['container']}>
                 <div className={styles['imgContainer']}>
                     <img src={data.img} />
-                    <div className={styles['profileContainer']}> <QandAQuestionProfile /> </div>
+                    <div className={styles['profileContainer']}> <QandAQuestionProfile data={data.user} /> </div>
                 </div>
 
-                <div className={styles['questionContainer']}> <Question data={data} /> </div>
+                <div className={styles['questionContainer']}> <Question data={data} postId={id} onCommentAdded={reloadComments} /> </div>
 
-                <div className={styles['commentContainer']}> <CommentList /> </div>
-                <div className={styles['inputContainer']}> <SendInput /> </div>
+                <div className={styles['commentContainer']}> <CommentList data={data.comments} /> </div>
+                <div className={styles['inputContainer']}> <SendInput postId={id} onCommentAdded={reloadComments} /> </div>
             </div>
         </>
     )
