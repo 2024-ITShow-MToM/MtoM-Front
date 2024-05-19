@@ -2,7 +2,8 @@ import { Link } from 'react-router-dom';
 import '../../styles/common/Style.css';
 import styles from '../../styles/q&a/Q&APostItem.module.css';
 
-import QandAHeartCommentIcon from './Q&AHeartCommentIcon';
+import { GoHeart } from "react-icons/go";
+import { BsChat } from "react-icons/bs";
 
 function QandAPostItem({ data, views }) {
     let hashtag = data.hashtags.split("/")[0];
@@ -39,7 +40,8 @@ function QandAPostItem({ data, views }) {
                         </div>
                         <hr />
                         <div className={styles['iconDiv']}>
-                            {/* <QandAHeartCommentIcon /> */}
+                            <div className={styles['heart']}> <GoHeart /> <p>3</p> </div>
+                            <div className={styles['comment']}> <BsChat /> <p>3</p> </div>
                         </div>
                     </div>
                 </div>
