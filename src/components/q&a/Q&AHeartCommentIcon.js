@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { HOST } from '../../config/Config';
 import axios from 'axios';
 
@@ -13,16 +13,32 @@ function QandAHeartCommentIcon({ data, postId, onCommentAdded }) {
     const userId = localStorage.getItem("userId");
     const [clicked, setClicked] = useState(false);
 
+    useEffect(() => {
+        const clickedHeart = localStorage.getItem(`clickedHeart${postId}`);
+        const clickedUserId = localStorage.getItem('clickedUserId');
+        if (clickedHeart === "true" && clickedUserId === userId) {
+            setClicked(true);
+        }
+    }, [postId, userId]);
+
     const clickedHeart = async (e) => {
         e.preventDefault();
         try {
             const request = await axios.post(`${HOST}/api/posts/${postId}/heart?userId=${userId}`);
             if (request.status === 200) {
-                console.log("하트 누르기 성공");
-                setClicked(true);
+                console.log("하트 성공");
+                if (clicked) {
+                    localStorage.removeItem(`clickedHeart${postId}`);
+                    localStorage.removeItem('clickedUserId');
+                    setClicked(false);
+                } else {
+                    localStorage.setItem(`clickedHeart${postId}`, "true");
+                    localStorage.setItem('clickedUserId', `${userId}`);
+                    setClicked(true);
+                }
                 onCommentAdded();
             } else {
-                console.log("하트 누르기 실패", request.status);
+                console.log("하트 실패", request.status);
             }
         } catch(error) {
             console.log("서버 연결 실패", error);
@@ -32,7 +48,7 @@ function QandAHeartCommentIcon({ data, postId, onCommentAdded }) {
     return (
         <>
             <div className={styles['heart']}>
-                {clicked ? <GoHeartFill /> : <GoHeart onClick={clickedHeart} />}
+                {clicked ? <GoHeartFill onClick={clickedHeart} /> : <GoHeart onClick={clickedHeart} />}
                 <p>{data.heartCount}</p>
             </div>
             <div className={styles['comment']}>
