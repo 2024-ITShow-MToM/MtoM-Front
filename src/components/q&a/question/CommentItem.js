@@ -1,9 +1,41 @@
+import React, { useState, useEffect } from 'react';
+import { useParams } from 'react-router-dom';
+import { HOST } from '../../../config/Config';
+import axios from 'axios';
+
 import '../../../styles/common/Style.css';
 import styles from '../../../styles/q&a/question/CommentItem.module.css';
 
 import { GoHeart } from 'react-icons/go';
+import { GoHeartFill } from 'react-icons/go';
 
 function CommentItem({ data }) {
+    const [clicked, setClicked] = useState(false);
+    const userId = localStorage.getItem("userId");
+
+    useEffect(() => {
+        if (clicked === true) {
+            setClicked(true);
+        } else {
+            setClicked(false);
+        }
+    }, [data.commentId, userId]);
+
+    const heartClick = async (e) => {
+        e.preventDefault();
+        try {
+            const request = await axios.post(`${HOST}/api/posts/comments/${data.commentId}/heart?userId=${userId}`);
+            if (request.status === 200) {
+                console.log("댓글 하트 누르기 성공");
+                setClicked(true);
+            } else {
+                console.log("댓글 하트 누르기 실패", request.status);
+            }
+        } catch(error) {
+            console.log("서버 연결 실패", error);
+        }
+    }
+
     return (
         <>
             <div className={styles['container']}>
@@ -19,7 +51,7 @@ function CommentItem({ data }) {
                 </div>
 
                 <div className={styles['heart']}>
-                    <GoHeart />
+                    {clicked ? <GoHeartFill onClick={heartClick} /> : <GoHeart onClick={heartClick} />}
                     <p>{data.heartCount}</p>
                 </div>
             </div>
