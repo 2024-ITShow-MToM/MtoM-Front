@@ -20,6 +20,7 @@ function QandAChooseItem({ onePercentage, twoPercentage, data }) {
         }
     };
 
+    // 양자택일 투표 서버 연결
     async function optionData(clickedOption) {
         try {
             const request = await axios.post(`${HOST}/api/selects/${postId}/option${clickedOption}?userId=${userId}`);
