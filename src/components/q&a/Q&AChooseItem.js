@@ -1,20 +1,37 @@
 import React, { useState } from 'react';
+import { HOST } from '../../config/Config';
 
 import '../../styles/common/Style.css';
 import styles from '../../styles/q&a/Q&AChooseItem.module.css';
+import axios from 'axios';
 
 function QandAChooseItem({ onePercentage, twoPercentage, data }) {
     const [isButtonClicked, setButtonClicked] = useState(false);
     const [clickedOption, setClickedOption] = useState(null);
+    let date = data.createdAt.slice(0, 10);
+    const userId = localStorage.getItem("userId");
+    let postId = data.id;
 
     const handleOptionClick = (option) => {
         if (!isButtonClicked) {
             setClickedOption(option);
             setButtonClicked(true);
+            optionData(option);
         }
     };
 
-    let date = data.createdAt.slice(0, 10);
+    async function optionData(clickedOption) {
+        try {
+            const request = await axios.post(`${HOST}/api/selects/${postId}/option${clickedOption}?userId=${userId}`);
+            if (request.status === 200) {
+                console.log(`option${clickedOption} 선택`);
+            } else {
+                console.log("option 선택 실패", request.status);
+            }
+        } catch(error) {
+            console.log("서버 연결 실패", error);
+        }
+    }
 
     return (
         <>

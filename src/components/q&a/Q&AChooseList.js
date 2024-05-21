@@ -33,7 +33,7 @@ function QandAChooseList() {
     return (
         <>
             <div className={styles['container']}>
-                <DataSort data={data} />
+                {/* <DataSort setSortData={setData} /> */}
 
                 <div className={styles['item-grid-container']}>
                     {

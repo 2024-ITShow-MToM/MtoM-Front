@@ -1,5 +1,7 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
+import { HOST } from '../../config/Config';
+import axios from 'axios';
 
 import '../../styles/common/Style.css';
 import styles from '../../styles/my/My.module.css';
@@ -17,10 +19,33 @@ function My() {
         setSelectedChoice(choiceType);
     };
 
+    const [data, setData] = useState([]);
+    const userId = localStorage.getItem("userId");
+    useEffect(() => {
+        async function fetData() {
+            try {
+                const response = await axios.get(`${HOST}/api/users`, {
+                    id: userId
+                });
+                if (response.status === 200) {
+                    console.log("회원 정보 불러오기 성공", response.data);
+                    setData(response.data);
+                } else {
+                    console.log("회원 정보 불러오기 실패", response.status);
+                }
+            } catch(error) {
+                console.log("서버 연결 실패", error);
+            }
+        }
+        fetData();
+    }, []);
+
+    console.log(data);
+
     const renderContent = () => {
         switch (selectedChoice) {
             case '프로필':
-                return <MyProfile percent='60'/>;
+                return <MyProfile percent='60'/>; 
             case '게시물':
                 return <MyPost />;
             case '설정':
@@ -36,7 +61,7 @@ function My() {
                 </div>
                 <div className={styles['info']}>
                     <Info />
-                    <Link to='/profile/register' style={{ textDecoration: 'none', color: 'black' }}>
+                    <Link to='/profile/edit' style={{ textDecoration: 'none', color: 'black' }}>
                         <button>프로필 편집하기</button>
                     </Link>
                 </div>

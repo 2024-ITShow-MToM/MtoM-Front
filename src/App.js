@@ -22,6 +22,7 @@ import WorkPeriod from './pages/WorkPeriod';
 import MentoRegister from './pages/MentoRegister';
 
 import My from './pages/My';
+import MyProfileEdit from './pages/MyProfileEdit';
 
 function App() {
   return(
@@ -35,7 +36,7 @@ function App() {
               
               <Route path='/q&a' element={<QandA />} />
               <Route path='/q&a/write' element={<QandAWrite />} />
-              <Route path='/q&a/question' element={<QandAQuestion />} />
+              <Route path='/q&a/question/:id' element={<QandAQuestion />} />
 
               <Route path='/chat' element={<Chatting/>} />
               <Route path='/chat/individual' element={<IndividualChat />} />
@@ -48,6 +49,7 @@ function App() {
               <Route path='/mento/register' element={<MentoRegister />}/>
 
               <Route path='/mypage' element={<My />} />
+              <Route path='/profile/edit' element={<MyProfileEdit />} />
           </Routes>
       </Router>
   )
