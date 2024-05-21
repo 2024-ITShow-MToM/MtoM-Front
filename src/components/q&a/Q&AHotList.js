@@ -10,7 +10,6 @@ import QandAChooseItem from './Q&AChooseItem';
 import QandAPostItem from './Q&APostItem';
 
 function QandAHotList() {
-    const [data, setData] = useState([]);
     const [postData, setPostData] = useState([]);
     const [chooseData, setChooseData] = useState([]);
     const [onePercentage, setOnePercentage] = useState('60');
