@@ -22,6 +22,7 @@ import WorkPeriod from './pages/WorkPeriod';
 import MentoRegister from './pages/MentoRegister';
 
 import My from './pages/My';
+import MyProfileEdit from './pages/MyProfileEdit';
 
 function App() {
   return(
@@ -48,6 +49,7 @@ function App() {
               <Route path='/mento/register' element={<MentoRegister />}/>
 
               <Route path='/mypage' element={<My />} />
+              <Route path='/profile/edit' element={<MyProfileEdit />} />
           </Routes>
       </Router>
   )

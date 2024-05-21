@@ -61,7 +61,7 @@ function My() {
                 </div>
                 <div className={styles['info']}>
                     <Info />
-                    <Link to='/profile/register' style={{ textDecoration: 'none', color: 'black' }}>
+                    <Link to='/profile/edit' style={{ textDecoration: 'none', color: 'black' }}>
                         <button>프로필 편집하기</button>
                     </Link>
                 </div>
