@@ -30,10 +30,12 @@ function QandAChooseList() {
         fetchData();
     }, []);
 
+    console.log(data);
+
     return (
         <>
             <div className={styles['container']}>
-                <DataSort data={data} />
+                {/* <DataSort setSortData={setData} /> */}
 
                 <div className={styles['item-grid-container']}>
                     {

@@ -35,7 +35,7 @@ function App() {
               
               <Route path='/q&a' element={<QandA />} />
               <Route path='/q&a/write' element={<QandAWrite />} />
-              <Route path='/q&a/question' element={<QandAQuestion />} />
+              <Route path='/q&a/question/:id' element={<QandAQuestion />} />
 
               <Route path='/chat' element={<Chatting/>} />
               <Route path='/chat/individual' element={<IndividualChat />} />
