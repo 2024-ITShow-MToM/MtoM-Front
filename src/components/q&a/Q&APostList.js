@@ -27,15 +27,16 @@ function QandAPostList() {
         fetchData();
     }, []);
 
+
     return (
         <>
             <div className={styles['container']}>
-                <DataSort data={data} />
+                <DataSort setSortData={setData} />
 
                 <div className={styles['item-grid-container']}>
                     {
                         data.map((item, index) => {
-                            return <QandAPostItem key={index} data={item.post} views={item.views} />
+                            return <QandAPostItem key={index} data={item.post} views={item.views} hearts={item.hearts} />
                         })
                     }
                 </div>

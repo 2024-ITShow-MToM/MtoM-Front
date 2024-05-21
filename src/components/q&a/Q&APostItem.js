@@ -5,7 +5,7 @@ import styles from '../../styles/q&a/Q&APostItem.module.css';
 import { GoHeart } from "react-icons/go";
 import { BsChat } from "react-icons/bs";
 
-function QandAPostItem({ data, views }) {
+function QandAPostItem({ data, views, hearts }) {
     let hashtag = data.hashtags.split("/")[0];
     let date = data.createdAt.slice(0, 10);
     return (
@@ -40,7 +40,7 @@ function QandAPostItem({ data, views }) {
                         </div>
                         <hr />
                         <div className={styles['iconDiv']}>
-                            <div className={styles['heart']}> <GoHeart /> <p>3</p> </div>
+                            <div className={styles['heart']}> <GoHeart /> <p>{hearts}</p> </div>
                             <div className={styles['comment']}> <BsChat /> <p>3</p> </div>
                         </div>
                     </div>
