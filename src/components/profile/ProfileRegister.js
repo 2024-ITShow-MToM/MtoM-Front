@@ -19,11 +19,10 @@ function ProfileRegister() {
         phonenumber: null,
         major: null,
         mbti: null,
-        subject: null,
-        skill_name: null,
-        skill_score: null,
+        skills: [],
         personal: null,
-        imogi: null
+        imogi: null,
+        mentoring_topics: null
     });
     const [uploadedImages, setUploadedImages] = useState('');
 
@@ -36,22 +35,41 @@ function ProfileRegister() {
             return;
         }
 
+        const birthCheck = /^\d{4}\d{2}\d{2}$/;
+        let birthday = null;
+        if (birthCheck.test(profileData.birthday)) {
+            birthday = profileData.birthday;
+        } else {
+            alert("생년월일 알맞게 작성해주세요.")
+            return;
+        }
+
+        const phonenumberCheck = /^\d{10,11}$/;
+        let phonenumber = null;
+        if (phonenumberCheck.test(profileData.phonenumber)) {
+            const formattedValue = profileData.phonenumber.replace(/(\d{3})(\d{4})(\d{4})/, '$1-$2-$3');
+            phonenumber = formattedValue;
+        } else {
+            alert("전화번호 형식에 알맞게 작성해주세요.");
+            return;
+        }
+
         try {
             const response = await axios.post(`${HOST}/api/users/profile/info`, {
                 userId: userId,
                 name: profileData.name,
                 student_id: parseInt(profileData.student_id),
-                birthday: profileData.birthday,
+                birthday: birthday,
                 gender: profileData.gender,
-                phonenumber: profileData.phonenumber,
+                phonenumber: phonenumber,
                 major: profileData.major,
                 mbti: profileData.mbti,
-                skill_name: profileData.skill_name,
-                skill_score: parseInt(profileData.skill_score),
+                skills: profileData.skills,
                 personal: profileData.personal,
-                imogi: profileData.imogi
+                imogi: profileData.imogi,
+                mentoring_topics: profileData.mentoring_topics
             });
-            if (response.status === 200) {
+            if (response.status === 201) {
                 console.log("프로필 등록 성공");
                 uploadedImage(userId, uploadedImages);
             } else {
