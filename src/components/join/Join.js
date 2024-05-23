@@ -44,7 +44,15 @@ function Join() {
                 console.error('회원가입 실패', response.status);
             }
         } catch(error) {
-            console.error('회원가입 서버 연결 실패:', error);
+            if (error.response.data.status === 400 && error.response.data.message === "이미 가입된 이메일 입니다" && error.response.data.code === "USER-ERROR-400") {
+                alert("이미 가입된 이메일입니다");
+            } else if (error.response.data.status === 400 && error.response.data.message === "이미 가입된 아이디 입니다" && error.response.data.code === "USER-ERROR-400") {
+                alert("이미 가입된 아이디 입니다");
+            } else if (error.response.data.status === 404 && error.response.data.message === "존재하지 않은 이메일 입니다" && error.response.data.code === "USER-ERROR-404") {
+                alert("존재하지 않은 이메일 입니다");
+            } else {
+                console.error('회원가입 서버 연결 실패:', error);
+            }
         }
     }
 
@@ -59,11 +67,11 @@ function Join() {
 
     const validatePassword = () => {
         if (userData.password !== userData.confirmPassword) {
-            setPasswordMismatch(true); // 비밀번호 불일치 설정
-            alert("비밀번호 불일치");
+            setPasswordMismatch(true);
+            alert("비밀번호가 일치하지 않습니다");
             return false;
         }
-        setPasswordMismatch(false); // 비밀번호 일치 설정
+        setPasswordMismatch(false);
         return true;
     };
 
