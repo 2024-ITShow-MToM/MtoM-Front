@@ -9,6 +9,7 @@ import ProfileAdvice from './ProfileAdvice';
 
 function ProfileInfo({ setProfileData }) {
     const [selectedMajor, setSelectedMajor] = useState('');
+    const [skills, setSkills] = useState([]);
     
     const handleChange = (e) => {
         const { id, value } = e.target;
@@ -21,20 +22,13 @@ function ProfileInfo({ setProfileData }) {
     const handleBirthday = (event) => {
         const inputValue = event.target.value;
         const value = inputValue.replace(/\D/g, '');
-        const check = /^\d{4}\d{2}\d{2}$/;
-        if (check.test(value)) {
-            handleChange({ target: { id: event.target.id, value: value } });
-        }
+        handleChange({ target: { id: event.target.id, value: value } });
     };
 
     const handlePhoneNumber = (event) => {
         const inputValue = event.target.value;
         const value = inputValue.replace(/\D/g, '');
-        const check = /^\d{10,11}$/;
-        if (check.test(value)) {
-            const formattedValue = value.replace(/(\d{3})(\d{4})(\d{4})/, '$1-$2-$3');
-            handleChange({ target: { id: event.target.id, value: formattedValue } });
-        }
+        handleChange({ target: { id: event.target.id, value: value } });
     };
 
 
@@ -112,10 +106,10 @@ function ProfileInfo({ setProfileData }) {
 
             <div className={styles['tag']}>
                 <div className={styles['title']}> <p>멘토링 주제</p> </div>
-                <input placeholder='태그입력' id='subject' onChange={handleChange} />
+                <input placeholder='태그입력' id='mentoring_topics' onChange={handleChange} />
             </div>
 
-            <ProfileSkill setProfileData={setProfileData} />
+            <ProfileSkill setProfileData={setProfileData} skills={skills} setSkills={setSkills} />
 
             <ProfileAdvice setProfileData={setProfileData} />
 

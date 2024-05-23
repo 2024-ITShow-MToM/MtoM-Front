@@ -7,16 +7,11 @@ import { FiPlus } from 'react-icons/fi';
 
 import ProgressBar from './ProgressBar';
 
-function ProfileSkill({ setProfileData }) {
-    const [skills, setSkills] = useState([{ skill_name: '', skill_score: 0 }]);
-
+function ProfileSkill({ setProfileData, setSkills, skills }) {
     useEffect(() => {
-        const skillNames = JSON.stringify(skills.map(skill => skill.skill_name));
-        const skillScores = JSON.stringify(skills.map(skill => skill.skill_score));
         setProfileData(prevData => ({
             ...prevData,
-            skill_name: skillNames,
-            skill_score: skillScores
+            skills: skills
         }));
     }, [skills, setProfileData]);
 
