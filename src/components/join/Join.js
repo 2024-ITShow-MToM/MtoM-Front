@@ -45,11 +45,11 @@ function Join() {
             }
         } catch(error) {
             if (error.response.data.status === 400 && error.response.data.message === "이미 가입된 이메일 입니다" && error.response.data.code === "USER-ERROR-400") {
-                alert("이미 가입된 이메일입니다");
+                alert(error.response.data.message);
             } else if (error.response.data.status === 400 && error.response.data.message === "이미 가입된 아이디 입니다" && error.response.data.code === "USER-ERROR-400") {
-                alert("이미 가입된 아이디 입니다");
+                alert(error.response.data.message);
             } else if (error.response.data.status === 404 && error.response.data.message === "존재하지 않은 이메일 입니다" && error.response.data.code === "USER-ERROR-404") {
-                alert("존재하지 않은 이메일 입니다");
+                alert(error.response.data.message);
             } else {
                 console.error('회원가입 서버 연결 실패:', error);
             }

@@ -37,9 +37,9 @@ function Login() {
             }
         } catch (error) {
             if (error.response.data.status === 404 && error.response.data.message === "가입되지 않은 아이디 입니다." && error.response.data.code === "USER-ERROR-404") {
-                alert("가입되지 않은 아이디 입니다.");
+                alert(error.response.data.message);
             } else if (error.response.data.status === 401 && error.response.data.message === "비밀번호가 일치하지 않습니다" && error.response.data.code === "USER-ERROR-401") {
-                alert("비밀번호가 일치하지 않습니다")
+                alert(error.response.data.message);
             } else {
                 console.error('로그인 서버 연결 실패:', error);
             }
