@@ -3,7 +3,7 @@ import styles from '../../../styles/q&a/question/CommentList.module.css';
 
 import CommentItem from './CommentItem';
 
-function CommentList({ data }) {
+function CommentList({ data, onCommentAdded }) {
     if (!data) {
         return;
     }
@@ -13,7 +13,7 @@ function CommentList({ data }) {
             <div className={styles['container']}>
                 {
                     data.map((item, index) => {
-                        return <CommentItem key={index} data={item} />
+                        return <CommentItem key={index} data={item} onCommentAdded={onCommentAdded} />
                     })
                 }
             </div>

@@ -50,7 +50,7 @@ function QandAQuestion() {
 
                 <div className={styles['questionContainer']}> <Question data={data} postId={id} onCommentAdded={reloadComments} /> </div>
 
-                <div className={styles['commentContainer']}> <CommentList data={data.comments} /> </div>
+                <div className={styles['commentContainer']}> <CommentList data={data.comments} onCommentAdded={reloadComments} /> </div>
                 <div className={styles['inputContainer']}> <SendInput postId={id} onCommentAdded={reloadComments} /> </div>
             </div>
         </>
