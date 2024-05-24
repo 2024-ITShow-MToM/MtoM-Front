@@ -1,3 +1,5 @@
+import { Link } from 'react-router-dom';
+
 import '../../styles/common/Style.css';
 import styles from '../../styles/mento/MentoRegister.module.css';
 
@@ -15,11 +17,13 @@ function MentoRegister() {
 
                 <div className={styles['info']}>
                     <MentoInfo />
-                    <MyProfile percent='40' />
+                    <MyProfile />
                 </div>
-                <div className={styles['button']}>
-                    <button>멘토멘티 신청</button>
-                </div>
+                <Link to='/matchingApplication'>
+                    <div className={styles['button']}>
+                        <button>멘토멘티 신청</button>
+                    </div>
+                </Link>
             </div>
         </>
     )
