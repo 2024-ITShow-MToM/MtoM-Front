@@ -9,7 +9,7 @@ import styles from '../../../styles/q&a/question/CommentItem.module.css';
 import { GoHeart } from 'react-icons/go';
 import { GoHeartFill } from 'react-icons/go';
 
-function CommentItem({ data }) {
+function CommentItem({ data, onCommentAdded }) {
     const [clicked, setClicked] = useState(false);
     const userId = localStorage.getItem("userId");
 
@@ -28,11 +28,13 @@ function CommentItem({ data }) {
             if (request.status === 200) {
                 console.log("댓글 하트 누르기 성공");
                 setClicked(true);
+                onCommentAdded();
             } else {
                 console.log("댓글 하트 누르기 실패", request.status);
             }
         } catch(error) {
             console.log("서버 연결 실패", error);
+            onCommentAdded();
         }
     }
 
