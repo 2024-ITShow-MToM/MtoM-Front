@@ -27,6 +27,7 @@ import MatchingMajor from './pages/MatchingMajor'
 import MatchingAdvice from './pages/MatchingAdvice'
 import MatchingMento from './pages/MatchingMento'
 import MatchingEnd from './pages/MatchingEnd'
+import MatchingApplication from './pages/MatchingApplication'
 
 import MentoRegister from './pages/MentoRegister';
 
@@ -65,6 +66,7 @@ function App() {
               <Route path='/matchingAdvice' element={<MatchingAdvice />}/>
               <Route path='/matchingMento' element={<MatchingMento />}/>
               <Route path='/matchingEnd' element={<MatchingEnd />}/>
+              <Route path='/matchingApplication' element={<MatchingApplication />}/>
 
               <Route path='/mypage' element={<My />} />
               <Route path='/profile/edit' element={<MyProfileEdit />} />
