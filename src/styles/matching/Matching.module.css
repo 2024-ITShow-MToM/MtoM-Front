@@ -1,0 +1,76 @@
+.matching-container{
+    padding: 0 5%;
+}
+.info-container{
+    display: flex;
+    flex-direction: column;
+    row-gap: 5vw;
+    margin-top: 8vw;
+}
+.field-container{
+    display: flex;
+    justify-content: space-between;
+}
+.major-container{
+    margin-top: 40vw;
+}
+.application-input{
+    margin-top: 4vw;
+    width: 88%;
+    height: 40vh;
+    border: 1px solid var(--font-7);
+    border-radius: 8px;
+    outline: none;
+    resize: none;
+    padding: 5vw;
+}
+
+.mento-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(54%, 1fr));
+    grid-gap: 10px;
+}
+
+.mento-item {
+    width: 62%;
+}
+
+.mento-item:first-child {
+    position: absolute;
+    right: 39vw;
+    top: 20vw;
+}
+
+.mento-item:nth-child(2) {
+    position: absolute;
+    right: -7vw;
+    top: 51vw;
+}
+
+.mento-item:nth-child(3) {   
+    position: absolute;
+    left: 2vw;
+    top: 96vw;
+}
+
+.matching-box{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto;
+    margin-top: 50vw;
+}
+.matching-box div{
+    width: 60%;
+}
+.line-style{
+    position: absolute;
+    width: 30vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-style: dashed;
+    border-width:1px 0 0 0;
+    z-index: -1;
+    color: var(--strong-color);
+}

@@ -1,0 +1,44 @@
+.advice-box{
+    padding: 8px 10px;
+    background-color: var(--gray-2);
+    width: fit-content;
+    border-radius: 15px;
+    font-size: 0.93rem;
+    position: absolute;
+    border: 1px solid var(--gray-2);
+}
+.selected{
+    background-color: rgb(0, 102, 255, 0.3);
+    border: 1px solid var(--strong-color);
+}
+.advice-box:first-child{
+    top: 10vw;
+}
+.advice-box:nth-child(2){
+    top: 10vw;
+    right: 0;
+}
+.advice-box:nth-child(3){
+    left: 0;
+    top: 23vw;
+}
+.advice-box:nth-child(4){
+    left: 13vw;
+    top: 36vw;
+}
+.advice-box:nth-child(5){
+    left: 3vw;
+    top: 49vw;
+}
+.advice-box:nth-child(6){
+    left: 18vw;
+    top: 62vw;
+}
+.advice-box:nth-child(7){
+    left: 3vw;
+    top: 75vw;
+}
+.advice-box:nth-child(8){
+    left: 40vw;
+    top: 88vw;
+}

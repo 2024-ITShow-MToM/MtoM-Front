@@ -1,0 +1,15 @@
+.text-container{
+    display: flex;
+    flex-direction: column;
+    margin-top: 13%;
+    row-gap: 8px;
+}
+.main-text{
+    font-size: 1.5rem;
+    font-weight: var(--SemiBold);
+}
+.sub-text{
+    color: var(--gray-4);
+    font-weight: 200;
+    font-size: 0.95rem;
+}

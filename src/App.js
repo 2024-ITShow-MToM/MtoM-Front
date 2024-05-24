@@ -5,6 +5,8 @@ import Splash from './pages/Splash';
 import Login from './pages/Login';
 import Join from './pages/Join';
 
+import Home from './pages/Home';
+
 import ProfileRegister from './pages/ProfileRegister';
 
 import QandA from './pages/Q&A';
@@ -19,6 +21,13 @@ import ProjectRegister from './pages/ProjectRegister';
 import RecruitmentPeriod from './pages/RecruitmentPeriod';
 import WorkPeriod from './pages/WorkPeriod';
 
+import MatchingInfo from './pages/MatchingInfo'
+import MatchingField from './pages/MatchingField'
+import MatchingMajor from './pages/MatchingMajor'
+import MatchingAdvice from './pages/MatchingAdvice'
+import MatchingMento from './pages/MatchingMento'
+import MatchingEnd from './pages/MatchingEnd'
+
 import MentoRegister from './pages/MentoRegister';
 
 import My from './pages/My';
@@ -31,6 +40,8 @@ function App() {
               <Route path="/" element={<Splash />}/>
               <Route path="/signin" element={<Login />}/>
               <Route path="/signup" element={<Join />}/>
+
+              <Route path="/home" element={<Home />}/>
 
               <Route path='/profile/register' element={<ProfileRegister />} />
               
@@ -47,6 +58,13 @@ function App() {
               <Route path='/project/work-period' element={<WorkPeriod />} />
 
               <Route path='/mento/register' element={<MentoRegister />}/>
+
+              <Route path='/matchingInfo' element={<MatchingInfo />}/>
+              <Route path='/matchingField' element={<MatchingField />}/>
+              <Route path='/matchingMajor' element={<MatchingMajor />}/>
+              <Route path='/matchingAdvice' element={<MatchingAdvice />}/>
+              <Route path='/matchingMento' element={<MatchingMento />}/>
+              <Route path='/matchingEnd' element={<MatchingEnd />}/>
 
               <Route path='/mypage' element={<My />} />
               <Route path='/profile/edit' element={<MyProfileEdit />} />

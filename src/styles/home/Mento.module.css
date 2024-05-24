@@ -1,0 +1,51 @@
+.mento-container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.profile-img{
+    width: 18vw;
+    height: 18vw;
+    border-radius: 100%;
+    position: absolute;
+    top: -38px;
+    box-shadow: 1px 4px 5px 0px #00000017;
+    z-index: 1;
+}
+.info-container{
+    display: flex;
+    flex-direction: column;
+    width: 25vw;
+    padding: 40px 8% 8% 8%;
+    text-align: center;
+    align-items: center;
+    row-gap: 2vw;
+    box-shadow: 1px 0px 10px 0px #0066ff1f;
+    border-radius: 12px;
+    background-color: white;
+}
+.major{
+    font-size: 0.6rem;
+}
+.name{
+    font-size: 1rem;
+    font-weight: var(--SemiBold);
+}
+.hashTag{
+    font-size: 0.6rem;
+    color: var(--strong-color);
+}
+.info-text{
+    font-size: 0.6rem;
+    color: var(--font-6);
+}
+.first-info-container{
+    display: flex;
+    flex-direction: column;
+    width: 25vw;
+    padding: 40px 8% 8% 8%;
+    text-align: center;
+    row-gap: 2vw;
+    box-shadow: 1px 0px 15px 0px #0066ff3d;
+    border-radius: 12px;
+}

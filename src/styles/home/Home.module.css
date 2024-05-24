@@ -1,0 +1,38 @@
+.home-img{
+    width: 100%;
+    margin: 32vw 0 6% 0;
+
+}
+.home-container{
+    padding: 0 5%;
+}
+.ment{
+    /* margin-top: 6%; */
+    font-size: 1.4rem;
+    font-weight: var(--Bold);
+}
+.mento-container{
+    display: flex;
+    flex-direction: column;
+    margin-top: 10px;
+    row-gap: 16px;
+}
+.mento-box{
+    display:flex;
+    justify-content:space-between;
+    margin-top:10vw;
+}
+.interview-text{
+    font-family: var(--Modak);
+    font-size: 1.5rem;
+    color: var(--strong-color);
+}
+.interview-container{
+    margin-top: 6vw;
+    margin-bottom: 30vw;
+}
+.interview-box{
+    display:flex;
+    justify-content:space-between;
+    margin-top:3vw;
+}

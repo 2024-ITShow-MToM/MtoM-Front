@@ -1,0 +1,27 @@
+.buttonContainer {
+    display: flex;
+    column-gap: 8px;
+}
+.buttonContainer > button {
+    height: 3.5vh;
+    padding-left: 3%;
+    padding-right: 3%;
+
+    border-width: 1.5px;
+    border-style: solid;
+    border-radius: 8px;
+
+    font-family: var(--pretendard-font);
+    font-weight: var(--Medium);
+    font-size: 0.8rem;
+}
+.defaultButton {
+    background-color: white;
+    color: var(--sub-color);
+    border-color: var(--sub-color);
+}
+.selectButton {
+    background-color: var(--main-color);
+    color: white;
+    border-color: var(--main-color);
+}
