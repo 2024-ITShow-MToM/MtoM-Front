@@ -1,0 +1,8 @@
+.skeep{
+    position: fixed;
+    bottom: 29vw;
+    text-align: center;
+    width: 89%;
+    font-size: 0.9rem;
+    color: var(--strong-color);
+}

@@ -7,6 +7,9 @@
 /* SF Pro 폰트 */
 @import url('https://cdn.jsdelivr.net/npm/sf-font@1.0.0/stylesheet.min.css');
 
+/* Modak 폰트 */
+@import url('https://fonts.googleapis.com/css2?family=Modak&display=swap');
+
 :root {
     --main-color: #1D1D1D;
     --sub-color: #FF6524;
@@ -22,10 +25,13 @@
     --font-3: #595959;
     --font-4: #7F7F7F;
     --font-5 : #C9C9C9;
+    --font-6 : #8D8D8D;
+    --font-7 : #D2D9E0;
 
     --pretendard-font: 'Pretendard';
     --noto-sans-kr: 'Noto Sans KR';
     --SF-Pro: 'SF Pro Display';
+    --Modak: "Modak";
     
     --Regular: 400;
     --Medium: 500;
@@ -36,6 +42,7 @@
 * {
     position: relative;
     margin: 0;
+    font-family: 'Pretendard';
 }
 
 Link {
