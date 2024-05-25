@@ -6,7 +6,7 @@ import { GoHeart } from "react-icons/go";
 import { BsChat } from "react-icons/bs";
 
 function QandAPostItem({ data, views, hearts }) {
-    let hashtag = data.hashtags.split("/")[0];
+    let hashtag = data.hashtags ? data.hashtags.split("/")[0] : "";
     let date = data.createdAt.slice(0, 10);
     return (
         <>

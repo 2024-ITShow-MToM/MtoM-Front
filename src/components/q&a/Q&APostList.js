@@ -26,10 +26,15 @@ function QandAPostList() {
         fetchData();
     }, []);
 
+    // 데이터 정렬
+    const handleSort = (sortedData) => {
+        setData(sortedData);
+    };
+
     return (
         <>
             <div className={styles['container']}>
-                <DataSort setSortData={setData} />
+                <DataSort handleSort={handleSort} />
 
                 <div className={styles['item-grid-container']}>
                     {
