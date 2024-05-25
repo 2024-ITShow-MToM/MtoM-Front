@@ -1,11 +1,11 @@
 import React, { useState } from 'react';
 
-import '../../styles/common/Style.css';
-import styles from '../../styles/profile/ProfileImage.module.css';
+import '../../../../styles/common/Style.css';
+import styles from '../../../../styles/my/profile/edit/MyProfileImage.module.css';
 
 import { FiCamera } from "react-icons/fi";
 
-function ProfileImage({ setUploadedImages }) {
+function MyProfileImage({ setUploadedImages }) {
     const [selectedImage, setSelectedImage] = useState(null);
 
     const handleImageUpload = () => {
@@ -50,4 +50,4 @@ function ProfileImage({ setUploadedImages }) {
     )
 }
 
-export default ProfileImage;
+export default MyProfileImage;

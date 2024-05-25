@@ -1,17 +1,15 @@
 .container {
     width: 42vw;
-    height: 26vh;
+    height: 210px;
     display: flex;
     flex-direction: column;
     border-radius: 20px;
     margin-top: 3%;
     background-color: white;
-    padding: 2%;
     box-shadow: 0px 0px 20px var(--gray-2);
 }
 
 .imgDiv {
-    width: 150px;
     height: 90px;
 }
 .imgDiv img {
@@ -24,7 +22,7 @@
 .info {
     display: flex;
     flex-direction: column;
-    padding: 3%;
+    padding: 3% 6%;
     row-gap: 10px;
 }
 .info > hr {
@@ -41,8 +39,6 @@
 .hotTop {
     display: flex;
     justify-content: space-between;
-
-    font-family: var(--pretendard-font);
     font-weight: var(--Regular);
 }
 .hotTop > p:nth-child(1) {
@@ -57,8 +53,6 @@
 .top {
     display: flex;
     justify-content: flex-end;
-
-    font-family: var(--pretendard-font);
     font-weight: var(--Regular);
 }
 .top > p {
@@ -67,11 +61,16 @@
 }
 
 .middle {
-    width: 80%;
+    width: 100%;
 }
 .middle > .title {
-    font-family: var(--pretendard-font);
+    width: 100%;
     font-weight: var(--SemiBold);
+}
+.middle > .title > p {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
 }
 
 .bottom {
@@ -80,7 +79,6 @@
     align-items: flex-end;
 }
 .bottom > p {
-    font-family: var(--pretendard-font);
     font-weight: var(--Regular);
     font-size: 0.8rem;
     color: #C9C8C8;
@@ -94,7 +92,6 @@
     border-radius: 5px;
 }
 .tag > p {
-    font-family: var(--pretendard-font);
     font-weight: var(--Medium);
     font-size: 0.7rem;
     color: var(--sub-color);
@@ -105,8 +102,6 @@
     column-gap: 10px;
     justify-content: flex-end;
     align-items: center;
-
-    font-family: var(--pretendard-font);
     font-weight: var(--Regular);
     font-size: 0.8rem;
 }

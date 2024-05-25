@@ -1,13 +1,17 @@
 import '../../../styles/common/Style.css';
 import styles from '../../../styles/my/profile/MyProfile.module.css';
 
-function MyProfile({ percent }) {
+function MyProfile({ data }) {
     const progressBarStyle = {
-        width: `${percent}%`,
+        width: `60%`,
         height: '8px',
         backgroundColor: '#FF6524',
         borderRadius: '0px 10px 10px 0px'
     };
+
+    const mbti = data.mbti ? data.mbti.toUpperCase() : '';
+    const emoji = data.imogi ? data.imogi.split(",") : [];
+    const personal = data.personal ? data.personal.split(",") : [];
 
     return (
         <>
@@ -16,7 +20,7 @@ function MyProfile({ percent }) {
                 <div className={styles['info']}>
                     <div className={styles['mbti']}>
                         <p>MBTI</p>
-                        <p>ISTP</p>
+                        <p>{mbti}</p>
                     </div>
 
                     <div className={styles['mento']}>
@@ -39,18 +43,30 @@ function MyProfile({ percent }) {
                     <div className={styles['advice']}>
                         <p>조언 성향</p>
                         <div className={styles['adviceList']}>
-                            <div className={styles['adviceItem']}>
-                                <p>현실적으로 조언 해주는 🤔</p>
-                            </div>
+                            {
+                                personal.map((item, index) => {
+                                    return (
+                                        <div className={styles['adviceItem']} key={index}>
+                                            <p>{item}</p>
+                                        </div>
+                                    )
+                                })
+                            }
                         </div>
                     </div>
 
                     <div className={styles['emoji']}>
                         <p>이모지 자기소개</p>
                         <div className={styles['emojiList']}>
-                            <div>
-                                <p>🤔</p>
-                            </div>
+                            {
+                                emoji.map((item, index) => {
+                                    return (
+                                        <div key={index}>
+                                            <p>{item}</p>
+                                        </div>
+                                    );
+                                })
+                            }
                         </div>
                     </div>
                 </div>

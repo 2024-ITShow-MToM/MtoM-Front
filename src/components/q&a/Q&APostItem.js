@@ -15,23 +15,11 @@ function QandAPostItem({ data, views, hearts }) {
                     <div className={styles['imgDiv']}> <img src={data.img} /> </div>
                     <div className={styles['info']}>
                         <div className={styles['topDiv']}>
-                            {
-                                views >= 100 ?
-                                <>
-                                    <div className={styles['hotTop']}>
-                                        <p>🔥HOT</p>
-                                        <p>{date}</p>
-                                    </div>
-                                </>
-                                :
-                                <>
-                                    <div className={styles['top']}>
-                                        <p>{date}</p>
-                                    </div>
-                                </>
-                            }
+                            <div className={styles['top']}>
+                                <p>{date}</p>
+                            </div>
                             <div className={styles['middle']}>
-                                <div className={styles['title']}> <p>{data.title.length > 8 ? `${data.title.slice(0, 8)}...` : data.title}</p> </div>
+                                <div className={styles['title']}> <p>{data.title}</p> </div>
                             </div>
                             <div className={styles['bottom']}>
                                 <div className={styles['tag']}> <p>{hashtag}</p> </div>

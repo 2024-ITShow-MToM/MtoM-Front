@@ -1,15 +1,15 @@
-import React, { useState } from 'react';
-import { HOST } from '../../../config/Config';
+import React, { useEffect, useState } from 'react';
+import { HOST } from '../../../../config/Config';
 import axios from 'axios';
 
-import '../../../styles/common/Style.css';
-import styles from '../../../styles/profile/ProfileRegister.module.css';
+import '../../../../styles/common/Style.css';
+import styles from '../../../../styles/my/profile/edit/MyProfileEdit.module.css';
 
-import Header from '../../common/Header';
-import ProfileImage from '../../profile/ProfileImage';
-import ProfileInfo from '../../profile/ProfileInfo';
+import Header from '../../../common/Header';
+import MyProfileImage from './MyProfileImage';
+import MyProfileInfo from './MyProfileInfo';
 
-function ProfileRegister() {
+function MyProfileEdit() {
     const userId = localStorage.getItem("userId"); // userId는 회원가입했을 때 아이디
     const [profileData, setProfileData] = useState({
         name: null,
@@ -19,13 +19,34 @@ function ProfileRegister() {
         phonenumber: null,
         major: null,
         mbti: null,
-        subject: null,
-        skill_name: null,
-        skill_score: null,
+        skills: [],
         personal: null,
-        imogi: null
+        imogi: null,
+        mentoring_topics: null
     });
     const [uploadedImages, setUploadedImages] = useState('');
+
+    useEffect(() => {
+        async function fetchData() {
+            try {
+                const response = await axios.get(`${HOST}/api/users`, {
+                    params: {
+                        userId: userId
+                    }
+                });
+                if (response.status === 200) {
+                    console.log("회원 정보 불러오기 성공");
+                    setProfileData(response.data);
+                } else {
+                    console.log("회원 정보 불러오기 실패", response.status);
+                }
+            } catch(error) {
+                console.log("서버 연결 실패", error);
+            }
+        }
+        fetchData();
+    }, [userId]);
+    
 
     // 프로필 등록 서버 연결
     const save = async (e) => {
@@ -36,26 +57,45 @@ function ProfileRegister() {
             return;
         }
 
+        const birthCheck = /^\d{4}\d{2}\d{2}$/;
+        let birthday = null;
+        if (birthCheck.test(profileData.birthday)) {
+            birthday = profileData.birthday;
+        } else {
+            alert("생년월일 알맞게 작성해주세요.")
+            return;
+        }
+
+        const phonenumberCheck = /^\d{10,11}$/;
+        let phonenumber = null;
+        if (phonenumberCheck.test(profileData.phonenumber)) {
+            const formattedValue = profileData.phonenumber.replace(/(\d{3})(\d{4})(\d{4})/, '$1-$2-$3');
+            phonenumber = formattedValue;
+        } else {
+            alert("전화번호 형식에 알맞게 작성해주세요.");
+            return;
+        }
+
         try {
             const response = await axios.post(`${HOST}/api/users/profile/info`, {
                 userId: userId,
                 name: profileData.name,
                 student_id: parseInt(profileData.student_id),
-                birthday: profileData.birthday,
+                birthday: birthday,
                 gender: profileData.gender,
-                phonenumber: profileData.phonenumber,
+                phonenumber: phonenumber,
                 major: profileData.major,
                 mbti: profileData.mbti,
-                skill_name: profileData.skill_name,
-                skill_score: parseInt(profileData.skill_score),
+                skills: profileData.skills,
                 personal: profileData.personal,
-                imogi: profileData.imogi
+                imogi: profileData.imogi,
+                mentoring_topics: profileData.mentoring_topics
             });
             if (response.status === 200) {
-                console.log("프로필 등록 성공");
+                console.log("프로필 다시 등록 성공");
                 uploadedImage(userId, uploadedImages);
             } else {
-                console.log("프로필 등록 실패", response.status);
+                console.log("프로필 다시 등록 실패", response.status);
             }
         } catch(error) {
             console.log("서버 연결 실패", error);
@@ -70,8 +110,11 @@ function ProfileRegister() {
                     'Content-Type': 'multipart/form-data',
                 }
             });
-            
-            console.log("이미지 업로드 성공", response.data);
+            if (response.status === 200) {
+                console.log("이미지 다시 업로드 성공");
+            } else {
+                console.log("이미지 다시 업로드 실패", response.status);
+            }
         } catch (error) {
             console.error("이미지 업로드 요청 실패 : ", error);
         }
@@ -80,11 +123,11 @@ function ProfileRegister() {
     return (
         <>
             <div className={styles['allContainer']}>
-                <Header text={('프로필 등록')}/>
+                <Header text={('프로필 편집')}/>
                 <div className={styles['container']}>
                     <div className={styles['register']}>
                         <div className={styles['imgDiv']}>
-                            <ProfileImage 
+                            <MyProfileImage
                                 setUploadedImages={setUploadedImages}
                             />
                         </div>
@@ -94,8 +137,9 @@ function ProfileRegister() {
                     </div>
 
                     <div className={styles['info']}>
-                        <ProfileInfo 
+                        <MyProfileInfo
                             setProfileData={setProfileData}
+                            profileData={profileData}
                         />
 
                         <div className={styles['button']}>
@@ -109,4 +153,4 @@ function ProfileRegister() {
     )
 }
 
-export default ProfileRegister;
+export default MyProfileEdit;

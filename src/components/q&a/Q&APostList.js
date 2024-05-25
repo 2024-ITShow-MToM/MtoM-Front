@@ -27,7 +27,6 @@ function QandAPostList() {
         fetchData();
     }, []);
 
-
     return (
         <>
             <div className={styles['container']}>

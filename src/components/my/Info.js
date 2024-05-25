@@ -1,12 +1,12 @@
 import '../../styles/common/Style.css';
 import styles from '../../styles/my/Info.module.css';
 
-function Info() {
+function Info({ name, studentId, profileImg }) {
     return (
         <>
             <div className={styles['container']}>
-                <div className={styles['imgDiv']}> <img src='/images/example.png' /> </div>
-                <p>3400 김미림</p>
+                <div className={styles['imgDiv']}> <img src={`${profileImg}`} /> </div>
+                <p>{studentId} {name}</p>
             </div>
         </>
     )

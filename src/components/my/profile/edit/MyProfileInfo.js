@@ -1,15 +1,15 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 
-import '../../styles/common/Style.css';
-import styles from '../../styles/profile/ProfileInfo.module.css'
+import '../../../../styles/common/Style.css';
+import styles from '../../../../styles/my/profile/edit/MyProfileInfo.module.css';
 
-import ProfileSkill from './ProfileSkill';
-import ProfileEmoji from './ProfileEmoji';
-import ProfileAdvice from './ProfileAdvice';
+import MyProfileSkill from './MyProfileSkill';
+import MyProfileEmoji from './MyProfileEmoji';
+import MyProfileAdvice from './MyProfileAdvice';
 
-function ProfileInfo({ setProfileData }) {
-    const [selectedMajor, setSelectedMajor] = useState('');
-    const [skills, setSkills] = useState([]);
+function MyProfileInfo({ setProfileData, profileData }) {
+    const [selectedMajor, setSelectedMajor] = useState(profileData.major || '');
+    const [skills, setSkills] = useState(profileData.skills || []);
     const [selectedGender, setSelectedGender] = useState('');
     
     const handleChange = (e) => {
@@ -32,6 +32,9 @@ function ProfileInfo({ setProfileData }) {
         handleChange({ target: { id: event.target.id, value: value } });
     };
 
+    useEffect(() => {
+        setSelectedMajor(profileData.major || '');
+    }, [profileData.major]);
 
     const majors = ['소프트웨어과', '디자인과', '웹 솔루션과'];
     const handleMajor = (major) => {
@@ -42,17 +45,21 @@ function ProfileInfo({ setProfileData }) {
         }));
     };
 
+    useEffect(() => {
+        setSelectedGender(profileData.gender || '');
+    }, [profileData.gender]);
+
     return (
         <>
             <div className={styles['nameDiv']}>
                 <div className={styles['name']}>
                     <div className={styles['nameTitle']}> <p>이름</p> </div>
-                    <input id='name' type='text' onChange={handleChange} />
+                    <input id='name' type='text' value={profileData.name || ''} onChange={handleChange} />
                 </div>
 
                 <div className={styles['studentId']}>
                     <div className={styles['studentIdTitle']}> <p>학번</p> </div>
-                    <input id='student_id' type='text' onChange={handleChange}/>
+                    <input id='student_id' type='text' value={profileData.student_id || ''} onChange={handleChange}/>
                 </div>
             </div>
 
@@ -60,7 +67,7 @@ function ProfileInfo({ setProfileData }) {
             <div className={styles['birthDiv']}>
                 <div className={styles['title']}> <p>생년월일</p> </div>
                 <div className={styles['birthInput']}>
-                    <input id='birthday' type='text' placeholder='예) 20060101' onChange={handleBirthday} />
+                    <input id='birthday' type='text' value={profileData.birthday || ''} placeholder='예) 20060101' onChange={handleBirthday} />
                 </div>
             </div>
 
@@ -69,29 +76,41 @@ function ProfileInfo({ setProfileData }) {
                 <div className={styles['radioDiv']}>
                     <div className={styles['radioButton']}>
                         <input 
-                            id='gender'
-                            type='radio'
-                            name='radioButton'
-                            value='여자'
+                            id='female' 
+                            type='radio' 
+                            name='gender' 
+                            value='여자' 
+                            checked={selectedGender === '여자'} 
                             onChange={(e) => { 
                                 setSelectedGender('여자'); 
                                 handleChange(e); 
                             }} 
                         />
-                        <label className={`${styles['label']} ${selectedGender === '여자' ? styles['selectedLabel'] : ''}`}>여자</label>
+                        <label 
+                            className={`${styles['label']} ${selectedGender === '여자' ? styles['selectedLabel'] : ''}`}
+                            htmlFor='female'
+                        >
+                            여자
+                        </label>
                     </div>
                     <div className={styles['radioButton']}>
                         <input 
-                            id='gender'
-                            type='radio'
-                            name='radioButton'
-                            value='남자'
+                            id='male' 
+                            type='radio' 
+                            name='gender' 
+                            value='남자' 
+                            checked={selectedGender === '남자'}
                             onChange={(e) => { 
                                 setSelectedGender('남자'); 
                                 handleChange(e); 
                             }} 
                         />
-                        <label className={`${styles['label']} ${selectedGender === '남자' ? styles['selectedLabel'] : ''}`}>남자</label>
+                        <label 
+                            className={`${styles['label']} ${selectedGender === '남자' ? styles['selectedLabel'] : ''}`}
+                            htmlFor='male'
+                        >
+                            남자
+                        </label>
                     </div>
                 </div>
             </div>
@@ -99,7 +118,7 @@ function ProfileInfo({ setProfileData }) {
             <div className={styles['phoneDiv']}>
                 <div className={styles['title']}> <p>연락처</p> </div>
                 <div className={styles['phoneInput']}>
-                    <input id='phonenumber' type='text' onChange={handlePhoneNumber} />
+                    <input id='phonenumber' value={profileData.phonenumber || ''} type='text' onChange={handlePhoneNumber} />
                 </div>
             </div>
 
@@ -120,21 +139,21 @@ function ProfileInfo({ setProfileData }) {
 
             <div className={styles['mbti']}>
                 <div className={styles['title']}> <p>MBTI</p> </div>
-                <input placeholder='MBTI 입력' id='mbti' onChange={handleChange} />
+                <input placeholder='MBTI 입력' value={profileData.mbti || ''} id='mbti' onChange={handleChange} />
             </div>
 
             <div className={styles['tag']}>
                 <div className={styles['title']}> <p>멘토링 주제</p> </div>
-                <input placeholder='태그입력' id='mentoring_topics' onChange={handleChange} />
+                <input placeholder='태그입력' value={profileData.personal || ''} id='mentoring_topics' onChange={handleChange} />
             </div>
 
-            <ProfileSkill setProfileData={setProfileData} skills={skills} setSkills={setSkills} />
+            <MyProfileSkill setProfileData={setProfileData} profileData={profileData} skills={skills} setSkills={setSkills} />
 
-            <ProfileAdvice setProfileData={setProfileData} />
+            <MyProfileAdvice setProfileData={setProfileData} profileData={profileData} />
 
-            <ProfileEmoji setProfileData={setProfileData} />
+            <MyProfileEmoji setProfileData={setProfileData} profileData={profileData} />
         </>
     )
 }
 
-export default ProfileInfo;
+export default MyProfileInfo;
