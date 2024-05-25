@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import { HOST } from '../../config/Config';
 
 import '../../styles/common/Style.css';
 import styles from '../../styles/q&a/Q&AChooseItem.module.css';
@@ -23,7 +22,7 @@ function QandAChooseItem({ onePercentage, twoPercentage, data }) {
     // 양자택일 투표 서버 연결
     async function optionData(clickedOption) {
         try {
-            const request = await axios.post(`${HOST}/api/selects/${postId}/option${clickedOption}?userId=${userId}`);
+            const request = await axios.post(`${process.env.REACT_APP_HOST}/api/selects/${postId}/option${clickedOption}?userId=${userId}`);
             if (request.status === 200) {
                 console.log(`option${clickedOption} 선택`);
             } else {

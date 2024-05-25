@@ -1,6 +1,4 @@
 import React, { useState, useEffect } from 'react';
-import { useParams } from 'react-router-dom';
-import { HOST } from '../../../config/Config';
 import axios from 'axios';
 
 import '../../../styles/common/Style.css';
@@ -24,7 +22,7 @@ function CommentItem({ data, onCommentAdded }) {
     const heartClick = async (e) => {
         e.preventDefault();
         try {
-            const request = await axios.post(`${HOST}/api/posts/comments/${data.commentId}/heart?userId=${userId}`);
+            const request = await axios.post(`${process.env.REACT_APP_HOST}/api/posts/comments/${data.commentId}/heart?userId=${userId}`);
             if (request.status === 200) {
                 console.log("댓글 하트 누르기 성공");
                 setClicked(true);

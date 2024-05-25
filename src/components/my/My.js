@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
-import { HOST } from '../../config/Config';
 import axios from 'axios';
 
 import '../../styles/common/Style.css';
@@ -26,7 +25,7 @@ function My() {
         async function fetData() {
             // 회원 정보 서버
             try {
-                const response = await axios.get(`${HOST}/api/users`, {
+                const response = await axios.get(`${process.env.REACT_APP_HOST}/api/users`, {
                     params: {
                         userId: userId
                     }
@@ -36,7 +35,7 @@ function My() {
                     setData(response.data);
                     // 회원 이미지 서버
                     try {
-                        const imgResponse = await axios.get(`${HOST}/api/users/profile/img`, {
+                        const imgResponse = await axios.get(`${process.env.REACT_APP_HOST}/api/users/profile/img`, {
                             params: {
                                 userId: userId
                             }

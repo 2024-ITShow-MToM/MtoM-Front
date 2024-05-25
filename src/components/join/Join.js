@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import axios from 'axios';
-import { HOST } from '../../config/Config';
 import { useNavigate } from "react-router-dom";
 
 import '../../styles/common/Style.css';
@@ -32,7 +31,7 @@ function Join() {
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
-            const response = await axios.post(`${HOST}/api/users`, {
+            const response = await axios.post(`${process.env.REACT_APP_HOST}/api/users`, {
                 id: userData.user_id,
                 password: userData.password,
                 email: userData.email,

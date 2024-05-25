@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
-import { HOST } from '../../config/Config';
 import axios from 'axios';
 
 import '../../styles/common/Style.css';
@@ -23,7 +22,7 @@ function Login() {
     const handleLogin = async (e) => {
         e.preventDefault();
         try {
-            const response = await axios.post(`${HOST}/api/users/login`, {
+            const response = await axios.post(`${process.env.REACT_APP_HOST}/api/users/login`, {
                 id: id,
                 password: password
             });
@@ -31,7 +30,7 @@ function Login() {
             if (response.status === 200) {
                 console.log('로그인 성공');
                 localStorage.setItem("userId", id);
-                navigate('/q&a');
+                navigate('/home');
             } else {
                 console.error('로그인 실패', response.status);
             }

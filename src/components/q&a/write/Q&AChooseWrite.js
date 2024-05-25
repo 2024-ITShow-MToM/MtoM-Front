@@ -1,6 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { HOST } from '../../../config/Config';
 import axios from 'axios';
 
 import '../../../styles/common/Style.css';
@@ -46,7 +45,7 @@ function QandAChooseWrite() {
     const register = async (e) => {
         e.preventDefault();
         try {
-            const request = await axios.post(`${HOST}/api/selects`, 
+            const request = await axios.post(`${process.env.REACT_APP_HOST}/api/selects`, 
                 {
                     userId: userId,
                     title: chooseData.title,

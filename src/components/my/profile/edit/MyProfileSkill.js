@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect } from 'react';
 
 import '../../../../styles/common/Style.css';
 import styles from '../../../../styles/my/profile/edit/MyProfileSkill.module.css';
