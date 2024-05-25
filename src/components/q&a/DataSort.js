@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import { HOST } from '../../config/Config';
 
 import '../../styles/common/Style.css';
 import styles from '../../styles/q&a/DataSort.module.css';
@@ -11,7 +10,7 @@ function DataSort({ setSortData }) {
     const handleSortClick = async (sortType) => {
         setSelectedSort(sortType);
         try {
-            const response = await axios.get(`${HOST}/api/qna/posts?sortBy=${sortType}`);
+            const response = await axios.get(`${process.env.REACT_APP_HOST}/api/qna/posts?sortBy=${sortType}`);
             if (response.status === 200) {
                 console.log(`${sortType} 데이터 불러오기 성공`);
                 setSortData(response.data);

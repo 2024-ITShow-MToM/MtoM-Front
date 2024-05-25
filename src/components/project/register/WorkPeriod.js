@@ -9,7 +9,6 @@ import '../../../styles/common/Style.css';
 import styles from '../../../styles/project/register/WorkPeriod.module.css';
 
 import Header from '../Header';
-import ProjectRegister from './ProjectRegister';
 import { IoRemoveOutline } from "react-icons/io5";
 
 function WorkPeriod() {
@@ -103,7 +102,6 @@ function WorkPeriod() {
 
     const handleSave = () => {
         if (startDate && endDate) {
-            // return <ProjectRegister startDate={startDate} endDate={endDate} />;
             localStorage.setItem("work-start", startDate);
             localStorage.setItem("work-end", endDate);
         }

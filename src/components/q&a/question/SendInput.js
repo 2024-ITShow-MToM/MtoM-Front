@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import { HOST } from '../../../config/Config';
 import axios from 'axios';
 
 import '../../../styles/common/Style.css';
@@ -18,7 +17,7 @@ function SendInput({ postId, onCommentAdded }) {
             return;
         }
         try {
-            const request = await axios.post(`${HOST}/api/posts/comments`, {
+            const request = await axios.post(`${process.env.REACT_APP_HOST}/api/posts/comments`, {
                 userId: userId,
                 postId: postId,
                 content: content

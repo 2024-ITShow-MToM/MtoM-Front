@@ -25,7 +25,7 @@ function PostItem() {
 
                             </div>
                         <hr />
-                        <QandAHeartCommentIcon />
+                        {/* <QandAHeartCommentIcon /> */}
                     </div>
                 </div>
             </div>

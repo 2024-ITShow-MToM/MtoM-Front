@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import axios from 'axios';
-import { HOST } from '../../../config/Config';
 
 import '../../../styles/common/Style.css';
 import styles from '../../../styles/project/register/ProjectRegister.module.css';
@@ -90,7 +89,7 @@ function ProjectRegister() {
     const projectRegister = async (e) => {
         e.preventDefault();
         try {
-            const reqeust = await axios.post(`${HOST}/projects`, {
+            const reqeust = await axios.post(`${process.env.REACT_APP_HOST}/projects`, {
                 userId: {id : userId},
                 title: title,
                 description: desc,

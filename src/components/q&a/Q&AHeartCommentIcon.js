@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react';
-import { HOST } from '../../config/Config';
 import axios from 'axios';
 
 import '../../styles/common/Style.css';
@@ -24,7 +23,7 @@ function QandAHeartCommentIcon({ data, postId, onCommentAdded }) {
     const clickedHeart = async (e) => {
         e.preventDefault();
         try {
-            const request = await axios.post(`${HOST}/api/posts/${postId}/heart?userId=${userId}`);
+            const request = await axios.post(`${process.env.REACT_APP_HOST}/api/posts/${postId}/heart?userId=${userId}`);
             if (request.status === 200) {
                 console.log("하트 성공");
                 if (clicked) {

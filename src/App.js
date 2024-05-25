@@ -35,7 +35,7 @@ import My from './pages/My';
 import MyProfileEdit from './pages/MyProfileEdit';
 
 function App() {
-  return(
+    return(
       <Router>
           <Routes>
               <Route path="/" element={<Splash />}/>
@@ -72,7 +72,7 @@ function App() {
               <Route path='/profile/edit' element={<MyProfileEdit />} />
           </Routes>
       </Router>
-  )
+    )
 }
 
 export default App;

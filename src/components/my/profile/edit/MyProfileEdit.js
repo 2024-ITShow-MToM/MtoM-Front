@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react';
-import { HOST } from '../../../../config/Config';
 import axios from 'axios';
 
 import '../../../../styles/common/Style.css';
@@ -29,7 +28,7 @@ function MyProfileEdit() {
     useEffect(() => {
         async function fetchData() {
             try {
-                const response = await axios.get(`${HOST}/api/users`, {
+                const response = await axios.get(`${process.env.REACT_APP_HOST}/api/users`, {
                     params: {
                         userId: userId
                     }
@@ -77,7 +76,7 @@ function MyProfileEdit() {
         }
 
         try {
-            const response = await axios.post(`${HOST}/api/users/profile/info`, {
+            const response = await axios.post(`${process.env.REACT_APP_HOST}/api/users/profile/info`, {
                 userId: userId,
                 name: profileData.name,
                 student_id: parseInt(profileData.student_id),
@@ -105,7 +104,7 @@ function MyProfileEdit() {
     // 프로필 이미지 등록 서버 연결
     const uploadedImage = async (userId, uploadedImages) => {
         try {
-            const response = await axios.post(`${HOST}/api/users/profile/img`, uploadedImages, userId, {
+            const response = await axios.post(`${process.env.REACT_APP_HOST}/api/users/profile/img`, uploadedImages, userId, {
                 headers: {
                     'Content-Type': 'multipart/form-data',
                 }

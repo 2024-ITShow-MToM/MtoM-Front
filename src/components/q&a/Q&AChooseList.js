@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react';
-import { HOST } from '../../config/Config';
 import axios from 'axios';
 
 import '../../styles/common/Style.css';
@@ -16,7 +15,7 @@ function QandAChooseList() {
     useEffect(() => {
         async function fetchData() {
             try {
-                const response = await axios.get(`${HOST}/api/selects`);
+                const response = await axios.get(`${process.env.REACT_APP_HOST}/api/selects`);
                 if (response.status === 200) {
                     console.log("양자택일 데이터 불러오기 성공");
                     setData(response.data.data);

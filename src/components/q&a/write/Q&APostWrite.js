@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { HOST } from '../../../config/Config';
 import axios from 'axios';
 
 import '../../../styles/common/Style.css';
@@ -30,7 +29,7 @@ function QandAPostWrite() {
             formData.append("hashtags", postData.hashtags);
             formData.append("img", img);
 
-            const request = await axios.post(`${HOST}/api/posts`, formData, {
+            const request = await axios.post(`${process.env.REACT_APP_HOST}/api/posts`, formData, {
                 headers: {
                     'Content-Type': 'multipart/form-data'
                 }

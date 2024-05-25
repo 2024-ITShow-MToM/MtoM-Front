@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
-import { HOST } from '../../../config/Config';
 import axios from 'axios';
 
 import '../../../styles/common/Style.css';
@@ -18,7 +17,7 @@ function QandAQuestion() {
 
     async function fetchData() {
         try {
-            const response = await axios.get(`${HOST}/api/posts/details/${id}`);
+            const response = await axios.get(`${process.env.REACT_APP_HOST}/api/posts/details/${id}`);
             if (response.status === 200) {
                 console.log("게시글 단일 조회 데이터 불러오기 성공");
                 setData(response.data);
