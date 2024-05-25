@@ -78,7 +78,7 @@
     row-gap: 10px;
 }
 .adviceItem {
-    width: 36vw;
+    width: auto;
     height: auto;
     border: 0;
     border-radius: 100px;

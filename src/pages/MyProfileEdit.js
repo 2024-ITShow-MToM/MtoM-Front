@@ -1,4 +1,4 @@
-import MyProfileEdit from '../components/my/profile/MyProfileEdit';
+import MyProfileEdit from '../components/my/profile/edit/MyProfileEdit';
 
 function MyProfileEditPage() {
     return (
