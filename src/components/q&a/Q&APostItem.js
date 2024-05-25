@@ -31,7 +31,7 @@ function QandAPostItem({ data, views, hearts }) {
                                 </>
                             }
                             <div className={styles['middle']}>
-                                <div className={styles['title']}> <p>{data.title.length > 8 ? `${data.title.slice(0, 8)}...` : data.title}</p> </div>
+                                <div className={styles['title']}> <p>{data.title}</p> </div>
                             </div>
                             <div className={styles['bottom']}>
                                 <div className={styles['tag']}> <p>{hashtag}</p> </div>
