@@ -20,8 +20,7 @@ function QandAHotList() {
                 const response = await axios.get(`${process.env.REACT_APP_HOST}/api/posts`);
                 if (response.status === 200) {
                     console.log("게시글 데이터 불러오기 성공");
-                    const filteredData = response.data.filter(item => item.views >= 100);
-                    setPostData(filteredData);
+                    setPostData(response.data);
                 } else {
                     console.log("게시글 데이터 불러오기 실패", response.status);
                 }
@@ -51,7 +50,7 @@ function QandAHotList() {
             <div className={styles['item-grid-container']}>
                 {
                     postData.map((item, index) => {
-                        return <QandAPostItem key={index} data={item.post} views={item.views} />
+                        return <QandAPostItem key={index} data={item.post} views={item.views} hearts={item.hearts} />
                     })
                 }
 

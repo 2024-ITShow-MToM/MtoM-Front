@@ -18,11 +18,11 @@ function QandA() {
 
     const renderContent = () => {
         switch (selectedChoice) {
-            case 'HOT':
+            case '전체':
                 return <QandAHotList />;
             case '양자택일':
                 return <QandAChooseList />;
-            case '전체':
+            case '게시판':
                 return <QandAPostList />;
         }
     };
@@ -34,8 +34,8 @@ function QandA() {
 
                 <div className={styles['body']}>
                     <div className={styles['choiceItem']}>
-                        <p className={selectedChoice === 'HOT' ? `${styles.selectText} ${styles.selected}` : `${styles.choiceText}`} onClick={() => handleChoiceClick('HOT')}>HOT</p>
                         <p className={selectedChoice === '전체' ? `${styles.selectText} ${styles.selected}` : `${styles.choiceText}`} onClick={() => handleChoiceClick('전체')}>전체</p>
+                        <p className={selectedChoice === '게시판' ? `${styles.selectText} ${styles.selected}` : `${styles.choiceText}`} onClick={() => handleChoiceClick('게시판')}>게시판</p>
                         <p className={selectedChoice === '양자택일' ? `${styles.selectText} ${styles.selected}` : `${styles.choiceText}`} onClick={() => handleChoiceClick('양자택일')}>양자택일</p>
                     </div>
 
