@@ -39,7 +39,7 @@ function QandAPostList() {
                 <div className={styles['item-grid-container']}>
                     {
                         data.map((item, index) => {
-                            return <QandAPostItem key={index} data={item.post} views={item.views} hearts={item.hearts} />
+                            return <QandAPostItem key={index} data={item} views={item.views} hearts={item.hearts} />
                         })
                     }
                 </div>

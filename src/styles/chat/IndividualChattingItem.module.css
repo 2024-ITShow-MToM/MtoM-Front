@@ -12,7 +12,6 @@
     align-items: flex-start;
 }
 .inContainer > p {
-    font-family: var(--pretendard-font);
     font-weight: var(--Regular);
     font-size: 11px;
     color: #C9C8C8;
@@ -42,12 +41,10 @@
     row-gap: 4px;
 }
 .info > p:nth-child(1) {
-    font-family: var(--pretendard-font);
     font-weight: var(--SemiBold);
     font-size: 15px;
 }
 .info > p:nth-child(2) {
-    font-family: var(--pretendard-font);
     font-weight: var(--Medium);
     font-size: 12px;
     color: #7E7E7E;

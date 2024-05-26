@@ -21,13 +21,11 @@
 
 .personInfo > p:nth-child(1),
 .info > p {
-    font-family: var(--pretendard-font);
     font-weight: var(--Medium);
     font-size: 12px;
     color: #7E7E7E;
 }
 .personInfo > p:nth-child(2) {
-    font-family: var(--pretendard-font);
     font-weight: var(--SemiBold);
     font-size: 18px;
     color: var(--font-2);

@@ -17,8 +17,6 @@
 .info {
     display: flex;
     flex-direction: column;
-
-    font-family: var(--pretendard-font);
     font-weight: var(--Regular);
 }
 .info > p{

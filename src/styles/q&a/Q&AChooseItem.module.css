@@ -21,13 +21,11 @@
     row-gap: 2px;
 }
 .topContainer > p:nth-child(1) {
-    font-family: var(--pretendard-font);
     font-weight: var(--Medium);
     font-size: 0.8rem;
     color: var(--sub-color);
 }
 .topContainer > p:nth-child(2) {
-    font-family: var(--pretendard-font);
     font-weight: var(--SemiBold);
 }
 
@@ -37,7 +35,6 @@
     margin-top: 3%;
     color: #C9C8C8;
 
-    font-family: var(--pretendard-font);
     font-weight: var(--Regular);
     font-size: 0.8rem;
 }
@@ -97,7 +94,6 @@
     align-items: center;
     padding: 3%;
 
-    font-family: var(--pretendard-font);
     font-weight: var(--Medium);
     font-size: 0.9rem;
     color: var(--strong-color);
@@ -111,7 +107,6 @@
     align-items: center;
     padding: 3%;
 
-    font-family: var(--pretendard-font);
     font-weight: var(--Medium);
     font-size: 0.9rem;
     color: var(--strong-color);
@@ -125,7 +120,6 @@
     align-items: center;
     padding: 3%;
 
-    font-family: var(--pretendard-font);
     font-weight: var(--Medium);
     font-size: 0.9rem;
     color: #959595;

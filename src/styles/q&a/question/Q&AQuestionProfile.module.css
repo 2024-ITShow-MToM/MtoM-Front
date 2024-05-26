@@ -20,8 +20,6 @@
     flex-direction: column;
     justify-content: flex-end;
     row-gap: 2px;
-
-    font-family: var(--pretendard-font);
     font-weight: var(--Medium);
 }
 .info > p:nth-child(1) {

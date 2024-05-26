@@ -11,7 +11,6 @@
 }
 
 .container > p {
-    font-family: var(--pretendard-font);
     font-weight: var(--Bold);
     font-size: 18px;
 }
@@ -37,7 +36,6 @@
 .skill > p,
 .advice > p,
 .emoji > p {
-    font-family: var(--pretendard-font);
     font-weight: var(--Medium);
     font-size: 12px;
     color: var(--sub-color);
@@ -45,7 +43,6 @@
 
 .mbti > p:nth-child(2),
 .tag > p {
-    font-family: var(--pretendard-font);
     font-weight: var(--SemiBold);
     font-size: 16px;
 }
@@ -62,7 +59,6 @@
     align-items: center;
 }
 .skillItem > p {
-    font-family: var(--pretendard-font);
     font-weight: var(--Medium);
     font-size: 12px;
     color: var(--font-2);
@@ -87,7 +83,6 @@
     text-align: center;
 }
 .adviceItem > p {
-    font-family: var(--pretendard-font);
     font-weight: var(--Medium);
     font-size: 12px;
 }

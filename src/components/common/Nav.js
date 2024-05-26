@@ -1,5 +1,6 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 import '../../styles/common/Style.css';
 import styles from '../../styles/common/Nav.module.css'
@@ -9,7 +10,14 @@ import { MdLaptopMac } from "react-icons/md";
 import { BiUser } from "react-icons/bi";
 
 function Nav() {
+    const navigate = useNavigate();
 
+    useEffect(() => {
+        const userId = localStorage.getItem('userId');
+        if (!userId) {
+            navigate('/signin');
+        }
+    }, [navigate]);
     return (
         <>
             <div className={styles['container']}>

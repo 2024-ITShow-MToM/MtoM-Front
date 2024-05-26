@@ -17,13 +17,10 @@
     outline: none;
     margin: 0;
     margin-bottom: 3%;
-
-    font-family: var(--pretendard-font);
     font-weight: var(--Medium);
     font-size: 1.1rem;
 }
 .title > input::placeholder {
-    font-family: var(--pretendard-font);
     font-weight: var(--Medium);
     font-size: 1.1rem;
     color: black;
@@ -50,7 +47,5 @@
 
     border: 0;
     border-radius: 15px;
-    
-    font-family: var(--pretendard-font);
     font-weight: var(--SemiBold);
 }
