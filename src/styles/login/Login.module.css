@@ -115,3 +115,11 @@ input::placeholder {
     font-size: 0.9rem;
     color: var(--font-4);
 }
+
+.errorMessage {
+    font-family: var(--SUIT-font);
+    font-weight: var(--SemiBold);
+    font-size: 13px;
+    color: red;
+    left: 1%;
+}
