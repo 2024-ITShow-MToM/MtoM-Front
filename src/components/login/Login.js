@@ -23,6 +23,14 @@ function Login() {
     // 로그인 서버 연결
     const handleLogin = async (e) => {
         e.preventDefault();
+        if (id.trim() === '') {
+            setErrorMessage("아이디를 입력해주세요.");
+            return;
+        } else if (password.trim() === '') {
+            setErrorMessage("비밀번호를 입력해주세요.");
+            return;
+        }
+
         try {
             const response = await axios.post(`${process.env.REACT_APP_HOST}/api/users/login`, {
                 id: id,
