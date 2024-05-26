@@ -9,6 +9,8 @@ function Login() {
     const navigate = useNavigate();
     const [id, setId] = useState('');
     const [password, setPassword] = useState('');
+    const [fail, setFail] = useState(false);
+    const [errorMessage, setErrorMessage] = useState('');
 
     const handleIdChange = (e) => {
         setId(e.target.value);
@@ -29,16 +31,19 @@ function Login() {
 
             if (response.status === 200) {
                 console.log('로그인 성공');
+                setFail(false);
                 localStorage.setItem("userId", id);
                 navigate('/home');
             } else {
                 console.error('로그인 실패', response.status);
+                setFail(true);
             }
         } catch (error) {
+            setFail(true);
             if (error.response.data.message === "가입되지 않은 아이디 입니다.") {
-                alert(error.response.data.message);
+                setErrorMessage(error.response.data.message);
             } else if (error.response.data.message === "비밀번호가 일치하지 않습니다") {
-                alert(error.response.data.message);
+                setErrorMessage(error.response.data.message);
             } else {
                 console.error('로그인 서버 연결 실패:', error);
             }
@@ -64,7 +69,8 @@ function Login() {
                     <form className={styles['formContainer']} onSubmit={handleLogin}>
                         <input placeholder='아이디 입력' onChange={handleIdChange} value={id} />
                         <input type='password' placeholder='비밀번호 입력' onChange={handlePasswordChange} value={password} />
-                        <button type="submit">로그인</button>
+                        { fail && <p className={styles['errorMessage']}>{errorMessage}</p> }
+                        <button>로그인</button>
                     </form>
 
                     <div className={styles['textDiv']}>
