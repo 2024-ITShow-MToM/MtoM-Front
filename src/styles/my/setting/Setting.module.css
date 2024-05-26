@@ -16,7 +16,6 @@
     row-gap: 10px;
 }
 .innerContainer > p {
-    font-family: var(--pretendard-font);
     font-weight: var(--Bold);
     font-size: 18px;
 }
@@ -37,7 +36,6 @@
     font-size: 20px;
 }
 .div > p {
-    font-family: var(--pretendard-font);
     font-weight: var(--Medium);
     font-size: 14px;
     color: var(--font-3);

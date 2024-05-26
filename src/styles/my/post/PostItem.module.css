@@ -43,8 +43,6 @@
     display: flex;
     flex-direction: column;
     row-gap: 5px;
-
-    font-family: var(--pretendard-font);
     font-weight: var(--Regular);
 }
 .top > p:nth-child(1) {
@@ -57,7 +55,6 @@
 }
 
 .top > .title > p {
-    font-family: var(--pretendard-font);
     font-weight: var(--SemiBold);
     font-size: 14px;
     color: var(--font-1);
@@ -75,7 +72,6 @@
     column-gap: 10px;
 }
 .bottom > p {
-    font-family: var(--pretendard-font);
     font-weight: var(--Regular);
     font-size: 10px;
     color: #C9C8C8;
@@ -91,7 +87,6 @@
     border-radius: 5px;
 }
 .tag > p {
-    font-family: var(--pretendard-font);
     font-weight: var(--Medium);
     font-size: 0.7rem;
     color: var(--sub-color);

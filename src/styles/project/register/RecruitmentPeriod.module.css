@@ -9,6 +9,10 @@
     justify-content: space-between;
 }
 
+.rdp-caption_label {
+    font-size: 24px;
+}
+
 .form {
     width: 100%;
     display: flex;
@@ -16,13 +20,12 @@
     align-items: center;
     column-gap: 5px;
     color: var(--gray-3);
-
-    font-family: var(--pretendard-font);
     font-weight: var(--SemiBold);
     font-size: 14px;
 }
 
 .form > input {
+    width: 37%;
     text-align: center;
     border: 1px solid var(--gray-3);
     padding: 2%;
@@ -46,8 +49,6 @@
     padding: 5%;
     border: 0;
     border-radius: 15px;
-
-    font-family: var(--pretendard-font);
     font-weight: var(--SemiBold);
     font-size: 15px;
 }

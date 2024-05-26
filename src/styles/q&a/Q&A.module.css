@@ -16,8 +16,6 @@
     display: flex;
     column-gap: 20px;
     position: relative;
-
-    font-family: var(--pretendard-font);
     font-weight: var(--SemiBold);
     font-size: 1.1rem;
 }

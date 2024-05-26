@@ -21,7 +21,6 @@
 }
 
 .textDiv > p {
-    font-family: var(--pretendard-font);
     font-weight: var(--Meium);
     font-size: 0.9rem;
     margin-bottom: 7%;

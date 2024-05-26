@@ -13,15 +13,6 @@ function QandAHeartCommentIcon({ data, postId, onCommentAdded }) {
     const userId = localStorage.getItem("userId");
     const [clickedHeartData, setClickedHeartData] = useState([]);
     const [isHeartClicked, setIsHeartClicked] = useState(false);
-    // const [clicked, setClicked] = useState(false);
-
-    // useEffect(() => {
-    //     const clickedHeart = localStorage.getItem(`clickedHeart${postId}`);
-    //     const clickedUserId = localStorage.getItem('clickedUserId');
-    //     if (clickedHeart === "true" && clickedUserId === userId) {
-    //         setClicked(true);
-    //     }
-    // }, [postId, userId]);
 
     const clickedHeart = async (e) => {
         e.preventDefault();
@@ -30,15 +21,6 @@ function QandAHeartCommentIcon({ data, postId, onCommentAdded }) {
             if (request.status === 200) {
                 console.log("하트 성공");
                 setIsHeartClicked(!isHeartClicked);
-                // if (clicked) {
-                //     // localStorage.removeItem(`clickedHeart${postId}`);
-                //     // localStorage.removeItem('clickedUserId');
-                //     setClicked(false);
-                // } else {
-                //     // localStorage.setItem(`clickedHeart${postId}`, "true");
-                //     // localStorage.setItem('clickedUserId', `${userId}`);
-                //     setClicked(true);
-                // }
                 onCommentAdded();
             } else {
                 console.log("하트 실패", request.status);

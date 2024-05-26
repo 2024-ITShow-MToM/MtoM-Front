@@ -36,7 +36,6 @@ input::placeholder {
     align-items: flex-start;
     padding: 2%;
 
-    font-family: var(--pretendard-font);
     font-weight: var(--Medium);
 }
 .formContainer > button {
@@ -47,7 +46,6 @@ input::placeholder {
     background-color: var(--main-color);
     margin-bottom: 10%;
 
-    font-family: var(--pretendard-font);
     font-weight: var(--Medium);
     color: white;
 }
@@ -95,7 +93,6 @@ input::placeholder {
     border: 0;
     background-color: var(--gray-2);
 
-    font-family: var(--pretendard-font);
     font-weight: var(--Medium);
     color: var(--font-5);
 }
@@ -106,7 +103,6 @@ input::placeholder {
     border: 0;
     background-color: var(--main-color);
 
-    font-family: var(--pretendard-font);
     font-weight: var(--Medium);
     color: white;
 }
@@ -142,8 +138,6 @@ input::placeholder {
     border-width: 2px;
     border-color: var(--gray-2);
     outline: none;
-
-    font-family: var(--pretendard-font);
     font-weight: var(--Medium);
 }
 
@@ -172,8 +166,6 @@ input::placeholder {
     border-width: 2px;
     border-color: var(--gray-2);
     outline: none;
-
-    font-family: var(--pretendard-font);
     font-weight: var(--Medium);
 }
 
@@ -190,8 +182,6 @@ input::placeholder {
     border-width: 2px;
     border-color: var(--gray-2); 
     outline: none;
-
-    font-family: var(--pretendard-font);
     font-weight: var(--Medium);
 }
 .googleInput > button {
@@ -200,8 +190,6 @@ input::placeholder {
     border-radius: 7px;
     border: 0;
     background-color: var(--main-color);
-
-    font-family: var(--pretendard-font);
     font-weight: var(--Medium);
     color: white;
 }

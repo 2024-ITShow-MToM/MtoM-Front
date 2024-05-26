@@ -7,7 +7,7 @@ import { BsChat } from "react-icons/bs";
 
 function QandAPostItem({ data, views, hearts }) {
     let hashtag = data.hashtags ? data.hashtags.split("/")[0] : "";
-    let date = data.createdAt.slice(0, 10);
+    // let date = data.createdAt.slice(0, 10);
     return (
         <>
             <Link to={`/q&a/question/${data.id}`} style={{ textDecoration: 'none', color: 'black' }}>
@@ -16,7 +16,7 @@ function QandAPostItem({ data, views, hearts }) {
                     <div className={styles['info']}>
                         <div className={styles['topDiv']}>
                             <div className={styles['top']}>
-                                <p>{date}</p>
+                                <p>{data.createdAt}</p>
                             </div>
                             <div className={styles['middle']}>
                                 <div className={styles['title']}> <p>{data.title}</p> </div>

@@ -11,13 +11,11 @@
     align-items: center;
 }
 .question > p:nth-child(1) {
-    font-family: var(--pretendard-font);
     font-weight: var(--SemiBold);
     font-size: 22px;
     color: var(--sub-color);
 }
 .question > p:nth-child(2) {
-    font-family: var(--pretendard-font);
     font-weight: var(--SemiBold);
     font-size: 18px;
     color: var(--font-1);

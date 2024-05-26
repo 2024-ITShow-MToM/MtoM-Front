@@ -17,18 +17,6 @@
     row-gap: 10px;
 }
 
-/* 생년월일 p태그 */
-.name > p,
-.studentId > p,
-.birthDiv > p,
-.radioGroup > p,
-.phoneDiv > p {
-    color: var(--font-3);
-    font-size: 0.9rem;
-    font-family: var(--pretendard-font);
-    font-weight: var(--Medium);
-}
-
 /* 이름/학번 */
 .name,
 .studentId {
@@ -47,8 +35,6 @@
     border-width: 2px;
     border-color: var(--gray-2); 
     outline: none;
-
-    font-family: var(--pretendard-font);
     font-weight: var(--Medium);
 }
 .studentId > input {
@@ -59,8 +45,6 @@
     border-width: 2px;
     border-color: var(--gray-2); 
     outline: none;
-
-    font-family: var(--pretendard-font);
     font-weight: var(--Medium);
 }
 
@@ -69,20 +53,18 @@
     display: flex;
     justify-content: flex-start;
 
-    color: var(--sub-color);
-    font-family: var(--pretendard-font);
+    color: #595959;
     font-weight: var(--Medium);
-    font-size: 0.9rem;
+    font-size: 14px;
 }
 .studentIdTitle {
     width: 63%;
     display: flex;
     justify-content: flex-start;
 
-    color: var(--sub-color);
-    font-family: var(--pretendard-font);
+    color: #595959;
     font-weight: var(--Medium);
-    font-size: 0.9rem;
+    font-size: 14px;
 }
 
 /* 생년월일, 연락처 */
@@ -101,8 +83,6 @@
     border-width: 2px;
     border-color: var(--gray-2);
     outline: none;
-
-    font-family: var(--pretendard-font);
     font-weight: var(--Medium);
 }
 
@@ -134,12 +114,10 @@ input[type='radio'] {
     height: 1.4em;
 }
 .label {
-    font-family: var(--pretendard-font);
     font-weight: var(--Medium);
     color: var(--gray-3);
 }
 .selectedLabel {
-    font-family: var(--pretendard-font);
     font-weight: var(--Medium);
     color: #7E7E7E;
 }
@@ -166,8 +144,6 @@ input[type='radio'] {
     padding: 2% 3%;
     border: 1px solid var(--gray-3);
     border-radius: 5px;
-
-    font-family: var(--pretendard-font);
     font-weight: var(--Medium);
     font-size: 12px;
 }
@@ -188,30 +164,38 @@ input[type='radio'] {
     align-items: center;
     row-gap: 10px;
 }
-.title {
+.mbtiTitle {
     width: 86%;
     display: flex;
     justify-content: flex-start;
 
     color: var(--sub-color);
-    font-family: var(--pretendard-font);
     font-weight: var(--Medium);
-    font-size: 0.9rem;
+    font-size: 14px;
+}
+
+.title {
+    width: 86%;
+    display: flex;
+    justify-content: flex-start;
+
+    color: #595959;
+    font-weight: var(--Medium);
+    font-size: 14px;
 }
 
 .mbti > input,
 .tag > input {
-    width: 80%;
-    padding: 4%;
-    border-width: 1px;
+    width: 80vw;
+    padding: 3%;
     border-style: solid;
     border-radius: 5px;
     border-color: var(--gray-2);
     outline: none;
-    font-family: var(--pretendard-font);
     font-weight: var(--Medium);
 }
-.mbti > input::placeholder,
-.tag > input::placeholder {
-    font-size: 16px;
+.mbti > input::placeholder {
+    font-weight: var(--Medium);
+    font-size: 14px;
+    color: var(--gray-3);
 }

@@ -25,7 +25,6 @@
 .phoneDiv > p {
     color: var(--font-3);
     font-size: 0.9rem;
-    font-family: var(--pretendard-font);
     font-weight: var(--Medium);
 }
 
@@ -47,8 +46,6 @@
     border-width: 2px;
     border-color: var(--gray-2); 
     outline: none;
-
-    font-family: var(--pretendard-font);
     font-weight: var(--Medium);
 }
 .studentId > input {
@@ -59,8 +56,6 @@
     border-width: 2px;
     border-color: var(--gray-2); 
     outline: none;
-
-    font-family: var(--pretendard-font);
     font-weight: var(--Medium);
 }
 
@@ -70,7 +65,6 @@
     justify-content: flex-start;
 
     color: var(--sub-color);
-    font-family: var(--pretendard-font);
     font-weight: var(--Medium);
     font-size: 0.9rem;
 }
@@ -80,7 +74,6 @@
     justify-content: flex-start;
 
     color: var(--sub-color);
-    font-family: var(--pretendard-font);
     font-weight: var(--Medium);
     font-size: 0.9rem;
 }
@@ -101,8 +94,6 @@
     border-width: 2px;
     border-color: var(--gray-2);
     outline: none;
-
-    font-family: var(--pretendard-font);
     font-weight: var(--Medium);
 }
 
@@ -134,12 +125,10 @@ input[type='radio'] {
     height: 1.4em;
 }
 .label {
-    font-family: var(--pretendard-font);
     font-weight: var(--Medium);
     color: var(--gray-3);
 }
 .selectedLabel {
-    font-family: var(--pretendard-font);
     font-weight: var(--Medium);
     color: #7E7E7E;
 }
@@ -166,8 +155,6 @@ input[type='radio'] {
     padding: 2% 3%;
     border: 1px solid var(--gray-3);
     border-radius: 5px;
-
-    font-family: var(--pretendard-font);
     font-weight: var(--Medium);
     font-size: 12px;
 }
@@ -194,7 +181,6 @@ input[type='radio'] {
     justify-content: flex-start;
 
     color: var(--sub-color);
-    font-family: var(--pretendard-font);
     font-weight: var(--Medium);
     font-size: 0.9rem;
 }
@@ -208,7 +194,6 @@ input[type='radio'] {
     border-radius: 5px;
     border-color: var(--gray-2);
     outline: none;
-    font-family: var(--pretendard-font);
     font-weight: var(--Medium);
 }
 .mbti > input::placeholder,
