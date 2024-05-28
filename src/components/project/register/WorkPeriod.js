@@ -1,9 +1,10 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import { Link } from 'react-router-dom';
 import 'react-day-picker/dist/style.css';
 import { DayPicker, useNavigation } from 'react-day-picker';
 import { ko } from 'date-fns/locale';
 import { format, isAfter, isBefore, isValid, parse } from 'date-fns';
+import { ProviderContext } from './PeriodProvider';
 
 import '../../../styles/common/Style.css';
 import styles from '../../../styles/project/register/WorkPeriod.module.css';
@@ -12,11 +13,12 @@ import Header from '../Header';
 import { IoRemoveOutline } from "react-icons/io5";
 
 function WorkPeriod() {
+    // const { workContact } = useContext(ProviderContext);
     const [selectedRange, setSelectedRange] = useState();
     const [fromValue, setFromValue] = useState('');
     const [toValue, setToValue] = useState('');
-    const [startDate, setStartDate] = useState('');
-    const [endDate, setEndDate] = useState('');
+    const [workStart, setWorkStart] = useState('');
+    const [workEnd, setWorkEnd] = useState('');
 
     const pastMonth = new Date();
 
@@ -87,23 +89,24 @@ function WorkPeriod() {
         setSelectedRange(range);
         if (range?.from) {
           setFromValue(format(range.from, 'y-MM-dd'));
-          setStartDate(format(range.from, 'y-MM-dd'));
+          setWorkStart(format(range.from, 'y-MM-dd'));
         } else {
           setFromValue('');
         }
         
         if (range?.to) {
           setToValue(format(range.to, 'y-MM-dd'));
-          setEndDate(format(range.to, 'y-MM-dd'));
+          setWorkEnd(format(range.to, 'y-MM-dd'));
         } else {
           setToValue('');
         }
     };
 
     const handleSave = () => {
-        if (startDate && endDate) {
-            localStorage.setItem("work-start", startDate);
-            localStorage.setItem("work-end", endDate);
+        if (workStart && workEnd) {
+            localStorage.setItem("work-start", workStart);
+            localStorage.setItem("work-end", workEnd);
+            // workContact(workStart, workEnd);
         }
     }
 

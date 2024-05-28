@@ -1,6 +1,7 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import axios from 'axios';
+import { ProviderContext } from './PeriodProvider';
 
 import '../../../styles/common/Style.css';
 import styles from '../../../styles/project/register/ProjectRegister.module.css';
@@ -14,6 +15,7 @@ import Header from '../Header';
 import ProjectRegisterModal from '../../modals/ProjectRegisterModal';
 
 function ProjectRegister() {
+    // const { recruitmentStart, recruitmentEnd, workStart, workEnd } = useContext(ProviderContext);
     const navigate = useNavigate();
     const userId = localStorage.getItem("userId");
     const [backgroundImage, setBackgroundImage] = useState(null);
@@ -141,9 +143,9 @@ function ProjectRegister() {
                         <div className={styles['recruitment']}>
                             <p>모집 기간 설정</p>
                             <div className={styles['setting']}>
-                                <div className={styles['settingBox']} onChange={setRecruitmentStart} > <p>{recruitmentStart}</p> </div>
+                                <div className={styles['settingBox']}> <p>{recruitmentStart}</p> </div>
                                 ~
-                                <div className={styles['settingBox']} onChange={setRecruitmentEnd}> <p>{recruitmentEnd}</p> </div>
+                                <div className={styles['settingBox']}> <p>{recruitmentEnd}</p> </div>
                                 <Link to='/project/recruitment-period' style={{ textDecoration: 'none', color: 'black' }}>
                                     <FaRegCalendarAlt style={{ fontSize: '24px', color: '#FF6524' }} />
                                 </Link>
@@ -153,9 +155,9 @@ function ProjectRegister() {
                         <div className={styles['work']}>
                             <p>작업 기간 설정</p>
                             <div className={styles['setting']}>
-                                <div className={styles['settingBox']} onChange={setWorkStart}> <p>{workStart}</p> </div>
+                                <div className={styles['settingBox']}> <p>{workStart}</p> </div>
                                 ~
-                                <div className={styles['settingBox']} onChange={setWorkEnd}> <p>{workEnd}</p> </div>
+                                <div className={styles['settingBox']}> <p>{workEnd}</p> </div>
                                 <Link to='/project/work-period' style={{ textDecoration: 'none', color: 'black' }}>
                                     <FaRegCalendarAlt style={{ fontSize: '24px', color: '#FF6524' }} />
                                 </Link>
