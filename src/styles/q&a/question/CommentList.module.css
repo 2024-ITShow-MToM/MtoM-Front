@@ -1,5 +1,5 @@
 .container {
-    height: 35vh;
+    height: 28vh;
     display: flex;
     flex-direction: column;
     row-gap: 20px;
