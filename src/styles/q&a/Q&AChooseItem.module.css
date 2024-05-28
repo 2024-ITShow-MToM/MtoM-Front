@@ -55,7 +55,11 @@
     border-radius: 5px;
 }
 
-.myclicked {
+.myclicked { 
+    border: 1px solid var(--strong-color);
+}
+
+.noclicked {
     border: 1px solid #AFAFAF;
 }
 
@@ -73,7 +77,7 @@
     border: 0;
     text-align: left;
 
-    background-color: rgba(0, 102, 255, 0.3);
+    background-color: rgba(201, 200, 200, 0.7);
     transition: background-color 0.4s ease;
 }
 
@@ -82,8 +86,8 @@
     height: 100%;
     border: 0;
     text-align: left;
-
-    background-color: rgba(201, 200, 200, 0.7);
+    
+    background-color: rgba(0, 102, 255, 0.3);
     transition: background-color 0.4s ease;
 }
 
@@ -109,7 +113,7 @@
 
     font-weight: var(--Medium);
     font-size: 0.9rem;
-    color: var(--strong-color);
+    color: #959595;
     z-index: 100;
 }
 
@@ -119,9 +123,9 @@
     justify-content: space-between;
     align-items: center;
     padding: 3%;
-
+    
     font-weight: var(--Medium);
     font-size: 0.9rem;
-    color: #959595;
+    color: var(--strong-color);
     z-index: 100;
 }

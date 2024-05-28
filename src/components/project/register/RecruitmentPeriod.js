@@ -1,9 +1,10 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import { Link } from 'react-router-dom';
 import 'react-day-picker/dist/style.css';
 import { DayPicker, useNavigation } from 'react-day-picker';
 import { ko } from 'date-fns/locale';
 import { format, isAfter, isBefore, isValid, parse } from 'date-fns';
+import { ProviderContext } from './PeriodProvider';
 
 import '../../../styles/common/Style.css';
 import styles from '../../../styles/project/register/RecruitmentPeriod.module.css';
@@ -11,12 +12,13 @@ import styles from '../../../styles/project/register/RecruitmentPeriod.module.cs
 import Header from '../Header';
 import { IoRemoveOutline } from "react-icons/io5";
 
-function RecruitmentPeriod({  }) {
+function RecruitmentPeriod() {
+    // const { recruitmentContact } = useContext(ProviderContext);
     const [selectedRange, setSelectedRange] = useState();
     const [fromValue, setFromValue] = useState('');
     const [toValue, setToValue] = useState('');
-    const [startDate, setStartDate] = useState('');
-    const [endDate, setEndDate] = useState('');
+    const [recruitmentStart, setRecruitmentStart] = useState('');
+    const [recruitmentEnd, setRecruitmentEnd] = useState('');
 
     const pastMonth = new Date();
 
@@ -87,23 +89,24 @@ function RecruitmentPeriod({  }) {
         setSelectedRange(range);
         if (range?.from) {
           setFromValue(format(range.from, 'y-MM-dd'));
-          setStartDate(format(range.from, 'y-MM-dd'));
+          setRecruitmentStart(format(range.from, 'y-MM-dd'));
         } else {
           setFromValue('');
         }
         
         if (range?.to) {
           setToValue(format(range.to, 'y-MM-dd'));
-          setEndDate(format(range.to, 'y-MM-dd'));
+          setRecruitmentEnd(format(range.to, 'y-MM-dd'));
         } else {
           setToValue('');
         }
     };
 
     const handleSave = () => {
-        if (startDate && endDate) {
-            localStorage.setItem("recruitment-start", startDate);
-            localStorage.setItem("recruitment-end", endDate);
+        if (recruitmentStart && recruitmentEnd) {
+            localStorage.setItem("recruitment-start", recruitmentStart);
+            localStorage.setItem("recruitment-end", recruitmentEnd);
+            // recruitmentContact(recruitmentStart, recruitmentEnd);
         }
     }
 

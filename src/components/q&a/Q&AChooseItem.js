@@ -10,6 +10,9 @@ function QandAChooseItem({ onePercentage, twoPercentage, data, options, reFetchD
     const userId = localStorage.getItem("userId");
     let selectId = data.selectId;
 
+    const firstPercentage = onePercentage.toFixed(1);
+    const secondPercentage = twoPercentage.toFixed(1);
+
     const handleOptionClick = (option) => {
         setClickedOption(option);
         setButtonClicked(true);
@@ -55,28 +58,28 @@ function QandAChooseItem({ onePercentage, twoPercentage, data, options, reFetchD
 
                     <div className={styles['buttonContainer']}>
                         <div className={isButtonClicked ? styles['clicked'] : ''}>
-                            <div className={`${styles['button']} ${clickedOption === "option1" ? styles['myclicked'] : ''}`} onClick={() => handleOptionClick("option1")}> 
+                            <div className={`${styles['button']} ${clickedOption === "option1" ? styles['myclicked'] : styles['noclicked']}`} onClick={() => handleOptionClick("option1")}> 
                                 <div className={isButtonClicked ? styles['clickedOption'] : styles['option']}>
                                     <p>{options[0].option1}</p>
                                     {
                                         isButtonClicked &&
-                                        <p>{onePercentage}%</p>
+                                        <p>{firstPercentage}%</p>
                                     }
                                 </div>
-                                <input type='button' style={{width: `${onePercentage}%`}}/>
+                                <input type='button' style={{width: `${firstPercentage}%`}}/>
                             </div>
                         </div>
 
                         <div className={isButtonClicked ? styles['clicked'] : ''}>
-                            <div className={`${styles['button']} ${clickedOption === "option2" ? styles['myclicked'] : ''}`} onClick={() => handleOptionClick("option2")}>
+                            <div className={`${styles['button']} ${clickedOption === "option2" ? styles['myclicked'] : styles['noclicked']}`} onClick={() => handleOptionClick("option2")}>
                                 <div className={isButtonClicked ? styles['clickedOption'] : styles['option']}>
                                     <p>{options[0].option2}</p>
                                     {
                                         isButtonClicked &&
-                                        <p>{twoPercentage}%</p>
+                                        <p>{secondPercentage}%</p>
                                     }
                                 </div>
-                                <input type='button' style={{width: `${twoPercentage}%`}}/>
+                                <input type='button' style={{width: `${secondPercentage}%`}}/>
                             </div>
                         </div>
                     </div>
