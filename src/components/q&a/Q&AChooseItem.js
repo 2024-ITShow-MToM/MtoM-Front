@@ -10,6 +10,9 @@ function QandAChooseItem({ onePercentage, twoPercentage, data, options, reFetchD
     const userId = localStorage.getItem("userId");
     let selectId = data.selectId;
 
+    const firstPercentage = onePercentage.toFixed(1);
+    const secondPercentage = twoPercentage.toFixed(1);
+
     const handleOptionClick = (option) => {
         setClickedOption(option);
         setButtonClicked(true);
@@ -26,7 +29,7 @@ function QandAChooseItem({ onePercentage, twoPercentage, data, options, reFetchD
     // 양자택일 투표 서버 연결
     async function optionData(clickedOption) {
         try {
-            const request = await axios.post(`${process.env.REACT_APP_HOST}/api/selects/${selectId}/option${clickedOption}?userId=${userId}`);
+            const request = await axios.post(`${process.env.REACT_APP_HOST}/api/selects/${selectId}/${clickedOption}?userId=${userId}`);
             if (request.status === 200) {
                 console.log(`option${clickedOption} 선택`);
                 reFetchData();
@@ -60,10 +63,10 @@ function QandAChooseItem({ onePercentage, twoPercentage, data, options, reFetchD
                                     <p>{options[0].option1}</p>
                                     {
                                         isButtonClicked &&
-                                        <p>{onePercentage}%</p>
+                                        <p>{firstPercentage}%</p>
                                     }
                                 </div>
-                                <input type='button' style={{width: `${onePercentage}%`}}/>
+                                <input type='button' style={{width: `${firstPercentage}%`}}/>
                             </div>
                         </div>
 
@@ -73,10 +76,10 @@ function QandAChooseItem({ onePercentage, twoPercentage, data, options, reFetchD
                                     <p>{options[0].option2}</p>
                                     {
                                         isButtonClicked &&
-                                        <p>{twoPercentage}%</p>
+                                        <p>{secondPercentage}%</p>
                                     }
                                 </div>
-                                <input type='button' style={{width: `${twoPercentage}%`}}/>
+                                <input type='button' style={{width: `${secondPercentage}%`}}/>
                             </div>
                         </div>
                     </div>
