@@ -1,0 +1,27 @@
+.container {
+    width: 90%;
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 40%;
+}
+
+.item-grid-container {
+    column-count: 2;
+    column-gap: 10px;
+    margin-top: 3%;
+    row-gap: 15px;
+}
+
+.item-grid-container > div {
+    break-inside: avoid;
+    margin-top: 15px;
+}
+.item-grid-container > a > div {
+    break-inside: avoid;
+    margin-bottom: 15px;
+}
+
+.item-grid-container > p {
+    font-weight: var(--Regular);
+    color: var(--font-4);
+}

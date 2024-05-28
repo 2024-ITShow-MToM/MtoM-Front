@@ -4,7 +4,6 @@ import axios from 'axios';
 import '../../styles/common/Style.css';
 import styles from '../../styles/q&a/Q&AHotList.module.css';
 
-import DataSort from './DataSort';
 import QandAChooseItem from './Q&AChooseItem';
 import QandAPostItem from './Q&APostItem';
 
@@ -22,7 +21,7 @@ function QandAHotList() {
                     }
                 });
                 if (response.status === 200) {
-                    console.log("Q&A 전체 데이터 불러오기 성공", response.data);
+                    console.log("Q&A 전체 데이터 불러오기 성공");
                     setPostData(response.data.filter(item => item.hasOwnProperty('postId')));
                     setChooseData(response.data.filter(item => item.hasOwnProperty('selectId')));
                 } else {
@@ -50,7 +49,6 @@ function QandAHotList() {
                     })
                 }
             </div>
-            
         </div>
     )
 }
