@@ -4,12 +4,11 @@ import '../../styles/common/Style.css';
 import styles from '../../styles/q&a/Q&AChooseItem.module.css';
 import axios from 'axios';
 
-function QandAChooseItem({ onePercentage, twoPercentage, data }) {
+function QandAChooseItem({ onePercentage, twoPercentage, data, options, reFetchData }) {
     const [isButtonClicked, setButtonClicked] = useState(false);
     const [clickedOption, setClickedOption] = useState(null);
-    let date = data.createdAt.slice(0, 10);
     const userId = localStorage.getItem("userId");
-    let postId = data.id;
+    let selectId = data.selectId;
 
     const handleOptionClick = (option) => {
         if (!isButtonClicked) {
@@ -22,9 +21,10 @@ function QandAChooseItem({ onePercentage, twoPercentage, data }) {
     // 양자택일 투표 서버 연결
     async function optionData(clickedOption) {
         try {
-            const request = await axios.post(`${process.env.REACT_APP_HOST}/api/selects/${postId}/option${clickedOption}?userId=${userId}`);
+            const request = await axios.post(`${process.env.REACT_APP_HOST}/api/selects/${selectId}/option${clickedOption}?userId=${userId}`);
             if (request.status === 200) {
                 console.log(`option${clickedOption} 선택`);
+                reFetchData();
             } else {
                 console.log("option 선택 실패", request.status);
             }
@@ -41,8 +41,8 @@ function QandAChooseItem({ onePercentage, twoPercentage, data }) {
                         <p>🧐 양자택일</p>
                         <p>{data.title}</p>
                         <div className={styles['info']}>
-                            <p>{date}</p>
-                            <p>참여 56명</p>
+                            <p>{data.createdAt}</p>
+                            <p>참여 {data.participants}명</p>
                         </div>
                     </div>
 
@@ -52,7 +52,7 @@ function QandAChooseItem({ onePercentage, twoPercentage, data }) {
                         <div className={isButtonClicked ? styles['clicked'] : ''}>
                             <div className={`${styles['button']} ${clickedOption === 1 ? styles['myclicked'] : ''}`} onClick={() => handleOptionClick(1)}> 
                                 <div className={isButtonClicked ? styles['clickedOption'] : styles['option']}>
-                                    <p>{data.option1}</p>
+                                    <p>{options[0].option1}</p>
                                     {
                                         isButtonClicked &&
                                         <p>{onePercentage}%</p>
@@ -65,7 +65,7 @@ function QandAChooseItem({ onePercentage, twoPercentage, data }) {
                         <div className={isButtonClicked ? styles['clicked'] : ''}>
                             <div className={`${styles['button']} ${clickedOption === 2 ? styles['myclicked'] : ''}`} onClick={() => handleOptionClick(2)}>
                                 <div className={isButtonClicked ? styles['clickedOption'] : styles['option']}>
-                                    <p>{data.option2}</p>
+                                    <p>{options[0].option2}</p>
                                     {
                                         isButtonClicked &&
                                         <p>{twoPercentage}%</p>

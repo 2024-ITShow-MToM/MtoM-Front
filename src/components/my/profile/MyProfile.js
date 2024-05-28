@@ -9,9 +9,10 @@ function MyProfile({ data }) {
         borderRadius: '0px 10px 10px 0px'
     };
 
-    const mbti = data.mbti ? data.mbti.toUpperCase() : '';
-    const emoji = data.imogi ? data.imogi.split(",") : [];
-    const personal = data.personal ? data.personal.split(",") : [];
+    const mbti = data.mbti ? data.mbti.toUpperCase() : ''; // mbti
+    const emoji = data.imogi ? data.imogi.split(",") : []; // emoji
+    const personal = data.personal ? data.personal.split(",") : []; // 조언 성향
+    const mentoring_topics = data.mentoring_topics ? data.mentoring_topics.replaceAll(", ", " ") : []; // 멘토링 주제
 
     return (
         <>
@@ -26,7 +27,7 @@ function MyProfile({ data }) {
                     <div className={styles['mento']}>
                         <p>멘토링 주제</p>
                         <div className={styles['tag']}>
-                            <p>#동아리</p>
+                            <p>{mentoring_topics}</p>
                         </div>
                     </div>
 

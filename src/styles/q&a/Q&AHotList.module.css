@@ -7,13 +7,14 @@
 
 .item-grid-container {
     column-count: 2;
-    column-gap: 15px;
+    column-gap: 10px;
     margin-top: 3%;
+    row-gap: 15px;
 }
 
 .item-grid-container > div {
     break-inside: avoid;
-    margin-bottom: 15px;
+    margin-top: 15px;
 }
 .item-grid-container > a > div {
     break-inside: avoid;
