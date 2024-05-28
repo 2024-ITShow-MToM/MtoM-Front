@@ -18,7 +18,7 @@ function QandAChooseList() {
                 }
             });
             if (response.status === 200) {
-                console.log("양자택일 데이터 불러오기 성공");
+                console.log("양자택일 데이터 불러오기 성공", response.data);
                 setData(response.data);
             } else {
                 console.log("양자택일 데이터 불러오기 실패", response.status);
