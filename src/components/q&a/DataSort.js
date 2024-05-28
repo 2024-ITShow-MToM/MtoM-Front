@@ -25,19 +25,19 @@ function DataSort({ handleSort }) {
     return (
         <div className={styles['buttonContainer']}>
             <button
-                className={selectedSort === '조회수' ? styles['selectButton'] : styles['defaultButton']}
+                className={selectedSort === 'views' ? styles['selectButton'] : styles['defaultButton']}
                 onClick={() => handleSortClick('views')}
             >
                 조회수
             </button>
             <button
-                className={selectedSort === '댓글' ? styles['selectButton'] : styles['defaultButton']}
+                className={selectedSort === 'comments' ? styles['selectButton'] : styles['defaultButton']}
                 onClick={() => handleSortClick('comments')}
             >
                 댓글
             </button>
             <button
-                className={selectedSort === '하트' ? styles['selectButton'] : styles['defaultButton']}
+                className={selectedSort === 'hearts' ? styles['selectButton'] : styles['defaultButton']}
                 onClick={() => handleSortClick('hearts')}
             >
                 하트

@@ -11,30 +11,22 @@ import QandAPostItem from './Q&APostItem';
 function QandAHotList() {
     const [postData, setPostData] = useState([]);
     const [chooseData, setChooseData] = useState([]);
-    const [onePercentage, setOnePercentage] = useState('60');
-    const [twoPercentage, setTwoPercentage] = useState('50');
 
+    const userId = localStorage.getItem("userId");
     useEffect(() => {
         async function fetchData() {
             try {
-                const response = await axios.get(`${process.env.REACT_APP_HOST}/api/posts`);
+                const response = await axios.get(`${process.env.REACT_APP_HOST}/api/qna`, {
+                    params: {
+                        userId: userId
+                    }
+                });
                 if (response.status === 200) {
-                    console.log("게시글 데이터 불러오기 성공");
-                    setPostData(response.data);
+                    console.log("Q&A 전체 데이터 불러오기 성공", response.data);
+                    setPostData(response.data.filter(item => item.hasOwnProperty('postId')));
+                    setChooseData(response.data.filter(item => item.hasOwnProperty('selectId')));
                 } else {
-                    console.log("게시글 데이터 불러오기 실패", response.status);
-                }
-            } catch(error) {
-                console.log("서버 연결 실패", error);
-            }
-
-            try {
-                const response = await axios.get(`${process.env.REACT_APP_HOST}/api/selects`);
-                if (response.status === 200) {
-                    console.log("양자택일 데이터 불러오기 성공");
-                    setChooseData(response.data.data);
-                } else {
-                    console.log("양자택일 데이터 불러오기 실패", response.status);
+                    console.log("Q&A 전체 데이터 불러오기 실패", response.status);
                 }
             } catch(error) {
                 console.log("서버 연결 실패", error);
@@ -45,18 +37,16 @@ function QandAHotList() {
     
     return (
         <div className={styles['container']}>
-            <DataSort />
-
             <div className={styles['item-grid-container']}>
                 {
                     postData.map((item, index) => {
-                        return <QandAPostItem key={index} data={item.post} views={item.views} hearts={item.hearts} />
+                        return <QandAPostItem key={index} data={item} views={item.viewCount} hearts={item.heartCount} comments={item.commentCount} />
                     })
                 }
 
                 {
                     chooseData.map((item, index) =>{
-                        return <QandAChooseItem key={index} onePercentage={onePercentage} twoPercentage={twoPercentage} data={item} />
+                        return <QandAChooseItem key={index} onePercentage={item.options[0].percentage1} twoPercentage={item.options[0].percentage2} data={item} options={item.options} />
                     })
                 }
             </div>

@@ -5,12 +5,11 @@ import styles from '../../styles/q&a/Q&APostItem.module.css';
 import { GoHeart } from "react-icons/go";
 import { BsChat } from "react-icons/bs";
 
-function QandAPostItem({ data, views, hearts }) {
-    let hashtag = data.hashtags ? data.hashtags.split("/")[0] : "";
-    // let date = data.createdAt.slice(0, 10);
+function QandAPostItem({ data, views, hearts, comments }) {
+    let hashtag = data && data.hashtags ? data.hashtags.split("/")[0] : "";
     return (
         <>
-            <Link to={`/q&a/question/${data.id}`} style={{ textDecoration: 'none', color: 'black' }}>
+            <Link to={`/q&a/question/${data.postId}`} style={{ textDecoration: 'none', color: 'black' }}>
                 <div className={styles['container']}>
                     <div className={styles['imgDiv']}> <img src={data.img} /> </div>
                     <div className={styles['info']}>
@@ -29,7 +28,7 @@ function QandAPostItem({ data, views, hearts }) {
                         <hr />
                         <div className={styles['iconDiv']}>
                             <div className={styles['heart']}> <GoHeart /> <p>{hearts}</p> </div>
-                            <div className={styles['comment']}> <BsChat /> <p>3</p> </div>
+                            <div className={styles['comment']}> <BsChat /> <p>{comments}</p> </div>
                         </div>
                     </div>
                 </div>

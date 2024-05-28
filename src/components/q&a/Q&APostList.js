@@ -12,7 +12,11 @@ function QandAPostList() {
     useEffect(() => {
         async function fetchData() {
             try {
-                const response = await axios.get(`${process.env.REACT_APP_HOST}/api/posts`);
+                const response = await axios.get(`${process.env.REACT_APP_HOST}/api/qna/posts`, {
+                    params: {
+                        sortBy: "latest"
+                    }
+                });
                 if (response.status === 200) {
                     console.log("게시글 데이터 불러오기 성공");
                     setData(response.data);
@@ -39,7 +43,7 @@ function QandAPostList() {
                 <div className={styles['item-grid-container']}>
                     {
                         data.map((item, index) => {
-                            return <QandAPostItem key={index} data={item} views={item.views} hearts={item.hearts} />
+                            return <QandAPostItem key={index} data={item} views={item.viewCount} hearts={item.heartCount} comments={item.commentCount} />
                         })
                     }
                 </div>
