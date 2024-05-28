@@ -24,3 +24,30 @@
     justify-content: end;
     margin-top: 10px;
 }
+.default-item{
+    display: flex;
+    flex-direction: column;
+    row-gap: 1vw;
+    width: fit-content;
+}
+.selected-item{
+    display: flex;
+    flex-direction: column;
+    row-gap: 2vw;
+    width: fit-content;
+    font-weight: bold;
+}
+.default-item:first-child{
+    width: 9vw;
+}
+.choose-container{
+    display: flex;
+    align-items: end;
+    column-gap: 8vw;
+    margin: 4vw 0;
+}
+.line{
+    height: 2px;
+    background-color: var(--main-color);
+    border-radius: 10px;
+}

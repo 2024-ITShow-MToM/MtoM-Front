@@ -18,9 +18,14 @@
     row-gap: 16px;
 }
 .mento-box{
-    display:flex;
-    justify-content:space-between;
-    margin-top:10vw;
+    display: flex;
+    column-gap: 7vw;
+    overflow-x: scroll;
+    padding: 11vw 5.5vw 5vw 5.5vw;
+    margin-top: 3vw;
+}
+::-webkit-scrollbar{
+    display: none;
 }
 .interview-text{
     font-family: var(--Modak);
@@ -28,11 +33,19 @@
     color: var(--strong-color);
 }
 .interview-container{
-    margin-top: 6vw;
+    margin-top: 2vw;
     margin-bottom: 30vw;
 }
 .interview-box{
     display:flex;
     justify-content:space-between;
     margin-top:3vw;
+}
+.interview-more{
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+}
+.interview-more div{
+    color: var(--sub-color);
 }
