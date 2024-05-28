@@ -47,10 +47,10 @@ function QandAQuestion() {
                     <div className={styles['profileContainer']}> <QandAQuestionProfile data={data.user} /> </div>
                 </div>
 
-                <div className={styles['questionContainer']}> <Question data={data} postId={id} onCommentAdded={reloadComments} /> </div>
+                <div className={styles['questionContainer']}> <Question data={data} postId={data.postId} onCommentAdded={reloadComments} /> </div>
 
                 <div className={styles['commentContainer']}> <CommentList data={data.comments} onCommentAdded={reloadComments} /> </div>
-                <div className={styles['inputContainer']}> <SendInput postId={id} onCommentAdded={reloadComments} /> </div>
+                <div className={styles['inputContainer']}> <SendInput postId={data.postId} onCommentAdded={reloadComments} /> </div>
             </div>
         </>
     )
