@@ -42,12 +42,14 @@ function QandAChooseList() {
                 <div className={styles['item-grid-container']}>
                     {
                         data.map((item, index) =>{
+                            const firstPercentage = item.options[0].percentage1.toFixed(1);
+                            const secondPercentage = item.options[0].percentage2.toFixed(1);
                             return (
                                 <QandAChooseItem
                                 key={index}
                                 data={item}
-                                onePercentage={item.options[0].percentage1}
-                                twoPercentage={item.options[0].percentage2}
+                                onePercentage={firstPercentage}
+                                twoPercentage={secondPercentage}
                                 options={item.options} 
                                 reFetchData={reFetchData}
                             />

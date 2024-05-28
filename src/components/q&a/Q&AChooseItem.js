@@ -26,7 +26,7 @@ function QandAChooseItem({ onePercentage, twoPercentage, data, options, reFetchD
     // 양자택일 투표 서버 연결
     async function optionData(clickedOption) {
         try {
-            const request = await axios.post(`${process.env.REACT_APP_HOST}/api/selects/${selectId}/${clickedOption}?userId=${userId}`);
+            const request = await axios.post(`${process.env.REACT_APP_HOST}/api/selects/${selectId}/option${clickedOption}?userId=${userId}`);
             if (request.status === 200) {
                 console.log(`option${clickedOption} 선택`);
                 reFetchData();
@@ -55,7 +55,7 @@ function QandAChooseItem({ onePercentage, twoPercentage, data, options, reFetchD
 
                     <div className={styles['buttonContainer']}>
                         <div className={isButtonClicked ? styles['clicked'] : ''}>
-                            <div className={`${styles['button']} ${clickedOption === "option1" ? styles['myclicked'] : ''}`} onClick={() => handleOptionClick("option1")}> 
+                            <div className={`${styles['button']} ${clickedOption === "option1" ? styles['myclicked'] : styles['noclicked']}`} onClick={() => handleOptionClick("option1")}> 
                                 <div className={isButtonClicked ? styles['clickedOption'] : styles['option']}>
                                     <p>{options[0].option1}</p>
                                     {
@@ -68,7 +68,7 @@ function QandAChooseItem({ onePercentage, twoPercentage, data, options, reFetchD
                         </div>
 
                         <div className={isButtonClicked ? styles['clicked'] : ''}>
-                            <div className={`${styles['button']} ${clickedOption === "option2" ? styles['myclicked'] : ''}`} onClick={() => handleOptionClick("option2")}>
+                            <div className={`${styles['button']} ${clickedOption === "option2" ? styles['myclicked'] : styles['noclicked']}`} onClick={() => handleOptionClick("option2")}>
                                 <div className={isButtonClicked ? styles['clickedOption'] : styles['option']}>
                                     <p>{options[0].option2}</p>
                                     {
