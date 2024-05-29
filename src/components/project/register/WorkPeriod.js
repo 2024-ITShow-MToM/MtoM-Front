@@ -1,10 +1,9 @@
-import React, { useContext, useState } from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import 'react-day-picker/dist/style.css';
 import { DayPicker, useNavigation } from 'react-day-picker';
 import { ko } from 'date-fns/locale';
 import { format, isAfter, isBefore, isValid, parse } from 'date-fns';
-import { ProviderContext } from './PeriodProvider';
 
 import '../../../styles/common/Style.css';
 import styles from '../../../styles/project/register/WorkPeriod.module.css';
@@ -13,7 +12,6 @@ import Header from '../Header';
 import { IoRemoveOutline } from "react-icons/io5";
 
 function WorkPeriod() {
-    // const { workContact } = useContext(ProviderContext);
     const [selectedRange, setSelectedRange] = useState();
     const [fromValue, setFromValue] = useState('');
     const [toValue, setToValue] = useState('');
@@ -106,7 +104,6 @@ function WorkPeriod() {
         if (workStart && workEnd) {
             localStorage.setItem("work-start", workStart);
             localStorage.setItem("work-end", workEnd);
-            // workContact(workStart, workEnd);
         }
     }
 
