@@ -12,27 +12,32 @@ function QandAHotList() {
     const [chooseData, setChooseData] = useState([]);
 
     const userId = localStorage.getItem("userId");
-    useEffect(() => {
-        async function fetchData() {
-            try {
-                const response = await axios.get(`${process.env.REACT_APP_HOST}/api/qna`, {
-                    params: {
-                        userId: userId
-                    }
-                });
-                if (response.status === 200) {
-                    console.log("Q&A 전체 데이터 불러오기 성공");
-                    setPostData(response.data.filter(item => item.hasOwnProperty('postId')));
-                    setChooseData(response.data.filter(item => item.hasOwnProperty('selectId')));
-                } else {
-                    console.log("Q&A 전체 데이터 불러오기 실패", response.status);
+    async function fetchData() {
+        try {
+            const response = await axios.get(`${process.env.REACT_APP_HOST}/api/qna`, {
+                params: {
+                    userId: userId
                 }
-            } catch(error) {
-                console.log("서버 연결 실패", error);
+            });
+            if (response.status === 200) {
+                console.log("Q&A 전체 데이터 불러오기 성공");
+                setPostData(response.data.filter(item => item.hasOwnProperty('postId')));
+                setChooseData(response.data.filter(item => item.hasOwnProperty('selectId')));
+            } else {
+                console.log("Q&A 전체 데이터 불러오기 실패", response.status);
             }
+        } catch(error) {
+            console.log("서버 연결 실패", error);
         }
+    }
+
+    useEffect(() => {
         fetchData();
     }, []);
+
+    const reFetchData = () => {
+        fetchData();
+    };
     
     return (
         <div className={styles['container']}>
@@ -45,7 +50,7 @@ function QandAHotList() {
 
                 {
                     chooseData.map((item, index) =>{
-                        return <QandAChooseItem key={index} onePercentage={item.options[0].percentage1} twoPercentage={item.options[0].percentage2} data={item} options={item.options} />
+                        return <QandAChooseItem key={index} onePercentage={item.options[0].percentage1} twoPercentage={item.options[0].percentage2} data={item} options={item.options} reFetchData={reFetchData} />
                     })
                 }
             </div>
