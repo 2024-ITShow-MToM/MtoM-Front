@@ -115,10 +115,6 @@ function ProjectRegister() {
         formData.append('designer_personnel', designCount);
         formData.append('promoter_personnel', planCount);
         formData.append('introduction', introduction);
-
-        for (const [key, value] of formData.entries()) {
-            console.log(`${key}: ${value}`);
-        }
     
         try {
             const reqeust = await axios.post(`${process.env.REACT_APP_HOST}/api/projects`, formData, {
