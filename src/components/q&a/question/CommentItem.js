@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { useParams } from 'react-router-dom';
 import axios from 'axios';
 
 import '../../../styles/common/Style.css';
@@ -8,16 +9,32 @@ import { GoHeart } from 'react-icons/go';
 import { GoHeartFill } from 'react-icons/go';
 
 function CommentItem({ data, onCommentAdded }) {
-    const [clicked, setClicked] = useState(false);
     const userId = localStorage.getItem("userId");
+    const [clickedHeartData, setClickedHeartData] = useState([]);
+    const [isHeartClicked, setIsHeartClicked] = useState(false);
 
-    useEffect(() => {
-        if (clicked === true) {
-            setClicked(true);
-        } else {
-            setClicked(false);
+     // 하트 누른 회원 조회
+     const { id } = useParams();
+     async function clickedHeartDatas() {
+        try {
+            const response = await axios.get(`${process.env.REACT_APP_HOST}/api/posts/comments/${data.commentId}/hearts/users`);
+            if (response.status === 200) {
+                console.log("댓글 하트 누른 회원 조회 성공");
+                setClickedHeartData(response.data.users);
+                const clickedUserIds = response.data.users.map(user => user.userId);
+                const isUserClicked = clickedUserIds.includes(userId);
+                setIsHeartClicked(isUserClicked);
+                onCommentAdded();
+            } else {
+                console.log("댓글 하트 누른 회원 조회 실패", response.status);
+            }
+        } catch(error) {
+            console.log("서버 연결 실패", error);
         }
-    }, [data.commentId, userId]);
+    }
+    useEffect(() => {
+        clickedHeartDatas();
+    }, [id, userId]);
 
     const heartClick = async (e) => {
         e.preventDefault();
@@ -25,14 +42,13 @@ function CommentItem({ data, onCommentAdded }) {
             const request = await axios.post(`${process.env.REACT_APP_HOST}/api/posts/comments/${data.commentId}/heart?userId=${userId}`);
             if (request.status === 200) {
                 console.log("댓글 하트 누르기 성공");
-                setClicked(true);
+                clickedHeartDatas();
                 onCommentAdded();
             } else {
                 console.log("댓글 하트 누르기 실패", request.status);
             }
         } catch(error) {
             console.log("서버 연결 실패", error);
-            onCommentAdded();
         }
     }
 
@@ -51,7 +67,7 @@ function CommentItem({ data, onCommentAdded }) {
                 </div>
 
                 <div className={styles['heart']}>
-                    {clicked ? <GoHeartFill onClick={heartClick} /> : <GoHeart onClick={heartClick} />}
+                    {isHeartClicked ? <GoHeartFill onClick={heartClick} /> : <GoHeart onClick={heartClick} />}
                     <p>{data.heartCount}</p>
                 </div>
             </div>

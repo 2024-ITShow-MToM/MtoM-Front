@@ -4,17 +4,19 @@ import styles from '../../../styles/q&a/question/CommentList.module.css';
 import CommentItem from './CommentItem';
 
 function CommentList({ data, onCommentAdded }) {
-    if (!data) {
-        return;
-    }
+    if (!data) return;
 
     return (
         <>
             <div className={styles['container']}>
                 {
-                    data.map((item, index) => {
-                        return <CommentItem key={index} data={item} onCommentAdded={onCommentAdded} />
-                    })
+                    data && data.length > 0 ? (
+                        data.map((item, index) => (
+                            <CommentItem key={index} data={item} onCommentAdded={onCommentAdded} />
+                        ))
+                    ) : (
+                        <p>댓글이 없습니다.</p>
+                    )
                 }
             </div>
         </>
