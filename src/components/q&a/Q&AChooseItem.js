@@ -31,7 +31,7 @@ function QandAChooseItem({ onePercentage, twoPercentage, data, options, reFetchD
         try {
             const request = await axios.post(`${process.env.REACT_APP_HOST}/api/selects/${selectId}/${clickedOption}?userId=${userId}`);
             if (request.status === 200) {
-                console.log(`option${clickedOption} 선택`);
+                console.log(`${clickedOption} 선택`);
                 reFetchData();
             } else {
                 console.log("option 선택 실패", request.status);

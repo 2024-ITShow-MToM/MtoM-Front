@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { useParams } from 'react-router-dom';
 import axios from 'axios';
 
 import '../../styles/common/Style.css';
@@ -7,7 +8,6 @@ import styles from '../../styles/q&a/Q&AHeartCommentIcon.module.css';
 import { GoHeart } from "react-icons/go";
 import { GoHeartFill } from "react-icons/go";
 import { BsChat } from "react-icons/bs";
-import { useParams } from 'react-router-dom';
 
 function QandAHeartCommentIcon({ data, postId, onCommentAdded }) {
     const userId = localStorage.getItem("userId");

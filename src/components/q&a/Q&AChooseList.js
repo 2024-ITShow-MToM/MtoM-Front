@@ -18,7 +18,7 @@ function QandAChooseList() {
                 }
             });
             if (response.status === 200) {
-                console.log("양자택일 데이터 불러오기 성공", response.data);
+                console.log("양자택일 데이터 불러오기 성공");
                 setData(response.data);
             } else {
                 console.log("양자택일 데이터 불러오기 실패", response.status);
@@ -31,17 +31,17 @@ function QandAChooseList() {
     useEffect(() => {
         fetchData();
     }, []);
-
+    
     const reFetchData = () => {
         fetchData();
-    }
+    };
 
     return (
         <>
             <div className={styles['container']}>
                 <div className={styles['item-grid-container']}>
                     {
-                        data.map((item, index) =>{
+                        data.map((item, index) => {
                             return (
                                 <QandAChooseItem
                                 key={index}
