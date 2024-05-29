@@ -1,7 +1,6 @@
-import React, { useContext, useState } from 'react';
+import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import axios from 'axios';
-import { ProviderContext } from './PeriodProvider';
 
 import '../../../styles/common/Style.css';
 import styles from '../../../styles/project/register/ProjectRegister.module.css';
@@ -15,10 +14,10 @@ import Header from '../Header';
 import ProjectRegisterModal from '../../modals/ProjectRegisterModal';
 
 function ProjectRegister() {
-    // const { recruitmentStart, recruitmentEnd, workStart, workEnd } = useContext(ProviderContext);
     const navigate = useNavigate();
     const userId = localStorage.getItem("userId");
     const [backgroundImage, setBackgroundImage] = useState(null);
+    const [uploadImages, setUploadedImages] = useState(null);
     const [showModal, setShowModal] = useState(false);
     
     const useFormInput = (initialValue) => {
@@ -31,15 +30,16 @@ function ProjectRegister() {
 
     const [title, setTitle] = useFormInput(''); // 제목
     const [desc, setDesc] = useFormInput(''); // 설명
-    const [recruitmentStart, setRecruitmentStart] = useFormInput(localStorage.getItem("recruitment-start")); // 모집 기간 시작일
-    const [recruitmentEnd, setRecruitmentEnd] = useFormInput(localStorage.getItem("recruitment-end")); // 모집 기간 마감일
-    const [workStart, setWorkStart] = useFormInput(localStorage.getItem("work-start")); // 작업 기간 시작일
-    const [workEnd, setWorkEnd] = useFormInput(localStorage.getItem("work-end")); // 작업 기간 마감일
     const [frontendCount, setFrontendCount] = useState(0); // 프론트엔드 개발자 수
     const [designCount, setDesignCount] = useState(0); // 디자이너 수
     const [backendCount, setBackendCount] = useState(0); // 백엔드 개발자 수
     const [planCount, setPlanCount] = useState(0); // 기획자 수
     const [introduction, setIntroduction] = useFormInput(''); // 프로젝트 소개
+    const recruitmentStart = localStorage.getItem("recruitment-start"); // 모집 기간 시작일
+    const recruitmentEnd = localStorage.getItem("recruitment-end"); // 모집 기간 마감일
+    const workStart = localStorage.getItem("work-start"); // 작업 기간 시작일
+    const workEnd = localStorage.getItem("work-end"); // 작업 기간 마감일
+
 
     const handleModal = () => {
         setShowModal(true);
@@ -60,13 +60,24 @@ function ProjectRegister() {
     const handleImageUpload = () => {
         const input = document.createElement('input');
         input.type = 'file';
-        input.accept = 'image/*';
         input.onchange = (event) => {
-            const selectedFile = event.target.files[0];
-            const objectURL = URL.createObjectURL(selectedFile);
-            setBackgroundImage(objectURL);
+            const file = event.target.files[0];
+            const reader = new FileReader();
+        
+            reader.onloadend = () => {
+                setBackgroundImage(reader.result);
+            };
+        
+            if (file) {
+                reader.readAsDataURL(file);
+                uploadImage(file);
+            }
         };
         input.click();
+    };
+
+    const uploadImage = (file) => {
+        setUploadedImages(file);
     };
 
     const people = [
@@ -90,20 +101,30 @@ function ProjectRegister() {
     // 프로젝트 등록 서버 연결
     const projectRegister = async (e) => {
         e.preventDefault();
+        const formData = new FormData();
+        formData.append("image", uploadImages);
+        formData.append('userId', userId);
+        formData.append('title', title);
+        formData.append('description', desc);
+        formData.append('recruitment_start', recruitmentStart);
+        formData.append('recruitment_end', recruitmentEnd);
+        formData.append('work_start', workStart);
+        formData.append('work_end', workEnd);
+        formData.append('frontend_personnel', frontendCount);
+        formData.append('backend_personnel', backendCount);
+        formData.append('designer_personnel', designCount);
+        formData.append('promoter_personnel', planCount);
+        formData.append('introduction', introduction);
+
+        for (const [key, value] of formData.entries()) {
+            console.log(`${key}: ${value}`);
+        }
+    
         try {
-            const reqeust = await axios.post(`${process.env.REACT_APP_HOST}/projects`, {
-                userId: {id : userId},
-                title: title,
-                description: desc,
-                recruitment_start: recruitmentStart,
-                recruitment_end: recruitmentEnd,
-                work_start: workStart,
-                work_end: workEnd,
-                frontend_personnel: frontendCount,
-                backend_personnel: backendCount,
-                designer_personnel: designCount,
-                promoter_personnel: planCount,
-                introduction: introduction
+            const reqeust = await axios.post(`${process.env.REACT_APP_HOST}/api/projects`, formData, {
+                headers: {
+                    'Content-Type': 'multipart/form-data'
+                }
             });
             if (reqeust.status === 201) {
                 console.log("프로젝트 등록 성공");
