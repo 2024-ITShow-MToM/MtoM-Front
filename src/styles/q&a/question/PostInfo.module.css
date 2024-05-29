@@ -1,0 +1,7 @@
+.view {
+    display: flex;
+    justify-content: space-between;
+    font-weight: var(--Regular);
+    font-size: 12px;
+    color: #C9C8C8;
+}
