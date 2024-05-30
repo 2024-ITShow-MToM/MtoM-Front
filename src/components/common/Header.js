@@ -2,7 +2,7 @@ import { SlArrowLeft } from "react-icons/sl";
 
 import styles from '../../styles/common/Header.module.css';
 
-function Header({ text }) {
+function Header({ text , alarm}) {
     const handleGoBack = () => {
         window.history.back();
     };
@@ -12,7 +12,7 @@ function Header({ text }) {
             <div className={styles['navContainer']}>
                 <div className={styles['iconDiv']}> <SlArrowLeft onClick={handleGoBack}/> </div>
             </div>
-            <div className={styles['joinText']}> <p>{text}</p> </div>
+            <div className={styles['joinText']}> <p>{text}</p> <p style={{color:"var(--sub-color)"}}>{alarm}</p></div>
         </nav>
     )
 }
