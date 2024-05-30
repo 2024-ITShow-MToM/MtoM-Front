@@ -7,6 +7,11 @@ import Join from './pages/Join';
 
 import Home from './pages/Home';
 
+import Alarm from './pages/Alarm';
+
+import Interview from './pages/Interview'
+import InterviewContent from './pages/InterviewContent'
+
 import ProfileRegister from './pages/ProfileRegister';
 
 import QandA from './pages/Q&A';
@@ -43,6 +48,11 @@ function App() {
               <Route path="/signup" element={<Join />}/>
 
               <Route path="/home" element={<Home />}/>
+
+              <Route path='/alarm' element={<Alarm />}/>
+
+              <Route path='/interview' element={<Interview />}/>
+              <Route path='/interviewContent' element={<InterviewContent />}/>
 
               <Route path='/profile/register' element={<ProfileRegister />} />
               
