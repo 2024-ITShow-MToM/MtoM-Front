@@ -1,0 +1,64 @@
+.container {
+    width: 100vw;
+    height: 15vh;
+    background-color: var(--main-color);
+    border: 0;
+    border-radius: 0 0 20px 20px;
+}
+
+.search {
+    height: 85%;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+}
+
+.searchInput {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 90%;
+    margin: 0 auto;
+}
+.searchInput > input {
+    width: 90vw;
+    height: 4.5vh;
+    padding-left: 5%;
+    outline: none;
+    z-index: 10;
+    transition: width 0.1s ease;
+
+    border-radius: 20px;
+    border-style: solid;
+    border-width: 1px;
+
+    font-weight: var(--Regular);
+    font-size: 0.9rem;
+}
+
+.iconDiv {
+    width: 90%;
+    position: absolute;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+
+    font-size: 1.5rem;
+    color: var(--sub-color);
+}
+.icon {
+    z-index: 20;
+}
+.interview-header{
+    display: flex;
+    width: 90vw;
+    column-gap: 37vw;
+    color: white;
+    font-weight: var(--SemiBold);
+    margin: 5vw 0;
+    font-size: 1.1rem;
+}
+.interview-header svg{
+    font-size: 1.5rem;
+}
