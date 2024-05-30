@@ -26,7 +26,6 @@ import ProjectRegister from './pages/ProjectRegister';
 import RecruitmentPeriod from './pages/RecruitmentPeriod';
 import WorkPeriod from './pages/WorkPeriod';
 
-import MatchingInfo from './pages/MatchingInfo'
 import MatchingField from './pages/MatchingField'
 import MatchingMajor from './pages/MatchingMajor'
 import MatchingAdvice from './pages/MatchingAdvice'
@@ -70,7 +69,6 @@ function App() {
 
               <Route path='/mento/register' element={<MentoRegister />}/>
 
-              <Route path='/matchingInfo' element={<MatchingInfo />}/>
               <Route path='/matchingField' element={<MatchingField />}/>
               <Route path='/matchingMajor' element={<MatchingMajor />}/>
               <Route path='/matchingAdvice' element={<MatchingAdvice />}/>
