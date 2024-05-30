@@ -22,7 +22,7 @@
     column-gap: 7vw;
     overflow-x: scroll;
     padding: 11vw 5.5vw 5vw 5.5vw;
-    margin-top: 3vw;
+    margin-top: 4vw;
 }
 ::-webkit-scrollbar{
     display: none;
@@ -34,12 +34,13 @@
 }
 .interview-container{
     margin-top: 2vw;
-    margin-bottom: 30vw;
 }
 .interview-box{
     display:flex;
     justify-content:space-between;
-    margin-top:3vw;
+    margin-top:1vw;
+    flex-wrap: wrap;
+    row-gap: 4vw;
 }
 .interview-more{
     display: flex;
@@ -48,4 +49,10 @@
 }
 .interview-more div{
     color: var(--sub-color);
+}
+.alarm-container{
+    display: flex;
+    flex-direction: column;
+    row-gap: 3vw;
+    margin-top: 5vw;
 }
