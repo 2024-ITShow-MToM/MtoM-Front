@@ -8,10 +8,10 @@ import styles from '../../../styles/q&a/question/CommentItem.module.css';
 import { GoHeart } from 'react-icons/go';
 import { GoHeartFill } from 'react-icons/go';
 
-function CommentItem({ data, onCommentAdded }) {
+function CommentItem({ data }) {
     const userId = localStorage.getItem("userId");
-    const [clickedHeartData, setClickedHeartData] = useState([]);
     const [isHeartClicked, setIsHeartClicked] = useState(false);
+    const [clickedHeart, setClickedHeart] = useState([]);
 
      // 하트 누른 회원 조회
      const { id } = useParams();
@@ -20,11 +20,10 @@ function CommentItem({ data, onCommentAdded }) {
             const response = await axios.get(`${process.env.REACT_APP_HOST}/api/posts/comments/${data.commentId}/hearts/users`);
             if (response.status === 200) {
                 console.log("댓글 하트 누른 회원 조회 성공");
-                setClickedHeartData(response.data.users);
                 const clickedUserIds = response.data.users.map(user => user.userId);
                 const isUserClicked = clickedUserIds.includes(userId);
-                setIsHeartClicked(isUserClicked);
-                onCommentAdded();
+                setIsHeartClicked(isUserClicked); // 유저가 하트 눌렀는지 여부
+                setClickedHeart(response.data.heartCount); // 하트 갯수
             } else {
                 console.log("댓글 하트 누른 회원 조회 실패", response.status);
             }
@@ -42,8 +41,7 @@ function CommentItem({ data, onCommentAdded }) {
             const request = await axios.post(`${process.env.REACT_APP_HOST}/api/posts/comments/${data.commentId}/heart?userId=${userId}`);
             if (request.status === 200) {
                 console.log("댓글 하트 누르기 성공");
-                clickedHeartDatas();
-                onCommentAdded();
+                clickedHeartDatas(); // 댓글 하트 누른 회원 조회
             } else {
                 console.log("댓글 하트 누르기 실패", request.status);
             }
@@ -68,7 +66,7 @@ function CommentItem({ data, onCommentAdded }) {
 
                 <div className={styles['heart']}>
                     {isHeartClicked ? <GoHeartFill onClick={heartClick} /> : <GoHeart onClick={heartClick} />}
-                    <p>{data.heartCount}</p>
+                    <p>{clickedHeart}</p>
                 </div>
             </div>
         </>

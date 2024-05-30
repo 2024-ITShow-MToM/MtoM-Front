@@ -6,7 +6,7 @@ import styles from '../../../styles/q&a/question/SendInput.module.css';
 
 import { BsSend } from 'react-icons/bs';
 
-function SendInput({ postId, onCommentAdded }) {
+function SendInput({ postId, reloadComments }) {
     const userId = localStorage.getItem("userId");
     const [content, setContent] = useState('');
 
@@ -24,7 +24,7 @@ function SendInput({ postId, onCommentAdded }) {
             });
             if (request.status === 201) {
                 console.log("댓글 등록 성공");
-                onCommentAdded();
+                reloadComments();
                 setContent('');
             } else {
                 console.log("댓글 등록 실패", request.status);
