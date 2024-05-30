@@ -30,11 +30,27 @@ function QandAQuestion() {
     }
 
     useEffect(() => {
+        commentsData();
         fetchData();
     }, []);
 
+    const [commentData, setCommentData] = useState([]);
+    async function commentsData() {
+        try {
+            const response = await axios.get(`${process.env.REACT_APP_HOST}/api/posts/${id}/comments`);
+            if (response.status === 200) {
+                console.log("댓글 조회 성공");
+                setCommentData(response.data);
+            } else {
+                console.log("댓글 조회 실패", response.status);
+            }
+        } catch(error) {
+            console.log("서버 연결 실패", error);
+        }
+    }
+
     const reloadComments = async () => {
-        await fetchData();
+        await commentsData();
     };
 
     return (
@@ -47,10 +63,10 @@ function QandAQuestion() {
                     <div className={styles['profileContainer']}> <QandAQuestionProfile data={data.user} /> </div>
                 </div>
 
-                <div className={styles['questionContainer']}> <Question data={data} postId={data.postId} onCommentAdded={reloadComments} /> </div>
+                <div className={styles['questionContainer']}> <Question data={data} postId={data.postId} /> </div>
 
-                <div className={styles['commentContainer']}> <CommentList data={data.comments} onCommentAdded={reloadComments} /> </div>
-                <div className={styles['inputContainer']}> <SendInput postId={data.postId} onCommentAdded={reloadComments} /> </div>
+                <div className={styles['commentContainer']}> <CommentList data={commentData} /> </div>
+                <div className={styles['inputContainer']}> <SendInput postId={data.postId} reloadComments={reloadComments} /> </div>
             </div>
         </>
     )
