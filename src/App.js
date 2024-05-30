@@ -7,6 +7,11 @@ import Join from './pages/Join';
 
 import Home from './pages/Home';
 
+import Alarm from './pages/Alarm';
+
+import Interview from './pages/Interview'
+import InterviewContent from './pages/InterviewContent'
+
 import ProfileRegister from './pages/ProfileRegister';
 
 import QandA from './pages/Q&A';
@@ -21,7 +26,6 @@ import ProjectRegister from './pages/ProjectRegister';
 import RecruitmentPeriod from './pages/RecruitmentPeriod';
 import WorkPeriod from './pages/WorkPeriod';
 
-import MatchingInfo from './pages/MatchingInfo'
 import MatchingField from './pages/MatchingField'
 import MatchingMajor from './pages/MatchingMajor'
 import MatchingAdvice from './pages/MatchingAdvice'
@@ -44,6 +48,11 @@ function App() {
 
               <Route path="/home" element={<Home />}/>
 
+              <Route path='/alarm' element={<Alarm />}/>
+
+              <Route path='/interview' element={<Interview />}/>
+              <Route path='/interviewContent' element={<InterviewContent />}/>
+
               <Route path='/profile/register' element={<ProfileRegister />} />
               
               <Route path='/q&a' element={<QandA />} />
@@ -60,7 +69,6 @@ function App() {
 
               <Route path='/mento/register' element={<MentoRegister />}/>
 
-              <Route path='/matchingInfo' element={<MatchingInfo />}/>
               <Route path='/matchingField' element={<MatchingField />}/>
               <Route path='/matchingMajor' element={<MatchingMajor />}/>
               <Route path='/matchingAdvice' element={<MatchingAdvice />}/>

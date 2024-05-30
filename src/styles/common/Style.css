@@ -11,7 +11,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Modak&display=swap');
 
 :root {
-    --main-color: #1D1D1D;
+    --main-color: #222222;
     --sub-color: #FF6524;
     --strong-color: #0066FF;
 
@@ -27,6 +27,7 @@
     --font-5 : #C9C9C9;
     --font-6 : #8D8D8D;
     --font-7 : #D2D9E0;
+    --font-8 : #C9C8C8;
 
     --pretendard-font: 'Pretendard';
     --noto-sans-kr: 'Noto Sans KR';

@@ -1,0 +1,38 @@
+.alarm-box{
+    display: flex;
+    justify-content: space-between;
+    border-radius: 15px;
+    padding: 4vw;
+    box-shadow: 1px 0px 20px 0px #00000012;
+}
+.name-box{
+    display: flex;
+    column-gap: 1vw;
+}
+.info-container{
+    display: flex;
+    column-gap: 3vw;
+    align-items: center;
+}
+.text-box{
+    display: flex;
+    flex-direction: column;
+    row-gap: 1.7vw;
+}
+.name,
+.num {
+    font-weight: var(--SemiBold);
+}
+.alarm{
+    font-size: 0.8rem;
+    color: var(--font-4);
+}
+.profile-img{
+    width: 15vw;
+    height: 15vw;
+    border-radius: 100%;
+}
+.time{
+    font-size: 0.7rem;
+    color: var(--font-8);
+}
