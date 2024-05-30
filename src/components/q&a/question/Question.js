@@ -6,7 +6,7 @@ import QandAHeartCommentIcon from '../Q&AHeartCommentIcon';
 import PostInfo from './PostInfo';
 import PostTitle from './PostTitle';
 
-function Question({ data, postId, onCommentAdded }) {
+function Question({ data, postId }) {
     return (
         <>
             <div className={styles['container']}>
@@ -29,7 +29,7 @@ function Question({ data, postId, onCommentAdded }) {
                     <QuestionTagList hashtags={data.hashtags} />
 
                     <div className={styles['icons']}>
-                        <QandAHeartCommentIcon data={data} postId={postId} onCommentAdded={onCommentAdded} />
+                        <QandAHeartCommentIcon data={data} postId={postId} />
                     </div>
                 </div>
             </div>
