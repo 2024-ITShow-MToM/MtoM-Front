@@ -39,16 +39,20 @@ function MyProfileEdit() {
                     console.log("회원 정보 불러오기 성공");
                     setProfileData(response.data);
                     // 회원 이미지 조회하기
-                    const imgResponse = await axios.get(`${process.env.REACT_APP_HOST}/api/users/profile/img`, {
-                        params: {
-                            userId: userId
+                    try {
+                        const imgResponse = await axios.get(`${process.env.REACT_APP_HOST}/api/users/profile/img`, {
+                            params: {
+                                userId: userId
+                            }
+                        });
+                        if (imgResponse.status === 200) {
+                            console.log("회원 프로필 이미지 불러오기 성공");
+                            setImgData(imgResponse.data);
+                        } else {
+                            console.log("회원 프로필 이미지 불러오기 실패", imgResponse.status);
                         }
-                    });
-                    if (imgResponse.status === 200) {
-                        console.log("회원 이미지 불러오기 성공");
-                        setImgData(imgResponse.data);
-                    } else {
-                        console.log("회원 이미지 불러오기 실패", imgResponse.status);
+                    } catch(error) {
+                        console.log("서버 연결 실패", error);
                     }
                 } else {
                     console.log("회원 정보 불러오기 실패", response.status);
