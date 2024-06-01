@@ -25,12 +25,12 @@ function ImageBox({ setImg }) {
             <div className={styles['container']}>
                 <div className={styles['background']} style={{backgroundImage: `url(${backgroundImage})`}} onClick={handleClickImage}>
                     {!backgroundImage && (
-                        <label htmlFor="imageInput" className={styles['circle']}>
+                        <div className={styles['circle']}>
                             <GoPlus />
-                        </label>
+                        </div>
                     )}
                 </div>
-                <input ref={inputRef} type="file" id="imageInput" accept="image/*" onChange={handleImageSelect} style={{display: 'none'}} />
+                <input ref={inputRef} type="file" accept="image/*" onChange={handleImageSelect} style={{display: 'none'}} />
             </div>
         </>
     )
