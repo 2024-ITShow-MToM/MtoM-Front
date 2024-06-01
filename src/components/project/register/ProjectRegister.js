@@ -10,7 +10,7 @@ import { IoPersonSharp } from "react-icons/io5";
 import { FiPlus } from 'react-icons/fi';
 import { FaRegCalendarAlt } from "react-icons/fa";
 
-import Header from '../Header';
+import Header from '../../common/Header';
 import ProjectRegisterModal from '../../modals/ProjectRegisterModal';
 
 function ProjectRegister() {
@@ -135,7 +135,7 @@ function ProjectRegister() {
 
     return (
         <>
-            <Header title='프로젝트 등록'/>
+            <Header text='프로젝트 등록'/>
             <div className={styles['container']}>
                 <div>
                     <div className={styles['content']}>

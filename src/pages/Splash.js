@@ -12,9 +12,7 @@ function SplashPage() {
     }, []);
 
     return (
-        <>
-            <Splash />
-        </>
+        <Splash />
     )
 }
 
