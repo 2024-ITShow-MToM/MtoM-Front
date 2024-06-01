@@ -23,6 +23,8 @@ function MyProfileEdit() {
         imogi: null,
         mentoring_topics: null
     });
+
+    const [imgData, setImgData] = useState('');
     const [uploadedImages, setUploadedImages] = useState('');
 
     useEffect(() => {
@@ -36,6 +38,18 @@ function MyProfileEdit() {
                 if (response.status === 200) {
                     console.log("회원 정보 불러오기 성공");
                     setProfileData(response.data);
+                    // 회원 이미지 조회하기
+                    const imgResponse = await axios.get(`${process.env.REACT_APP_HOST}/api/users/profile/img`, {
+                        params: {
+                            userId: userId
+                        }
+                    });
+                    if (imgResponse.status === 200) {
+                        console.log("회원 이미지 불러오기 성공");
+                        setImgData(imgResponse.data);
+                    } else {
+                        console.log("회원 이미지 불러오기 실패", imgResponse.status);
+                    }
                 } else {
                     console.log("회원 정보 불러오기 실패", response.status);
                 }
@@ -128,6 +142,7 @@ function MyProfileEdit() {
                         <div className={styles['imgDiv']}>
                             <MyProfileImage
                                 setUploadedImages={setUploadedImages}
+                                imageUrl={imgData}
                             />
                         </div>
                         <div className={styles['inputStdentId']}>

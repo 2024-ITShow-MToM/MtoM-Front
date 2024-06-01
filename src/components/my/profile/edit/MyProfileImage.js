@@ -1,12 +1,16 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 
 import '../../../../styles/common/Style.css';
 import styles from '../../../../styles/my/profile/edit/MyProfileImage.module.css';
 
 import { FiCamera } from "react-icons/fi";
 
-function MyProfileImage({ setUploadedImages }) {
-    const [selectedImage, setSelectedImage] = useState(null);
+function MyProfileImage({ setUploadedImages, imageUrl }) {
+    const [selectedImage, setSelectedImage] = useState(imageUrl || null);
+
+    useEffect(() => {
+        setSelectedImage(imageUrl);
+    }, [imageUrl]);
 
     const handleImageUpload = () => {
         const input = document.createElement('input');
@@ -14,11 +18,11 @@ function MyProfileImage({ setUploadedImages }) {
         input.onchange = (event) => {
             const file = event.target.files[0];
             const reader = new FileReader();
-        
+
             reader.onloadend = () => {
                 setSelectedImage(reader.result);
             };
-        
+
             if (file) {
                 reader.readAsDataURL(file);
                 uploadImage(file);
@@ -38,7 +42,7 @@ function MyProfileImage({ setUploadedImages }) {
             <div className={styles['camera']} onClick={handleImageUpload}>
                 {!selectedImage && (
                     <>
-                        <FiCamera className={styles['cameraIcon']}/>
+                        <FiCamera className={styles['cameraIcon']} />
                         <p>사진 등록하기</p>
                     </>
                 )}
@@ -47,7 +51,7 @@ function MyProfileImage({ setUploadedImages }) {
                 )}
             </div>
         </>
-    )
+    );
 }
 
 export default MyProfileImage;
