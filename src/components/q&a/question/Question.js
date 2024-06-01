@@ -2,7 +2,7 @@ import '../../../styles/common/Style.css';
 import styles from '../../../styles/q&a/question/Question.module.css';
 
 import QuestionTagList from './TagList';
-import QandAHeartCommentIcon from '../Q&AHeartCommentIcon';
+import SelectHeartCommentIcon from '../SelectHeartCommentIcon';
 import PostInfo from './PostInfo';
 import PostTitle from './PostTitle';
 
@@ -29,7 +29,7 @@ function Question({ data, postId }) {
                     <QuestionTagList hashtags={data.hashtags} />
 
                     <div className={styles['icons']}>
-                        <QandAHeartCommentIcon data={data} postId={postId} />
+                        <SelectHeartCommentIcon data={data} postId={postId} />
                     </div>
                 </div>
             </div>

@@ -18,7 +18,6 @@
     height: 100%;
     object-fit: cover;
     border-radius: 5px;
-    border: 1px solid black;
 }
 
 .info {
@@ -73,7 +72,7 @@
 }
 .bottom > p {
     font-weight: var(--Regular);
-    font-size: 10px;
+    font-size: 12px;
     color: #C9C8C8;
 }
 
@@ -88,6 +87,15 @@
 }
 .tag > p {
     font-weight: var(--Medium);
-    font-size: 0.7rem;
+    font-size: 12px;
     color: var(--sub-color);
+}
+
+.iconDiv {
+    display: flex;
+    column-gap: 10px;
+    justify-content: flex-end;
+    align-items: center;
+    font-weight: var(--Regular);
+    font-size: 0.9rem;
 }

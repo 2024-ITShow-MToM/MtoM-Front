@@ -50,7 +50,16 @@ function QandAHotList() {
 
                 {
                     chooseData.map((item, index) =>{
-                        return <QandAChooseItem key={index} onePercentage={item.options[0].percentage1} twoPercentage={item.options[0].percentage2} data={item} options={item.options} reFetchData={reFetchData} />
+                        return (
+                            <QandAChooseItem 
+                                key={index} 
+                                onePercentage={item.options[0].percentage1} 
+                                twoPercentage={item.options[0].percentage2} 
+                                data={item} 
+                                options={item.options} 
+                                reFetchData={reFetchData} 
+                            />
+                        )
                     })
                 }
             </div>

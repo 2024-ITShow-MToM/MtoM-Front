@@ -3,13 +3,13 @@ import { useParams } from 'react-router-dom';
 import axios from 'axios';
 
 import '../../styles/common/Style.css';
-import styles from '../../styles/q&a/Q&AHeartCommentIcon.module.css';
+import styles from '../../styles/q&a/SelectHeartCommentIcon.module.css';
 
 import { GoHeart } from "react-icons/go";
 import { GoHeartFill } from "react-icons/go";
 import { BsChat } from "react-icons/bs";
 
-function QandAHeartCommentIcon({ data, postId }) {
+function SelectHeartCommentIcon({ postId }) {
     const userId = localStorage.getItem("userId");
     const [isHeartClicked, setIsHeartClicked] = useState(false);
     const [clickedHearts, setClickedHearts] = useState(0);
@@ -66,4 +66,4 @@ function QandAHeartCommentIcon({ data, postId }) {
     )
 }
 
-export default QandAHeartCommentIcon;
+export default SelectHeartCommentIcon;
