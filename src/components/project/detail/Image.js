@@ -1,10 +1,16 @@
 import '../../../styles/common/Style.css';
 import styles from '../../../styles/project/detail/Image.module.css';
 
-function Image() {
+function Image({ imgUrl }) {
     return (
         <div className={styles['imgDiv']}>
-            <img src='/images/example.png' />
+            {
+                imgUrl ? (
+                    <img src={`${imgUrl}`} />
+                ) : (
+                    <img src='/images/example.png' />
+                )
+            }
         </div>
     )
 }
