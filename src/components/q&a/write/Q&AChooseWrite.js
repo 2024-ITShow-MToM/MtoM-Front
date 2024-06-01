@@ -13,9 +13,9 @@ function QandAChooseWrite() {
     const inputRef = useRef(null);
     const userId = localStorage.getItem("userId"); // userId는 회원가입했을 때 아이디
     const [chooseData, setChooseData] = useState({
-        title: null,
-        option1: null,
-        option2: null
+        title: '',
+        option1: '',
+        option2: ''
     });
 
     const handleChange = (e) => {
@@ -44,6 +44,12 @@ function QandAChooseWrite() {
 
     const register = async (e) => {
         e.preventDefault();
+
+        if (!chooseData.title || !chooseData.option1 || !chooseData.option2) {
+            alert("모든 항목을 입력해주세요.");
+            return;
+        }
+
         try {
             const request = await axios.post(`${process.env.REACT_APP_HOST}/api/selects`, 
                 {

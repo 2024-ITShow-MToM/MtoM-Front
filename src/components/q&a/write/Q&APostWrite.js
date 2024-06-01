@@ -20,6 +20,14 @@ function QandAPostWrite() {
     });
 
     const register = async (e) => {
+        if (!img) {
+            alert("이미지를 선택해 주세요!");
+            return;
+        } else if (!postData.title || !postData.content || tags.length === 0) {
+            alert("모든 항목을 입력해주세요.");
+            return;
+        }
+
         e.preventDefault();
         try {
             const formData = new FormData();
