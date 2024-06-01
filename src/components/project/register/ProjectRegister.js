@@ -6,7 +6,6 @@ import '../../../styles/common/Style.css';
 import styles from '../../../styles/project/register/ProjectRegister.module.css';
 
 import { Icon } from '@iconify/react';
-import { IoPersonSharp } from "react-icons/io5";
 import { FiPlus } from 'react-icons/fi';
 import { FaRegCalendarAlt } from "react-icons/fa";
 
@@ -195,7 +194,7 @@ function ProjectRegister() {
                                         <div className={styles['textDiv']}>{person.text}</div>
                                             <div className={styles['peopleNumber']}>
                                                 {[...Array(person.id === 1 ? frontendCount : person.id === 2 ? designCount : person.id === 3 ? backendCount : planCount)].map((_, index) => (
-                                                    <IoPersonSharp key={index+1} style={{ fontSize: '20px', color: '#5A5A5A' }} />
+                                                    <Icon icon='fluent:person-20-filled' key={index+1} style={{ fontSize: '20px', color: '#5A5A5A' }} />
                                                 ))}
                                             </div>
                                     </div>

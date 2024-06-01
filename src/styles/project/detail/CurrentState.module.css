@@ -1,0 +1,16 @@
+.container {
+    width: 55px;
+    /* height: 20px; */
+    padding: 4px 6px;
+    border: 1px solid var(--sub-color);
+    border-radius: 5px;
+    background-color: rgba(255, 101, 36, 0.2);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.container > p {
+    font-weight: var(--Medium);
+    font-size: 12px;
+    color: var(--sub-color);
+}

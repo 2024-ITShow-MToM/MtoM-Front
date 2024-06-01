@@ -2,7 +2,7 @@ import { SlArrowLeft } from "react-icons/sl";
 
 import styles from '../../styles/common/Header.module.css';
 
-function Header({ text , alarm}) {
+function Header({ text , alarm }) {
     const handleGoBack = () => {
         window.history.back();
     };
