@@ -1,8 +1,8 @@
 .heart,
 .comment {
     display: flex;
-    column-gap: 2px;
     justify-content: center;
     align-items: center;
+    column-gap: 2px;
     color: #323232;
 }

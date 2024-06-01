@@ -11,6 +11,6 @@
     display: none;
 }
 
-.container > div:last-child {
+.container > a:last-child {
     margin-bottom: 30%;
 }
