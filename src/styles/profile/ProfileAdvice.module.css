@@ -59,6 +59,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    margin-top: 2%;
 }
 .button > button {
     border: 0;

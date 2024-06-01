@@ -59,13 +59,14 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    margin-top: 2%;
 }
 .button > button {
     border: 0;
-    background-color: var(--sub-color);
+    background-color: rgba(255, 101, 36, 0.3);
     padding: 2.5% 6%;
     border-radius: 100px;
     font-weight: var(--Medium);
     font-size: 16px;
-    color: white;
+    color: var(--sub-color);
 }

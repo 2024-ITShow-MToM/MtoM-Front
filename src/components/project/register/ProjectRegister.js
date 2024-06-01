@@ -6,11 +6,10 @@ import '../../../styles/common/Style.css';
 import styles from '../../../styles/project/register/ProjectRegister.module.css';
 
 import { Icon } from '@iconify/react';
-import { IoPersonSharp } from "react-icons/io5";
 import { FiPlus } from 'react-icons/fi';
 import { FaRegCalendarAlt } from "react-icons/fa";
 
-import Header from '../Header';
+import Header from '../../common/Header';
 import ProjectRegisterModal from '../../modals/ProjectRegisterModal';
 
 function ProjectRegister() {
@@ -135,7 +134,7 @@ function ProjectRegister() {
 
     return (
         <>
-            <Header title='프로젝트 등록'/>
+            <Header text='프로젝트 등록'/>
             <div className={styles['container']}>
                 <div>
                     <div className={styles['content']}>
@@ -195,7 +194,7 @@ function ProjectRegister() {
                                         <div className={styles['textDiv']}>{person.text}</div>
                                             <div className={styles['peopleNumber']}>
                                                 {[...Array(person.id === 1 ? frontendCount : person.id === 2 ? designCount : person.id === 3 ? backendCount : planCount)].map((_, index) => (
-                                                    <IoPersonSharp key={index+1} style={{ fontSize: '20px', color: '#5A5A5A' }} />
+                                                    <Icon icon='fluent:person-20-filled' key={index+1} style={{ fontSize: '20px', color: '#5A5A5A' }} />
                                                 ))}
                                             </div>
                                     </div>

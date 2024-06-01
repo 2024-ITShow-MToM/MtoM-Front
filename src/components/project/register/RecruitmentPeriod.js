@@ -8,7 +8,7 @@ import { format, isAfter, isBefore, isValid, parse } from 'date-fns';
 import '../../../styles/common/Style.css';
 import styles from '../../../styles/project/register/RecruitmentPeriod.module.css';
 
-import Header from '../Header';
+import Header from '../../common/Header';
 import { IoRemoveOutline } from "react-icons/io5";
 
 function RecruitmentPeriod() {
@@ -109,7 +109,7 @@ function RecruitmentPeriod() {
 
     return (
         <>
-            <Header title='모집기간 설정'/>
+            <Header text='모집기간 설정'/>
             <div className={styles['container']}>
                 <div>
                     <form className={styles['form']}>

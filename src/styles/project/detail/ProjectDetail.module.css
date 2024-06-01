@@ -1,0 +1,33 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+}
+
+.infoContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    row-gap: 50px;
+    height: calc(100% - 180px);
+    padding: 5%;
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+.infoContainer::-webkit-scrollbar {
+    display: none;
+}
+
+.button > button {
+    width: 100%;
+    padding: 14px 40px;
+    border: 0;
+    border-radius: 15px;
+    background-color: var(--sub-color);
+    font-weight: var(--SemiBold);
+    font-size: 16px;
+    color: white;
+}
