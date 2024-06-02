@@ -15,6 +15,7 @@ import ProjectRegisterModal from '../../modals/ProjectRegisterModal';
 function ProjectRegister() {
     const navigate = useNavigate();
     const userId = localStorage.getItem("userId");
+    const [projectId, setProjectId] = useState(null);
     const [backgroundImage, setBackgroundImage] = useState(null);
     const [uploadImages, setUploadedImages] = useState(null);
     const [showModal, setShowModal] = useState(false);
@@ -39,7 +40,6 @@ function ProjectRegister() {
     const workStart = localStorage.getItem("work-start"); // 작업 기간 시작일
     const workEnd = localStorage.getItem("work-end"); // 작업 기간 마감일
 
-
     const handleModal = () => {
         setShowModal(true);
         setTimeout(() => {
@@ -53,7 +53,7 @@ function ProjectRegister() {
         localStorage.removeItem("work-start");
         localStorage.removeItem("work-end");
         setShowModal(false);
-        navigate('/q&a');
+        navigate(`/project/detail/${projectId}`);
     }
 
     const handleImageUpload = () => {
@@ -123,6 +123,7 @@ function ProjectRegister() {
             });
             if (reqeust.status === 201) {
                 console.log("프로젝트 등록 성공");
+                setProjectId(reqeust.data.id);
                 handleModal();
             } else {
                 console.log("프로젝트 등록 실패", reqeust.status);
