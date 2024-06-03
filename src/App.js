@@ -67,7 +67,7 @@ function App() {
               <Route path='/project/register' element={<ProjectRegister />} />
               <Route path='/project/recruitment-period' element={<RecruitmentPeriod />} />
               <Route path='/project/work-period' element={<WorkPeriod />} />
-              <Route path='/project/detail' element={<ProjectDetail />}/>
+              <Route path='/project/detail/:id' element={<ProjectDetail />}/>
 
               <Route path='/mento/register' element={<MentoRegister />}/>
 
