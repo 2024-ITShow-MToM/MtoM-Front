@@ -1,0 +1,13 @@
+.container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 5%;
+    font-size: 25px;
+    background-color: white;
+}
+
+.container > p {
+    font-weight: var(--SemiBold);
+    font-size: 18px;
+}
