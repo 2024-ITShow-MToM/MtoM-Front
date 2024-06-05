@@ -29,13 +29,13 @@
     border: 1px solid black;
 }
 
-.your-chat{
+.your-chat {
     width: max-content;
     max-width: 60%;
     position: relative;
     background-color: var(--gray-1);
     border-radius: 10px;
-    padding: 16px;
+    padding: 13px;
     word-break: break-all;
 
     font-weight: var(--Regular);
@@ -45,13 +45,21 @@
 
 .content { 
     display: flex;
-    top: 43%;
+    top: 30%;
     right: 22%;
     align-items: flex-end;
     column-gap: 6px;
 }
-.content > p {
+.content > p,
+.noProfileContent > p {
     font-weight: var(--Regular);
     font-size: 12px;
     color: var(--gray-3);
+}
+
+.noProfileContent {
+    display: flex;
+    right: -18.5%;
+    align-items: flex-end;
+    column-gap: 6px;
 }

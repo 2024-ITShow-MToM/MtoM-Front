@@ -28,6 +28,6 @@
 
 .chatting {
     display: grid;
-    row-gap: 40px;
+    row-gap: 25px;
     margin-bottom: 40px;
 }
