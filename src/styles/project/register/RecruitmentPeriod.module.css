@@ -9,10 +9,6 @@
     justify-content: space-between;
 }
 
-.rdp-caption_label {
-    font-size: 24px;
-}
-
 .form {
     width: 100%;
     display: flex;

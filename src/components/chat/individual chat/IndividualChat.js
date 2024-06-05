@@ -10,7 +10,7 @@ function IndividualChat() {
         <>
             <Header name='3413 최보람'/>
             <div className={styles['container']}>
-                <ChattingBox date='오늘' />
+                <ChattingBox date='2024-06-05' />
                 <SendInput />
             </div>
         </>
