@@ -1344,7 +1344,7 @@ index aaae303..1579ad6 100644
 \ No newline at end of file
 -//# sourceMappingURL=index.js.map
 diff --git a/node_modules/react-day-picker/dist/style.css b/node_modules/react-day-picker/dist/style.css
-index 9072d48..a7be2d6 100644
+index 9072d48..bf68a3e 100644
 --- a/node_modules/react-day-picker/dist/style.css
 +++ b/node_modules/react-day-picker/dist/style.css
 @@ -1,18 +1,16 @@
@@ -1416,7 +1416,13 @@ index 9072d48..a7be2d6 100644
    padding: 0;
    text-align: left;
  }
-@@ -137,7 +133,11 @@
+@@ -132,12 +128,16 @@
+   border: 0;
+   border: 2px solid transparent;
+   font-family: inherit;
+-  font-size: var(--rdp-caption-font-size);
++  font-size: 24px;
+   font-weight: bold;
  }
  
  .rdp-nav {
@@ -1564,7 +1570,7 @@ index 9072d48..a7be2d6 100644
 -/*# sourceMappingURL=style.css.map */
 \ No newline at end of file
 diff --git a/node_modules/react-day-picker/dist/style.module.css b/node_modules/react-day-picker/dist/style.module.css
-index 9249238..75ade44 100644
+index 9249238..d546fc1 100644
 --- a/node_modules/react-day-picker/dist/style.module.css
 +++ b/node_modules/react-day-picker/dist/style.module.css
 @@ -1,13 +1,12 @@
@@ -1647,7 +1653,7 @@ index 9249238..75ade44 100644
    padding: 0;
    text-align: center;
  }
-@@ -264,53 +284,39 @@
+@@ -264,53 +284,37 @@
    border-radius: 100%;
  }
  
@@ -1710,9 +1716,8 @@ index 9249238..75ade44 100644
  }
  
  .day_range_middle {
-   border-radius: 0;
-+  height: 3vh;
-+  background-color: var(--rdp-background-color);
+-  border-radius: 0;
++  background-color: transparent;
  }
 diff --git a/node_modules/react-day-picker/src/types/DayPickerDefault.ts b/node_modules/react-day-picker/src/types/DayPickerDefault.ts
 index e9521c9..a187085 100644
