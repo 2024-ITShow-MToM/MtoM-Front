@@ -46,10 +46,6 @@ function ProjectRegister() {
     };
 
     const handleCloseModal = () => {
-        localStorage.removeItem("recruitment-start");
-        localStorage.removeItem("recruitment-end");
-        localStorage.removeItem("work-start");
-        localStorage.removeItem("work-end");
         setShowModal(false);
         navigate(`/project/detail/${projectId}`);
     }
