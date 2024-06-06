@@ -58,7 +58,7 @@ function IndividualChattingItem({ data }) {
             <Link to={`/chat/individual/${username}`} style={{ textDecoration: 'none', color: 'black' }}>
                 <div className={styles['container']}>
                     <div className={styles['inContainer']}>
-                        <div className={styles['inDiv']}>
+                        <div className={styles['rightDiv']}>
                             <div className={styles['imgDiv']}> <img src={imgUrl} /> </div>
 
                             <div className={styles['info']}>
@@ -66,8 +66,16 @@ function IndividualChattingItem({ data }) {
                                 <p>{data.lastMessage}</p>
                             </div>
                         </div>
-                        
-                        <p>{formatTime(data.lastMessageTime)}</p>
+
+                        <div className={styles['leftDiv']}>
+                            <p>{formatTime(data.lastMessageTime)}</p>
+                            {
+                                data.unreadMessageCount > 0 &&
+                                <div className={styles['unreadCount']}>
+                                    <p>{data.unreadMessageCount}</p>
+                                </div>
+                            }
+                        </div>
                     </div>
                 </div>
             </Link>
