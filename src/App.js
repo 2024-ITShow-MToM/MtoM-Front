@@ -61,7 +61,7 @@ function App() {
               <Route path='/q&a/question/:id' element={<QandAQuestion />} />
 
               <Route path='/chat' element={<Chatting/>} />
-              <Route path='/chat/individual' element={<IndividualChat />} />
+              <Route path='/chat/individual/:username' element={<IndividualChat />} />
               <Route path='/chat/group' element={<GroupChat />} />
 
               <Route path='/project/register' element={<ProjectRegister />} />

@@ -17,6 +17,8 @@ const formatTime = (timestamp) => {
 
 function IndividualChattingItem({ data }) {
     const [userData, setUserData] = useState([]);
+    const [imgUrl, setImgUrl] = useState('');
+    const username = data.lastSenderId;
 
     useEffect(() => {
         async function fetchData() {
@@ -29,6 +31,17 @@ function IndividualChattingItem({ data }) {
                 if (response.status === 200) {
                     console.log("보낸 회원 정보 불러오기 성공");
                     setUserData(response.data);
+                    const imgResponse = await axios.get(`${process.env.REACT_APP_HOST}/api/users/profile/img`, {
+                        params: {
+                            userId: data.lastSenderId
+                        }
+                    });
+                    if (imgResponse.status === 200) {
+                        console.log("보낸 회원 프로필 불러오기 성공");
+                        setImgUrl(imgResponse.data);
+                    } else {
+                        console.log("보낸 회원 프로필 불러오기 실패", imgResponse.status);
+                    }
                 } else {
                     console.log("보낸 회원 정보 불러오기 실패", response.status);
                 }
@@ -38,20 +51,18 @@ function IndividualChattingItem({ data }) {
         }
 
         fetchData();
-    }, []);
-
-    console.log(userData);
+    }, [data.lastSenderId]);
 
     return (
         <>
-            <Link to='/chat/individual' style={{ textDecoration: 'none', color: 'black' }}>
+            <Link to={`/chat/individual/${username}`} style={{ textDecoration: 'none', color: 'black' }}>
                 <div className={styles['container']}>
                     <div className={styles['inContainer']}>
                         <div className={styles['inDiv']}>
-                            <div className={styles['imgDiv']}> <img src='/images/example.png' /> </div>
+                            <div className={styles['imgDiv']}> <img src={imgUrl} /> </div>
 
                             <div className={styles['info']}>
-                                <p>3413 최보람</p>
+                                <p>{userData.student_id} {userData.name}</p>
                                 <p>{data.lastMessage}</p>
                             </div>
                         </div>
