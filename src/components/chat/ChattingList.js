@@ -34,7 +34,10 @@ function ChattingList() {
     return (
         <>
             <div className={styles['container']}>
-                <IndividualChattingItem data={data} />  
+                {
+                    data ?
+                    <IndividualChattingItem data={data} /> : ''
+                }
                 {/* <GroupChattingItem />   */}
             </div>
         </>
