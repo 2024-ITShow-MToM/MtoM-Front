@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import { Link } from 'react-router-dom';
 import 'react-day-picker/dist/style.css';
 import { DayPicker, useNavigation } from 'react-day-picker';
@@ -10,8 +10,10 @@ import styles from '../../../styles/project/register/WorkPeriod.module.css';
 
 import Header from '../../common/Header';
 import { IoRemoveOutline } from "react-icons/io5";
+import ProjectContext from './ProjectProvider';
 
 function WorkPeriod() {
+    const { work } = useContext(ProjectContext);
     const [selectedRange, setSelectedRange] = useState();
     const [fromValue, setFromValue] = useState('');
     const [toValue, setToValue] = useState('');
@@ -106,8 +108,7 @@ function WorkPeriod() {
 
     const handleSave = () => {
         if (workStart && workEnd) {
-            localStorage.setItem("work-start", workStart);
-            localStorage.setItem("work-end", workEnd);
+            work(workStart ,workEnd);
         }
     }
 
