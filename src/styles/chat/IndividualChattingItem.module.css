@@ -11,16 +11,23 @@
     justify-content: space-between;
     align-items: flex-start;
 }
-.inContainer > p {
-    font-weight: var(--Regular);
-    font-size: 11px;
-    color: #C9C8C8;
-}
 
-.inDiv {
+.rightDiv {
     display: flex;
     column-gap: 10px;   
     align-items: center;
+}
+
+.leftDiv {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    row-gap: 6px;
+}
+.leftDiv > p {
+    font-weight: var(--Regular);
+    font-size: 11px;
+    color: #C9C8C8;
 }
 
 .imgDiv {
@@ -47,4 +54,20 @@
     font-weight: var(--Medium);
     font-size: 12px;
     color: #7E7E7E;
+}
+
+.unreadCount {
+    width: 21px;
+    height: 21px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 0;
+    border-radius: 50%;
+    background-color: var(--sub-color);
+}
+.unreadCount > p {
+    font-weight: var(--Medium);
+    font-size: 11px;
+    color: white;
 }
