@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import { Link } from 'react-router-dom';
 import 'react-day-picker/dist/style.css';
 import { DayPicker, useNavigation } from 'react-day-picker';
@@ -10,8 +10,10 @@ import styles from '../../../styles/project/register/RecruitmentPeriod.module.cs
 
 import Header from '../../common/Header';
 import { IoRemoveOutline } from "react-icons/io5";
+import ProjectContext from './ProjectProvider';
 
 function RecruitmentPeriod() {
+    const { recruitment } = useContext(ProjectContext);
     const [selectedRange, setSelectedRange] = useState();
     const [fromValue, setFromValue] = useState('');
     const [toValue, setToValue] = useState('');
@@ -104,8 +106,7 @@ function RecruitmentPeriod() {
 
     const handleSave = () => {
         if (recruitmentStart && recruitmentEnd) {
-            localStorage.setItem("recruitment-start", recruitmentStart);
-            localStorage.setItem("recruitment-end", recruitmentEnd);
+            recruitment(recruitmentStart, recruitmentEnd)
         }
     }
 

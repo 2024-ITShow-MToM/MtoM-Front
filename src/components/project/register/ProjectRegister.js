@@ -1,5 +1,6 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
+import { ProjectContext } from './ProjectProvider';
 import axios from 'axios';
 
 import '../../../styles/common/Style.css';
@@ -14,6 +15,7 @@ import ProjectRegisterModal from '../../modals/ProjectRegisterModal';
 
 function ProjectRegister() {
     const navigate = useNavigate();
+    const { recruitmentStart, recruitmentEnd, workStart, workEnd } = useContext(ProjectContext);
     const userId = localStorage.getItem("userId");
     const [projectId, setProjectId] = useState(null);
     const [backgroundImage, setBackgroundImage] = useState(null);
@@ -35,10 +37,6 @@ function ProjectRegister() {
     const [backendCount, setBackendCount] = useState(0); // 백엔드 개발자 수
     const [planCount, setPlanCount] = useState(0); // 기획자 수
     const [introduction, setIntroduction] = useFormInput(''); // 프로젝트 소개
-    const recruitmentStart = localStorage.getItem("recruitment-start"); // 모집 기간 시작일
-    const recruitmentEnd = localStorage.getItem("recruitment-end"); // 모집 기간 마감일
-    const workStart = localStorage.getItem("work-start"); // 작업 기간 시작일
-    const workEnd = localStorage.getItem("work-end"); // 작업 기간 마감일
 
     const handleModal = () => {
         setShowModal(true);
