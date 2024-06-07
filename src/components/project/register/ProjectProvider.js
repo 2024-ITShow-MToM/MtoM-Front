@@ -2,7 +2,7 @@ import React, { createContext, useState } from 'react';
 
 export const ProjectContext = createContext();
 
-function ProjectContext({ children }) {
+function ProjectProvider({ children }) {
     const [recruitmentStart, setRecruitmentStart] = useState('');
     const [recruitmentEnd, setRecruitmentEnd] = useState('');
     const [workStart, setWorkStart] = useState('');
@@ -25,4 +25,4 @@ function ProjectContext({ children }) {
     )
 }
 
-export default ProjectContext;
+export default ProjectProvider;

@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { useSelector } from 'react-redux';
 import axios from 'axios';
 
 import '../../../styles/common/Style.css';
@@ -11,7 +12,7 @@ function QandAChooseWrite() {
     const navigate = useNavigate();
     const [isPlaceholderHidden, setPlaceholderHidden] = useState(false);
     const inputRef = useRef(null);
-    const userId = localStorage.getItem("userId"); // userId는 회원가입했을 때 아이디
+    const userId = useSelector(state => state.userId);
     const [chooseData, setChooseData] = useState({
         title: '',
         option1: '',

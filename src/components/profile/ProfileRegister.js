@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useSelector } from 'react-redux';
 import axios from 'axios';
 
 import '../../styles/common/Style.css';
@@ -9,7 +10,7 @@ import ProfileImage from './ProfileImage';
 import ProfileInfo from './ProfileInfo';
 
 function ProfileRegister() {
-    const userId = localStorage.getItem("userId"); // userId는 회원가입했을 때 아이디
+    const userId = useSelector(state => state.userId);
     const [profileData, setProfileData] = useState({
         name: null,
         student_id: null,

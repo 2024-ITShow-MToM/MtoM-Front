@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
+import { useSelector } from 'react-redux';
 import axios from 'axios';
 
 import '../../styles/common/Style.css';
@@ -10,7 +11,7 @@ import { GoHeartFill } from "react-icons/go";
 import { BsChat } from "react-icons/bs";
 
 function SelectHeartCommentIcon({ postId }) {
-    const userId = localStorage.getItem("userId");
+    const userId = useSelector(state => state.userId);
     const [isHeartClicked, setIsHeartClicked] = useState(false);
     const [clickedHearts, setClickedHearts] = useState(0);
 

@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { useSelector } from 'react-redux';
 import axios from 'axios';
 
 import '../../styles/common/Style.css';
@@ -9,7 +10,7 @@ import GroupChattingItem from './GroupChattingItem';
 
 function ChattingList() {
     const [data, setData] = useState([]);
-    const userId = localStorage.getItem("userId");
+    const userId = useSelector(state => state.userId);
     useEffect(() => {
         async function fetchData() {
             try {

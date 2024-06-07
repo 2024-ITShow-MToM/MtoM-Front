@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
+import { useDispatch, useSelector } from 'react-redux';
+import { loginSuccess } from '../../redux/actions';
 import axios from 'axios';
 
 import '../../styles/common/Style.css';
@@ -11,6 +13,9 @@ function Login() {
     const [password, setPassword] = useState('');
     const [fail, setFail] = useState(false);
     const [errorMessage, setErrorMessage] = useState('');
+
+    const dispatch = useDispatch();
+    const userId = useSelector(state => state.userId);
 
     const handleIdChange = (e) => {
         setId(e.target.value);
@@ -40,7 +45,7 @@ function Login() {
             if (response.status === 200) {
                 console.log('로그인 성공');
                 setFail(false);
-                localStorage.setItem("userId", id);
+                dispatch(loginSuccess(response.data.id));
                 navigate('/home');
             } else {
                 console.error('로그인 실패', response.status);
@@ -59,12 +64,10 @@ function Login() {
     };
 
     useEffect(() => {
-        const userId = localStorage.getItem('userId');
         if (userId) {
-            // 메인화면으로 이동
-            navigate('/q&a');
+          navigate('/home');
         }
-    }, [navigate]);
+      }, [userId, navigate]);
 
     return (
         <>

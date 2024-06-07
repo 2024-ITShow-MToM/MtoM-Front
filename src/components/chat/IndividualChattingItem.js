@@ -51,7 +51,7 @@ function IndividualChattingItem({ data }) {
         }
 
         fetchData();
-    }, [data.lastSenderId]);
+    }, [data]);
 
     return (
         <>

@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { useSelector } from 'react-redux';
 import axios from 'axios';
 
 import '../../../styles/common/Style.css';
@@ -11,7 +12,7 @@ function QandAPostWrite() {
     const navigate = useNavigate();
     const [tags, setTags] = useState([]);
     const [img, setImg] = useState('');
-    const userId = localStorage.getItem("userId"); // userId는 회원가입했을 때 아이디
+    const userId = useSelector(state => state.userId);
     const [postData, setPostData] = useState({
         img: null,
         title: null,

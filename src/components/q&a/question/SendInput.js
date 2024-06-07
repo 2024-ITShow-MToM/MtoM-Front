@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useSelector } from 'react-redux';
 import axios from 'axios';
 
 import '../../../styles/common/Style.css';
@@ -7,7 +8,7 @@ import styles from '../../../styles/q&a/question/SendInput.module.css';
 import { BsSend } from 'react-icons/bs';
 
 function SendInput({ postId, reloadComments }) {
-    const userId = localStorage.getItem("userId");
+    const userId = useSelector(state => state.userId);
     const [content, setContent] = useState('');
 
     const send = async (e) => {

@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
+import { useSelector } from 'react-redux';
 
 import '../../styles/common/Style.css';
 import styles from '../../styles/common/Nav.module.css'
@@ -12,12 +13,13 @@ import { BiUser } from "react-icons/bi";
 function Nav() {
     const navigate = useNavigate();
 
+    const userId = useSelector(state => state.userId);
     useEffect(() => {
-        const userId = localStorage.getItem('userId');
         if (!userId) {
             navigate('/signin');
         }
     }, [navigate]);
+    
     return (
         <>
             <div className={styles['container']}>

@@ -1,5 +1,6 @@
 import React, { useContext, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
+import { useSelector } from 'react-redux';
 import { ProjectContext } from './ProjectProvider';
 import axios from 'axios';
 
@@ -16,11 +17,12 @@ import ProjectRegisterModal from '../../modals/ProjectRegisterModal';
 function ProjectRegister() {
     const navigate = useNavigate();
     const { recruitmentStart, recruitmentEnd, workStart, workEnd } = useContext(ProjectContext);
-    const userId = localStorage.getItem("userId");
     const [projectId, setProjectId] = useState(null);
     const [backgroundImage, setBackgroundImage] = useState(null);
     const [uploadImages, setUploadedImages] = useState(null);
     const [showModal, setShowModal] = useState(false);
+    
+    const userId = useSelector(state => state.userId);
     
     const useFormInput = (initialValue) => {
         const [value, setValue] = useState(initialValue);

@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useSelector } from 'react-redux';
 import axios from 'axios';
 
 import '../../styles/common/Style.css';
@@ -9,7 +10,7 @@ import { RiSearchLine } from "react-icons/ri";
 function QandASearch({ onSearch, setPostData, setChooseData }) {
     const [expanded, setExpanded] = useState(true);
     const [keyword, setKeyword] = useState('');
-    const userId = localStorage.getItem("userId");
+    const userId = useSelector(state => state.userId);
 
     const handleSearch = async (event) => {
         if (!event.target.value.trim()) {
