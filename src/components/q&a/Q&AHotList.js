@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { useSelector } from 'react-redux';
 import axios from 'axios';
 
 import '../../styles/common/Style.css';
@@ -11,7 +12,7 @@ function QandAHotList() {
     const [postData, setPostData] = useState([]);
     const [chooseData, setChooseData] = useState([]);
 
-    const userId = localStorage.getItem("userId");
+    const userId = useSelector(state => state.userId);
     async function fetchData() {
         try {
             const response = await axios.get(`${process.env.REACT_APP_HOST}/api/qna`, {

@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
+import { useSelector } from 'react-redux';
 import axios from 'axios';
 
 import '../../styles/common/Style.css';
@@ -20,7 +21,7 @@ function My() {
 
     const [data, setData] = useState([]);
     const [imgData, setImgData] = useState('');
-    const userId = localStorage.getItem("userId");
+    const userId = useSelector(state => state.userId);
     useEffect(() => {
         async function fetData() {
             // 회원 정보 서버

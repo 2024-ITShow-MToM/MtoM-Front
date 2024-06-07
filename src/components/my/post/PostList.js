@@ -1,13 +1,16 @@
 import { useEffect, useState } from 'react';
+import { useSelector } from 'react-redux';
+import axios from 'axios';
+
 import '../../../styles/common/Style.css';
 import styles from '../../../styles/my/post/PostList.module.css';
+
 import PostItem from './PostItem';
-import axios from 'axios';
 
 function PostList() {
     const [data, setData] = useState([]);
 
-    const userId = localStorage.getItem("userId");
+    const userId = useSelector(state => state.userId);
     useEffect(() => {
         async function fetchData() {
             try {

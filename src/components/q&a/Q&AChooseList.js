@@ -1,4 +1,5 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useId, useState } from 'react';
+import { useSelector } from 'react-redux';
 import axios from 'axios';
 
 import '../../styles/common/Style.css';
@@ -8,7 +9,7 @@ import QandAChooseItem from './Q&AChooseItem';
 
 function QandAChooseList() {
     const [data, setData] = useState([]);
-    const userId = localStorage.getItem("userId");
+    const userId = useSelector(state => state.userId);
 
     async function fetchData() {
         try {
@@ -44,13 +45,14 @@ function QandAChooseList() {
                         data.map((item, index) => {
                             return (
                                 <QandAChooseItem
-                                key={index}
-                                data={item}
-                                onePercentage={item.options[0].percentage1}
-                                twoPercentage={item.options[0].percentage2}
-                                options={item.options} 
-                                reFetchData={reFetchData}
-                            />
+                                    key={index}
+                                    data={item}
+                                    onePercentage={item.options[0].percentage1}
+                                    twoPercentage={item.options[0].percentage2}
+                                    options={item.options} 
+                                    reFetchData={reFetchData}
+                                    userId={useId}
+                                />
                             )
                         })
                     }

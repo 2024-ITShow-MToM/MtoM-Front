@@ -36,7 +36,7 @@ function MyProfileInfo({ setProfileData, profileData }) {
         setSelectedMajor(profileData.major || '');
     }, [profileData.major]);
 
-    const majors = ['소프트웨어과', '디자인과', '웹 솔루션과'];
+    const majors = ['소프트웨어과', '디자인과', '웹솔루션과'];
     const handleMajor = (major) => {
         setSelectedMajor(major);
         setProfileData(prevData => ({
@@ -144,7 +144,7 @@ function MyProfileInfo({ setProfileData, profileData }) {
 
             <div className={styles['tag']}>
                 <div className={styles['title']}> <p>멘토링 주제</p> </div>
-                <input placeholder='태그입력' value={profileData.personal || ''} id='mentoring_topics' onChange={handleChange} />
+                <input placeholder='태그입력' value={profileData.mentoring_topics || ''} id='mentoring_topics' onChange={handleChange} />
             </div>
 
             <MyProfileSkill setProfileData={setProfileData} profileData={profileData} skills={skills} setSkills={setSkills} />

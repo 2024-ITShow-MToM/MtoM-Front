@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
+import { useSelector } from 'react-redux';
 import axios from 'axios';
 
 import '../../../styles/common/Style.css';
@@ -9,7 +10,7 @@ import { GoHeart } from 'react-icons/go';
 import { GoHeartFill } from 'react-icons/go';
 
 function CommentItem({ data }) {
-    const userId = localStorage.getItem("userId");
+    const userId = useSelector(state => state.userId);
     const [isHeartClicked, setIsHeartClicked] = useState(false);
     const [clickedHeart, setClickedHeart] = useState([]);
 
