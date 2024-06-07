@@ -45,7 +45,7 @@ function Login() {
             if (response.status === 200) {
                 console.log('로그인 성공');
                 setFail(false);
-                dispatch(loginSuccess(response.data.id));
+                dispatch(loginSuccess(id));
                 navigate('/home');
             } else {
                 console.error('로그인 실패', response.status);
@@ -67,7 +67,7 @@ function Login() {
         if (userId) {
           navigate('/home');
         }
-      }, [userId, navigate]);
+    }, [userId, navigate]);
 
     return (
         <>

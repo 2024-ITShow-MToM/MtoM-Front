@@ -7,7 +7,7 @@ import Text from "../components/home/Text";
 import MentoList from "../components/home/MentoList";
 import ChooseItem from "../components/home/interview/ChooseItem";
 import ChooseContainer from "../components/home/interview/ChooseContainer";
-import { useNavigate } from "react-router";
+import { useNavigate } from "react-router-dom";
 import InterviewItem from "../components/home/InterviewItem";
 
 function Home() {
