@@ -1,11 +1,22 @@
+import React, { useContext } from 'react';
+import { useNavigate } from 'react-router-dom';
+import { ChattingContext } from '../ChattingProvider';
+
 import '../../../styles/common/Style.css';
 import styles from '../../../styles/chat/search/SearchDetail.module.css';
 
 function SearchDetail({ user }) {
+    const navigate = useNavigate();
+    const { saveId } = useContext(ChattingContext);
     const mbti = user.mbti ? user.mbti.toUpperCase() : '';
     const emoji = user.imogi ? user.imogi.split(",") : [];
     const personal = user.personal ? user.personal.split(",") : [];
     const mentoring_topics = user.mentoring_topics ? user.mentoring_topics.replaceAll(", ", " ") : [];
+
+    const ReadyChatting = () => {
+        navigate(`/chat/individual/${user.userId}`);
+        saveId(user.userId);
+    }
 
     return (
         <div className={styles['container']}>
@@ -79,7 +90,7 @@ function SearchDetail({ user }) {
                 </div>
             </div>
 
-            <button>채팅하기</button>
+            <button onClick={ReadyChatting}>채팅하기</button>
         </div>
     )
 }

@@ -17,7 +17,6 @@ import ProjectRegisterModal from '../../modals/ProjectRegisterModal';
 function ProjectRegister() {
     const navigate = useNavigate();
     const { recruitmentStart, recruitmentEnd, workStart, workEnd } = useContext(ProjectContext);
-    const [projectId, setProjectId] = useState(null);
     const [backgroundImage, setBackgroundImage] = useState(null);
     const [uploadImages, setUploadedImages] = useState(null);
     const [showModal, setShowModal] = useState(false);
@@ -49,7 +48,7 @@ function ProjectRegister() {
 
     const handleCloseModal = () => {
         setShowModal(false);
-        navigate(`/project/detail/${projectId}`);
+        navigate('/project');
     }
 
     const handleImageUpload = () => {
@@ -119,7 +118,6 @@ function ProjectRegister() {
             });
             if (reqeust.status === 201) {
                 console.log("프로젝트 등록 성공");
-                setProjectId(reqeust.data.id);
                 handleModal();
             } else {
                 console.log("프로젝트 등록 실패", reqeust.status);

@@ -63,6 +63,11 @@ function MyProfileInfo({ setProfileData, profileData }) {
                 </div>
             </div>
 
+            <div className={styles['myself']}>
+                <div className={styles['title']}> <p>자기소개 글</p> </div>
+                <input id='mentoring_topics' onChange={handleChange} />
+            </div>
+
 
             <div className={styles['birthDiv']}>
                 <div className={styles['title']}> <p>생년월일</p> </div>
@@ -143,8 +148,8 @@ function MyProfileInfo({ setProfileData, profileData }) {
             </div>
 
             <div className={styles['tag']}>
-                <div className={styles['title']}> <p>멘토링 주제</p> </div>
-                <input placeholder='태그입력' value={profileData.mentoring_topics || ''} id='mentoring_topics' onChange={handleChange} />
+                <div className={styles['title']}> <p>해시태그</p> </div>
+                <input placeholder='해시태그 입력' value={profileData.mentoring_topics || ''} id='mentoring_topics' onChange={handleChange} />
             </div>
 
             <MyProfileSkill setProfileData={setProfileData} profileData={profileData} skills={skills} setSkills={setSkills} />
