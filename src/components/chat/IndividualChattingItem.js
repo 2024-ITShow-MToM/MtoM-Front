@@ -1,8 +1,9 @@
+import { useNavigate } from 'react-router-dom';
+
 import '../../styles/common/Style.css';
 import styles from '../../styles/chat/IndividualChattingItem.module.css';
-import { Link } from 'react-router-dom';
-import { useEffect, useState } from 'react';
-import axios from 'axios';
+import { useContext } from 'react';
+import { ChattingContext } from './ChattingProvider';
 
 const formatTime = (timestamp) => {
     const date = new Date(timestamp);
@@ -15,54 +16,25 @@ const formatTime = (timestamp) => {
     return `${ampm} ${hours}:${minutesStr}`;
 }
 
-function IndividualChattingItem({ data }) {
-    const [userData, setUserData] = useState([]);
-    const [imgUrl, setImgUrl] = useState('');
+function IndividualChattingItem({ data, userData }) {
+    const navigate = useNavigate();
+    const { saveId } = useContext(ChattingContext);
     const username = data.lastSenderId;
 
-    useEffect(() => {
-        async function fetchData() {
-            try {
-                const response = await axios.get(`${process.env.REACT_APP_HOST}/api/users`, {
-                    params: {
-                        userId: data.lastSenderId
-                    }
-                });
-                if (response.status === 200) {
-                    console.log("보낸 회원 정보 불러오기 성공");
-                    setUserData(response.data);
-                    const imgResponse = await axios.get(`${process.env.REACT_APP_HOST}/api/users/profile/img`, {
-                        params: {
-                            userId: data.lastSenderId
-                        }
-                    });
-                    if (imgResponse.status === 200) {
-                        console.log("보낸 회원 프로필 불러오기 성공");
-                        setImgUrl(imgResponse.data);
-                    } else {
-                        console.log("보낸 회원 프로필 불러오기 실패", imgResponse.status);
-                    }
-                } else {
-                    console.log("보낸 회원 정보 불러오기 실패", response.status);
-                }
-            } catch(error) {
-                console.log("서버 연결 실패", error);
-            }
-        }
-
-        fetchData();
-    }, [data]);
+    const clickedChatting = () => {
+        navigate(`/chat/individual/${username}`);
+        saveId(data.lastSenderId);
+    }
 
     return (
         <>
-            <Link to={`/chat/individual/${username}`} style={{ textDecoration: 'none', color: 'black' }}>
-                <div className={styles['container']}>
+            <div className={styles['container']} onClick={clickedChatting}>
                     <div className={styles['inContainer']}>
                         <div className={styles['rightDiv']}>
-                            <div className={styles['imgDiv']}> <img src={imgUrl} /> </div>
+                            <div className={styles['imgDiv']}> <img src={`${process.env.REACT_APP_IMAGEURL}/${userData.profile}`} /> </div>
 
                             <div className={styles['info']}>
-                                <p>{userData.student_id} {userData.name}</p>
+                                <p>{userData.studentId} {userData.name}</p>
                                 <p>{data.lastMessage}</p>
                             </div>
                         </div>
@@ -78,7 +50,6 @@ function IndividualChattingItem({ data }) {
                         </div>
                     </div>
                 </div>
-            </Link>
         </>
     )
 }

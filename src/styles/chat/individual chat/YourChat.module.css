@@ -1,7 +1,7 @@
 .container {
     display: flex;
     justify-content: flex-start;
-    align-items: flex-end;
+    align-items: flex-start;
     column-gap: 25px;
 }
 
@@ -9,11 +9,6 @@
     display: flex;
     left: 5%;
     column-gap: 8px;
-}
-.profileDiv > p {
-    font-weight: var(--Medium);
-    font-size: 14px;
-    color: #323232;
 }
 
 .imgDiv {
@@ -26,7 +21,6 @@
     height: 100%;
     object-fit: cover;
     border-radius: 50%;
-    border: 1px solid black;
 }
 
 .your-chat {
@@ -45,12 +39,23 @@
 
 .content { 
     display: flex;
-    top: 30%;
-    right: 22%;
+    align-items: flex-start;
+    row-gap: 8px;
+    flex-direction: column;
+}
+.content > p {
+    font-weight: var(--Medium);
+    font-size: 14px;
+    color: #323232;
+}
+
+.chat-text {
+    display: flex;
     align-items: flex-end;
     column-gap: 6px;
 }
-.content > p,
+
+.chat-text > p,
 .noProfileContent > p {
     font-weight: var(--Regular);
     font-size: 12px;
