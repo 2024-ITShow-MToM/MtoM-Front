@@ -36,3 +36,30 @@
     font-size: 0.7rem;
     color: var(--font-8);
 }
+.acceptBtn{
+    display: flex;
+    margin-bottom: 2vw;
+    column-gap: 1vw;
+}
+.acceptBtn button{
+    border: none;
+    font-size: 0.8rem;
+    padding: 1vw 1.5vw;
+    border-radius: 5px;
+}
+.acceptBtn button:first-child{
+    border: none;
+    background-color: #CCE0FF;
+    color: var(--strong-color);
+    font-size: 0.8rem;
+    padding: 1vw 1.5vw;
+    border-radius: 5px;
+}
+.acceptBtn button:last-child{
+    border: none;
+    background-color: #FFE0D3;
+    color: var(--sub-color);
+    font-size: 0.8rem;
+    padding: 1vw 1.5vw;
+    border-radius: 5px;
+}
