@@ -168,6 +168,7 @@ input[type='radio'] {
 }
 
 .mbti,
+.myself,
 .tag {
     width: 100%;
     display: flex;
@@ -186,6 +187,7 @@ input[type='radio'] {
 }
 
 .mbti > input,
+.myself > input,
 .tag > input {
     width: 80%;
     padding: 4%;

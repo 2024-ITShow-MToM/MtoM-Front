@@ -128,6 +128,11 @@ function ProfileInfo({ setProfileData }) {
                 <input placeholder='MBTI 입력' id='mbti' onChange={handleChange} />
             </div>
 
+            <div className={styles['hashTag']}>
+                <div className={styles['hashTagTitle']}> <p>해시태그</p> </div>
+                <input placeholder='해시태그 입력' id='hashTag' onChange={handleChange} />
+            </div>
+
             <ProfileSkill setProfileData={setProfileData} skills={skills} setSkills={setSkills} />
 
             <ProfileAdvice setProfileData={setProfileData} />

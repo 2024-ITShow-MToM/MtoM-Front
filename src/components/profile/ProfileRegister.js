@@ -24,7 +24,8 @@ function ProfileRegister() {
         skills: [],
         personal: null,
         imogi: null,
-        mentoring_topics: null
+        mentoring_topics: null,
+        hashTag: null
     });
     const [uploadedImages, setUploadedImages] = useState('');
 
