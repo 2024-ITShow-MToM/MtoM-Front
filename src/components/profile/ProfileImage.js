@@ -28,13 +28,7 @@ function ProfileImage({ setUploadedImages }) {
     };
 
     const uploadImage = (file) => {
-        const formData = new FormData();
-        formData.append('profile', file);
-        setUploadedImages(formData);
-
-        for (const [key, value] of formData.entries()) {
-            console.log(`${key}: ${value}`);
-        }
+        setUploadedImages(file);
     };
 
     return (

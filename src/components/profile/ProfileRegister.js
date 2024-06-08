@@ -1,15 +1,17 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import axios from 'axios';
 
 import '../../styles/common/Style.css';
 import styles from '../../styles/profile/ProfileRegister.module.css';
 
-import Header from '../common/Header';
+import Header from './Header';
 import ProfileImage from './ProfileImage';
 import ProfileInfo from './ProfileInfo';
 
 function ProfileRegister() {
+    const navigate = useNavigate();
     const userId = useSelector(state => state.userId);
     const [profileData, setProfileData] = useState({
         name: null,
@@ -83,13 +85,23 @@ function ProfileRegister() {
     // 프로필 이미지 등록 서버 연결
     const uploadedImage = async (userId, uploadedImages) => {
         try {
-            const response = await axios.post(`${process.env.REACT_APP_HOST}/api/users/profile/img`, uploadedImages, userId, {
+            const formData = new FormData();
+            formData.append('profile', uploadedImages);
+            formData.append('id', userId);
+
+            const response = await axios.post(`${process.env.REACT_APP_HOST}/api/users/profile/img`, formData, {
                 headers: {
                     'Content-Type': 'multipart/form-data',
                 }
             });
+
+            if (response.status === 200) {
+                console.log("이미지 업로드 성공");
+                navigate('/home');
+            } else {
+                console.log("이미지 업로드 실패", response.status);
+            }
             
-            console.log("이미지 업로드 성공", response.data);
         } catch (error) {
             console.error("이미지 업로드 요청 실패 : ", error);
         }
