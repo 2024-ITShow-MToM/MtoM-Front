@@ -2,13 +2,6 @@ import '../../../styles/common/Style.css';
 import styles from '../../../styles/my/profile/MyProfile.module.css';
 
 function MyProfile({ data }) {
-    const progressBarStyle = {
-        width: `60%`,
-        height: '8px',
-        backgroundColor: '#FF6524',
-        borderRadius: '0px 10px 10px 0px'
-    };
-
     const mbti = data.mbti ? data.mbti.toUpperCase() : ''; // mbti
     const emoji = data.imogi ? data.imogi.split(",") : []; // emoji
     const personal = data.personal ? data.personal.split(",") : []; // 조언 성향
@@ -34,10 +27,16 @@ function MyProfile({ data }) {
                     <div className={styles['skill']}>
                         <p>SKILL</p>
                         <div className={styles['skillList']}>
-                            <div className={styles['skillItem']}>
-                                <p>Ai</p>
-                                <div style={progressBarStyle}></div>
-                            </div>
+                            {data.skills && data.skills.length > 0 ? (
+                                data.skills.map((skill, index) => (
+                                    <div className={styles['skillItem']} key={index}>
+                                        <p>{skill.skill_name}</p>
+                                        <div className={styles['progressBar']} style={{ width: `${skill.skill_score}%`, height: '8px', backgroundColor: '#FF6524', borderRadius: '0px 10px 10px 0px' }}></div>
+                                    </div>
+                                ))
+                            ) : (
+                                <p>스킬 정보가 없습니다.</p>
+                            )}
                         </div>
                     </div>
 
