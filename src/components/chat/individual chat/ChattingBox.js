@@ -61,7 +61,7 @@ function ChattingBox({ date, messages, userId, receiverId }) {
                     {messages.map((message, index) => {
                         const previousMessage = messages[index - 1];
                         const showProfile = !previousMessage || previousMessage.senderId !== receiverId;
-                        return message.receiverId === userId ?
+                        return message.receiverId !== userId ?
                             <MyChat key={index} text={message.message} time={formatTime(message.timestamp)} /> :
                             <YourChat key={index} text={message.message} time={formatTime(message.timestamp)} showProfile={showProfile} userData={userData} imgData={imgData} />
                     })}

@@ -4,11 +4,12 @@ import '../../../styles/common/Style.css';
 
 import SearchItem from './SearchItem';
 
-function SearchList({ user }) {
+function SearchList({ user, setSelected }) {
     const [selectedItemId, setSelectedItemId] = useState(null);
 
     const handleItemClick = (id) => {
         setSelectedItemId(id);
+        setSelected(true);
     };
 
     return (

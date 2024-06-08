@@ -2,10 +2,10 @@ import '../../../styles/common/Style.css';
 import styles from '../../../styles/my/profile/MyProfile.module.css';
 
 function MyProfile({ data }) {
-    const mbti = data.mbti ? data.mbti.toUpperCase() : ''; // mbti
-    const emoji = data.imogi ? data.imogi.split(",") : []; // emoji
-    const personal = data.personal ? data.personal.split(",") : []; // 조언 성향
-    const mentoring_topics = data.mentoring_topics ? data.mentoring_topics.replaceAll(", ", " ") : []; // 멘토링 주제
+    const mbti = data.mbti ? data.mbti.toUpperCase() : '설정 안함'; // mbti
+    const emoji = data.imogi ? data.imogi.split(",") : '설정 안함'; // emoji
+    const personal = data.personal ? data.personal.split(",") : '설정 안함'; // 조언 성향
+    const mentoring_topics = data.mentoring_topics ? data.mentoring_topics.replaceAll(", ", " ") : '설정 안함'; // 멘토링 주제
 
     return (
         <>

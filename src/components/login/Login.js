@@ -46,7 +46,7 @@ function Login() {
                 console.log('로그인 성공');
                 setFail(false);
                 dispatch(loginSuccess(id));
-                navigate('/profile/register');
+                navigate('/home');
             } else {
                 console.error('로그인 실패', response.status);
                 setFail(true);
