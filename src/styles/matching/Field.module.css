@@ -38,3 +38,10 @@
     row-gap: 5vw;
     margin: 7vw 0 30vw 0;
 }
+.field-container2{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    row-gap: 5vw;
+    margin: 3vw 0;
+}

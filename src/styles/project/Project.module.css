@@ -1,0 +1,67 @@
+.container{
+    display: flex;
+    flex-direction: column;
+    width: 80vw;
+    padding: 5vw;
+    row-gap: 5vw;
+    border-radius: 15px;
+    box-shadow: 1px 0px 20px 0px #00000012;
+}
+.name{
+    font-size: 0.8rem;
+    color: #323232;
+    width: 59vw;
+    margin-bottom: 2px;
+}
+.title{
+    font-weight: var(--SemiBold);
+}
+.userBox{
+    display: flex;
+    justify-content: space-between;
+    align-items: start;
+}
+.box{
+    display: flex;
+    
+}
+.projectBox{
+
+}
+.projectBox > div{
+    display: flex;
+    justify-content: space-between;
+}
+.projectBox p{
+    font-size: 0.7rem;
+    text-wrap: nowrap;
+    color: #C9C8C8;
+}
+::-webkit-scrollbar{
+    display: none;
+}
+.projectContainer{
+    padding: 3vw 0px 48vw 0px;
+    overflow-y: scroll;
+    height: 132vw;
+    width: 100vw;
+    align-items: center;
+    display: flex;
+    row-gap: 4vw;
+    flex-direction: column;
+}
+.plusBtn{
+    position: fixed;
+    background-color: var(--sub-color);
+    padding: 4vw;
+    z-index: 99;
+    border-radius: 100%;
+    color: white;
+    font-size: 1.5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    right: 5vw;
+    bottom: 27vw;
+    box-shadow: 1px 0px 20px 0px #00000012;
+}
