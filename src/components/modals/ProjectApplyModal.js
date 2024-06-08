@@ -6,9 +6,12 @@ import styles from '../../styles/modals/ProjectApplyModal.module.css';
 
 import { FaCircleCheck } from "react-icons/fa6";
 
-function ProjectApplyModal() {
+function ProjectApplyModal({ isOpen, onClose }) {
     return (
-        <Modal isOpen={true} className={styles['modal']}>
+        <Modal
+            isOpen={isOpen}
+            className={styles['modal']}
+        >
             <div className={styles['container']}>
                 <FaCircleCheck style={{ fontSize: '30px', color: '#FF6524' }}/>
                 <p>프로젝트 신청 완료!</p>
