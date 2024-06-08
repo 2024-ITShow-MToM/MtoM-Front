@@ -52,7 +52,7 @@ function Join() {
                 email: userData.email,
             });
             if (response.status === 201) {
-                console.log('회원가입 성공', response.data);
+                console.log('회원가입 성공');
                 navigate('/signin');
             } else {
                 console.error('회원가입 실패', response.status);
@@ -94,17 +94,13 @@ function Join() {
     // 아이디 중복 확인
     const handleConfirmId = async () => {
         try {
-            const response = await axios.get(`${process.env.REACT_APP_HOST}/api/users`, {
-                params: {
-                    userId: userData.user_id
-                }
-            });
+            const response = await axios.get(`${process.env.REACT_APP_HOST}/api/users/${userData.user_id}`);
             if (response.status === 200) {
                 setIdMessage('이미 사용 중인 아이디입니다.');
                 setIdFail(true);
             }
         } catch (error) {
-            if (error.response.status === 404) {
+            if (error.response && error.response.status === 404) {
                 setSuccessMessage('사용 가능한 아이디입니다.');
                 setIdFail(false);
             } else {

@@ -41,20 +41,24 @@ function QandAChooseList() {
         <>
             <div className={styles['container']}>
                 <div className={styles['item-grid-container']}>
-                    {
-                        data.map((item, index) => {
-                            return (
-                                <QandAChooseItem
-                                    key={index}
-                                    data={item}
-                                    onePercentage={item.options[0].percentage1}
-                                    twoPercentage={item.options[0].percentage2}
-                                    options={item.options} 
-                                    reFetchData={reFetchData}
-                                    userId={useId}
-                                />
-                            )
-                        })
+                    { 
+                        data.length > 0 ? (
+                            data.map((item, index) => {
+                                return (
+                                    <QandAChooseItem
+                                        key={index}
+                                        data={item}
+                                        onePercentage={item.options[0].percentage1}
+                                        twoPercentage={item.options[0].percentage2}
+                                        options={item.options} 
+                                        reFetchData={reFetchData}
+                                        userId={useId}
+                                    />
+                                )
+                            })
+                        ) : (
+                            <p style={{ marginLeft: '-13%' }}>양자택일 없습니다.</p>
+                        )
                     }
                 </div>
                 

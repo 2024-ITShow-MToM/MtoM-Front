@@ -1,24 +1,22 @@
 import '../../../styles/common/Style.css';
 import styles from '../../../styles/chat/search/SearchDetail.module.css';
 
-function SearchDetail() {
-    const progressBarStyle = {
-        width: `60%`,
-        height: '8px',
-        backgroundColor: '#FF6524',
-        borderRadius: '0px 10px 10px 0px'
-    };
+function SearchDetail({ user }) {
+    const mbti = user.mbti ? user.mbti.toUpperCase() : '';
+    const emoji = user.imogi ? user.imogi.split(",") : [];
+    const personal = user.personal ? user.personal.split(",") : [];
+    const mentoring_topics = user.mentoring_topics ? user.mentoring_topics.replaceAll(", ", " ") : [];
 
     return (
         <div className={styles['container']}>
             <div className={styles['info']}>
                 <div className={styles['information']}>
-                    <div className={styles['imgDiv']}> <img src='/images/example.png' /> </div>
+                    <div className={styles['imgDiv']}> <img src={`${process.env.REACT_APP_IMAGEURL}/${user.profile}`} /> </div>
                     <div className={styles['name']}>
-                        <p>디자인과</p>
-                        <p>3413 최보람</p>
+                        <p>{user.major}</p>
+                        <p>{user.studentId} {user.name}</p>
                     </div>
-                    <p>안녕하세요! 친절한 후배들과 멘토링 진행 하고 싶어요.</p>
+                    <p>자기소개 글</p>
                 </div>
 
                 <div className={styles['myself']}>
@@ -26,30 +24,32 @@ function SearchDetail() {
 
                     <div className={styles['mbti']}>
                         <p>MBTI</p>
-                        <p>ISTP</p>
+                        <p>{mbti}</p>
                     </div>
 
                     <div className={styles['mento']}>
                         <p>멘토링 주제</p>
                         <div className={styles['tag']}>
-                            <p>#동아리</p>
+                            <p>멘토링 주제 태그</p>
                         </div>
                     </div>
 
                     <div className={styles['skill']}>
                         <p>SKILL</p>
                         <div className={styles['skillList']}>
-                            <div className={styles['skillItem']}>
-                                <p>Ai</p>
-                                <div style={progressBarStyle}></div>
-                            </div>
+                            {user.skills.map((skill, index) => (
+                                <div className={styles['skillItem']} key={index}>
+                                    <p>{skill.skill_name}</p>
+                                    <div className={styles['progressBar']} style={{ width: `${skill.skill_score}%`, height: '8px', backgroundColor: '#FF6524', borderRadius: '0px 10px 10px 0px' }}></div>
+                                </div>
+                            ))}
                         </div>
                     </div>
 
                     <div className={styles['advice']}>
                         <p>조언 성향</p>
                         <div className={styles['adviceList']}>
-                            {/* {
+                            {
                                 personal.map((item, index) => {
                                     return (
                                         <div className={styles['adviceItem']} key={index}>
@@ -57,14 +57,14 @@ function SearchDetail() {
                                         </div>
                                     )
                                 })
-                            } */}
+                            }
                         </div>
                     </div>
 
                     <div className={styles['emoji']}>
                         <p>이모지 자기소개</p>
                         <div className={styles['emojiList']}>
-                            {/* {
+                            {
                                 emoji.map((item, index) => {
                                     return (
                                         <div key={index}>
@@ -72,7 +72,7 @@ function SearchDetail() {
                                         </div>
                                     );
                                 })
-                            } */}
+                            }
                         </div>
                     </div>
 

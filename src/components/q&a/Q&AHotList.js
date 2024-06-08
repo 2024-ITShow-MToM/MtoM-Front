@@ -44,24 +44,30 @@ function QandAHotList() {
         <div className={styles['container']}>
             <div className={styles['item-grid-container']}>
                 {
-                    postData.map((item, index) => {
-                        return <QandAPostItem key={index} data={item} views={item.viewCount} hearts={item.heartCount} comments={item.commentCount} />
-                    })
-                }
-
-                {
-                    chooseData.map((item, index) =>{
-                        return (
-                            <QandAChooseItem 
-                                key={index} 
-                                onePercentage={item.options[0].percentage1} 
-                                twoPercentage={item.options[0].percentage2} 
-                                data={item} 
-                                options={item.options} 
-                                reFetchData={reFetchData} 
-                            />
+                    postData.length > 0 && chooseData.length > 0 ? (
+                        (
+                            postData.map((item, index) => {
+                                return <QandAPostItem key={index} data={item} views={item.viewCount} hearts={item.heartCount} comments={item.commentCount} />
+                            })
                         )
-                    })
+        
+                        (
+                            chooseData.map((item, index) =>{
+                                return (
+                                    <QandAChooseItem 
+                                        key={index} 
+                                        onePercentage={item.options[0].percentage1} 
+                                        twoPercentage={item.options[0].percentage2} 
+                                        data={item} 
+                                        options={item.options} 
+                                        reFetchData={reFetchData} 
+                                    />
+                                )
+                            })
+                        )
+                    ) : (
+                        <p>전체 게시글 없습니다.</p>
+                    )
                 }
             </div>
         </div>

@@ -42,9 +42,19 @@ function QandAPostList() {
 
                 <div className={styles['item-grid-container']}>
                     {
-                        data.map((item, index) => {
-                            return <QandAPostItem key={index} data={item} views={item.viewCount} hearts={item.heartCount} comments={item.commentCount} />
-                        })
+                        data.length > 0 ? (
+                            data.map((item, index) => (
+                                <QandAPostItem 
+                                    key={index} 
+                                    data={item} 
+                                    views={item.viewCount} 
+                                    hearts={item.heartCount} 
+                                    comments={item.commentCount} 
+                                />
+                            ))
+                        ) : (
+                            <p style={{ marginLeft: '-25%', marginTop: '5%' }}>게시글 없습니다.</p>
+                        )
                     }
                 </div>
                 

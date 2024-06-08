@@ -14,11 +14,7 @@ function PostList() {
     useEffect(() => {
         async function fetchData() {
             try {
-                const response = await axios.get(`${process.env.REACT_APP_HOST}/api/users/posts`, {
-                    params: {
-                        userId: userId
-                    }
-                });
+                const response = await axios.get(`${process.env.REACT_APP_HOST}/api/users/posts/${userId}`);
                 if (response.status === 200) {
                     console.log("유저의 게시물 조회 성공");
                     setData(response.data);

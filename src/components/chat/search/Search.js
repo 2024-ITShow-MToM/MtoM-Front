@@ -1,4 +1,5 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
+import axios from 'axios';
 
 import '../../../styles/common/Style.css';
 import styles from '../../../styles/chat/search/Search.module.css';
@@ -12,14 +13,49 @@ function Search() {
     const [keyword, setKeyword] = useState('');
     const [user, setUser] = useState([]);
 
+    // 유저 검색 api
+    async function SearchUser() {
+        try {
+            const response = await axios.get(`${process.env.REACT_APP_HOST}/api/users/searches/${keyword}`);
+            if (response.status === 200) {
+                console.log("유저 검색 성공");
+                setUser(response.data);
+            } else {
+                console.log("유저 검색 실패", response.status);
+            }
+        } catch(error) {
+            console.error("서버 연결 실패", error);
+        }
+    }
+
+    // 모든 회원 불러오기 api
+    async function AllUser() {
+        try {
+            const response = await axios.get(`${process.env.REACT_APP_HOST}/api/users`);
+            if (response.status === 200) {
+                console.log("모든 유저 정보 불러오기 성공");
+                setUser(response.data);
+            } else {
+                console.log("모든 유저 정보 불러오기 실패", response.status);
+            }
+        } catch(error) {
+            console.error("서버 연결 실패", error);
+        }
+    }
+
+    useEffect(() => {
+        AllUser();
+    }, []);
+
     const handleSearch = async (event) => {
         if (!event.target.value.trim()) {
             setUser([]);
             return;
         }
 
+        // 엔터 누르면 유저 검색
         if (event.key === 'Enter') {
-
+            SearchUser();
         }
     };
 
@@ -39,7 +75,7 @@ function Search() {
                 </div>
             </div>
             <div className={styles['searchList']}>
-                <SearchList />
+                <SearchList user={user} />
             </div>
         </>
     )
