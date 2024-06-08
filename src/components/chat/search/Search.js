@@ -12,6 +12,7 @@ import SearchList from './SearchList';
 function Search() {
     const [keyword, setKeyword] = useState('');
     const [user, setUser] = useState([]);
+    const [selected, setSelected] = useState(false);
 
     // 유저 검색 api
     async function SearchUser() {
@@ -35,6 +36,7 @@ function Search() {
             if (response.status === 200) {
                 console.log("모든 유저 정보 불러오기 성공");
                 setUser(response.data);
+                setSelected(false);
             } else {
                 console.log("모든 유저 정보 불러오기 실패", response.status);
             }
@@ -50,6 +52,7 @@ function Search() {
     const handleSearch = async (event) => {
         if (!event.target.value.trim()) {
             setUser([]);
+            setSelected(false)
             return;
         }
 
@@ -75,7 +78,7 @@ function Search() {
                 </div>
             </div>
             <div className={styles['searchList']}>
-                <SearchList user={user} />
+                <SearchList user={user} setSelected={setSelected} />
             </div>
         </>
     )
