@@ -22,12 +22,12 @@ function IndividualChattingItem({ data }) {
     const [userData, setUserData] = useState([]);
     const { saveId } = useContext(ChattingContext);
 
+    // 채팅하고 있는 회원 정보 불러오기
     useEffect(() => {
         async function SendUser() {
             try {
                 const response = await axios.get(`${process.env.REACT_APP_HOST}/api/users/${data.userId}`);
                 if (response.status === 200) {
-                    console.log("채팅하고 있는 회원 정보 불러오기 성공");
                     setUserData(response.data);
                 } else {
                     console.log("채팅하고 있는 회원 정보 불러오기 실패", response.status);
