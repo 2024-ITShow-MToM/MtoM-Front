@@ -1,13 +1,16 @@
-import { useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+import axios from 'axios';
+
 import '../../../styles/common/Style.css';
 import styles from '../../../styles/project/detail/ProjectDetail.module.css';
 
 import Image from './Image';
 import ProjectInfo from './ProjectInfo';
 import WriterInfo from './WriterInfo';
-import axios from 'axios';
 
 function ProjectDetail({ id }) {
+    const navigate = useNavigate();
     const [data, setData] = useState([]);
     async function fetchData() {
         try {
@@ -27,6 +30,10 @@ function ProjectDetail({ id }) {
         fetchData();
     }, []);
 
+    const applicationProject = () => {
+        navigate('/project/projectApplication');
+    }
+
     return (
         <div className={styles['container']}>
             <div>
@@ -38,7 +45,7 @@ function ProjectDetail({ id }) {
             <div className={styles['infoContainer']}>
                 <ProjectInfo data={data} />
                 <div className={styles['button']}>
-                    <button>프로젝트 신청하기</button>
+                    <button onClick={applicationProject}>프로젝트 신청하기</button>
                 </div>
             </div>
         </div>
