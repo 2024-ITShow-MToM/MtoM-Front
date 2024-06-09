@@ -10,7 +10,7 @@ import styles from '../../../styles/project/register/RecruitmentPeriod.module.cs
 
 import Header from '../../common/Header';
 import { IoRemoveOutline } from "react-icons/io5";
-import ProjectContext from './ProjectProvider';
+import { ProjectContext } from './ProjectProvider';
 
 function RecruitmentPeriod() {
     const { recruitment } = useContext(ProjectContext);
@@ -107,6 +107,8 @@ function RecruitmentPeriod() {
     const handleSave = () => {
         if (recruitmentStart && recruitmentEnd) {
             recruitment(recruitmentStart, recruitmentEnd)
+        } else {
+            alert("모집기간 설정해주세요");
         }
     }
 

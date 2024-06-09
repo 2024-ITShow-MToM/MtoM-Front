@@ -10,7 +10,7 @@ import styles from '../../../styles/project/register/WorkPeriod.module.css';
 
 import Header from '../../common/Header';
 import { IoRemoveOutline } from "react-icons/io5";
-import ProjectContext from './ProjectProvider';
+import { ProjectContext } from './ProjectProvider';
 
 function WorkPeriod() {
     const { work } = useContext(ProjectContext);
