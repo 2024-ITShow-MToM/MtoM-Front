@@ -17,7 +17,7 @@ const formatTime = (timestamp) => {
     return `${ampm} ${hours}:${minutesStr}`;
 }
 
-function IndividualChattingItem({ data }) {
+function IndividualChattingItem({ data, MessageCount }) {
     const navigate = useNavigate();
     const [userData, setUserData] = useState([]);
     const { saveId } = useContext(ChattingContext);
@@ -29,6 +29,7 @@ function IndividualChattingItem({ data }) {
                 const response = await axios.get(`${process.env.REACT_APP_HOST}/api/users/${data.userId}`);
                 if (response.status === 200) {
                     setUserData(response.data);
+                    MessageCount();
                 } else {
                     console.log("채팅하고 있는 회원 정보 불러오기 실패", response.status);
                 }
@@ -37,7 +38,7 @@ function IndividualChattingItem({ data }) {
             }
         }
         SendUser();
-    }, [data]);
+    }, []);
 
     const clickedChatting = () => {
         navigate(`/chat/individual/${data.userId}`);
