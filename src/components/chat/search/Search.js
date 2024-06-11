@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { useSelector } from 'react-redux';
 import axios from 'axios';
 
 import '../../../styles/common/Style.css';
@@ -10,6 +11,7 @@ import { RiSearchLine } from "react-icons/ri";
 import SearchList from './SearchList';
 
 function Search() {
+    const userId = useSelector(state => state.userId);
     const [keyword, setKeyword] = useState('');
     const [user, setUser] = useState([]);
     const [selected, setSelected] = useState(false);
@@ -35,7 +37,8 @@ function Search() {
             const response = await axios.get(`${process.env.REACT_APP_HOST}/api/users`);
             if (response.status === 200) {
                 console.log("모든 유저 정보 불러오기 성공");
-                setUser(response.data);
+                const filteredUsers = response.data.filter(user => user.userId !== userId);
+                setUser(filteredUsers);
                 setSelected(false);
             } else {
                 console.log("모든 유저 정보 불러오기 실패", response.status);

@@ -34,7 +34,7 @@ function ChattingList() {
         if (userId) {
             MessageCount();
         }
-    }, [userId]);
+    }, []);
 
     return (
         <>
@@ -42,7 +42,7 @@ function ChattingList() {
                 {
                     messageData.length > 0 &&
                     messageData.map((item, index) => (
-                        <IndividualChattingItem key={index} data={item} />
+                        <IndividualChattingItem key={index} data={item} MessageCount={MessageCount} />
                     ))
                 }
                 {/* <GroupChattingItem />   */}
