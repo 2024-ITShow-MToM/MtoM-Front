@@ -7,7 +7,9 @@ function Advice(props) {
 
     const handleClick = () => {
         setIsSelected(!isSelected);
-        onClick();
+        if (typeof onClick === 'function') {
+            onClick();
+        }
     };
 
     return (
