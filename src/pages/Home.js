@@ -9,6 +9,7 @@ import ChooseItem from "../components/home/interview/ChooseItem";
 import ChooseContainer from "../components/home/interview/ChooseContainer";
 import { useNavigate } from "react-router-dom";
 import InterviewItem from "../components/home/InterviewItem";
+import { Icon } from "@iconify/react";
 
 function Home() {
 
@@ -17,12 +18,22 @@ function Home() {
 
     const handleNext = () => {
         navigate('/interview');
-      };
+    };
+
+    const handleMatching = () => {
+        navigate('/matchingField');
+    };
 
     return (
         <>
             <Header />
-            <img src="/images/HomeImg.png" alt="멘토멘티찾기" className={styles['home-img']}/>
+            <div className={styles.imgContainer}>
+                <img src="/images/HomeImg.png" alt="멘토멘티찾기" className={styles['home-img']} onClick={handleMatching}/>
+                <div className={styles.goBtn} onClick={handleMatching}>
+                    <p>바로가기</p>
+                    <Icon icon="uiw:swap-right"/>
+                </div>
+            </div>
             <div className={styles['home-container']}>
                 <Text text="김미림님에게 추천하는 멘토선배"/>
                 <div className={styles['mento-container']}>

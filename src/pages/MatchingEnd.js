@@ -17,7 +17,7 @@ function MatchingEnd() {
                         <hr className={styles['line-style']}/>
                         <Mento />
                 </div>
-                <NextButton text="신청하기" nextRoute="/"/>
+                <NextButton text="신청하기" nextRoute="/home"/>
             </div>
         </div>
     );
