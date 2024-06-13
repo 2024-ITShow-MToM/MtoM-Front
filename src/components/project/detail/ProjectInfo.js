@@ -64,12 +64,14 @@ function ProjectInfo({ data }) {
                             ))}
                         </div>
 
-                        {/* <div className={styles['plan']}>
+                        <div className={styles['plan']}>
                             <div className={styles['personTitle']}>
                                 <p>기획자</p>
                             </div>
-                            <Icon icon='fluent:person-20-filled' style={{ fontSize: '20px' }} />
-                        </div> */}
+                            {[...Array(data.promoter_personnel)].map((_, index) => (
+                                <Icon key={index} icon='fluent:person-20-filled' style={{ fontSize: '20px', color: '#0066FF' }} />
+                            ))}
+                        </div>
                     </div>
                 </div>
 
