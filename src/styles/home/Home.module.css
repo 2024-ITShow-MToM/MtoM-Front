@@ -1,7 +1,21 @@
 .home-img{
     width: 100%;
-    margin: 32vw 0 6% 0;
-
+}
+.imgContainer{
+    position: relative;
+    padding: 32vw 0 6% 0;
+}
+.goBtn{
+    position: absolute;
+    display: flex;
+    align-items: end;
+    column-gap: 2vw;
+    bottom: 10vw;
+    right: 5vw;
+    color: rgb(255, 255, 255, 0.5);
+}
+.goBtn p{
+    font-size: 0.9rem;
 }
 .home-container{
     padding: 0 5%;
