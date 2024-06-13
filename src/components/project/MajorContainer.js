@@ -1,10 +1,14 @@
 import React, { useState } from "react";
 import Major from "./Major";
 
-export default function MajorContainer() {
+export default function MajorContainer({ data }) {
   const [selectedMajor, setSelectedMajor] = useState(null);
 
-  const majors = ["프론트엔드", "백엔드", "디자인", "기획"];
+  const majors = [];
+  if (data.frontend_personnel > 0) majors.push("프론트엔드");
+  if (data.backend_personnel > 0) majors.push("백엔드");
+  if (data.designer_personnel > 0) majors.push("디자인");
+  if (data.promoter_personnel > 0) majors.push("기획");
 
   return (
     <div style={{ display: "flex", gap: "5px", flexWrap: "nowrap" }}>
