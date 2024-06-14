@@ -12,7 +12,7 @@ import axios from "axios";
 
 function ProjectApplication() {
     const navigate = useNavigate();
-    const userId = useSelector(state => state.user.userId);
+    const userId = useSelector(state => state.userId);
     const { projectId } = useContext(ProjectContext);
 
     const [isModalOpen, setIsModalOpen] = useState(false);
