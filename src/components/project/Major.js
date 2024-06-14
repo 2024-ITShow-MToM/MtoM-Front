@@ -16,11 +16,17 @@ const MajorBox = styled.div`
     padding: 0.5vw;
     border-radius: 5px;
     text-wrap: nowrap;
+    ${({ isFull }) => isFull && `
+        color: #C9C8C8;
+        border-color: #C9C8C8;
+    `}
 `;
 
-export default function Major({ major }) {
+export default function Major({ major, current, total }) {
+    const isFull = current === total;
+
     return (
-        <MajorBox majorLength={major.length}>
+        <MajorBox majorLength={major.length} isFull={isFull}>
             {major}
         </MajorBox>
     );
