@@ -16,6 +16,7 @@ function ProjectProvider({ children }) {
     const [projectDesignCount, setProjectDesignCount] = useState(0);
     const [projectPromoterCount, setProjectPromoterCount] = useState(0);
     const [projectIntroduction, setProjectIntroduction] = useState(null);
+    const [projectId, setProjectId] = useState(null);
 
     const recruitment = (start, end) => {
         setRecruitmentStart(start);
@@ -38,8 +39,31 @@ function ProjectProvider({ children }) {
         setProjectIntroduction(introduction);
     }
 
+    const saveProjectId = (id) => {
+        setProjectId(id);
+    }
+
     return (
-        <ProjectContext.Provider value={{ recruitmentStart, recruitmentEnd, recruitment, workStart, workEnd, work, projectImg, projectTitle, projectContent, projectBackendCount, projectFrontendCount, projectDesignCount, projectPromoterCount, projectIntroduction, saveInfo }}>
+        <ProjectContext.Provider 
+            value={{ 
+                recruitmentStart,
+                recruitmentEnd,
+                recruitment,
+                workStart,
+                workEnd,
+                work,
+                projectImg,
+                projectTitle,
+                projectContent,
+                projectBackendCount,
+                projectFrontendCount,
+                projectDesignCount,
+                projectPromoterCount,
+                projectIntroduction,
+                saveInfo,
+                projectId,
+                saveProjectId
+            }}>
             {children}
         </ProjectContext.Provider>
     )

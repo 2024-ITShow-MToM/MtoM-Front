@@ -1,5 +1,6 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useContext } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
+import { ProjectContext } from '../ProjectProvider';
 import axios from 'axios';
 
 import '../../../styles/common/Style.css';
@@ -15,6 +16,7 @@ function ProjectDetail() {
     const [userData, setUserData] = useState([]);
     const [imgData, setImgData] = useState('');
     const { id } = useParams();
+    const { saveProjectId } = useContext(ProjectContext);
 
     async function fetchData() {
         try {
@@ -65,6 +67,7 @@ function ProjectDetail() {
     }, []);
 
     const applicationProject = () => {
+        saveProjectId(id);
         navigate('/project/projectApplication');
     }
 
