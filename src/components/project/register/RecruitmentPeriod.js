@@ -10,7 +10,7 @@ import styles from '../../../styles/project/register/RecruitmentPeriod.module.cs
 
 import Header from '../../common/Header';
 import { IoRemoveOutline } from "react-icons/io5";
-import { ProjectContext } from './ProjectProvider';
+import { ProjectContext } from '../ProjectProvider';
 
 function RecruitmentPeriod() {
     const { recruitment } = useContext(ProjectContext);
