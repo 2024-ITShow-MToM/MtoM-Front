@@ -2,11 +2,12 @@ import React, { useState } from "react";
 import Field from "../matching/matchingField/Field";
 import styles from "../../styles/matching/Field.module.css";
 
-function FieldContainer() {
+function FieldContainer({ setRole }) {
     const [selectedIdx, setSelectedIdx] = useState(null);
 
     const handleFieldClick = (index) => {
         setSelectedIdx(index);
+        setRole(fields[index].field);
     };
 
     const fields = [
