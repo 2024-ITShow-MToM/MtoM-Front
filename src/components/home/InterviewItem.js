@@ -6,13 +6,13 @@ import styles from "../../styles/home/Interview.module.css"
 import { Icon } from "@iconify/react";
 
 function InterviewItem(props) {
-    const {text, content} = props;
+    const {text, content, profileImg, episodeImg, major, name} = props;
     const { saveInterview } = useContext(InterviewContext);
 
     const navigate = useNavigate();
     const handleNext = () => {
         navigate('/interviewContent');
-        saveInterview(text, content);
+        saveInterview(text, content, profileImg, episodeImg, major, name);
     };
 
     return(

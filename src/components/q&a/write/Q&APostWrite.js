@@ -45,7 +45,7 @@ function QandAPostWrite() {
             });
             if (request.status === 201) {
                 console.log("게시글 업로드 성공");
-                navigate(`/q&a/${request.data.id}`);
+                navigate(`/q&a`);
             } else {
                 console.log("게시글 업로드 실패", request.status);
             }
