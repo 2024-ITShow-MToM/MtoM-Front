@@ -15,7 +15,7 @@ function Interview(){
             <div className={styles['home-container']}>
                 <div className={styles["interview-box"]} style={{margin:"50vw 0 6vw 0"}}>
                     {InterviewData.map((data, index) => {
-                        return <InterviewItem key={index} text={data.title} content={data.content}/>
+                        return <InterviewItem key={index} text={data.title} content={data.content} profileImg={data.profileImg} episodeImg={data.episodeImg} major={data.major} name={data.name} />
                     })}
                 </div>
             </div>

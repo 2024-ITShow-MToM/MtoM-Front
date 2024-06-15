@@ -9,20 +9,28 @@ import PostTitle from "../components/q&a/question/PostTitle"
 import PostInfo from "../components/q&a/question/PostInfo"
 
 function InterviewContent() {
-    // postTitle: title
-    // postInfo: data
-    const { title, info } = useContext(InterviewContext);
+    const { title, info, profileImg, episodeImg, major, name } = useContext(InterviewContext);
     const data = {
         createdAt: '2024.06.14',
-        view: 3
+        view: 3,
+        user: [{
+            profile: profileImg,
+            major: major,
+            name: name
+        }]
     };
 
     return(
         <div>
             <Header text="인터뷰"/>
             <div>
-                <img src="/images/HomeImg.png" className={styles['main-img']}/>
-                <div className={styles['profile']}><QandAQuestionProfile /></div>
+                {
+                    episodeImg ?
+                    <img src={episodeImg} className={styles['main-img']}/>
+                    :
+                    <img src="/images/HomeImg.png" className={styles['main-img']}/>
+                }
+                <div className={styles['profile']}><QandAQuestionProfile data={data.user} /></div>
             </div>
             <div className={styles2["home-container"]}>
                 <div className={styles['post-container']}>
