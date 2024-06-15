@@ -13,11 +13,16 @@
     margin: 8px 0 5px 0;
     white-space: nowrap;          
     overflow: hidden; 
-    text-overflow: ellipsis;  
+    text-overflow: ellipsis;
 }
+
 .info{
     font-size: 0.8rem;
+    white-space: nowrap;          
+    overflow: hidden; 
+    text-overflow: ellipsis;
 }
+
 .read-more-container{
     display: flex;
     font-size: 0.7rem;

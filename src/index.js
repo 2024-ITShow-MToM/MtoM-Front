@@ -5,13 +5,16 @@ import { Provider } from 'react-redux';
 import store from './redux/store';
 import ChattingProvider from './components/chat/ChattingProvider';
 import ProjectProvider from './components/project/ProjectProvider';
+import InterviewProvider from './components/home/InterviewProvider';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <Provider store={store}>
     <ChattingProvider>
       <ProjectProvider>
-        <App />
+        <InterviewProvider>
+          <App />
+        </InterviewProvider>
       </ProjectProvider>
     </ChattingProvider>
   </Provider>

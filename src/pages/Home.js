@@ -10,6 +10,7 @@ import ChooseContainer from "../components/home/interview/ChooseContainer";
 import { useNavigate } from "react-router-dom";
 import InterviewItem from "../components/home/InterviewItem";
 import { Icon } from "@iconify/react";
+import { InterviewData } from "../components/interview/InterviewData";
 
 function Home() {
 
@@ -56,8 +57,9 @@ function Home() {
 
             <div className={styles['home-container']} style={{marginBottom:"30vw"}}>
                     <div className={styles['interview-box']}>
-                        <InterviewItem text="안녕하세요저는이해원입니다요" info="6기 박혜림 선배님의 미림생활 부터 회사생활까지 지금 만나보세요!"/>
-                        <InterviewItem text="미림에서 꿈을 이뤘어요" info="6기 박혜림 선배님의 미림생활 부터 회사생활까지 지금 만나보세요!"/>
+                        {InterviewData.slice(0, 2).map((data, index) => (
+                            <InterviewItem key={index} text={data.title} content={data.content}/>
+                        ))}
                     </div>
                 </div>
             <Nav/>

@@ -65,7 +65,7 @@ function Login() {
 
     useEffect(() => {
         if (userId) {
-          navigate('/home');
+          navigate('/profile/register');
         }
     }, [userId, navigate]);
 
