@@ -147,7 +147,7 @@ function Join() {
                             <div className={styles['emailInput']}>
                                 <div className={styles['googleInput']}>
                                     <input id='email' placeholder='구글 메일 입력' type='text' onChange={handleChange}/>
-                                    <button>인증번호 받기</button>
+                                    <button type='button'>인증번호 받기</button>
                                 </div>
                                 <input type='number' placeholder='인증번호 입력' />
                             </div>
