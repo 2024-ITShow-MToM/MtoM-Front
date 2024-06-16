@@ -36,13 +36,16 @@ export default function Project() {
 
     return (
         <div style={{height:"100vh", overflow:"hidden"}}>
-            <Tag/>
+            <Tag 
+                setTag={setProjectData}
+                projectAll={projectAll}    
+            />
             <div className={styles.plusBtn} onClick={plusProject}>
                 <Icon icon="ph:plus-bold"/>
             </div>
             <div className={styles.projectContainer}>
                 {
-                    projectData.map((item, index) => (
+                    projectData && projectData.map((item, index) => (
                         <ProjectBox
                             key={index}
                             data={item}
