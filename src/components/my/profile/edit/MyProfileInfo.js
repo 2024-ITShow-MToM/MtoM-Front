@@ -65,7 +65,7 @@ function MyProfileInfo({ setProfileData, profileData }) {
 
             <div className={styles['myself']}>
                 <div className={styles['title']}> <p>자기소개 글</p> </div>
-                <input id='mentoring_topics' onChange={handleChange} />
+                <input id='introduction' onChange={handleChange} />
             </div>
 
 

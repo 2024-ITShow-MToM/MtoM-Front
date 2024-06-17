@@ -16,7 +16,7 @@ function SearchItem({ id, onClick, isSelected, data }) {
 
                         <div className={styles['info']}>
                             <p>{data.studentId} {data.name}</p>
-                            <p>자기소개 글</p>
+                            <p>{data.introduction}</p>
                         </div>
                     </div>
                 </div>
