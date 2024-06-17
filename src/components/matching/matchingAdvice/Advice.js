@@ -1,21 +1,27 @@
-import React, { useState } from "react";
-import styles from "../../../styles/matching/Advice.module.css"
+import React, { useState, useEffect } from "react";
+import styles from "../../../styles/matching/Advice.module.css";
 
-function Advice(props) {
-    const { text, onClick } = props;
-    const [isSelected, setIsSelected] = useState(false);
+function Advice({ text, onClick, onAdviceSelect, isSelected }) {
+    const [selectedIdx, setSelectedIdx] = useState(null);
+
+    useEffect(() => {
+        console.log("Selected major after setState:", selectedIdx);
+    }, [selectedIdx]);
 
     const handleClick = () => {
-        setIsSelected(!isSelected);
         if (typeof onClick === 'function') {
             onClick();
+        }
+        setSelectedIdx(selectedIdx);
+        if (typeof onAdviceSelect === 'function') {
+            onAdviceSelect(selectedIdx);
         }
     };
 
     return (
         <div
             className={`${styles['advice-box']} ${isSelected ? styles['selected'] : ''}`}
-            onClick={handleClick}>
+            onClick={onClick}>
             {text}
         </div>
     );

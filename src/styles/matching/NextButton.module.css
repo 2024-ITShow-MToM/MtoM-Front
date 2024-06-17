@@ -1,4 +1,4 @@
-.btnStyle{
+.next-button{
     display: flex;
     position: fixed;
     bottom: 40px;
@@ -10,4 +10,23 @@
     font-weight: var(--SemiBold);
     justify-content: center;
     align-items: center;
+    opacity: 1;
+    /* transition: opacity 0.3s; */
+}
+
+.disabled-button {
+    
+    display: flex;
+    position: fixed;
+    bottom: 40px;
+    width: 90%;
+    height: 51px;
+    background-color: var(--main-color);
+    color: white;
+    border-radius: 15px;
+    font-weight: var(--SemiBold);
+    justify-content: center;
+    align-items: center;
+    opacity: 0.5;
+    pointer-events: none;
 }

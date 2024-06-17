@@ -1,11 +1,12 @@
 import React, { useState } from 'react';
-import styles from "../../styles/home/Major.module.css"
+import styles from "../../styles/home/Major.module.css";
 
-function DataSort() {
+function DataSort({ setSelectedMajor }) {
     const [selectedSort, setSelectedSort] = useState('전체');
 
     const handleButtonClick = (sortType) => {
         setSelectedSort(sortType);
+        setSelectedMajor(sortType); 
     };
 
     return (

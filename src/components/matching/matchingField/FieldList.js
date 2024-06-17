@@ -1,13 +1,19 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Field from "./Field";
 import styles from "../../../styles/matching/Field.module.css";
 
-function FieldContainer() {
+function FieldList({ onFieldSelect }) {
     const [selectedIdx, setSelectedIdx] = useState(null);
 
     const handleFieldClick = (index) => {
+        console.log("Clicked index:", index);
         setSelectedIdx(index);
+        onFieldSelect(index);
     };
+
+    useEffect(() => {
+        console.log("인덱스", selectedIdx);
+    }, [selectedIdx]);
 
     const fields = [
         { emoji: "👔", field: "취업", ex: "취업 분야  /  포토폴리오 이력서 / 취업처" },
@@ -33,4 +39,4 @@ function FieldContainer() {
     );
 }
 
-export default FieldContainer;
+export default FieldList;

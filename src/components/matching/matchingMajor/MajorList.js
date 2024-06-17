@@ -1,15 +1,20 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Major from "./Major";
 import styles from "../../../styles/matching/Major.module.css";
 
-function MajorList() {
+function MajorList({ onMajorSelect }) {
     const [selectedIdx, setSelectedIdx] = useState(null);
 
-    const handleFieldClick = (index) => {
+    const handleMajorClick = (index) => {
         setSelectedIdx(index);
+        onMajorSelect(index);
     };
 
-    const mayers = [
+    useEffect(() => {
+        console.log("Selected major after setState:", selectedIdx);
+    }, [selectedIdx]);
+
+    const majors = [
         { major: "S", majorName: "소프트웨어과" },
         { major: "W", majorName: "웹솔루션과" },
         { major: "D", majorName: "디자인과" },
@@ -17,13 +22,13 @@ function MajorList() {
 
     return (
         <div className={styles['field-container']}>
-            {mayers.map((mayers, index) => (
+            {majors.map((major, index) => (
                 <Major
                     key={index}
-                    major={mayers.major}
-                    majorName={mayers.majorName}
+                    major={major.major}
+                    majorName={major.majorName}
                     isSelected={selectedIdx === index}
-                    onClick={() => handleFieldClick(index)}
+                    onClick={() => handleMajorClick(index)}
                 />
             ))}
         </div>
