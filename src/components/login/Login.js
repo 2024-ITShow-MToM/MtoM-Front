@@ -46,28 +46,42 @@ function Login() {
                 console.log('로그인 성공');
                 setFail(false);
                 dispatch(loginSuccess(id));
-                navigate('/home');
+                
+                const ProfileRegisterResponse = await axios.get(`${process.env.REACT_APP_HOST}/api/users/${userId}`);
+                if (ProfileRegisterResponse.status === 200) {
+                    const { email, userId, ...otherData } = ProfileRegisterResponse.data;
+                    if (Object.values(otherData).every(val => val !== null)) {
+                        navigate('/home');
+                    } else {
+                        navigate('/profile/register');
+                    }
+                }
+
             } else {
                 console.error('로그인 실패', response.status);
                 setFail(true);
             }
         } catch (error) {
             setFail(true);
-            if (error.response.data.message === "가입되지 않은 아이디 입니다.") {
-                setErrorMessage(error.response.data.message);
-            } else if (error.response.data.message === "비밀번호가 일치하지 않습니다") {
-                setErrorMessage(error.response.data.message);
+            if (error.response && error.response.data) {
+                if (error.response.data.message === "가입되지 않은 아이디 입니다.") {
+                    setErrorMessage(error.response.data.message);
+                } else if (error.response.data.message === "비밀번호가 일치하지 않습니다") {
+                    setErrorMessage(error.response.data.message);
+                } else {
+                    console.error('로그인 서버 연결 실패:', error);
+                }
             } else {
-                console.error('로그인 서버 연결 실패:', error);
+                console.error('서버 연결 실패:', error);
             }
         }
     };
 
-    useEffect(() => {
-        if (userId) {
-          navigate('/profile/register');
-        }
-    }, [userId, navigate]);
+    // useEffect(() => {
+    //     if (userId) {
+    //       navigate('/signin');
+    //     }
+    // }, [userId, navigate]);
 
     return (
         <>
