@@ -22,7 +22,8 @@
     border-radius: 8px;
     outline: none;
     resize: none;
-    padding: 5vw;
+    padding: 3vw;
+    line-height: 20px;
 }
 
 .mento-container {

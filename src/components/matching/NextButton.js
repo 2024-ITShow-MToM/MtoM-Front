@@ -2,15 +2,15 @@ import React from "react";
 import { useNavigate } from "react-router-dom";
 import styles from "../../styles/matching/NextButton.module.css";
 
-function NextButton({ text, nextRoute }) {
+function NextButton({ text, nextRoute, disabled, onClick }) {
     const navigate = useNavigate();
 
-    const handleClick = () => {
-        navigate(nextRoute);
-    };
-
     return (
-        <button className={styles['btnStyle']} onClick={handleClick}>
+        <button
+            className={disabled ? styles['disabled-button'] : styles['next-button']}
+            onClick={onClick}
+            disabled={disabled}
+        >
             {text}
         </button>
     );
