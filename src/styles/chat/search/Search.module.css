@@ -14,7 +14,7 @@
 }
 .searchInput > input {
     width: 90vw;
-    height: 5vh;
+    height: 42px;
     padding-left: 5%;
     outline: none;
     z-index: 10;

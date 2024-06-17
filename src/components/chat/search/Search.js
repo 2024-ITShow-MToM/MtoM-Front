@@ -22,7 +22,8 @@ function Search() {
             const response = await axios.get(`${process.env.REACT_APP_HOST}/api/users/searches/${keyword}`);
             if (response.status === 200) {
                 console.log("유저 검색 성공");
-                setUser(response.data);
+                const filteredUsers = response.data.filter(user => user.userId !== userId);
+                setUser(filteredUsers);
             } else {
                 console.log("유저 검색 실패", response.status);
             }
@@ -77,7 +78,7 @@ function Search() {
                         value={keyword}
                         onChange={(e) => setKeyword(e.target.value)}
                     />
-                    <div className={styles['iconDiv']}> <RiSearchLine className={styles['icon']}/> </div>
+                    <div className={styles['iconDiv']}> <RiSearchLine className={styles['icon']} onClick={SearchUser}/> </div>
                 </div>
             </div>
             <div className={styles['searchList']}>
