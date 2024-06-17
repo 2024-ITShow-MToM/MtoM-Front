@@ -64,7 +64,5 @@
 
 .noProfileContent {
     display: flex;
-    right: -18.5%;
-    align-items: flex-end;
-    column-gap: 6px;
+    right: -15.5%;
 }

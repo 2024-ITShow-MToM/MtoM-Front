@@ -14,18 +14,18 @@ function ProfileRegister() {
     const navigate = useNavigate();
     const userId = useSelector(state => state.userId);
     const [profileData, setProfileData] = useState({
-        name: null,
-        student_id: null,
-        birthday: null,
-        gender: null,
-        phonenumber: null,
-        major: null,
-        mbti: null,
-        skills: [],
-        personal: null,
-        imogi: null,
-        mentoring_topics: null,
-        hashTag: null
+        name: null, // 이름
+        student_id: null, // 학번
+        birthday: null, // 생년월일
+        gender: null, // 성별
+        phonenumber: null, // 휴대폰번호
+        major: null, // 전공
+        mbti: null, // MBTI
+        skills: [], // 스킬
+        personal: null, // 조언 성향
+        imogi: null, // 이모지 자기소개
+        mentoring_topics: null, // 멘토링 주제
+        introduction: null // 자기소개
     });
     const [uploadedImages, setUploadedImages] = useState('');
 
@@ -70,7 +70,8 @@ function ProfileRegister() {
                 skills: profileData.skills,
                 personal: profileData.personal,
                 imogi: profileData.imogi,
-                mentoring_topics: profileData.mentoring_topics
+                mentoring_topics: profileData.mentoring_topics,
+                introduction: profileData.introduction
             });
             if (response.status === 201) {
                 console.log("프로필 등록 성공");

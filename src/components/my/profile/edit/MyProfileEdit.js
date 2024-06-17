@@ -22,7 +22,8 @@ function MyProfileEdit() {
         skills: [],
         personal: null,
         imogi: null,
-        mentoring_topics: null
+        mentoring_topics: null,
+        introduction: null
     });
 
     const [imgData, setImgData] = useState('');
@@ -68,12 +69,12 @@ function MyProfileEdit() {
 
     // 프로필 등록 서버 연결
     const save = async (e) => {
-        // e.preventDefault();
-        // const hasEmptyField = Object.values(profileData).some(value => value === null || (Array.isArray(value) && value.some(item => Object.values(item).some(subValue => subValue === null))));
-        // if (hasEmptyField) {
-        //     alert("모든 항목을 입력해주세요.");
-        //     return;
-        // }
+        e.preventDefault();
+        const hasEmptyField = Object.values(profileData).some(value => value === null || (Array.isArray(value) && value.some(item => Object.values(item).some(subValue => subValue === null))));
+        if (hasEmptyField) {
+            alert("모든 항목을 입력해주세요.");
+            return;
+        }
 
         const birthCheck = /^\d{4}\d{2}\d{2}$/;
         let birthday = null;

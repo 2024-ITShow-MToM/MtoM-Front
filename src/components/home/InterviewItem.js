@@ -1,4 +1,4 @@
-import React, { useState, useContext } from "react";
+import React, { useContext } from "react";
 import { useNavigate } from 'react-router-dom';
 import { InterviewContext } from './InterviewProvider';
 
@@ -17,7 +17,7 @@ function InterviewItem(props) {
 
     return(
         <div className={styles['interview-container']}>
-            <img src="/images/HomeImg.png" alt="인터뷰 이미지" className={styles['interview-img']}/>
+            <img src={episodeImg ?`${episodeImg}` : '/images/HomeLogo.png'} alt="인터뷰 이미지" className={styles['interview-img']}/>
             <p className={styles['text']}>{text}</p>
             <p className={styles['info']}>
                 {

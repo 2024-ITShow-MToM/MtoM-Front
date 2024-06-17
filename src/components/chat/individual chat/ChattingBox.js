@@ -60,10 +60,20 @@ function ChattingBox({ date, messages, userId, receiverId }) {
                 <div className={styles['chatting']}>
                     {messages.map((message, index) => {
                         const previousMessage = messages[index - 1];
-                        const showProfile = !previousMessage || previousMessage.senderId !== receiverId;
-                        return message.receiverId !== userId ?
-                            <MyChat key={index} text={message.message} time={formatTime(message.timestamp)} /> :
-                            <YourChat key={index} text={message.message} time={formatTime(message.timestamp)} showProfile={showProfile} userData={userData} imgData={imgData} />
+                        const showProfile = !previousMessage || previousMessage.senderId !== message.senderId;
+
+                        return message.senderId === userId ? (
+                            <MyChat key={index} text={message.message} time={formatTime(message.timestamp)} />
+                        ) : (
+                            <YourChat
+                                key={index}
+                                text={message.message}
+                                time={formatTime(message.timestamp)}
+                                showProfile={showProfile}
+                                userData={userData}
+                                imgData={imgData}
+                            />
+                        );
                     })}
                 </div>
             </div>

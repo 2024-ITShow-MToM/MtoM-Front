@@ -27,7 +27,7 @@ function SearchDetail({ user }) {
                         <p>{user.major}</p>
                         <p>{user.studentId} {user.name}</p>
                     </div>
-                    <p>자기소개 글</p>
+                    <p>{user.introduction}</p>
                 </div>
 
                 <div className={styles['myself']}>
@@ -41,7 +41,7 @@ function SearchDetail({ user }) {
                     <div className={styles['mento']}>
                         <p>멘토링 주제</p>
                         <div className={styles['tag']}>
-                            <p>멘토링 주제 태그</p>
+                            <p>{mentoring_topics}</p>
                         </div>
                     </div>
 
