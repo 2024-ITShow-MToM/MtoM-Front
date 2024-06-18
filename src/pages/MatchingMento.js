@@ -7,7 +7,7 @@ import NextButton from "../components/matching/NextButton";
 import Mento from "../components/home/Mento";
 import { useSelector } from "react-redux";
 import axios from "axios";
-import { useLocation } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import { MentorContext } from "../components/home/MentoProvider";
 
 function FieldContainer() {
@@ -15,12 +15,24 @@ function FieldContainer() {
     const userId = useSelector(state => state.userId);
     const location = useLocation();
     const {mentor} = useContext(MentorContext);
+    const navigate = useNavigate();
 
-    const handleMentoClick = (index) => {
+    const handleMentoClick = async (index) => {
         setSelectedMentoIndex(index);
+        try {
+            const selectedMento = mentor[index];
+            const res = await axios.get(`${process.env.REACT_APP_HOST}/api/users/${selectedMento.userId}`);
+            console.log("선택된 멘토 정보:", res.data);
+        } catch (error) {
+            console.error("선택된 멘토 정보 못불러옴:", error);
+        }
     };
-
     console.log(mentor)
+
+    const handleNextClick = () => {
+        const selectedMento = mentor[selectedMentoIndex];
+        navigate('/matchingEnd', { state: { selectedMento } });
+    };
 
     const getMento = async () => {
         try {
@@ -50,6 +62,7 @@ function FieldContainer() {
                     {mentor.map((mento, index) => (
                         <div className={styles['mento-item']} key={index}>
                             <Mento
+                                profile={mento.profile}
                                 name={mento.userId}
                                 major={mento.major}
                                 hashTag={mento.mentoring_topics}
@@ -60,7 +73,7 @@ function FieldContainer() {
                         </div>
                     ))}
                 </div>
-                <NextButton text="다음" nextRoute="/matchingEnd" />
+                <NextButton text="다음" onClick={handleNextClick} />
             </div>
         </div>
     );
