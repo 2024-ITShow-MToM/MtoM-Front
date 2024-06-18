@@ -4,7 +4,7 @@ export const MentorContext = createContext();
 
 function MentorProvider({ children }) {
     const [selectedMentorId, setSelectedMentorId] = useState(null);
-    const [mentor, setMentor] = useState('null');
+    const [mentor, setMentor] = useState([]);
 
     return (
         <MentorContext.Provider value={{ selectedMentorId, setSelectedMentorId, mentor, setMentor }}>

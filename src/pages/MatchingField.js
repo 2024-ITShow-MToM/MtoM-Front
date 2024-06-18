@@ -19,7 +19,7 @@ function MatchingField() {
             1: "진학",
             2: "학교생활",
             3: "글로벌",
-            5: "외부활동"
+            4: "외부활동"
         };
 
         const selectedField = fieldMapping[index];
