@@ -16,7 +16,7 @@ function ProfileAdvice({ setProfileData }) {
             setIsSaveButtonVisible(true);
         } else {
             setSelectedAdvices(selectedAdvices.filter((item) => item !== advice));
-            setIsSaveButtonVisible(false);
+            setIsSaveButtonVisible(true);
         }
     };
 
