@@ -40,58 +40,52 @@ import MentoRegister from './pages/MentoRegister';
 import My from './pages/My';
 import MyProfileEdit from './pages/MyProfileEdit';
 import ProjectDetail from './components/project/detail/ProjectDetail';
-import MatchingProvider from './components/matching/MatchingProvider';
-import { MentorProvider } from './components/home/MentoProvider';
 
 function App() {
     return(
-        <MatchingProvider>
-            <MentorProvider>
-                <Router>
-                    <Routes>
-                        <Route path="/" element={<Splash />}/>
-                        <Route path="/signin" element={<Login />}/>
-                        <Route path="/signup" element={<Join />}/>
+        <Router>
+            <Routes>
+                <Route path="/" element={<Splash />}/>
+                <Route path="/signin" element={<Login />}/>
+                <Route path="/signup" element={<Join />}/>
 
-                        <Route path="/home" element={<Home />}/>
+                <Route path="/home" element={<Home />}/>
 
-                        <Route path='/alarm' element={<Alarm />}/>
+                <Route path='/alarm' element={<Alarm />}/>
 
-                        <Route path='/interview' element={<Interview />}/>
-                        <Route path='/interviewContent' element={<InterviewContent />}/>
+                <Route path='/interview' element={<Interview />}/>
+                <Route path='/interviewContent' element={<InterviewContent />}/>
 
-                        <Route path='/profile/register' element={<ProfileRegister />} />
-                        
-                        <Route path='/q&a' element={<QandA />} />
-                        <Route path='/q&a/write' element={<QandAWrite />} />
-                        <Route path='/q&a/question/:id' element={<QandAQuestion />} />
+                <Route path='/profile/register' element={<ProfileRegister />} />
+                
+                <Route path='/q&a' element={<QandA />} />
+                <Route path='/q&a/write' element={<QandAWrite />} />
+                <Route path='/q&a/question/:id' element={<QandAQuestion />} />
 
-                        <Route path='/chat' element={<Chatting/>} />
-                        <Route path='/chat/individual/:username' element={<IndividualChat />} />
-                        <Route path='/chat/group' element={<GroupChat />} />
+                <Route path='/chat' element={<Chatting/>} />
+                <Route path='/chat/individual/:username' element={<IndividualChat />} />
+                <Route path='/chat/group' element={<GroupChat />} />
 
-                        <Route path='/project' element={<Project />} />
-                        <Route path='/project/register' element={<ProjectRegister />} />
-                        <Route path='/project/recruitment-period' element={<RecruitmentPeriod />} />
-                        <Route path='/project/work-period' element={<WorkPeriod />} />
-                        <Route path='/project/detail/:id' element={<ProjectDetail />}/>
-                        <Route path='/project/projectApplication' element={<ProjectApplication />}/>
+                <Route path='/project' element={<Project />} />
+                <Route path='/project/register' element={<ProjectRegister />} />
+                <Route path='/project/recruitment-period' element={<RecruitmentPeriod />} />
+                <Route path='/project/work-period' element={<WorkPeriod />} />
+                <Route path='/project/detail/:id' element={<ProjectDetail />}/>
+                <Route path='/project/projectApplication' element={<ProjectApplication />}/>
 
-                        <Route path='/mento/register' element={<MentoRegister />}/>
+                <Route path='/mento/register' element={<MentoRegister />}/>
 
-                        <Route path='/matchingField' element={<MatchingField />}/>
-                        <Route path='/matchingMajor' element={<MatchingMajor />}/>
-                        <Route path='/matchingAdvice' element={<MatchingAdvice />}/>
-                        <Route path='/matchingMento' element={<MatchingMento />}/>
-                        <Route path='/matchingEnd' element={<MatchingEnd />}/>
-                        <Route path='/matchingApplication' element={<MatchingApplication />}/>
+                <Route path='/matchingField' element={<MatchingField />}/>
+                <Route path='/matchingMajor' element={<MatchingMajor />}/>
+                <Route path='/matchingAdvice' element={<MatchingAdvice />}/>
+                <Route path='/matchingMento' element={<MatchingMento />}/>
+                <Route path='/matchingEnd' element={<MatchingEnd />}/>
+                <Route path='/matchingApplication' element={<MatchingApplication />}/>
 
-                        <Route path='/mypage' element={<My />} />
-                        <Route path='/profile/edit' element={<MyProfileEdit />} />
-                    </Routes>
-                </Router>
-            </MentorProvider>
-        </MatchingProvider>
+                <Route path='/mypage' element={<My />} />
+                <Route path='/profile/edit' element={<MyProfileEdit />} />
+            </Routes>
+        </Router>
     )
 }
 

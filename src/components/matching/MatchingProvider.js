@@ -50,7 +50,7 @@ import React, { createContext, useState } from 'react';
 
 export const MatchingContext = createContext();
 
-const MatchingProvider = ({ children }) => {
+function MatchingProvider({ children }) {
     const [worry, setWorry] = useState(null);
     const [major, setMajor] = useState(null);
     const [personal, setPersonal] = useState([]);
