@@ -2,7 +2,7 @@ import React, { createContext, useState } from 'react';
 
 export const MentorContext = createContext();
 
-export const MentorProvider = ({ children }) => {
+function MentorProvider({ children }) {
     const [selectedMentorId, setSelectedMentorId] = useState(null);
     const [mentor, setMentor] = useState('null');
 
@@ -12,3 +12,5 @@ export const MentorProvider = ({ children }) => {
         </MentorContext.Provider>
     );
 };
+
+export default MentorProvider;
