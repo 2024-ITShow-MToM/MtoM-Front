@@ -70,7 +70,7 @@ function Home() {
             <div className={styles['home-container']} style={{ marginBottom: "30vw" }}>
                 <div className={styles['interview-box']}>
                     {InterviewData.slice(0, 2).map((data, index) => (
-                        <InterviewItem key={index} text={data.title} content={data.content} />
+                        <InterviewItem key={index} data={data} />
                     ))}
                 </div>
             </div>

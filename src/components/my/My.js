@@ -71,9 +71,7 @@ function My() {
                 </div>
                 <div className={styles['info']}>
                     <Info name={data.name} studentId={data.student_id} profileImg={imgData} />
-                    <Link to='/profile/edit' style={{ textDecoration: 'none', color: 'black' }}>
-                        <button>프로필 편집하기</button>
-                    </Link>
+                    <button>프로필 편집하기</button>
                 </div>
             </div>
 

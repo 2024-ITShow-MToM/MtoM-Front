@@ -5,23 +5,22 @@ import { InterviewContext } from './InterviewProvider';
 import styles from "../../styles/home/Interview.module.css"
 import { Icon } from "@iconify/react";
 
-function InterviewItem(props) {
-    const {text, content, profileImg, episodeImg, major, name} = props;
+function InterviewItem({ data }) {
     const { saveInterview } = useContext(InterviewContext);
 
     const navigate = useNavigate();
     const handleNext = () => {
         navigate('/interviewContent');
-        saveInterview(text, content, profileImg, episodeImg, major, name);
+        saveInterview(data.title, data.content, data.profileImg, data.episodeImg, data.major, data.name);
     };
 
     return(
         <div className={styles['interview-container']}>
-            <img src={episodeImg ?`${episodeImg}` : '/images/HomeLogo.png'} alt="인터뷰 이미지" className={styles['interview-img']}/>
-            <p className={styles['text']}>{text}</p>
+            <img src={data.episodeImg ?`${data.episodeImg}` : '/images/HomeImg.png'} alt="인터뷰 이미지" className={styles['interview-img']}/>
+            <p className={styles['text']}>{data.title}</p>
             <p className={styles['info']}>
                 {
-                    content && Array.isArray(content) && content.map(item => {
+                    data.content && Array.isArray(data.content) && data.content.map(item => {
                         return <>{item}</>
                     })
                 }
