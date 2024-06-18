@@ -43,8 +43,6 @@ function InterviewContent() {
                             <p key={index}>{item}</p>
                         ))
                     }
-                    {/* <img src="/images/example.png" alt="참고자료"/>
-                    <p>안녕하세요</p> */}
                 </div>
             </div>
         </div>
