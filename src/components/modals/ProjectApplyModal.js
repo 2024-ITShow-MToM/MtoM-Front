@@ -7,6 +7,13 @@ import styles from '../../styles/modals/ProjectApplyModal.module.css';
 import { FaCircleCheck } from "react-icons/fa6";
 
 function ProjectApplyModal({ isOpen, onClose }) {
+    useEffect(() => {
+        const timer = setTimeout(() => {
+            navigate('/project');
+        }, 1000);
+
+        return () => clearTimeout(timer);
+    }, [navigate]);
     return (
         <Modal
             isOpen={isOpen}
