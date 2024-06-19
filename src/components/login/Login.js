@@ -47,7 +47,7 @@ function Login() {
                 setFail(false);
                 dispatch(loginSuccess(id));
                 
-                const ProfileRegisterResponse = await axios.get(`${process.env.REACT_APP_HOST}/api/users/${userId}`);
+                const ProfileRegisterResponse = await axios.get(`${process.env.REACT_APP_HOST}/api/users/${response.data}`);
                 if (ProfileRegisterResponse.status === 200) {
                     const { email, userId, ...otherData } = ProfileRegisterResponse.data;
                     console.log(otherData);

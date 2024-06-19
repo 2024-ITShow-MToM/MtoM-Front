@@ -8,7 +8,7 @@ function Info({ name, studentId, profileImg }) {
                 <div className={styles['imgDiv']}> 
                     {
                         profileImg ? (
-                            <img src={`${process.env.REACT_APP_IMAGEURL}/${profileImg}`} />
+                            <img src={profileImg} />
                         ) : (
                             <img src='/images/대체Img.png' />
                         )

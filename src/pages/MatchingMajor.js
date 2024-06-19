@@ -17,7 +17,7 @@ function MatchingMajor() {
     const handleMajorSelect = (index) => {
         const majorMapping = {
             0: "소프트웨어과",
-            1: "웹솔루션과",
+            1: "솔루션과",
             2: "디자인과"
         };
 

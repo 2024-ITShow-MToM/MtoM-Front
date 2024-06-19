@@ -32,15 +32,15 @@ input::placeholder {
 .formContainer {
     display: flex;
     flex-direction: column;
+    padding: 2% 10%;
     justify-content: center;
     align-items: flex-start;
-    padding: 2%;
-
+    
     font-weight: var(--Medium);
 }
 .formContainer > button {
-    width: 89vw;
-    padding: 5%;
+    width: 355px;
+    height: 50px;
     border: 0;
     border-radius: 10px;
     background-color: var(--main-color);
@@ -74,10 +74,12 @@ input::placeholder {
     display: flex;
     column-gap: 5px;
     align-items: center;
+    justify-content: center;
 }
 .idInput > input {
-    width: 55vw;
-    padding: 4%;
+    width: 235px;
+    height: 43px;
+    padding-left: 4%;
     border-radius: 7px;
     border-style: solid;
     border-width: 2px;
@@ -87,8 +89,8 @@ input::placeholder {
 
 /* 아이디 중복버튼 */
 .IdButtonDefault {
-    width: 30vw;
-    padding: 4%;
+    width: 103px;
+    height: 47px;
     border-radius: 7px;
     border: 0;
     background-color: var(--gray-2);
@@ -97,8 +99,8 @@ input::placeholder {
     color: var(--font-5);
 }
 .IdButtonClicked {
-    width: 30vw;
-    padding: 4%;
+    width: 103px;
+    height: 47px;
     border-radius: 7px;
     border: 0;
     background-color: var(--main-color);
@@ -131,7 +133,7 @@ input::placeholder {
     align-items: center;
 }
 .pwInput > input {
-    width: 80vw;
+    width: 325px;
     padding: 4%;
     border-radius: 7px;
     border-style: solid;
@@ -159,7 +161,7 @@ input::placeholder {
     align-items: center;
 }
 .emailInput > input {
-    width: 80vw;
+    width: 325px;
     padding: 4%;
     border-radius: 7px;
     border-style: solid;
@@ -175,7 +177,7 @@ input::placeholder {
     column-gap: 15px;
 }
 .googleInput > input {
-    width: 48vw;
+    width: 215px;
     padding: 4%;
     border-radius: 7px;
     border-style: solid;
@@ -185,8 +187,8 @@ input::placeholder {
     font-weight: var(--Medium);
 }
 .googleInput > button {
-    width: 35vw;
-    padding: 4%;
+    width: 123px;
+    height: 47px;
     border-radius: 7px;
     border: 0;
     background-color: var(--main-color);
