@@ -16,7 +16,7 @@ function InterviewItem({ data }) {
 
     return(
         <div className={styles['interview-container']}>
-            <img src={data.episodeImg ?`${data.episodeImg}` : '/images/HomeImg.png'} alt="인터뷰 이미지" className={styles['interview-img']}/>
+            <img src={data.episodeImg ?`${data.episodeImg}` : '/images/대체Img.png'} alt="인터뷰 이미지" className={styles['interview-img']}/>
             <p className={styles['text']}>{data.title}</p>
             <p className={styles['info']}>
                 {

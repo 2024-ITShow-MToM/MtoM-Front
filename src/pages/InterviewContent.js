@@ -28,7 +28,7 @@ function InterviewContent() {
                     episodeImg ?
                     <img src={episodeImg} className={styles['main-img']}/>
                     :
-                    <img src="/images/HomeImg.png" className={styles['main-img']}/>
+                    <img src="/images/대체Img.png" className={styles['main-img']}/>
                 }
                 <div className={styles['profile']}><QandAQuestionProfile data={data.user} /></div>
             </div>
