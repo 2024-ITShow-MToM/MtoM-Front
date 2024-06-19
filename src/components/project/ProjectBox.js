@@ -36,7 +36,6 @@ export default function ProjectBox({ data }) {
         UserData();
     }, []);
 
-
     return (
         <div className={styles['container']} onClick={handleClick}>
             <div className={styles.userBox}>

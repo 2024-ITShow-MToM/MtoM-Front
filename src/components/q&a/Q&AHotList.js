@@ -44,15 +44,14 @@ function QandAHotList() {
         <div className={styles['container']}>
             <div className={styles['item-grid-container']}>
                 {
-                    postData.length > 0 && chooseData.length > 0 ? (
-                        (
-                            postData.map((item, index) => {
+                    (Array.isArray(postData) && postData.length > 0) || 
+                    (Array.isArray(chooseData) && chooseData.length > 0) ? (
+                        <>
+                            {Array.isArray(postData) && postData.length > 0 && postData.map((item, index) => {
                                 return <QandAPostItem key={index} data={item} views={item.viewCount} hearts={item.heartCount} comments={item.commentCount} />
-                            })
-                        )
-        
-                        (
-                            chooseData.map((item, index) =>{
+                            })}
+                            
+                            {Array.isArray(chooseData) && chooseData.length > 0 && chooseData.map((item, index) =>{
                                 return (
                                     <QandAChooseItem 
                                         key={index} 
@@ -63,8 +62,8 @@ function QandAHotList() {
                                         reFetchData={reFetchData} 
                                     />
                                 )
-                            })
-                        )
+                            })}
+                        </>
                     ) : (
                         <p>전체 게시글 없습니다.</p>
                     )

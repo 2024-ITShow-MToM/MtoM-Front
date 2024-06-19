@@ -7,7 +7,7 @@ import styles from '../../styles/modals/MentoApplyModal.module.css';
 
 import { FaCircleCheck } from "react-icons/fa6";
 
-function MentoApplyModal() {
+function MentoApplyModal({ isOpen }) {
     const navigate = useNavigate();
 
     useEffect(() => {
@@ -19,7 +19,7 @@ function MentoApplyModal() {
     }, [navigate]);
 
     return (
-        <Modal isOpen={true} className={styles['modal']}>
+        <Modal isOpen={isOpen} className={styles['modal']}>
             <div className={styles['container']}>
                 <FaCircleCheck style={{ fontSize: '30px', color: '#FF6524' }}/>
                 <p>멘토링 신청 완료!</p>

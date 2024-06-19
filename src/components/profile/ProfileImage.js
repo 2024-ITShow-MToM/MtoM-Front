@@ -11,6 +11,8 @@ function ProfileImage({ setUploadedImages }) {
     const handleImageUpload = () => {
         const input = document.createElement('input');
         input.type = 'file';
+        input.accept = 'image/*';
+        input.capture = 'environment';
         input.onchange = (event) => {
             const file = event.target.files[0];
             const reader = new FileReader();

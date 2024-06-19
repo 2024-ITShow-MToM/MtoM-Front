@@ -20,7 +20,7 @@ function ProjectInfo({ data }) {
 
     return (
         <div className={styles['container']}>
-            <CurrentState />
+            <CurrentState data={data} />
 
             <div className={styles['title']}>
                 <p>{data.title}</p>
@@ -44,41 +44,57 @@ function ProjectInfo({ data }) {
                     <p>모집현황</p>
                     
                     <div className={styles['person']}>
-                        <div className={styles['front-end']}>
-                            <div className={styles['personTitle']} style={ frontendDiff <= 0 ? { color: '#EAEBEF', borderColor: '#EAEBEF' } : { color: '#0066FF', borderColor: '#0066FF' } }>
-                                <p>프론트엔드</p>
-                            </div>
-                            {[...Array(data.frontend_personnel)].map((_, index) => (
-                                <Icon key={index} icon='fluent:person-20-filled' style={{ fontSize: '20px', color: index < frontendDiff ? '#0066FF' : iconColor(frontendDiff) }} />
-                            ))}
-                        </div>
+                        {
+                            data.frontend_personnel > 0 && (
+                                <div className={styles['front-end']}>
+                                    <div className={styles['personTitle']} style={ frontendDiff <= 0 ? { color: '#EAEBEF', borderColor: '#EAEBEF' } : { color: '#0066FF', borderColor: '#0066FF' } }>
+                                        <p>프론트엔드</p>
+                                    </div>
+                                    {[...Array(data.frontend_personnel)].map((_, index) => (
+                                        <Icon key={index} icon='fluent:person-20-filled' style={{ fontSize: '20px', color: index < frontendDiff ? '#0066FF' : iconColor(frontendDiff) }} />
+                                    ))}
+                                </div>
+                            )
+                        }
 
-                        <div className={styles['back-end']}>
-                            <div className={styles['personTitle']} style={ backendDiff <= 0 ? { color: '#EAEBEF', borderColor: '#EAEBEF' } : { color: '#0066FF', borderColor: '#0066FF' } }>
-                                <p>백엔드</p>
-                            </div>
-                            {[...Array(data.backend_personnel)].map((_, index) => (
-                                <Icon key={index} icon='fluent:person-20-filled' style={{ fontSize: '20px', color: index < backendDiff ? '#0066FF' : iconColor(backendDiff) }} />
-                            ))}
-                        </div>
+                        {
+                            data.backend_personnel > 0 && (
+                                <div className={styles['back-end']}>
+                                    <div className={styles['personTitle']} style={ backendDiff <= 0 ? { color: '#EAEBEF', borderColor: '#EAEBEF' } : { color: '#0066FF', borderColor: '#0066FF' } }>
+                                        <p>백엔드</p>
+                                    </div>
+                                    {[...Array(data.backend_personnel)].map((_, index) => (
+                                        <Icon key={index} icon='fluent:person-20-filled' style={{ fontSize: '20px', color: index < backendDiff ? '#0066FF' : iconColor(backendDiff) }} />
+                                    ))}
+                                </div>
+                            )
+                        }
 
-                        <div className={styles['design']}>
-                            <div className={styles['personTitle']} style={ designDiff <= 0 ? { color: '#EAEBEF', borderColor: '#EAEBEF' } : { color: '#0066FF', borderColor: '#0066FF' } }>
-                                <p>디자인</p>
-                            </div>
-                            {[...Array(data.designer_personnel)].map((_, index) => (
-                                <Icon key={index} icon='fluent:person-20-filled' style={{ fontSize: '20px', color: index < designDiff ? '#0066FF' : iconColor(designDiff) }} />
-                            ))}
-                        </div>
+                        {
+                            data.designer_personnel > 0 && (
+                                <div className={styles['design']}>
+                                    <div className={styles['personTitle']} style={ designDiff <= 0 ? { color: '#EAEBEF', borderColor: '#EAEBEF' } : { color: '#0066FF', borderColor: '#0066FF' } }>
+                                        <p>디자인</p>
+                                    </div>
+                                    {[...Array(data.designer_personnel)].map((_, index) => (
+                                        <Icon key={index} icon='fluent:person-20-filled' style={{ fontSize: '20px', color: index < designDiff ? '#0066FF' : iconColor(designDiff) }} />
+                                    ))}
+                                </div>
+                            )
+                        }
 
-                        <div className={styles['plan']}>
-                            <div className={styles['personTitle']} style={ planDiff <= 0 ? { color: '#EAEBEF', borderColor: '#EAEBEF' } : { color: '#0066FF', borderColor: '#0066FF' } }>
-                                <p>기획자</p>
-                            </div>
-                            {[...Array(data.promoter_personnel)].map((_, index) => (
-                                <Icon key={index} icon='fluent:person-20-filled' style={{ fontSize: '20px', color: index < planDiff ? '#0066FF' : iconColor(planDiff) }} />
-                            ))}
-                        </div>
+                        {
+                            data.promoter_personnel > 0 && (
+                                <div className={styles['plan']}>
+                                    <div className={styles['personTitle']} style={ planDiff <= 0 ? { color: '#EAEBEF', borderColor: '#EAEBEF' } : { color: '#0066FF', borderColor: '#0066FF' } }>
+                                        <p>기획자</p>
+                                    </div>
+                                    {[...Array(data.promoter_personnel)].map((_, index) => (
+                                        <Icon key={index} icon='fluent:person-20-filled' style={{ fontSize: '20px', color: index < planDiff ? '#0066FF' : iconColor(planDiff) }} />
+                                    ))}
+                                </div>
+                            )
+                        }
                     </div>
                 </div>
 
