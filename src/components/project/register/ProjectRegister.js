@@ -35,7 +35,7 @@ function ProjectRegister() {
         setShowModal(true);
         setTimeout(() => {
             handleCloseModal();
-        }, 1000);
+        }, 3000);
     };
 
     const handleCloseModal = () => {
@@ -46,6 +46,8 @@ function ProjectRegister() {
     const handleImageUpload = () => {
         const input = document.createElement('input');
         input.type = 'file';
+        input.accept = 'image/*';
+        input.capture = 'environment';
         input.onchange = (event) => {
             const file = event.target.files[0];
             const reader = new FileReader();
