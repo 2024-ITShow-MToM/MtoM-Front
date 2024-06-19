@@ -52,11 +52,11 @@ function ChattingBox({ date, messages, userId, receiverId }) {
     return (
         <>
             <div className={styles['container']}>
-                <div className={styles['date']}>
+                {/* <div className={styles['date']}>
                     <hr />
                     <div className={styles['dateBox']}>{date}</div>
                     <hr />
-                </div>
+                </div> */}
                 <div className={styles['chatting']}>
                     {messages.map((message, index) => {
                         const previousMessage = messages[index - 1];

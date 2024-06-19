@@ -42,8 +42,8 @@
 }
 .emojiAdd {
     display: flex;
-    width: 10vw;
-    height: 4.5vh;
+    width: 42px;
+    height: 40px;
 }
 .emojiAdd > input {
     width: 100%;

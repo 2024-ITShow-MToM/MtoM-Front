@@ -59,14 +59,14 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-top: 2%;
 }
 .button > button {
+    width: 65px;
+    height: 40px;
     border: 0;
     background-color: rgba(255, 101, 36, 0.3);
-    padding: 2.5% 6%;
     border-radius: 100px;
     font-weight: var(--Medium);
-    font-size: 16px;
+    font-size: 17px;
     color: var(--sub-color);
 }

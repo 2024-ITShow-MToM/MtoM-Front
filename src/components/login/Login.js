@@ -50,6 +50,7 @@ function Login() {
                 const ProfileRegisterResponse = await axios.get(`${process.env.REACT_APP_HOST}/api/users/${userId}`);
                 if (ProfileRegisterResponse.status === 200) {
                     const { email, userId, ...otherData } = ProfileRegisterResponse.data;
+                    console.log(otherData);
                     if (Object.values(otherData).every(val => val !== null)) {
                         navigate('/home');
                     } else {

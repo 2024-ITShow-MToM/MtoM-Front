@@ -29,8 +29,8 @@
     column-gap: 20px;
 }
 .skillInput > input {
-    width: 10%;
-    height: 3vh;
+    width: 32px;
+    height: 28px;
     border-width: 1px;
     border-style: solid;
     border-radius: 5px;
