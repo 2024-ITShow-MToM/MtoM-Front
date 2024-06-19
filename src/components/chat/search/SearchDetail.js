@@ -22,7 +22,7 @@ function SearchDetail({ user }) {
         <div className={styles['container']}>
             <div className={styles['info']}>
                 <div className={styles['information']}>
-                    <div className={styles['imgDiv']}> <img src={`${process.env.REACT_APP_IMAGEURL}/${user.profile}`} /> </div>
+                    <div className={styles['imgDiv']}> <img src={`${user.profile}`} /> </div>
                     <div className={styles['name']}>
                         <p>{user.major}</p>
                         <p>{user.studentId} {user.name}</p>

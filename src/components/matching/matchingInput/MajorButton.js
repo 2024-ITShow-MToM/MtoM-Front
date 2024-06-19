@@ -14,7 +14,7 @@ function MajorButton({ setProfileData }){
         }));
     };
 
-    const majors = ['소프트웨어과', '디자인과', '웹 솔루션과'];
+    const majors = ['소프트웨어과', '디자인과', '솔루션과'];
     const handleMajor = (major) => {
         setSelectedMajor(major);
         setProfileData(prevData => ({

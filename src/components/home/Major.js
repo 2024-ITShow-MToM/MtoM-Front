@@ -24,10 +24,10 @@ function DataSort({ setSelectedMajor }) {
                 소프트웨어과
             </button>
             <button
-                className={selectedSort === '웹솔루션과' ? styles['selectButton'] : styles['defaultButton']}
-                onClick={() => handleButtonClick('웹솔루션과')}
+                className={selectedSort === '솔루션과' ? styles['selectButton'] : styles['defaultButton']}
+                onClick={() => handleButtonClick('솔루션과')}
             >
-                웹솔루션과
+                솔루션과
             </button>
             <button
                 className={selectedSort === '디자인과' ? styles['selectButton'] : styles['defaultButton']}

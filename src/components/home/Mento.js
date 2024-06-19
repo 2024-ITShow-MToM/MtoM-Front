@@ -10,7 +10,7 @@ function Mento({ isSelected, onClick, userId, name, major, hashTag, infoText, pr
 
     return (
         <div className={styles['mento-container']} onClick={onClick}>
-            <img src={`${process.env.REACT_APP_IMAGEURL}/${profile}`} alt='프로필이미지' className={styles['profile-img']} />
+            <img src={profile} alt='프로필이미지' className={styles['profile-img']} />
             <div className={`${styles['info-container']} ${isSelected ? styles['first-info-container'] : ''}`}>
                 <div>
                     <p className={styles['major']}>{major}</p>

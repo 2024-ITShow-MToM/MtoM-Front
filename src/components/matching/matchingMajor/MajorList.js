@@ -16,7 +16,7 @@ function MajorList({ onMajorSelect }) {
 
     const majors = [
         { major: "S", majorName: "소프트웨어과" },
-        { major: "W", majorName: "웹솔루션과" },
+        { major: "W", majorName: "솔루션과" },
         { major: "D", majorName: "디자인과" },
     ];
 

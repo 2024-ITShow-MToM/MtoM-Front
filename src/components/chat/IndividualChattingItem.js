@@ -29,7 +29,7 @@ function IndividualChattingItem({ data, MessageCount }) {
                 const response = await axios.get(`${process.env.REACT_APP_HOST}/api/users/${data.userId}`);
                 if (response.status === 200) {
                     setUserData(response.data);
-                    MessageCount();
+                    // MessageCount();
                 } else {
                     console.log("채팅하고 있는 회원 정보 불러오기 실패", response.status);
                 }
@@ -50,7 +50,7 @@ function IndividualChattingItem({ data, MessageCount }) {
             <div className={styles['container']} onClick={clickedChatting}>
                     <div className={styles['inContainer']}>
                         <div className={styles['rightDiv']}>
-                            <div className={styles['imgDiv']}> <img src={`${process.env.REACT_APP_IMAGEURL}/${userData.profile}`} /> </div>
+                            <div className={styles['imgDiv']}> <img src={`${userData.profile}`} /> </div>
 
                             <div className={styles['info']}>
                                 <p>{userData.studentId} {userData.name}</p>

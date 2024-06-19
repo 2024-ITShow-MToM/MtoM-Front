@@ -11,7 +11,7 @@ function SearchItem({ id, onClick, isSelected, data }) {
                 <div className={styles['container']} onClick={() => onClick(id)}>
                     <div className={styles['inDiv']}>
                         <div className={styles['imgDiv']}>
-                            <img src={`${process.env.REACT_APP_IMAGEURL}/${data.profile}`} />
+                            <img src={`${data.profile}`} />
                         </div>
 
                         <div className={styles['info']}>
