@@ -10,7 +10,7 @@ function ProjectApplyModal({ isOpen, onClose }) {
     useEffect(() => {
         const timer = setTimeout(() => {
             navigate('/project');
-        }, 1000);
+        }, 3000);
 
         return () => clearTimeout(timer);
     }, [navigate]);

@@ -13,7 +13,7 @@ function MentoApplyModal() {
     useEffect(() => {
         const timer = setTimeout(() => {
             navigate('/home');
-        }, 1000);
+        }, 3000);
 
         return () => clearTimeout(timer);
     }, [navigate]);
