@@ -1,13 +1,13 @@
 .container {
     width: 100vw;
-    height: 130px;
+    height: 160px;
     background-color: var(--main-color);
     border: 0;
     border-radius: 0 0 20px 20px;
 }
 
 .search {
-    height: 85%;
+    height: 100%;
     display: flex;
     justify-content: center;
     flex-direction: column;

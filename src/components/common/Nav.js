@@ -19,45 +19,39 @@ function Nav() {
             navigate('/signin');
         }
     }, [navigate]);
+
+    const onClickMenu = (path) => {
+        navigate(path);
+    }
     
     return (
         <>
             <div className={styles['container']}>
                 <div className={styles['iconContainer']}>
-                    <Link to='/home'>
-                        <div className={window.location.pathname === '/home' ? `${styles['icon']} ${styles['clickedIcon']}` : `${styles['icon']} ${styles['defaultIcon']}`} >
-                            <GoHome size='26'/>
-                            <p>HOME</p>
-                        </div>
-                    </Link>
+                    <div className={window.location.pathname === '/home' ? `${styles['icon']} ${styles['clickedIcon']}` : `${styles['icon']} ${styles['defaultIcon']}`} onClick={() => onClickMenu('/home')}>
+                        <GoHome size='26'/>
+                        <p>HOME</p>
+                    </div>
 
-                    <Link to='/q&a'>
-                        <div className={window.location.pathname === '/q&a' ? `${styles['icon']} ${styles['clickedIcon']}` : `${styles['icon']} ${styles['defaultIcon']}`}>
-                            {window.location.pathname === '/q&a' ? <img src='/images/q&a/Q&AClickedIcon.png' /> : <img src='/images/q&a/Q&ADefaultIcon.png' />}
-                            <p>Q&A</p>
-                        </div>
-                    </Link>
+                    <div className={window.location.pathname === '/q&a' ? `${styles['icon']} ${styles['clickedIcon']}` : `${styles['icon']} ${styles['defaultIcon']}`} onClick={() => onClickMenu('/q&a')}>
+                        {window.location.pathname === '/q&a' ? <img src='/images/q&a/Q&AClickedIcon.png' /> : <img src='/images/q&a/Q&ADefaultIcon.png' />}
+                        <p>Q&A</p>
+                    </div>
 
-                    <Link to='/project'>
-                        <div className={window.location.pathname === '/project' ? `${styles['icon']} ${styles['clickedIcon']}` : `${styles['icon']} ${styles['defaultIcon']}`}>
-                            <MdLaptopMac size='26'/>
-                            <p>PROJECT</p>
-                        </div>
-                    </Link>
+                    <div className={window.location.pathname === '/project' ? `${styles['icon']} ${styles['clickedIcon']}` : `${styles['icon']} ${styles['defaultIcon']}`} onClick={() => onClickMenu('/project')}>
+                        <MdLaptopMac size='26'/>
+                        <p>PROJECT</p>
+                    </div>
 
-                    <Link to='/chat'>
-                        <div className={window.location.pathname === '/chat' ? `${styles['icon']} ${styles['clickedIcon']}` : `${styles['icon']} ${styles['defaultIcon']}`}>
-                            {window.location.pathname === '/chat' ? <img src='/images/q&a/ChatClickedIcon.png' /> : <img src='/images/q&a/ChatDefaultIcon.png' />}
-                            <p>CHAT</p>
-                        </div>
-                    </Link>
+                    <div className={window.location.pathname === '/chat' ? `${styles['icon']} ${styles['clickedIcon']}` : `${styles['icon']} ${styles['defaultIcon']}`} onClick={() => onClickMenu('/chat')}>
+                        {window.location.pathname === '/chat' ? <img src='/images/q&a/ChatClickedIcon.png' /> : <img src='/images/q&a/ChatDefaultIcon.png' />}
+                        <p>CHAT</p>
+                    </div>
 
-                    <Link to='/mypage'>
-                        <div className={window.location.pathname === '/mypage' ? `${styles['icon']} ${styles['clickedIcon']}` : `${styles['icon']} ${styles['defaultIcon']}`}>
-                            <BiUser size='26'/>
-                            <p>MY</p>
-                        </div>
-                    </Link>
+                    <div className={window.location.pathname === '/mypage' ? `${styles['icon']} ${styles['clickedIcon']}` : `${styles['icon']} ${styles['defaultIcon']}`} onClick={() => onClickMenu('/mypage')}>
+                        <BiUser size='26'/>
+                        <p>MY</p>
+                    </div>
                 </div>
             </div>
         </>
