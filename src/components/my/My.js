@@ -20,7 +20,7 @@ function My() {
     };
 
     const [data, setData] = useState([]);
-    const [imgData, setImgData] = useState('');
+    // const [imgData, setImgData] = useState('');
     const userId = useSelector(state => state.userId);
     useEffect(() => {
         async function fetData() {
@@ -31,17 +31,17 @@ function My() {
                     console.log("회원 정보 불러오기 성공");
                     setData(response.data);
                     // 회원 이미지 서버
-                    try {
-                        const imgResponse = await axios.get(`${process.env.REACT_APP_HOST}/api/users/profile/img/${userId}`);
-                        if (imgResponse.status === 200) {
-                            console.log("회원 프로필 이미지 불러오기 성공");
-                            setImgData(imgResponse.data);
-                        } else {
-                            console.log("회원 프로필 이미지 불러오기 실패", imgResponse.status);
-                        }
-                    } catch(error) {
-                        console.log("서버 연결 실패", error);
-                    }
+                    // try {
+                    //     const imgResponse = await axios.get(`${process.env.REACT_APP_HOST}/api/users/profile/img/${userId}`);
+                    //     if (imgResponse.status === 200) {
+                    //         console.log("회원 프로필 이미지 불러오기 성공");
+                    //         setImgData(imgResponse.data);
+                    //     } else {
+                    //         console.log("회원 프로필 이미지 불러오기 실패", imgResponse.status);
+                    //     }
+                    // } catch(error) {
+                    //     console.log("서버 연결 실패", error);
+                    // }
                 } else {
                     console.log("회원 정보 불러오기 실패", response.status);
                 }
@@ -70,7 +70,7 @@ function My() {
                     <Icon icon='ant-design:setting-filled' />
                 </div>
                 <div className={styles['info']}>
-                    <Info name={data.name} studentId={data.student_id} profileImg={imgData} />
+                    <Info name={data.name} studentId={data.student_id} profileImg={data.profile} />
                     <button>프로필 편집하기</button>
                 </div>
             </div>

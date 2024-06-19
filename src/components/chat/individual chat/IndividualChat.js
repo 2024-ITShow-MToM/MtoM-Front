@@ -75,6 +75,8 @@ function IndividualChat() {
         }
     }
 
+    console.log(messages);
+
     const User = async () => {
         try {
             const response = await axios.get(`${process.env.REACT_APP_HOST}/api/users/${receiverId}`);
