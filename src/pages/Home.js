@@ -12,7 +12,7 @@ import { useNavigate } from "react-router-dom";
 import InterviewItem from "../components/home/InterviewItem";
 import { Icon } from "@iconify/react";
 import { InterviewData } from "../components/interview/InterviewData";
-import { useLocation } from 'react-router';
+import { useLocation } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 
 function Home() {
