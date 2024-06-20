@@ -66,7 +66,7 @@ function FieldContainer() {
                                 name={mento.userId}
                                 major={mento.major}
                                 hashTag={mento.mentoring_topics}
-                                infoText={mento.personal}
+                                infoText={mento.information}
                                 isSelected={selectedMentoIndex === index}
                                 onClick={() => handleMentoClick(index)}
                             />

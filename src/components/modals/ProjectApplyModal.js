@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import Modal from 'react-modal';
 import { useNavigate } from 'react-router';
 
@@ -8,6 +8,7 @@ import styles from '../../styles/modals/ProjectApplyModal.module.css';
 import { FaCircleCheck } from "react-icons/fa6";
 
 function ProjectApplyModal({ isOpen, onClose }) {
+    const navigate = useNavigate()
     useEffect(() => {
         const timer = setTimeout(() => {
             navigate('/project');
