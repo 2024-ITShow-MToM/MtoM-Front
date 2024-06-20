@@ -19,9 +19,10 @@ function Alarm() {
                     }
                 });
                 if (res.status === 200) {
+                    console.log("알람 조회 성공");
                     setAlarms(res.data);
                 } else {
-                    console.log(res.status);
+                    console.log("알람 조회 실패", res.status);
                 }
             } catch (error) {
                 console.log("서버 연결 실패", error);
@@ -30,13 +31,15 @@ function Alarm() {
         getAlarm();
     }, [userId]);
 
+    console.log(alarms);
+
     return (
         <div>
             <Header text="알림" alarm={`(${alarms.length})`} />
             <div className={styles['home-container']}>
                 <div className={styles['alarm-container']}>
                     {alarms.map((alarm, index) => (
-                        <AlarmItem key={index} {...alarm} />
+                        <AlarmItem key={index} data={alarm} />
                     ))}
                 </div>
             </div>
