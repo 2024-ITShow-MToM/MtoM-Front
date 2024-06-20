@@ -58,7 +58,7 @@ function ProfileInfo({ setProfileData }) {
 
             <div className={styles['tag']}>
                 <div className={styles['title']}> <p>자기소개 글</p> </div>
-                <input id='information' onChange={handleChange} />
+                <input id='introduction' onChange={handleChange} />
             </div>
 
 

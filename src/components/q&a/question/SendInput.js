@@ -23,7 +23,7 @@ function SendInput({ postId, reloadComments }) {
                 postId: postId,
                 content: content
             });
-            if (request.status === 201) {
+            if (request.status === 200) {
                 console.log("댓글 등록 성공");
                 reloadComments();
                 setContent('');
