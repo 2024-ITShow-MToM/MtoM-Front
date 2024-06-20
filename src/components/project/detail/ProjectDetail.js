@@ -47,6 +47,8 @@ function ProjectDetail() {
         }
     }
 
+    console.log(data);
+
     useEffect(() => {
         fetchData();
     }, []);

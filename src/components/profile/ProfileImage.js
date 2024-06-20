@@ -12,7 +12,7 @@ function ProfileImage({ setUploadedImages }) {
         const input = document.createElement('input');
         input.type = 'file';
         input.accept = 'image/*';
-        input.capture = 'environment';
+        // input.capture = 'environment';
         input.onchange = (event) => {
             const file = event.target.files[0];
             const reader = new FileReader();
@@ -43,7 +43,7 @@ function ProfileImage({ setUploadedImages }) {
                     </>
                 )}
                 {selectedImage && (
-                    <img src={selectedImage} alt="profileImg" className={styles['img']} />
+                    <img src={selectedImage} alt="profileImg" className={styles['img']} id='selectedImage' />
                 )}
             </div>
         </>
