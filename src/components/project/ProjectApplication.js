@@ -31,9 +31,9 @@ function ProjectApplication() {
 
     async function projectApplication() {
         try {
-            const request = await axios.post(`${process.env.REACT_APP_API_URL}/api/projects/application`, {
+            const request = await axios.post(`${process.env.REACT_APP_HOST}/api/projects/application`, {
                 userId: userId,
-                projectId: projectId,
+                projectId: Number(projectId),
                 role: role,
                 application: application
             });
@@ -69,7 +69,11 @@ function ProjectApplication() {
                     <button onClick={handleButtonClick}>프로젝트 신청하기</button>
                 </div>
             </div>
-            <ProjectApplyModal isOpen={isModalOpen} onClose={handleCloseModal} />
+            {
+                isModalOpen && (
+                    <ProjectApplyModal isOpen={isModalOpen} onClose={handleCloseModal} />
+                )
+            }
         </div>
     );
 }

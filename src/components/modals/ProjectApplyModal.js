@@ -1,6 +1,6 @@
 import React, {useEffect} from 'react';
 import Modal from 'react-modal';
-import { useNavigate } from 'react-router';
+import { useNavigate } from 'react-router-dom';
 
 import '../../styles/common/Style.css';
 import styles from '../../styles/modals/ProjectApplyModal.module.css';
