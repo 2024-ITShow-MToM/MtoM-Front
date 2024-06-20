@@ -65,7 +65,7 @@ function MentoList({ setMajor, selectedMajor }) {
                     profile={data.profile}
                     name={data.name}
                     hashTag={data.mentoring_topics}
-                    infoText={data.personal}
+                    infoText={data.information}
                     mentorId={data.userId}
                     onClick={() => handleMentoClick(data.userId)}
                 />

@@ -23,7 +23,7 @@ function MyProfileEdit() {
         personal: null,
         imogi: null,
         mentoring_topics: null,
-        introduction: null
+        information: null
     });
 
     const [imgData, setImgData] = useState('');

@@ -27,7 +27,7 @@ function SearchDetail({ user }) {
                         <p>{user.major}</p>
                         <p>{user.studentId} {user.name}</p>
                     </div>
-                    <p>{user.introduction}</p>
+                    <p>{user.information}</p>
                 </div>
 
                 <div className={styles['myself']}>

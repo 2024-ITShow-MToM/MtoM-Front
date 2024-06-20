@@ -25,7 +25,7 @@ function ProfileRegister() {
         personal: null, // 조언 성향
         imogi: null, // 이모지 자기소개
         mentoring_topics: null, // 멘토링 주제
-        introduction: null // 자기소개
+        information: null // 자기소개
     });
     const [uploadedImages, setUploadedImages] = useState('');
 
@@ -71,7 +71,7 @@ function ProfileRegister() {
                 personal: profileData.personal,
                 imogi: profileData.imogi,
                 mentoring_topics: profileData.mentoring_topics,
-                introduction: profileData.introduction
+                information: profileData.information
             });
             if (response.status === 201) {
                 console.log("프로필 등록 성공");
