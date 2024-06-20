@@ -25,7 +25,7 @@ function ProfileRegister() {
         personal: null, // 조언 성향
         imogi: null, // 이모지 자기소개
         mentoring_topics: null, // 멘토링 주제
-        information: null // 자기소개
+        introduction: null // 자기소개
     });
     const [uploadedImages, setUploadedImages] = useState('');
 
@@ -71,7 +71,7 @@ function ProfileRegister() {
                 personal: profileData.personal,
                 imogi: profileData.imogi,
                 mentoring_topics: profileData.mentoring_topics,
-                information: profileData.information
+                introduction: profileData.introduction
             });
             if (response.status === 201) {
                 console.log("프로필 등록 성공");
@@ -81,6 +81,7 @@ function ProfileRegister() {
             }
         } catch(error) {
             console.log("서버 연결 실패", error);
+            alert("이미 등록된 정보입니다");
         }
     }
 
