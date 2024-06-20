@@ -15,6 +15,11 @@
     box-shadow: 0px 0px 20px var(--gray-1);
 }
 
+.container > hr {
+    border-color: var(--gray-2);
+    border-style: solid;
+}
+
 .topContainer {
     display: flex;
     flex-direction: column;

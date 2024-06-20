@@ -52,7 +52,7 @@ function QandAChooseList() {
                                         twoPercentage={item.options[0].percentage2}
                                         options={item.options} 
                                         reFetchData={reFetchData}
-                                        userId={useId}
+                                        userId={userId}
                                     />
                                 )
                             })
