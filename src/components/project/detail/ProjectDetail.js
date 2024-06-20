@@ -9,6 +9,7 @@ import styles from '../../../styles/project/detail/ProjectDetail.module.css';
 import Image from './Image';
 import ProjectInfo from './ProjectInfo';
 import WriterInfo from './WriterInfo';
+import ProjectApplyModal from '../../modals/ProjectApplyModal';
 
 function ProjectDetail() {
     const navigate = useNavigate();
